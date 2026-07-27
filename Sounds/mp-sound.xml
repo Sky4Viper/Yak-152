@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <fx>
+
+    <engine>
+      <name>engine1</name>
+      <mode>looped</mode>
+      <path>running.wav</path>
+      <condition>
+        <property>velocities/true-airspeed-kt</property>
+      </condition>
+      <volume>
+        <property>velocities/true-airspeed-kt</property>
+        <factor>0.00167</factor>
+        <min>0.05</min>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>3000</max-dist>
+    </engine>
+
+    <propeller>
+      <name>propeller</name>
+      <mode>looped</mode>
+      <path>propeller.wav</path>
+      <condition>
+        <property>velocities/true-airspeed-kt</property>
+      </condition>
+      <volume>
+        <property>velocities/true-airspeed-kt</property>
+        <factor>0.00167</factor>
+        <min>0.05</min>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>3000</max-dist>
+    </propeller>
+
+  </fx>
+
+</PropertyList>
