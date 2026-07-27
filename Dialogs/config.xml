@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <name>config</name>
+  <modal>false</modal>
+  <layout>vbox</layout>
+  <padding>80</padding>
+
+  <group>
+    <layout>hbox</layout>
+    <empty>
+      <stretch>1</stretch>
+    </empty>
+    <text>
+      <label>Configuration</label>
+    </text>
+    <empty>
+      <stretch>1</stretch>
+    </empty>
+    <button>
+      <pref-width>16</pref-width>
+      <pref-height>16</pref-height>
+      <legend></legend>
+      <keynum>27</keynum>
+      <border>2</border>
+      <binding>
+        <command>nasal</command>
+        <script>yak152.config_dlg.open()</script>
+      </binding>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+  </group>
+
+  <hrule/>
+
+  <group>
+    <halign>center</halign>
+    <layout>vbox</layout>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Show/Hide Instructor/Copilot</label>
+      <!-- <property>/sim/model/show-copilot</property> -->
+      <property>sim/multiplay/generic/bool[0]</property>
+      <binding>
+        <command>property-toggle</command>
+        <!-- <property>/sim/model/show-copilot</property> -->
+        <property>sim/multiplay/generic/bool[0]</property>
+      </binding>
+    </checkbox>
+
+  </group>
+
+  <hrule/>
+
+  <button>
+    <legend>Close</legend>
+    <default>true</default>
+    <key>Esc</key>
+    <binding>
+      <command>nasal</command>
+      <script>yak152.config_dlg.open()</script>
+    </binding>
+    <binding>
+      <command>dialog-apply</command>
+    </binding>
+    <binding>
+      <command>dialog-close</command>
+    </binding>
+  </button>
+
+</PropertyList>
