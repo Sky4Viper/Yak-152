@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<PropertyList>
+
+    <!-- ========================= -->
+    <!--  PREFLIGHT INSPECTION     -->
+    <!-- ========================= -->
+    <checklist>
+        <title>Preflight Inspection</title>
+
+        <item>
+            <name>Operating Handbook</name>
+            <value>AVAILABLE IN THE AIRCRAFT</value>
+        </item>
+
+        <item>
+            <name>Parking Brake</name>
+            <value>SET</value>
+        </item>
+
+        <item>
+            <name>Control Lock</name>
+            <value>REMOVE</value>
+            <value>(if existing)</value>
+        </item>
+
+        <item>
+            <name>Magnetos/Ignition</name>
+            <value>OFF</value>
+        </item>
+
+        <item>
+            <name>Fuel Pump</name>
+            <value>OFF</value>
+        </item>
+
+        <item>
+            <name>Fuel Quantity</name>
+            <value>CHECK</value>
+        </item>
+
+        <item>
+            <name>Oil Level</name>
+            <value>CHECK</value>
+        </item>
+
+        <item>
+            <name>Coolant Level</name>
+            <value>CHECK</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  BEFORE STARTING ENGINE   -->
+    <!-- ========================= -->
+    <checklist>
+        <title>Before Starting Engine</title>
+
+        <item>
+            <name>Preflight Inspection</name>
+            <value>COMPLETE</value>
+            <value>Check fuel and oil levels</value>
+        </item>
+
+        <item>
+            <name>Trainee Briefing</name>
+            <value>COMPLETE</value>
+            <value>Inform them about safety procedures</value>
+        </item>
+
+        <item>
+            <name>Seats and Seat Belts</name>
+            <value>ADJUST and LOCK</value>
+        </item>
+
+        <item>
+            <name>Brakes</name>
+            <value>TEST and SET</value>
+        </item>
+
+        <item>
+            <name>Flight Controls</name>
+            <value>FREE and CORRECT</value>
+        </item>
+
+        <item>
+            <name>Canopy</name>
+            <value>CLOSED and LOCKED</value>
+        </item>
+
+        <item>
+            <name>Flight Instruments</name>
+            <value>CHECK and SET</value>
+        </item>
+
+        <item>
+            <name>Trim</name>
+            <value>SET to neutral</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  STARTING ENGINE          -->
+    <!-- ========================= -->
+    <checklist>
+        <title>Starting Engine</title>
+
+        <item>
+            <name>Master Switch</name>
+            <value>ON</value>
+        </item>
+
+        <item>
+            <name>Fuel Pump</name>
+            <value>ON</value>
+        </item>
+
+        <item>
+            <name>Beacon Light</name>
+            <value>ON</value>
+        </item>
+
+        <item>
+            <name>Throttle</name>
+            <value>OPEN 1/8 INCH</value>
+        </item>
+
+        <item>
+            <name>Propeller Area</name>
+            <value>CLEAR</value>
+        </item>
+
+        <item>
+            <name>Magnetos</name>
+            <value>BOTH</value>
+        </item>
+
+        <item>
+            <name>Ignition Switch</name>
+            <value>ON</value>
+            <value>(press s and hold until the engine starts)</value>
+        </item>
+
+        <item>
+            <name>Engine Start Procedure</name>
+            <value>Crank engine and monitor oil pressure</value>
+        </item>
+
+        <item>
+            <name>Oil Pressure</name>
+            <value>CHECK</value>
+            <value>(if not in green arc within 30 seconds, stop engine)</value>
+        </item>
+
+        <item>
+            <name>Navigation Lights</name>
+            <value>ON as required</value>
+        </item>
+
+        <item>
+            <name>Radios</name>
+            <value>ON and CHECKED</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  BEFORE TAKEOFF           -->
+    <!-- ========================= -->
+    <checklist>
+        <title>Before Takeoff</title>
+
+        <item>
+            <name>Parking Brake</name>
+            <value>SET</value>
+        </item>
+
+        <item>
+            <name>Seats and Seat Belts</name>
+            <value>CHECK SECURE</value>
+        </item>
+
+        <item>
+            <name>Canopy</name>
+            <value>CLOSED and LOCKED</value>
+        </item>
+
+        <item>
+            <name>Flight Controls</name>
+            <value>FREE and CORRECT</value>
+        </item>
+
+        <item>
+            <name>Flight Instruments</name>
+            <value>CHECK and SET</value>
+        </item>
+
+        <item>
+            <name>Fuel Quantity</name>
+            <value>CHECK</value>
+        </item>
+
+        <item>
+            <name>Fuel Selector Valve</name>
+            <value>ON</value>
+        </item>
+
+        <item>
+            <name>FADEC</name>
+            <value>ON</value>
+        </item>
+
+        <item>
+            <name>Throttle</name>
+            <value>SET to idle</value>
+        </item>
+
+        <item>
+            <name>Flaps</name>
+            <value>SET to takeoff position (first notch)</value>
+        </item>
+
+        <item>
+            <name>Trim</name>
+            <value>SET slightly nose-up</value>
+        </item>
+
+        <item>
+            <name>Engine Instruments</name>
+            <value>CHECK in green arc</value>
+        </item>
+
+        <item>
+            <name>Canopy and Windows</name>
+            <value>CLOSED and LOCKED</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  TAKEOFF                  -->
+    <!-- ========================= -->
+    <checklist>
+        <title>Takeoff</title>
+
+        <item>
+            <name>Line-up</name>
+            <value>Align with runway centerline</value>
+        </item>
+
+        <item>
+            <name>Brakes</name>
+            <value>Hold brakes, set throttle to 50% to check instruments</value>
+        </item>
+
+        <item>
+            <name>Engine Instruments</name>
+            <value>CHECK and STABLE</value>
+        </item>
+
+        <item>
+            <name>Flight Controls</name>
+            <value>CHECK free and correct</value>
+        </item>
+
+        <item>
+            <name>Takeoff Power</name>
+            <value>Release brakes, smoothly advance throttle to 100%</value>
+        </item>
+
+        <item>
+            <name>Directional Control</name>
+            <value>Maintain runway centerline with rudder</value>
+        </item>
+
+        <item>
+            <name>Airspeed Indicator</name>
+            <value>CHECK alive and increasing</value>
+        </item>
+
+        <item>
+            <name>Rotate</name>
+            <value>At 110-120 km/h</value>
+        </item>
+
+        <item>
+            <name>Liftoff</name>
+            <value>Aircraft lifts off around 125-130 km/h</value>
+        </item>
+
+        <item>
+            <name>Initial Climb</name>
+            <value>Shallow climb, maintain positive rate</value>
+        </item>
+
+        <item>
+            <name>Flaps</name>
+            <value>Retract flaps at positive rate of climb</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  CLIMB                    -->
+    <!-- ========================= -->
+    <checklist>
+        <title>Climb</title>
+
+        <item>
+            <name>Flaps</name>
+            <value>FULLY RETRACTED</value>
+        </item>
+
+        <item>
+            <name>Power</name>
+            <value>MAINTAIN climb power</value>
+        </item>
+
+        <item>
+            <name>Airspeed</name>
+            <value>MAINTAIN 150-160 km/h</value>
+        </item>
+
+        <item>
+            <name>Engine Instruments</name>
+            <value>MONITOR in green arc</value>
+        </item>
+
+        <item>
+            <name>Altitude</name>
+            <value>Climb to cruise altitude or 1000 ft AGL if remaining in circuit</value>
+        </item>
+
+        <item>
+            <name>Trim</name>
+            <value>ADJUST for hands-off flight</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  CRUISE                   -->
+    <!-- ========================= -->
+    <checklist>
+        <title>Cruise</title>
+
+        <item>
+            <name>Altitude</name>
+            <value>CHECK at desired altitude</value>
+        </item>
+
+        <item>
+            <name>Power Settings</name>
+            <value>ESTABLISH cruise power</value>
+        </item>
+
+        <item>
+            <name>Trim</name>
+            <value>ADJUST for hands-off flight</value>
+        </item>
+
+        <item>
+            <name>Engine Instruments</name>
+            <value>MONITOR in green arc</value>
+        </item>
+
+        <item>
+            <name>Flight Instruments</name>
+            <value>SCAN regularly</value>
+        </item>
+
+        <item>
+            <name>Fuel Level</name>
+            <value>MONITOR and SELECT appropriate tank</value>
+        </item>
+
+        <item>
+            <name>Weather and Traffic</name>
+            <value>MONITOR throughout flight</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  DESCENT PLANNING         -->
+    <!-- ========================= -->
+    <checklist>
+        <title>Descent Planning</title>
+
+        <item>
+            <name>Destination Weather</name>
+            <value>CHECK current conditions and forecast</value>
+        </item>
+
+        <item>
+            <name>Fuel Status</name>
+            <value>CALCULATE fuel remaining and landing fuel required</value>
+        </item>
+
+        <item>
+            <name>Descent Point</name>
+            <value>PLAN descent from current altitude</value>
+        </item>
+
+        <item>
+            <name>Flight Plan</name>
+            <value>UPDATE if required</value>
+        </item>
+
+        <item>
+            <name>Engine Instruments</name>
+            <value>CHECK all in green arc</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  DESCENT                  -->
+    <!-- ========================= -->
+    <checklist>
+        <title>Descent</title>
+
+        <item>
+            <name>Power</name>
+            <value>REDUCE to descent power</value>
+        </item>
+
+        <item>
+            <name>Airspeed</name>
+            <value>DO NOT EXCEED Vne (never exceed speed)</value>
+        </item>
+
+        <item>
+            <name>Engine Instruments</name>
+            <value>MONITOR in green arc</value>
+        </item>
+
+        <item>
+            <name>Descent Rate</name>
+            <value>MAINTAIN 300-500 ft/min</value>
+        </item>
+
+        <item>
+            <name>Trim</name>
+            <value>ADJUST as required</value>
+        </item>
+
+        <item>
+            <name>Flight Instruments</name>
+            <value>SCAN regularly</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  TRAFFIC PATTERN          -->
+    <!-- ========================= -->
+    <checklist>
+        <title>Traffic Pattern</title>
+
+        <item>
+            <name>Destination</name>
+            <value>IDENTIFY airfield</value>
+        </item>
+
+        <item>
+            <name>Downwind Leg</name>
+            <value>Power 60-70%, Airspeed 180-200 km/h, Flaps UP</value>
+        </item>
+
+        <item>
+            <name>Abeam Threshold</name>
+            <value>Power to idle, begin slowing, first stage flaps</value>
+        </item>
+
+        <item>
+            <name>Base Leg</name>
+            <value>Airspeed 150-160 km/h, extend more flaps</value>
+        </item>
+
+        <item>
+            <name>Final Approach</name>
+            <value>Full flaps, Trim set, target airspeed ≈130 km/h</value>
+        </item>
+
+        <item>
+            <name>Glide Path</name>
+            <value>FOLLOW 3° glide slope to runway</value>
+        </item>
+
+        <item>
+            <name>Landing Lights</name>
+            <value>ON</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  SHORT FINAL APPROACH     -->
+    <!-- ========================= -->
+    <checklist>
+        <title>Short Final Approach</title>
+
+        <item>
+            <name>Altitude</name>
+            <value>200-300 ft AGL</value>
+        </item>
+
+        <item>
+            <name>Airspeed</name>
+            <value>MAINTAIN target approach speed</value>
+        </item>
+
+        <item>
+            <name>Glide Path</name>
+            <value>MAINTAIN on 3° slope</value>
+        </item>
+
+        <item>
+            <name>Power</name>
+            <value>SMALL adjustments as needed</value>
+        </item>
+
+        <item>
+            <name>Configuration</name>
+            <value>FLAPS full, Trim set, Wheels down</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  LANDING                  -->
+    <!-- ========================= -->
+    <checklist>
+        <title>Landing</title>
+
+        <item>
+            <name>Touchdown</name>
+            <value>SLIGHTLY TAIL LOW or LEVEL</value>
+        </item>
+
+        <item>
+            <name>Main Wheels</name>
+            <value>TOUCH down on runway first</value>
+        </item>
+
+        <item>
+            <name>Nose Wheel</name>
+            <value>LOWER gently to runway</value>
+        </item>
+
+        <item>
+            <name>Wheel Brakes</name>
+            <value>APPLY smoothly and progressively</value>
+        </item>
+
+        <item>
+            <name>Directional Control</name>
+            <value>MAINTAIN runway centerline with rudder</value>
+        </item>
+
+        <item>
+            <name>Flaps</name>
+            <value>RETRACT after landing</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  AFTER LANDING            -->
+    <!-- ========================= -->
+    <checklist>
+        <title>After Landing</title>
+
+        <item>
+            <name>Flaps</name>
+            <value>RETRACT fully</value>
+        </item>
+
+        <item>
+            <name>Flight Controls</name>
+            <value>CHECK for correct operation</value>
+        </item>
+
+        <item>
+            <name>Trim</name>
+            <value>SET to neutral</value>
+        </item>
+
+        <item>
+            <name>Lights</name>
+            <value>OFF (except navigation lights if required)</value>
+        </item>
+
+        <item>
+            <name>Fuel Pump</name>
+            <value>OFF</value>
+        </item>
+
+        <item>
+            <name>Cabin Heat/Ventilation</name>
+            <value>SET as required</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  PARKING                  -->
+    <!-- ========================= -->
+    <checklist>
+        <title>Parking and Shutdown</title>
+
+        <item>
+            <name>Engine Power</name>
+            <value>REDUCE to idle</value>
+        </item>
+
+        <item>
+            <name>Engine Idle</name>
+            <value>CHECK stable at 600-800 RPM</value>
+        </item>
+
+        <item>
+            <name>Engine Shutdown</name>
+            <value>Throttle to idle, then OFF</value>
+        </item>
+
+        <item>
+            <name>Magnetos</name>
+            <value>OFF</value>
+        </item>
+
+        <item>
+            <name>Fuel Pump</name>
+            <value>OFF</value>
+        </item>
+
+        <item>
+            <name>Master Switch</name>
+            <value>OFF</value>
+        </item>
+
+        <item>
+            <name>Beacon Light</name>
+            <value>OFF</value>
+        </item>
+
+        <item>
+            <name>Navigation Lights</name>
+            <value>OFF</value>
+        </item>
+
+        <item>
+            <name>Parking Brake</name>
+            <value>SET</value>
+        </item>
+
+        <item>
+            <name>Flight Controls</name>
+            <value>CENTER and LOCK if available</value>
+        </item>
+
+        <item>
+            <name>Canopy</name>
+            <value>OPEN for ventilation</value>
+        </item>
+
+    </checklist>
+
+    <!-- ========================= -->
+    <!--  EMERGENCY: ENGINE FAILURE-->
+    <!-- ========================= -->
+    <checklist>
+        <title>EMERGENCY: Engine Failure</title>
+
+        <item>
+            <name>Priority</name>
+            <value>LAND the aircraft safely</value>
+        </item>
+
+        <item>
+            <name>Airspeed</name>
+            <value>MAINTAIN best glide speed (Vg)</value>
+        </item>
+
+        <item>
+            <name>Engine Power</name>
+            <value>CHECK throttle, mixture, fuel selector</value>
+        </item>
+
+        <item>
+            <name>Fuel Pump</name>
+            <value>CYCLE if needed</value>
+        </item>
+
+        <item>
+            <name>Magnetos</name>
+            <value>CHECK both engaged</value>
+        </item>
+
+        <item>
+            <name>Suitable Landing Field</name>
+            <value>SELECT and plan approach</value>
+        </item>
+
+        <item>
+            <name>Radio</name>
+            <value>DECLARE emergency 121.5 MHz or local tower</value>
+        </item>
+
+        <item>
+            <name>Landing Flaps</name>
+            <value>DEPLOY gradually as altitude permits</value>
+        </item>
+
+    </checklist>
+
+</PropertyList>

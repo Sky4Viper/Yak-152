@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <title>Yakovlev Yak-152</title>
+  <key>
+    <name>}</name>
+    <desc>AutoStart/AutoStop</desc>
+  </key>
+  <key>
+    <name>d</name>
+    <desc>Open/Close door</desc>
+  </key>
+  <key>
+    <name>l</name>
+    <desc>Landing light on/off</desc>
+  </key>
+  <key>
+    <name>shift+q (Q)</name>
+    <desc>Reset view</desc>
+  </key>
+  <line>No nosewheel steering</line>
+  <line>Use differential breakes</line>
+
+</PropertyList>

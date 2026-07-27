@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <setting> 0.00 </setting> <!-- Cruise -->
+  <setting> 0.66 </setting> <!-- Takeoff 20 deg -->
+  <setting> 1.00 </setting> <!-- Landing 30 deg -->
+  
+</PropertyList>

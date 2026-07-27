@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <keyboard>
+
+    <key n="100">
+      <name>d</name>
+      <desc>Canopy</desc>
+      <binding>
+        <condition>
+          <and>
+            <property>gear/gear[0]/wow</property>
+            <property>gear/gear[1]/wow</property>
+            <property>gear/gear[2]/wow</property>
+            <less-than>
+              <property>gear/gear[0]/rollspeed-ms</property>
+              <value>10</value>
+            </less-than>
+          </and>
+        </condition>
+        <command>nasal</command>
+        <script>doors.crew.toggle();</script>
+      </binding>
+    </key>
+
+    <key n="83">
+      <name>S</name>
+      <desc>Start smoke</desc>
+      <binding>
+        <command>property-toggle</command>
+        <!-- <property>sim/model/smoke</property> -->
+        <property>sim/multiplay/generic/bool[17]</property>
+      </binding>
+    </key>
+
+    <key n="81">
+      <name>Q</name>
+      <desc>Reset view</desc>
+      <binding>
+        <command>nasal</command>
+        <script>
+          setprop("sim/current-view/field-of-view",      getprop("sim/current-view/config/default-field-of-view-deg"));
+          setprop("sim/current-view/heading-offset-deg", getprop("sim/current-view/config/heading-offset-deg"));
+          setprop("sim/current-view/pitch-offset-deg",   getprop("sim/current-view/config/pitch-offset-deg"));
+          setprop("sim/current-view/roll-offset-deg",    getprop("sim/current-view/config/roll-offset-deg"));
+        </script>
+      </binding>
+    </key>
+
+    <key n="108">
+      <name>l</name>
+      <desc>Landing light</desc>
+      <binding>
+        <command>property-toggle</command>
+        <!-- <property>controls/lighting/landing-lights</property> -->
+        <property>sim/multiplay/generic/bool[16]</property>
+      </binding>
+    </key>
+
+    <key n="125">
+      <name>}</name>
+      <desc>AutoStart/AutoStart</desc>
+      <binding>
+        <command>nasal</command>
+        <script>autostart.toggle_aircraft_state()</script>
+      </binding>
+    </key>
+
+  </keyboard>
+
+</PropertyList>

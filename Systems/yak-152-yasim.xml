@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- Yakovlev Yak-152 v9.0 with fadec - Sergei [Skydive] S0lyshk0 04/07/2026
+     sources            : https://en.wikipedia.org/wiki/Yakovlev_Yak-152
+
+     wingspan           :   8.82 m  (   28 ft 11 in )
+     length             :   7.72 m  (   25 ft 4 in )
+     height             :   2.47 m  (   8 ft 1 in )
+     empty weight       :   948 kg ( 2090 lb)
+     Gross weight       :   1320 kg (2910 lb)
+     Max takeoff weight :   1490 kg (3285 lb)
+     engine             :   1x RED Aircraft A03-102 V-12 four-stroke diesel engine, 370 kW (500 hp)
+     Never exceed speed :   450 km/h ( 243 kn )
+     Cruise speed       :   350 km/h ( 188 kn )
+     Fuel capacity      :   245 kg JetA1 = 540.1319 lbs = 80.6167 gal )
+-->
+
+<airplane mass="2090" version="YASIM_VERSION_CURRENT" mtow-lbs="3285">
+
+  <!-- Approach configuration -->
+  <approach speed="74" aoa="6" fuel="0.2">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.3"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture"  value="1.0"/>
+    <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="0.3"/>
+    <control-setting axis="/controls/flight/flaps"               value="1.0"/>
+    <control-setting axis="/controls/gear/gear-down"             value="1.0"/>
+  </approach>
+
+  <!-- Cruise configuration -->
+  <cruise speed="178" alt="6560" aoa="-1.0" fuel="0.5">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value="0.9"/>
+    <control-setting axis="/controls/engines/engine[0]/mixture"  value="1.0"/>
+    <control-setting axis="/controls/engines/engine[0]/propeller-pitch" value="1.0"/>
+    <control-setting axis="/controls/flight/flaps"               value="0.0"/>
+    <control-setting axis="/controls/gear/gear-down"             value="0.0"/>
+  </cruise>
+
+  <cockpit x="0.455984" y="0.000" z="0.520"/>
+
+  <!-- Nosecone -->
+  <fuselage ax=" 3.411" ay=" 0.000" az="-0.119" bx=" 3.313" by=" 0.000" bz="-0.119" width="0.209" taper="0.10" midpoint="1" cx="0.25" cy="0.4" cz="0.4"/>
+  <fuselage ax=" 3.313" ay=" 0.000" az="-0.119" bx=" 3.186" by=" 0.000" bz="-0.119" width="0.344" taper="0.61" midpoint="1" cx="0.25" cy="0.4" cz="0.4"/>
+  <fuselage ax=" 3.186" ay=" 0.000" az="-0.119" bx=" 2.925" by=" 0.000" bz="-0.119" width="0.482" taper="0.71" midpoint="1" cx="0.25" cy="0.4" cz="0.4"/>
+
+  <!-- Intake -->
+  <fuselage ax=" 2.863" ay=" 0.000" az="-0.470109" bx="1.930" by=" 0.000" bz="-0.473" width="0.814" taper="0.75" midpoint="1" cx="0.25" cy="0.4" cz="0.4"/>
+  
+  <!-- Fuselage -->
+  <fuselage ax=" 2.903" ay=" 0.000" az="-0.169" bx=" 2.524" by=" 0.000" bz="-0.172" width="0.814" taper="0.75" midpoint="1" cx="0.25" cy="0.4" cz="0.4"/>
+  <fuselage ax=" 2.524" ay=" 0.000" az="-0.172" bx=" 1.276" by=" 0.000" bz="-0.172" width="1.018" taper="0.80" midpoint="1" cx="0.25" cy="0.4" cz="0.4"/>
+  <fuselage ax=" 1.276" ay=" 0.000" az="-0.172" bx="-1.060" by=" 0.000" bz="-0.158" width="1.018" taper="1.00" midpoint="1" cx="0.25" cy="0.4" cz="0.4"/>
+  <fuselage ax="-1.060" ay=" 0.000" az="-0.158" bx="-2.367" by=" 0.000" bz="-0.158" width="1.018" taper="0.5" midpoint="0" cx="0.25" cy="0.4" cz="0.4"/>
+  <fuselage ax="-2.367" ay=" 0.000" az="-0.158" bx="-3.155" by=" 0.000" bz="-0.158" width="0.509" taper="0.5" midpoint="0" cx="0.25" cy="0.4" cz="0.4"/>
+  
+  <!-- Cockpit Canopy -->
+  <fuselage ax=" 1.251" ay=" 0.000" az="-0.0129" bx=" 0.008" by=" 0.000" bz=" 0.384" width="0.815" taper="0.70" midpoint="1" cx="0.30" cy="0.4" cz="0.4"/>
+  <fuselage ax=" 0.206" ay=" 0.000" az=" 0.384" bx="-2.308" by=" 0.000" bz=" 0.077" width="0.815" taper="0.20" midpoint="0" cx="0.30" cy="0.4" cz="0.4"/>
+
+  <wing x="0.383" y="0.000" z="-0.6217"
+        chord    ="1.837"
+        length   ="4.41"
+        taper    ="0.60"
+        dihedral = "3.5"
+        sweep    ="-1"
+        incidence="2.0"
+        twist    ="-1.5"
+        camber   ="0.1"
+        idrag    ="1.15">
+        <stall   aoa="13.5" width="6" peak="1.5"/>
+        <flap0 start="0.02" end="0.58" lift="1.42" drag="2.0"/>
+        <flap1 start="0.58" end="1.00" lift="1.2" drag="1.2"/>
+        <control-input  control="FLAP0" axis="/controls/flight/flaps"/>
+        <control-input  control="FLAP1" axis="/controls/flight/aileron"      split="true"/>
+        <control-input  control="FLAP1" axis="/controls/flight/aileron-trim" split="true"/>
+        <control-output control="FLAP0" prop="/surface-positions/flap-pos-norm"/>
+        <control-output control="FLAP1" prop="/surface-positions/left-aileron-pos-norm"  side="left"/>
+        <control-output control="FLAP1" prop="/surface-positions/right-aileron-pos-norm" side="right"/>
+        <control-output control="FLAP1" prop="/surface-positions/aileron-pos-norm"/>
+        <control-speed  control="FLAP0" transition-time="4"/>
+  </wing>
+
+  <hstab x="-2.917" y="0.000" z="-0.0111"
+         chord  = "1.152"
+         length = "1.66"
+         taper  = "0.62"
+         sweep  = "1"
+         effectiveness ="1.3"
+         incidence="-0.45">
+         <stall   aoa="16" width="5" peak="1.5"/>
+         <flap0 start="0.0" end="0.98" lift="1.67" drag="1.15"/>
+         <control-input  control="FLAP0" axis="/controls/flight/elevator"/>
+         <control-input  control="FLAP0" axis="/controls/flight/elevator-trim"/>
+         <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm"/>
+  </hstab>
+
+  <vstab x="-3.059" y="0.000" z="-0.326"
+         chord  = "1.539"
+         length = "1.716"
+         taper  = "0.4"
+         effectiveness ="1.2">
+         <stall   aoa="18" width="5" peak="1.5"/>
+         <flap0 start="0"    end="1" lift="1.4" drag="1.2"/>
+         <control-input  control="FLAP0" axis="/controls/flight/rudder"      invert="true"/>
+         <control-input  control="FLAP0" axis="/controls/flight/rudder-trim" invert="true"/>
+         <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" min="1" max="-1"/>
+  </vstab>
+
+  <!-- Engines
+
+         source       : https://en.wikipedia.org/wiki/RED_A03
+
+         name         : RED A03-102 V-12 diesel engine
+         type         : Four-stroke compression-ignition piston engine
+         weight       : 357 kg (787 lb)(RED A03-102)
+         power        : A03-003: 368 kW (493 hp) take-off at 2,127 propeller rpm;
+  -->
+
+  <!-- With FADEC by nasal script -->
+  
+  <!-- RED Aircraft explicitly states that the A03 design has an "almost non-existing spool-up time". 
+  From an idle state, full power and max RPM should be achieved in roughly 2 to 4 seconds, 
+  thus such low moment value -->
+
+  <propeller x="1.930" y="0.000" z="-0.11897"
+           mass="787"
+           moment="5"
+           radius="1.4"         
+           cruise-speed="178"
+           cruise-rpm="1900"
+           cruise-alt="6560"
+           cruise-power="400"
+           takeoff-power="500"
+           takeoff-rpm="2150"
+           gear-ratio="0.5319"   
+           min-rpm="430"
+           max-rpm="2150"
+           fine-stop="0.28"      
+           coarse-stop="3.5" 
+           idrag="1.2"
+           governor-delay="0.4">
+           
+    <actionpt x="3.048" y="0.000" z="-0.11897" />
+    <control-input control="ADVANCE"  axis="/controls/engines/engine[0]/propeller-pitch" src0="0.0" src1="1.0" dst0="0.0" dst1="1.0"/>
+
+    <piston-engine eng-rpm="3982"
+                   eng-power="500"
+                   alt="0"
+                   displacement="373"
+                   compression="16.5"
+                   supercharger="1">
+                   <control-input control="THROTTLE" axis="/controls/engines/engine[0]/throttle" src0="0.0" src1="1.0" dst0="0.0" dst1="1.0"/>
+                   <control-input control="STARTER"  axis="/controls/engines/engine[0]/starter" />
+                   <control-input control="MAGNETOS" axis="/controls/engines/engine[0]/magnetos" />
+                   <control-input control="MIXTURE"  axis="/controls/engines/engine[0]/mixture" src0="0.0" src1="1.0" dst0="1.0" dst1="1.0" />
+                   <control-input control="BOOST"    axis="/controls/engines/engine[0]/boost" src0="0.6" src1="1.0" dst0="0.0" dst1="1.0" />
+    </piston-engine>
+</propeller>
+
+  <!-- Noze wheel -->
+  <gear x="2.04936" y=" 0.000" z="-1.8599"
+        compression = "0.13"
+        upx="-0.3" upy="0" upz="1"
+        spring      = "0.9"
+        sfric       = "0.75"
+        dfric       = "0.65"
+        stiction    = "1"
+        castering="1">
+        <control-input control="CASTERING"  axis="/controls/gear/brake-parking"  src0="0" src1="1" dst0="1" dst1="0" />
+        <control-input  control="EXTEND"    axis="/controls/gear/gear-down"/>
+        <control-output control="EXTEND"    prop="/gear/gear[0]/position-norm"/>
+        <control-speed  control="EXTEND"    transition-time="5"/>
+  </gear>
+
+  <!-- Left wheel -->
+  <gear x="0.35435" y=" 1.39584" z="-1.7438"
+        compression = "0.13"
+        spring      = "0.8"
+        sfric       = "0.75"
+        dfric       = "0.65"
+        stiction    = "1">
+        <control-input  control="BRAKE"  axis="/controls/gear/brake-left" split="true"/>
+        <control-input  control="BRAKE"  axis="/controls/gear/brake-parking" split="true"/>
+        <control-input  control="EXTEND" axis="/controls/gear/gear-down"/>
+        <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
+        <control-speed  control="EXTEND" transition-time="5.5"/>
+  </gear>
+
+  <!-- Right wheel -->
+  <gear x="0.35435" y="-1.39584" z="-1.7438"
+        compression = "0.13"
+        spring      = "0.8"
+        sfric       = "0.75"
+        dfric       = "0.65"
+        stiction    = "1">
+        <control-input  control="BRAKE"  axis="/controls/gear/brake-right" split="true"/>
+        <control-input  control="BRAKE"  axis="/controls/gear/brake-parking" split="true"/>
+        <control-input  control="EXTEND" axis="/controls/gear/gear-down"/>
+        <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
+        <control-speed  control="EXTEND" transition-time="6"/>
+  </gear>
+
+  <!-- 245 kg JetA1 = 540.1319 lbs = 80.6167 gal -->
+  <tank x="0.383" y=" 2.300" z="-0.600" capacity="270"/>
+  <tank x="0.383" y="-2.300" z="-0.600" capacity="270"/>
+
+  <!-- Mass distribution
+       Dilbert : The cg should be about 1/6 chord ahead of the chord center.
+                 1.832 / 6     = 0.305
+                 0.808 + 0.305 = 1.113
+  -->
+  <!-- 25% mac -->
+  <ballast x=" 2.5" y="0.000" z="-0.500" mass="270"/>
+
+</airplane>

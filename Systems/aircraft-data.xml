@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <!-- <path>/sim/model/show-copilot</path> -->
+  <path>sim/multiplay/generic/bool[0]</path>
+
+</PropertyList>
