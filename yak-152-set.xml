@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList     include="Systems/yak-152-base.xml">
+
+  <sim>
+
+    <description>Yakovlev Yak-152 (YASim)</description>
+    <author>Sergei [Skydive] Solyshko (3D/FDM)</author>
+
+    <aircraft-version>260727</aircraft-version>
+    <status>Beta</status>
+    <minimum-fg-version>2018.2.0</minimum-fg-version>
+
+    <flight-model archive="y">yasim</flight-model>
+    <aero         archive="y">Systems/yak-152-yasim</aero>
+
+    <rating>
+      <FDM        type="int"> 3 </FDM>
+      <systems    type="int"> 2 </systems>
+      <cockpit    type="int"> 3 </cockpit>
+      <model      type="int"> 4 </model>
+    </rating>
+
+    <previews>
+      <preview>
+        <type>interior</type>
+        <splash   type="bool">true</splash>
+        <path>Previews/yak152-0.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash   type="bool">true</splash>
+        <path>Previews/yak152-1.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash   type="bool">true</splash>
+        <path>Previews/yak152-2.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash   type="bool">true</splash>
+        <path>Previews/yak152-3.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash   type="bool">true</splash>
+        <path>Previews/yak152-4.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash   type="bool">true</splash>
+        <path>Previews/yak152-5.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash   type="bool">true</splash>
+        <path>Previews/yak152-6.png</path>
+      </preview>
+    </previews>
+
+    <tags>
+      <tag>yakovlev</tag>
+      <tag>2000s</tag>
+      <tag>2016s</tag>
+      <tag>2024s</tag>
+      <tag>retractable-gear</tag>
+      <tag>propeller</tag>
+      <tag>single-engine</tag>
+      <tag>piston</tag>
+      <tag>variable-pitch</tag>
+      <tag>compositor</tag>
+      <tag>HDR</tag>
+    </tags>
+
+  </sim>
+
+</PropertyList>
