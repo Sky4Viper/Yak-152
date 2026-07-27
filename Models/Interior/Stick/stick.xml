@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <path>stick.ac</path>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>stick</object-name>
+    <object-name>break_lever</object-name>
+    <property>controls/flight/elevator</property>
+    <interpolation>
+      <entry>
+        <ind>-1.0</ind>
+        <dep> 23.0</dep>
+      </entry>
+      <entry>
+        <ind> 0.0</ind>
+        <dep>  0.0</dep>
+      </entry>
+      <entry>
+        <ind> 1.0</ind>
+        <dep>-11.5</dep>
+      </entry>
+    </interpolation>
+    <center>
+      <x-m> 0.000</x-m>
+      <y-m> 0.000</y-m>
+      <z-m>-0.002755</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>stick</object-name>
+    <object-name>break_lever</object-name>
+    <property>controls/flight/aileron</property>
+    <interpolation>
+      <entry>
+        <ind>-1.0</ind>
+        <dep>-15.5</dep>
+      </entry>
+      <entry>
+        <ind> 0.0</ind>
+        <dep>  0.0</dep>
+      </entry>
+      <entry>
+        <ind> 1.0</ind>
+        <dep> 15.5</dep>
+      </entry>
+    </interpolation>
+    <center>
+      <x-m> 0.000</x-m>
+      <y-m> 0.000</y-m>
+      <z-m>-0.002755</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y> 0</y>
+      <z> 0</z>
+    </axis>
+  </animation>
+
+</PropertyList>

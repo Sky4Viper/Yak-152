@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <!-- Stick pilot -->
+  <model>
+    <path>stick.xml</path>
+    <offsets>
+      <x-m> -0.922346 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.35801 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Stick copilot -->
+  <model>
+    <path>stick.xml</path>
+    <offsets>
+      <x-m> 0.390091 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.35801 </z-m>
+    </offsets>
+  </model>
+
+</PropertyList>

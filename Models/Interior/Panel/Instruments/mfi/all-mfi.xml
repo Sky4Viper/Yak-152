@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <!-- Pilot MFI left-->
+  <model>
+    <path>mfi1.xml</path>
+    <offsets>
+      <x-m> -1.17023 </x-m>
+      <y-m> -0.086096 </y-m>
+      <z-m>  0.092996 </z-m>
+      <pitch-deg>63</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- Pilot MFI right-->
+  <model>
+    <path>mfi2.xml</path>
+    <offsets>
+      <x-m> -1.17023 </x-m>
+      <y-m>  0.086096 </y-m>
+      <z-m>  0.092996 </z-m>
+      <pitch-deg>63</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- Instructor MFI left-->
+  <model>
+    <path>mfi3.xml</path>
+    <offsets>
+      <x-m> 0.169055 </x-m>
+      <y-m> -0.086096 </y-m>
+      <z-m>  0.092996 </z-m>
+      <pitch-deg>63</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- Instructor MFI right-->
+  <model>
+    <path>mfi4.xml</path>
+    <offsets>
+      <x-m> 0.169055 </x-m>
+      <y-m>  0.086096 </y-m>
+      <z-m>  0.092996 </z-m>
+      <pitch-deg>63</pitch-deg>
+    </offsets>
+  </model>
+
+</PropertyList>

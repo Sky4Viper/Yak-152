@@ -1,0 +1,1854 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <path>mfi.ac</path>
+    
+    <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>5</max-m>
+  </animation>
+
+<!-- MFI buttons -->
+  <animation>
+    <name>MFI_buttons</name>
+        <object-name>mfi_btn.001</object-name>
+        <object-name>mfi_btn.002</object-name>
+        <object-name>mfi_btn.003</object-name>
+        <object-name>mfi_btn.004</object-name>
+        <object-name>mfi_btn.005</object-name>
+        <object-name>mfi_btn.006</object-name>
+        <object-name>mfi_btn.007</object-name>
+        <object-name>mfi_btn.008</object-name>
+        <object-name>mfi_btn.009</object-name>
+        <object-name>mfi_btn.010</object-name>
+        <object-name>mfi_btn.011</object-name>
+        <object-name>mfi_btn.012</object-name>
+        <object-name>mfi_btn.013</object-name>
+        <object-name>mfi_btn.014</object-name>
+        <object-name>mfi_btn.015</object-name>
+        <object-name>mfi_btn.016</object-name>
+        <object-name>mfi_btn.017</object-name>
+        <object-name>mfi_btn.018</object-name>
+        <object-name>mfi_btn.019</object-name>
+        <object-name>mfi_btn.020</object-name>
+        <object-name>mfi_btn.021</object-name>
+        <object-name>mfi_btn.022</object-name>
+        <object-name>mfi_btn.023</object-name>
+        <object-name>mfi_btn.024</object-name>
+        <object-name>mfi_btn.025</object-name>
+        <object-name>mfi_btn.026</object-name>
+        <object-name>mfi_btn.027</object-name>
+        <object-name>mfi_btn.028</object-name>
+  </animation>
+  
+<!-- Illumination -->
+    
+    <animation>
+        <type>material</type>
+        <object-name>mfi_page1</object-name>
+        <object-name>mfi_page2</object-name>
+        <object-name>mfi_page3</object-name>
+        <object-name>mfi_page4</object-name>
+        <object-name>ASIneedle</object-name>
+        <object-name>asinum100</object-name>
+        <object-name>asinum10</object-name>
+        <object-name>asinum1</object-name>
+        <object-name>ALTneedle1</object-name>
+        <object-name>ALTneedle2</object-name>
+        <object-name>VSIneedle</object-name>
+        <object-name>AoAneedle</object-name>
+        <object-name>RPMneedleProp</object-name>
+        <object-name>ASI</object-name>
+        <object-name>ALT</object-name>
+        <object-name>ai_pitch.001</object-name>
+        <object-name>ai_roll.001</object-name>
+        <object-name>THRpower</object-name>
+        <object-name>mfi_course_disk</object-name>
+        <object-name>mfi_gs_ball</object-name>
+        <object-name>hdg_bug</object-name>
+        <object-name>vor_dir_needle</object-name>
+        <object-name>vor_cor_needle</object-name>
+        <object-name>ils_def_needle</object-name>
+        <object-name>gs_def_needle</object-name>
+        <object-name>hdgnum100</object-name>
+        <object-name>hdgnum10</object-name>
+        <object-name>hdgnum1</object-name>
+        <object-name>FtankL</object-name>
+        <object-name>FtankR</object-name>
+        <object-name>FlapsT</object-name>
+        <object-name>FlapsL</object-name>
+        <object-name>FlapsT2</object-name>
+        <object-name>FlapsL2</object-name>
+        <object-name>FlapsT4</object-name>
+        <object-name>FlapsL4</object-name>
+        <object-name>mmhgnum100</object-name>
+        <object-name>mmhgnum10</object-name>
+        <object-name>mmhgnum1</object-name>
+        <object-name>dnum100</object-name>
+        <object-name>dnum10</object-name>
+        <object-name>dnum1</object-name>
+        <object-name>cnum100</object-name>
+        <object-name>cnum10</object-name>
+        <object-name>cnum1</object-name>
+        <object-name>ffnum100</object-name>
+        <object-name>ffnum10</object-name>
+        <object-name>ffnum1</object-name>
+        <object-name>mfi_page2_nd</object-name>
+        <object-name>mfi_page2_map</object-name>
+        <object-name>mfi_gear2f</object-name>
+        <object-name>mfi_gear2l</object-name>
+        <object-name>mfi_gear2r</object-name>
+        <emission>
+          <red>   1 </red>
+          <green> 1 </green>
+          <blue>  1 </blue>
+          <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
+        <type>material</type>
+        <object-name>MFI_buttons</object-name>
+        <emission>
+          <red>   0.01 </red>
+          <green> 0.01 </green>
+          <blue>  0.01 </blue>
+          <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+        </emission>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+    </condition>
+    </animation>
+
+    <animation>
+    <type>noshadow</type>
+        <object-name>mfi_page1</object-name>
+        <object-name>mfi_page2</object-name>
+        <object-name>mfi_page3</object-name>
+        <object-name>mfi_page4</object-name>
+        <object-name>ASIneedle</object-name>
+        <object-name>asinum100</object-name>
+        <object-name>asinum10</object-name>
+        <object-name>asinum1</object-name>
+        <object-name>ALTneedle1</object-name>
+        <object-name>ALTneedle2</object-name>
+        <object-name>VSIneedle</object-name>
+        <object-name>AoAneedle</object-name>
+        <object-name>RPMneedleProp</object-name>
+        <object-name>ASI</object-name>
+        <object-name>ALT</object-name>
+        <object-name>ai_pitch.001</object-name>
+        <object-name>ai_roll.001</object-name>
+        <object-name>slip_ball</object-name>
+        <object-name>THRpower</object-name>
+        <object-name>mfi_course_disk</object-name>
+        <object-name>mfi_gs_ball</object-name>
+        <object-name>hdg_bug</object-name>
+        <object-name>vor_dir_needle</object-name>
+        <object-name>vor_cor_needle</object-name>
+        <object-name>ils_def_needle</object-name>
+        <object-name>gs_def_needle</object-name>
+        <object-name>hdgnum100</object-name>
+        <object-name>hdgnum10</object-name>
+        <object-name>hdgnum1</object-name>
+        <object-name>mmhgnum100</object-name>
+        <object-name>mmhgnum10</object-name>
+        <object-name>mmhgnum1</object-name>
+        <object-name>dnum100</object-name>
+        <object-name>dnum10</object-name>
+        <object-name>dnum1</object-name>
+        <object-name>cnum100</object-name>
+        <object-name>cnum10</object-name>
+        <object-name>cnum1</object-name>
+        <object-name>ffnum100</object-name>
+        <object-name>ffnum10</object-name>
+        <object-name>ffnum1</object-name>
+        <object-name>FtankL</object-name>
+        <object-name>FtankR</object-name>
+        <object-name>FlapsT</object-name>
+        <object-name>FlapsL</object-name>
+        <object-name>FlapsT2</object-name>
+        <object-name>FlapsL2</object-name>
+        <object-name>FlapsT4</object-name>
+        <object-name>FlapsL4</object-name>
+        <object-name>mfi_page2_nd</object-name>
+        <object-name>mfi_page2_map</object-name>
+        <object-name>mfi_gear2f</object-name>
+        <object-name>mfi_gear2l</object-name>
+        <object-name>mfi_gear2r</object-name>
+    </animation>
+
+<!-- Select on Power ON -->
+
+  <animation>
+    <type>select</type>
+        <object-name>mfi_page1</object-name>
+        <object-name>ASIneedle</object-name>
+        <object-name>asinum100</object-name>
+        <object-name>asinum10</object-name>
+        <object-name>asinum1</object-name>
+        <object-name>ALTneedle1</object-name>
+        <object-name>ALTneedle2</object-name>
+        <object-name>VSIneedle</object-name>
+        <object-name>AoAneedle</object-name>
+        <object-name>RPMneedleProp</object-name>
+        <object-name>ASI</object-name>
+        <object-name>ALT</object-name>
+        <object-name>ai_pitch.001</object-name>
+        <object-name>ai_roll.001</object-name>
+        <object-name>slip_ball</object-name>
+        <object-name>THRpower</object-name>
+        <object-name>mfi_course_disk</object-name>
+        <object-name>mfi_gs_ball</object-name>
+        <object-name>hdg_bug</object-name>
+        <object-name>vor_dir_needle</object-name>
+        <object-name>vor_cor_needle</object-name>
+        <object-name>ils_def_needle</object-name>
+        <object-name>gs_def_needle</object-name>
+        <object-name>hdgnum100</object-name>
+        <object-name>hdgnum10</object-name>
+        <object-name>hdgnum1</object-name>
+        <object-name>mmhgnum100</object-name>
+        <object-name>mmhgnum10</object-name>
+        <object-name>mmhgnum1</object-name>
+        <object-name>dnum100</object-name>
+        <object-name>dnum10</object-name>
+        <object-name>dnum1</object-name>
+        <object-name>cnum100</object-name>
+        <object-name>cnum10</object-name>
+        <object-name>cnum1</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+      <property>controls/instrumentation/mfis/mfi[2]/page</property>
+       <value>1</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+        <object-name>mfi_page2</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+      <property>controls/instrumentation/mfis/mfi[2]/page</property>
+       <value>2</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+        <object-name>FtankL</object-name>
+        <object-name>FtankR</object-name>
+        <object-name>ffnum100</object-name>
+        <object-name>ffnum10</object-name>
+        <object-name>ffnum1</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+        <property>controls/instrumentation/mfis/mfi[2]/page</property>
+        <value>2</value>
+      </equals>
+      <less-than>
+        <property>controls/instrumentation/mfis/mfi[2]/subpage</property>
+        <value>2</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+        <object-name>mfi_gear2f</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+        <property>controls/instrumentation/mfis/mfi[2]/page</property>
+        <value>2</value>
+      </equals>
+      <less-than>
+        <property>controls/instrumentation/mfis/mfi[2]/subpage</property>
+        <value>2</value>
+      </less-than>
+      <equals>
+        <property>/gear/gear[0]/position-norm</property>
+        <value>1</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+        <object-name>mfi_gear2l</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+        <property>controls/instrumentation/mfis/mfi[2]/page</property>
+        <value>2</value>
+      </equals>
+      <less-than>
+        <property>controls/instrumentation/mfis/mfi[2]/subpage</property>
+        <value>2</value>
+      </less-than>
+      <equals>
+        <property>/gear/gear[1]/position-norm</property>
+        <value>1</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+        <object-name>mfi_gear2r</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+        <property>controls/instrumentation/mfis/mfi[2]/page</property>
+        <value>2</value>
+      </equals>
+      <less-than>
+        <property>controls/instrumentation/mfis/mfi[2]/subpage</property>
+        <value>2</value>
+      </less-than>
+      <equals>
+        <property>/gear/gear[2]/position-norm</property>
+        <value>1</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+        <object-name>mfi_page2_nd</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+      <property>controls/instrumentation/mfis/mfi[2]/page</property>
+       <value>2</value>
+      </equals>
+      <equals>
+      <property>controls/instrumentation/mfis/mfi[2]/subpage</property>
+       <value>1</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+        <object-name>mfi_page2_map</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+      <property>controls/instrumentation/mfis/mfi[2]/page</property>
+       <value>2</value>
+      </equals>
+      <equals>
+      <property>controls/instrumentation/mfis/mfi[2]/subpage</property>
+       <value>2</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+        <object-name>mfi_page3</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+      <property>controls/instrumentation/mfis/mfi[2]/page</property>
+       <value>3</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+        <object-name>mfi_page4</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+      <property>controls/instrumentation/mfis/mfi[2]/page</property>
+       <value>4</value>
+      </equals>
+    </condition>
+  </animation>
+
+<!-- Flaps Indicator -->
+
+  <animation>
+    <type>select</type>
+    <object-name>FlapsT</object-name>
+    <condition>
+      <and>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+        <property>controls/instrumentation/mfis/mfi[2]/page</property>
+        <value>1</value>
+      </equals>
+      <greater-than>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>0</value>
+      </greater-than>
+      <less-than>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>0.67</value>
+      </less-than>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FlapsL</object-name>
+    <condition>
+      <and>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+      <property>controls/instrumentation/mfis/mfi[2]/page</property>
+       <value>1</value>
+      </equals>
+      <greater-than>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>0.67</value>
+      </greater-than>
+      <less-equal>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>1</value>
+      </less-equal>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FlapsT2</object-name>
+    <condition>
+      <and>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+        <property>controls/instrumentation/mfis/mfi[2]/page</property>
+        <value>2</value>
+      </equals>
+      <greater-than>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>0</value>
+      </greater-than>
+      <less-equal>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>0.67</value>
+      </less-equal>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FlapsL2</object-name>
+    <condition>
+      <and>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+      <property>controls/instrumentation/mfis/mfi[2]/page</property>
+       <value>2</value>
+      </equals>
+      <greater-than>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>0.67</value>
+      </greater-than>
+      <less-equal>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>1</value>
+      </less-equal>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FlapsT4</object-name>
+    <condition>
+      <and>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+        <property>controls/instrumentation/mfis/mfi[2]/page</property>
+        <value>4</value>
+      </equals>
+      <greater-than>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>0</value>
+      </greater-than>
+      <less-equal>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>0.67</value>
+      </less-equal>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>FlapsL4</object-name>
+    <condition>
+      <and>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+      <property>controls/instrumentation/mfis/mfi[2]/page</property>
+       <value>4</value>
+      </equals>
+      <greater-than>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>0.67</value>
+      </greater-than>
+      <less-equal>
+        <property>surface-positions/flap-pos-norm</property>
+        <value>1</value>
+      </less-equal>
+      </and>
+    </condition>
+  </animation>
+    
+<!-- AI pitch -->
+
+  <animation>
+    <type>texmultiple</type>
+    <object-name>ai_pitch.001</object-name>
+    <transform>
+      <subtype>textranslate</subtype>
+      <property>orientation/pitch-deg</property>
+      <factor> 0.003 </factor>
+      <center>
+        <x> 0.5 </x>
+        <y> 0.5 </y>
+      </center>
+      <axis>
+        <x> 0 </x>
+        <y> 1 </y>
+        <z> 0 </z>
+      </axis>
+    </transform>
+    <!-- <transform>
+      <subtype>texrotate</subtype>
+      <property>orientation/roll-deg</property>
+      <min> -180 </min>
+      <max>  180 </max>
+      <center>
+        <x> 0.5 </x>
+        <y> 0.5 </y>
+      </center>
+      <axis>
+        <x>  0 </x>
+        <y>  0 </y>
+        <z> -1 </z>
+      </axis>
+    </transform> -->
+  </animation>
+
+<!-- AI roll -->
+
+    <animation>
+        <type>rotate</type>
+        <object-name>ai_roll.001</object-name>
+        <property>orientation/roll-deg</property>
+        <center>
+            <x-m>-0.035851</x-m>
+            <y-m>0.0</y-m>
+            <z-m>0.0</z-m>
+        </center>
+        <axis>
+            <x> 0</x>
+            <y> 0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+
+<!-- Propeller RPM -->
+
+    <animation>
+        <type>rotate</type>
+        <object-name>RPMneedleProp</object-name>
+        <property>engines/engine/rpm</property>
+  <interpolation>
+    <entry>
+      <ind>0</ind>
+      <dep>-56.0</dep>
+    </entry>
+    <entry>
+      <ind>3315</ind>
+      <dep>0</dep>
+    </entry>
+    <entry>
+      <ind>3900</ind>
+      <dep>33.6</dep>
+    </entry>
+    <entry>
+      <ind>4680</ind>
+      <dep>56</dep>
+    </entry>
+  </interpolation>   
+        <center>
+            <x-m>0.051685</x-m>
+            <y-m>-0.041157</y-m>
+            <z-m>0.0</z-m>
+        </center>
+        <axis>
+            <x> 0</x>
+            <y> 0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+
+<!-- Throttle -->
+
+	<animation>
+		<type>scale</type>
+        <object-name>THRpower</object-name>
+        <property>/controls/engines/engine/throttle</property>
+		<x-min>0.0001</x-min>
+		<y-min>1</y-min>
+		<z-min>1</z-min>
+		<x-factor>1.0</x-factor>
+		<y-factor>0</y-factor>
+		<z-factor>0</z-factor>
+    <center>
+        <x-m>0.069989</x-m>
+        <y-m>0.0</y-m>
+		<z-m>0.0</z-m>
+    </center>
+	</animation>
+
+<!-- Fuel Tanks -->
+
+	<animation>
+		<type>scale</type>
+        <object-name>FtankL</object-name>
+        <property>/consumables/fuel/tank[0]/level-norm</property>
+		<x-min>0.0001</x-min>
+		<y-min>1</y-min>
+		<z-min>1</z-min>
+		<x-factor>1.0</x-factor>
+		<y-factor>0</y-factor>
+		<z-factor>0</z-factor>
+    <center>
+        <x-m>0.063154</x-m>
+        <y-m>0.0</y-m>
+		<z-m>0.0</z-m>
+    </center>
+	</animation>
+
+	<animation>
+		<type>scale</type>
+        <object-name>FtankR</object-name>
+        <property>/consumables/fuel/tank[1]/level-norm</property>
+		<x-min>0.0001</x-min>
+		<y-min>1</y-min>
+		<z-min>1</z-min>
+		<x-factor>1.0</x-factor>
+		<y-factor>0</y-factor>
+		<z-factor>0</z-factor>
+    <center>
+        <x-m>0.063154</x-m>
+        <y-m>0.0</y-m>
+		<z-m>0.0</z-m>
+    </center>
+	</animation>
+
+    
+<!-- AoA Meter -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>AoAneedle</object-name>
+    <property>/orientation/alpha-deg</property>
+    <interpolation>
+      <entry><ind>-10</ind><dep>-22.6</dep></entry>
+      <entry><ind> 0</ind><dep>  0.0</dep></entry>
+      <entry><ind>10</ind><dep>22.6</dep></entry>
+      <entry><ind>15</ind><dep>33.8</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-0.035851</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x> 0</x>
+      <y> 0</y>
+      <z>-1</z>
+    </axis>
+  </animation>
+
+<!-- G meter -->
+
+<!-- Slip indicator -->
+
+   <animation>
+    <type>rotate</type>
+     <object-name>slip_ball</object-name>
+     <property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
+     <interpolation>
+       <entry><ind>-1.4</ind><dep>-14</dep></entry>
+       <entry><ind> 1.4</ind><dep>14</dep></entry>
+     </interpolation>
+    <center>
+      <x-m>-0.035851</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </center>
+    <axis>
+      <x> 0</x>
+      <y> 0</y>
+      <z>-1</z>
+    </axis>
+ </animation>
+
+<!-- Air Speed Indicator -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>ASIneedle</object-name>
+  <property>/instrumentation/airspeed-indicator/indicated-speed-km</property>
+  <interpolation>
+    <entry>
+      <ind>0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>100</ind>
+      <dep>44.7</dep>
+    </entry>
+    <entry>
+      <ind>200</ind>
+      <dep>124.0</dep>
+    </entry>
+    <entry>
+      <ind>300</ind>
+      <dep>206</dep>
+    </entry>
+    <entry>
+      <ind>400</ind>
+      <dep>270</dep>
+    </entry>
+    <entry>
+      <ind>500</ind>
+      <dep>331</dep>
+    </entry>
+  </interpolation>   
+  <center>
+   <x-m> 0.009597</x-m>
+   <y-m>-0.035204</y-m>
+   <z-m> 0.0</z-m>
+  </center>
+  <axis>
+   <x>0</x>
+   <y>0</y>
+   <z>-1</z>
+  </axis>
+ </animation>
+ 
+  <animation>
+        <type>textranslate</type>
+        <object-name>asinum100</object-name>
+        <property>/instrumentation/airspeed-indicator/indicated-speed-km</property>
+        <factor>0.001</factor>
+        <step>100</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <animation>
+    <type>select</type>
+    <object-name>asinum100</object-name>
+    <condition>
+      <greater-than-equals>
+        <property>/instrumentation/airspeed-indicator/indicated-speed-km</property>
+        <value>100</value>
+      </greater-than-equals>
+    </condition>
+  </animation>
+    
+    <animation>
+        <type>textranslate</type>
+        <object-name>asinum10</object-name>
+        <property>/instrumentation/airspeed-indicator/indicated-speed-km</property>
+        <factor>0.01</factor>
+        <step>10</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <animation>
+    <type>select</type>
+    <object-name>asinum10</object-name>
+    <condition>
+      <greater-than-equals>
+        <property>/instrumentation/airspeed-indicator/indicated-speed-km</property>
+        <value>10</value>
+      </greater-than-equals>
+    </condition>
+  </animation>
+    
+    <animation>
+        <type>textranslate</type>
+        <object-name>asinum1</object-name>
+        <property>/instrumentation/airspeed-indicator/indicated-speed-km</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+ 
+ <!-- Altimeter -->
+
+    <animation>
+        <type>rotate</type>
+        <object-name>ALTneedle1</object-name>
+        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+        <factor>0.1097279</factor>
+        <center>
+            <x-m>0.009597</x-m>
+            <y-m>0.035204</y-m>
+            <z-m>0.0</z-m>
+        </center>
+        <axis>
+            <x> 0</x>
+            <y> 0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>ALTneedle2</object-name>
+        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+        <factor>0.01097279</factor>
+        <center>
+            <x-m>0.009597</x-m>
+            <y-m>0.035204</y-m>
+            <z-m>0.0</z-m>
+        </center>
+        <axis>
+            <x> 0</x>
+            <y> 0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+    
+ <!-- Vertical Speed Indicator -->
+ 
+ <!-- 984.2519688 ft/m = 5 m/s
+      1968.503937 ft/m = 10 m/s
+      2559.0551184 ft/m = 13 m/s -->
+    
+    <animation>
+        <type>rotate</type>
+        <object-name>VSIneedle</object-name>
+        <property>autopilot/internal/vert-speed-fpm</property>
+        <interpolation>
+            <entry><ind>-2559.055</ind><dep>-58.1</dep></entry>
+            <entry><ind>-1968.503</ind><dep>-44.7</dep></entry>
+            <entry><ind>-984.251</ind><dep>-22.5</dep></entry>
+            <entry><ind>0.0</ind><dep>0.0</dep></entry>
+            <entry><ind> 984.251</ind><dep> 22.5</dep></entry>
+            <entry><ind> 1968.503</ind><dep>44.7</dep></entry>
+            <entry><ind> 2559.055</ind><dep>58.1</dep></entry>
+        </interpolation>
+        <center>
+            <x-m>-0.035352</x-m>
+            <y-m>0.063477</y-m>
+            <z-m>0.0</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>-1.0</z>
+        </axis>
+    </animation>
+    
+<!-- Ground Speed Indicator -->
+    
+<!-- Distance Measuring Equipment -->
+    
+<!--   VHF Omnidirectional Radio Range -->
+    
+<!-- Heading Indicator -->
+
+  <animation>
+        <type>textranslate</type>
+        <object-name>hdgnum100</object-name>
+        <property>orientation/heading-deg</property>
+        <factor>0.001</factor>
+        <step>100</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <animation>
+        <type>textranslate</type>
+        <object-name>hdgnum10</object-name>
+        <property>orientation/heading-deg</property>
+        <factor>0.01</factor>
+        <step>10</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <animation>
+        <type>textranslate</type>
+        <object-name>hdgnum1</object-name>
+        <property>orientation/heading-deg</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+
+<!-- Airpressure (mmHg) Indicator -->
+
+  <animation>
+        <type>textranslate</type>
+        <object-name>mmhgnum100</object-name>
+        <property>instrumentation/altimeter/setting-mmhg</property>
+        <factor>0.001</factor>
+        <step>100</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <animation>
+        <type>textranslate</type>
+        <object-name>mmhgnum10</object-name>
+        <property>instrumentation/altimeter/setting-mmhg</property>
+        <factor>0.01</factor>
+        <step>10</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <animation>
+        <type>textranslate</type>
+        <object-name>mmhgnum1</object-name>
+        <property>instrumentation/altimeter/setting-mmhg</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+<!-- Course Indicator -->
+
+<animation>
+ <type>rotate</type>
+  <object-name>mfi_course_disk</object-name>
+  <object-name>vor_cor_needle</object-name>
+  <object-name>vor_dir_needle</object-name>
+  <object-name>hdg_bug</object-name>
+  <property>orientation/heading-deg</property>
+  <center>
+    <x-m> 0.042568</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 0.0</z-m>
+  </center>
+ <axis>
+  <x>0</x>
+  <y>0</y>
+  <z>1</z>
+ </axis>
+</animation>
+
+<animation>
+    <type>rotate</type>
+    <object-name>hdg_bug</object-name>
+    <property>autopilot/settings/heading-bug-deg</property>
+  <center>
+    <x-m> 0.042568</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 0.0</z-m>
+  </center>
+ <axis>
+  <x>0</x>
+  <y>0</y>
+  <z>-1</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>rotate</type>
+ <object-name>vor_cor_needle</object-name>
+ <property>instrumentation/nav/radials/selected-deg</property>
+  <center>
+    <x-m> 0.042568</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 0.0</z-m>
+  </center>
+ <axis>
+  <x>0</x>
+  <y>0</y>
+  <z>-1</z>
+ </axis>
+</animation>
+
+<animation>
+    <type>rotate</type>
+    <object-name>vor_dir_needle</object-name>
+    <property>instrumentation/nav/heading-deg</property>
+  <center>
+    <x-m> 0.042568</x-m>
+    <y-m> 0.0</y-m>
+    <z-m> 0.0</z-m>
+  </center>
+ <axis>
+  <x>0</x>
+  <y>0</y>
+  <z>-1</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>translate</type>
+ <object-name>ils_def_needle</object-name>
+ <condition>
+   <property>instrumentation/nav[1]/gs-in-range</property>
+ </condition>
+  <property>instrumentation/nav[1]/heading-needle-deflection-norm</property>
+  <interpolation>
+    <entry>
+      <ind>-1.0</ind>
+      <dep>-0.01</dep>
+    </entry>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>1.0</ind>
+      <dep>0.01</dep>
+    </entry>
+  </interpolation>
+ <axis>
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>translate</type>
+ <object-name>gs_def_needle</object-name>
+ <condition>
+   <property>instrumentation/nav[1]/gs-in-range</property>
+ </condition>
+ <property>instrumentation/nav[1]/gs-needle-deflection-norm</property>
+ <factor>0.01</factor>
+ <axis>
+  <x>-1</x>
+  <y>0</y>
+  <z>0</z>
+ </axis>
+</animation>
+
+  <animation>
+        <type>textranslate</type>
+        <object-name>dnum100</object-name>
+        <property>instrumentation/dme/indicated-distance-km</property>
+        <factor>0.001</factor>
+        <step>100</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <animation>
+        <type>textranslate</type>
+        <object-name>dnum10</object-name>
+        <property>instrumentation/dme/indicated-distance-km</property>
+        <factor>0.01</factor>
+        <step>10</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <animation>
+        <type>textranslate</type>
+        <object-name>dnum1</object-name>
+        <property>instrumentation/dme/indicated-distance-km</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+
+  <animation>
+        <type>textranslate</type>
+        <object-name>cnum100</object-name>
+        <property>instrumentation/nav/radials/selected-deg</property>
+        <factor>0.001</factor>
+        <step>100</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <animation>
+        <type>textranslate</type>
+        <object-name>cnum10</object-name>
+        <property>instrumentation/nav/radials/selected-deg</property>
+        <factor>0.01</factor>
+        <step>10</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <animation>
+        <type>textranslate</type>
+        <object-name>cnum1</object-name>
+        <property>instrumentation/nav/radials/selected-deg</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+
+  <animation>
+        <type>textranslate</type>
+        <object-name>ffnum100</object-name>
+        <property>engines/engine/fuel-flow-gph</property>
+        <factor>0.001</factor>
+        <step>100</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <animation>
+        <type>textranslate</type>
+        <object-name>ffnum10</object-name>
+        <property>engines/engine/fuel-flow-gph</property>
+        <factor>0.01</factor>
+        <step>10</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <animation>
+        <type>textranslate</type>
+        <object-name>ffnum1</object-name>
+        <property>engines/engine/fuel-flow-gph</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+<!-- Radio Altimeter -->
+
+<!-- Acceleration Height -->
+
+<!-- Buttons -->
+
+ <animation>
+    <type>translate</type>
+    <object-name>mfi_btn.001</object-name>
+    <property>/controls/instrumentation/mfis/mfi[2]/btn[1]</property>
+    <factor>-0.0051</factor>
+    <axis>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+    </axis>
+ </animation>
+
+ <animation>
+    <type>translate</type>
+    <object-name>mfi_btn.002</object-name>
+    <property>/controls/instrumentation/mfis/mfi[2]/btn[2]</property>
+    <factor>-0.0051</factor>
+    <axis>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+    </axis>
+ </animation>
+
+ <animation>
+    <type>translate</type>
+    <object-name>mfi_btn.003</object-name>
+    <property>/controls/instrumentation/mfis/mfi[2]/btn[3]</property>
+    <factor>-0.0051</factor>
+    <axis>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+    </axis>
+ </animation>
+
+ <!-- nd on -->
+
+ <animation>
+    <type>translate</type>
+    <object-name>mfi_btn.012</object-name>
+    <property>/controls/instrumentation/mfis/mfi[2]/btn[12]</property>
+    <factor>-0.0051</factor>
+    <axis>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+    </axis>
+ </animation>
+
+  <!-- map on -->
+
+ <animation>
+    <type>translate</type>
+    <object-name>mfi_btn.013</object-name>
+    <property>/controls/instrumentation/mfis/mfi[2]/btn[13]</property>
+    <factor>-0.0051</factor>
+    <axis>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+    </axis>
+ </animation>
+
+  <!-- ... -->
+
+ <animation>
+    <type>translate</type>
+    <object-name>mfi_btn.025</object-name>
+    <property>/controls/instrumentation/mfis/mfi[2]/btn[25]</property>
+    <factor>-0.0051</factor>
+    <axis>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+    </axis>
+ </animation>
+
+ <animation>
+    <type>translate</type>
+    <object-name>mfi_btn.026</object-name>
+    <property>/controls/instrumentation/mfis/mfi[2]/btn[26]</property>
+    <factor>-0.0051</factor>
+    <axis>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+    </axis>
+ </animation>
+
+ <animation>
+    <type>translate</type>
+    <object-name>mfi_btn.027</object-name>
+    <property>/controls/instrumentation/mfis/mfi[2]/btn[27]</property>
+    <factor>-0.0051</factor>
+    <axis>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+    </axis>
+ </animation>
+
+ <animation>
+    <type>translate</type>
+    <object-name>mfi_btn.028</object-name>
+    <property>/controls/instrumentation/mfis/mfi[2]/btn[28]</property>
+    <factor>-0.0051</factor>
+    <axis>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+    </axis>
+ </animation>
+
+ <animation>
+ <type>knob</type>
+ <object-name>mfi_course_disk</object-name>
+ <action>
+        <binding>
+          <command>property-adjust</command>
+          <property>autopilot/settings/heading-bug-deg</property>
+          <factor>1.0</factor>
+          <min>1</min>
+          <max>361</max>
+          <wrap>true</wrap>
+        </binding>
+  </action>
+  <hovered>
+        <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>heading-adj</tooltip-id>
+                <label>Set heading: %4.0f</label>
+                <property>autopilot/settings/heading-bug-deg</property>
+        </binding>
+  </hovered>
+</animation>
+
+ <animation>
+ <type>knob</type>
+ <object-name>mfi_gs_ball</object-name>
+ <action>
+        <binding>
+          <command>property-adjust</command>
+          <property>instrumentation/nav/radials/selected-deg</property>
+          <factor>1.0</factor>
+          <min>1</min>
+          <max>361</max>
+          <wrap>true</wrap>
+        </binding>
+  </action>
+  <hovered>
+        <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>course-adj</tooltip-id>
+                <label>Set course: %4.0f</label>
+                <property>instrumentation/nav/radials/selected-deg</property>
+        </binding>
+  </hovered>
+</animation>
+
+<animation>
+   <type>pick</type>
+   <object-name>mfi_btn.001</object-name>
+   <visible>true</visible>
+   <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+         <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+         <value>1</value>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[1]</property>
+          <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[1]</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+      <!-- <binding>
+          <command>nasal</command>
+          <script>switchclicksound.click("switch")</script>
+        </binding> -->
+    </action>
+    <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>mfi-btn-01</tooltip-id>
+                <label>MFI Mode: PILOT</label>
+            </binding>
+    </hovered>
+</animation>
+
+<animation>
+   <type>pick</type>
+   <object-name>mfi_btn.002</object-name>
+   <visible>true</visible>
+   <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+         <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+         <value>2</value>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[2]</property>
+          <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[2]</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+      <!-- <binding>
+          <command>nasal</command>
+          <script>switchclicksound.click("switch")</script>
+        </binding> -->
+    </action>
+    <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>mfi-btn-02</tooltip-id>
+                <label>MFI Mode: NAV</label>
+            </binding>
+    </hovered>
+</animation>
+
+<animation>
+   <type>pick</type>
+   <object-name>mfi_btn.003</object-name>
+   <visible>true</visible>
+   <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+         <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+         <value>3</value>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[3]</property>
+          <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[3]</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+      <!-- <binding>
+          <command>nasal</command>
+          <script>switchclicksound.click("switch")</script>
+        </binding> -->
+    </action>
+    <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>mfi-btn-03</tooltip-id>
+                <label>MFI Mode: SYSTEM</label>
+            </binding>
+    </hovered>
+</animation>
+
+<animation>
+   <type>pick</type>
+   <object-name>mfi_btn.012</object-name>
+   <visible>true</visible>
+   <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+         <property>/controls/instrumentation/mfis/mfi[2]/subpage</property>
+        <value>1</value>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[12]</property>
+          <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[12]</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+      <!-- <binding>
+          <command>nasal</command>
+          <script>switchclicksound.click("switch")</script>
+        </binding> -->
+    </action>
+    <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>mfi-submode-nd</tooltip-id>
+                <label>MFI Sub Mode: ND</label>
+            </binding>
+    </hovered>
+</animation>
+
+<animation>
+   <type>pick</type>
+   <object-name>mfi_btn.013</object-name>
+   <visible>true</visible>
+   <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+         <property>/controls/instrumentation/mfis/mfi[2]/subpage</property>
+        <value>2</value>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[13]</property>
+          <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[13]</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+      <!-- <binding>
+          <command>nasal</command>
+          <script>switchclicksound.click("switch")</script>
+        </binding> -->
+    </action>
+    <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>mfi-submode-map</tooltip-id>
+                <label>MFI Sub Mode: MAP</label>
+            </binding>
+    </hovered>
+</animation>
+
+<animation>
+   <type>pick</type>
+   <object-name>mfi_btn.025</object-name>
+   <visible>true</visible>
+   <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+              <value>4</value>
+            </equals>
+        </condition>
+        <command>property-assign</command>
+         <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+         <value>3</value>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[25]</property>
+          <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[25]</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+      <!-- <binding>
+          <command>nasal</command>
+          <script>switchclicksound.click("switch")</script>
+        </binding> -->
+    </action>
+    <hovered>
+            <binding>
+              <condition>
+               <equals>
+                 <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+                 <value>3</value>
+               </equals>
+              </condition>
+              <command>set-tooltip</command>
+              <tooltip-id>mfi-submode-eng</tooltip-id>
+              <label>MFI Sub Mode: ENGINE</label>
+            </binding>
+    </hovered>
+</animation>
+
+<animation>
+   <type>pick</type>
+   <object-name>mfi_btn.026</object-name>
+   <visible>true</visible>
+   <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+              <value>2</value>
+            </equals>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[2]/subpage</property>
+              <value>1</value>
+            </equals>
+        </condition>
+        <command>property-adjust</command>
+        <property>/instrumentation/efis/inputs/range-nm</property>
+            <step>-40</step>
+            <min>20</min>
+            <max>140</max>
+            <wrap>false</wrap>
+      </binding>
+      <binding>
+        <condition>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+              <value>2</value>
+            </equals>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[2]/subpage</property>
+              <value>2</value>
+            </equals>
+        </condition>
+        <command>property-adjust</command>
+         <property>/controls/instrumentation/mfis/scale</property>
+        <step>-1.0</step>
+        <min>0</min>
+        <max>6</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <condition>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+              <value>3</value>
+            </equals>
+        </condition>
+        <command>property-assign</command>
+         <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+         <value>4</value>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[26]</property>
+          <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[26]</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
+    <hovered>
+            <binding>
+              <condition>
+               <equals>
+                 <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+                 <value>2</value>
+               </equals>
+              </condition>
+              <command>set-tooltip</command>
+              <tooltip-id>mfi-submode-zoomm</tooltip-id>
+              <label>MFI Sub Mode: ZOOM [-]</label>
+            </binding>
+            <binding>
+              <condition>
+               <equals>
+                 <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+                 <value>3</value>
+               </equals>
+              </condition>
+              <command>set-tooltip</command>
+              <tooltip-id>mfi-submode-airplane</tooltip-id>
+              <label>MFI Sub Mode: AIRPLANE</label>
+            </binding>
+    </hovered>
+</animation>
+
+<animation>
+   <type>pick</type>
+   <object-name>mfi_btn.027</object-name>
+   <visible>true</visible>
+   <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[2]/subpage</property>
+              <value>2</value>
+            </equals>
+        </condition>
+        <command>property-adjust</command>
+         <property>/controls/instrumentation/mfis/scale</property>
+         <step>1.0</step>
+         <min>0</min>
+         <max>6</max>
+         <wrap>false</wrap>
+      </binding>
+      <binding>
+        <condition>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[2]/subpage</property>
+              <value>1</value>
+            </equals>
+        </condition>
+        <command>property-adjust</command>
+        <property>/instrumentation/efis/inputs/range-nm</property>
+            <step>40</step>
+            <min>20</min>
+            <max>140</max>
+            <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[27]</property>
+          <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[27]</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
+    <hovered>
+            <binding>
+              <condition>
+               <equals>
+                 <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+                 <value>2</value>
+               </equals>
+              </condition>
+              <command>set-tooltip</command>
+              <tooltip-id>mfi-submode-zoomp</tooltip-id>
+              <label>MFI Sub Mode: ZOOM [+]</label>
+            </binding>
+    </hovered>
+</animation>
+
+<animation>
+   <type>pick</type>
+   <object-name>mfi_btn.028</object-name>
+   <visible>true</visible>
+   <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[2]/subpage</property>
+              <value>1</value>
+            </equals>
+        </condition>
+        <command>property-toggle</command>
+        <property>/instrumentation/efis/inputs/nd-centered</property>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[28]</property>
+          <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/btn[28]</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
+</animation>
+
+  <animation>
+        <type>pick</type>
+        <object-name>ALT</object-name>
+        <action>
+            <button>0</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.05</interval-sec>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/altimeter/setting-hpa</property>
+                <step>0.25</step>
+                <min>940</min>
+                <max>1051</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+        <action>
+            <button>1</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.05</interval-sec>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/altimeter/setting-hpa</property>
+                <step>-0.25</step>
+                <min>940</min>
+                <max>1051</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+        <action>
+            <button>3</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.1</interval-sec>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/altimeter/setting-hpa</property>
+                <step>1.0</step>
+                <min>940</min>
+                <max>1051</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+        <action>
+            <button>4</button>
+            <repeatable>true</repeatable>
+            <interval-sec>0.1</interval-sec>
+            <binding>
+                <command>property-adjust</command>
+                <property>instrumentation/altimeter/setting-hpa</property>
+                <step>-1.0</step>
+                <min>940</min>
+                <max>1051</max>
+                <wrap>true</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>alt-hpa</tooltip-id>
+                <label>Adjust hPa</label>
+            </binding>
+        </hovered>
+  </animation>
+
+</PropertyList>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <model>
+    <path>beacon.xml</path>
+    <offsets>
+      <x-m> 1.45053 </x-m>
+      <y-m> 0.00000 </y-m>
+      <z-m> 0.56593 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>RedLight.xml</path>
+    <offsets>
+      <x-m> -0.515695 </x-m>
+      <y-m> -4.4328 </y-m>
+      <z-m> -0.328405 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>StrobeLight.xml</path>
+    <offsets>
+      <x-m> -0.450728 </x-m>
+      <y-m> -4.40522 </y-m>
+      <z-m> -0.328405 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>GreenLight.xml</path>
+    <offsets>
+      <x-m> -0.515695 </x-m>
+      <y-m>  4.4328 </y-m>
+      <z-m> -0.328405 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>StrobeLight.xml</path>
+    <offsets>
+      <x-m> -0.450728 </x-m>
+      <y-m>  4.40522 </y-m>
+      <z-m> -0.328405 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <name>LightTail</name>
+    <path>WhiteLight.xml</path>
+    <offsets>
+      <x-m>  2.39619 </x-m>
+      <y-m>  0.00000 </y-m>
+      <z-m> -0.348806 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <name>LightGear</name>
+    <path>taxi-light.xml</path>
+    <condition>
+      <equals>
+        <property>gear/gear[0]/position-norm</property>
+        <value>1</value>
+      </equals>
+    </condition>
+    <offsets>
+      <x-m> -2.13393 </x-m>
+      <y-m> -0.069038 </y-m>
+      <z-m> -1.15167 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Gear light cone Left -->
+  <model>
+    <path>light-cone.xml</path>
+    <offsets>
+      <x-m> -1.13737 </x-m>
+      <y-m> -2.70242 </y-m>
+      <z-m> -0.46452 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Gear light cone right -->
+  <!-- <model>
+    <path>light-cone.xml</path>
+    <condition>
+      <equals>
+        <property>gear/gear[2]/position-norm</property>
+        <value>1</value>
+      </equals>
+    </condition>
+    <offsets>
+      <x-m> -0.95596 </x-m>
+      <y-m>  1.15330 </y-m>
+      <z-m> -0.96008 </z-m>
+    </offsets>
+  </model> -->
+
+  <!-- test -->
+  <model>
+    <path>HDR/lightpanel.xml</path>
+    <offsets>
+      <x-m> -1.236 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.406 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>HDR/lightpanel.xml</path>
+    <offsets>
+      <x-m> -0.136 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.506 </z-m>
+    </offsets>
+  </model>
+  <!-- -->
+
+</PropertyList>

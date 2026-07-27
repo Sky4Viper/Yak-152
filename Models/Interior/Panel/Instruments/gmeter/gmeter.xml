@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+ <path>gmeter.ac</path>
+
+ <animation>
+  <type>material</type>
+  <object-name>UAP-7.needle1</object-name>
+  <!-- <object-name>UAP-7.needle2</object-name> -->
+  <object-name>UAP-7.needle3</object-name>
+  <object-name>uap-face</object-name>
+ <emission>
+          <factor-prop>controls/lighting/instruments-norm</factor-prop>
+          <red>   0.50 </red>
+          <green> 0.40 </green>
+          <blue>  0.30 </blue>
+     </emission>
+     <condition>
+          <property>controls/electric/battery-switch</property>
+     </condition>
+ </animation>
+
+ <effect>
+    <inherits-from>../../../../Effects/Glass/glass</inherits-from>
+    <object-name>uap-glass</object-name>
+  </effect>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>UAP-7.needle1</object-name>
+  <property>accelerations/pilot-g</property>
+  <interpolation>
+   <entry><ind>-4</ind><dep>90</dep></entry>
+   <entry><ind> 0</ind><dep>  0.0</dep></entry>
+   <entry><ind>10</ind><dep>225</dep></entry>
+  </interpolation>
+  <axis>
+   <x>-1</x>
+   <y> 0</y>
+   <z> 0</z>
+  </axis>
+ </animation>
+
+ <!-- <animation>
+  <type>rotate</type>
+  <object-name>UAP-7.needle2</object-name>
+  <property>accelerations/pilot-g</property>
+   <factor>1</factor>
+  <interpolation>
+   <entry><ind>-4</ind><dep>-25.0</dep></entry>
+   <entry><ind> 0</ind><dep>  0.0</dep></entry>
+   <entry><ind>10</ind><dep>135.5</dep></entry>
+  </interpolation>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation> -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>UAP-7.needle3</object-name>
+  <property>yak152/instrumentation/UAP/pilot-g-max</property>
+  <interpolation>
+   <entry><ind> 0</ind><dep>  0.0</dep></entry>
+   <entry><ind>10</ind><dep>225</dep></entry>
+  </interpolation>
+  <axis>
+   <x>1</x>
+   <y>0</y>
+   <z>0</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>pick</type>
+  <object-name>UAP-7.cz1</object-name>
+  <visible>false</visible>
+  <action>
+   <button>0</button>
+   <repeatable>false</repeatable>
+   <binding>
+    <command>property-assign</command>
+    <property>yak152/instrumentation/UAP/pilot-g-max</property>
+    <value>1.0</value>
+   </binding>
+  </action>
+ </animation>
+
+</PropertyList>

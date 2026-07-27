@@ -1,0 +1,1317 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>panel.ac</path>
+
+  <animation>
+    <name>panel_screws</name>
+    <object-name>cockpit_screws</object-name>
+    <object-name>cockpit_screws.001</object-name>
+    <object-name>cockpit_screws.002</object-name>
+    <object-name>cockpit_screws.003</object-name>
+    <object-name>cockpit_screws.004</object-name>
+    <object-name>cockpit_screws.005</object-name>
+    <object-name>cockpit_screws.006</object-name>
+    <object-name>cockpit_screws.007</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+        <object-name>cockpit_switches.005</object-name>
+        <object-name>cockpit_switches.006</object-name>
+        <object-name>cockpit_switches.007</object-name>
+        <object-name>sig_light.001</object-name>
+        <object-name>sig_light.002</object-name>
+        <object-name>sig_light.003</object-name>
+        <object-name>sig_light.004</object-name>
+        <object-name>sig_light.005</object-name>
+        <object-name>panel_screws</object-name>
+  </animation>
+
+  <animation>
+        <type>material</type>
+        <object-name>lpbtn01lgt</object-name>
+        <object-name>lpbtn02lgt</object-name>
+        <object-name>lpbtn03lgt</object-name>
+        <object-name>lpbtn04lgt</object-name>
+        <object-name>lpbtn05lgt</object-name>
+        <object-name>lpbtn06lgt</object-name>
+        <emission>
+          <red>   0.01 </red>
+          <green> 0.01 </green>
+          <blue>  0.01 </blue>
+          <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+        </emission>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+    </condition>
+  </animation>
+
+    <animation>
+    <type>material</type>
+    <object-name>cockpit_mfi_ext_page</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      <red>   1 </red>
+      <green> 1 </green>
+      <blue>  1 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>sig_light.001</object-name>
+    <object-name>sig_light.002</object-name>
+    <object-name>sig_light.003</object-name>
+    <object-name>sig_light.004</object-name>
+    <object-name>sig_light.005</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      <red>   1 </red>
+      <green> 1 </green>
+      <blue>  1 </blue>
+    </emission>
+  </animation>
+
+  <!-- AI alt -->
+  <model>
+    <path>Instruments//ai/ai.xml</path>
+    <offsets>
+      <x-m> -1.15336 </x-m>
+      <y-m>  0.227996 </y-m>
+      <z-m>  0.063903 </z-m>
+      <pitch-deg>63.05</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- AI2 alt -->
+  <model>
+    <path>Instruments//ai/ai.xml</path>
+    <offsets>
+      <x-m> 0.177555 </x-m>
+      <y-m>  0.227996 </y-m>
+      <z-m>  0.063903 </z-m>
+      <pitch-deg>63.05</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- MFI displays -->
+
+  <model>
+    <path>Instruments/mfi/all-mfi.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Radio unit -->
+  <model>
+    <path>Instruments//rmu/rmu.xml</path>
+    <offsets>
+      <x-m> -1.12615 </x-m>
+      <y-m>  0 </y-m>
+      <z-m> -0.00043 </z-m>
+      <pitch-deg>63</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Instruments//rmu/rmu.xml</path>
+    <offsets>
+      <x-m> 0.210055 </x-m>
+      <y-m>  0 </y-m>
+      <z-m> -0.00043 </z-m>
+      <pitch-deg>63</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Instruments/gmeter/gmeter.xml</path>
+    <offsets>
+      <x-m>-1.13726 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0.318664 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Instruments/gmeter/gmeter.xml</path>
+    <offsets>
+      <x-m> 0.118 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0.308 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Instruments/compas/compas.xml</path>
+    <offsets>
+      <x-m>-1.17354 </x-m>
+      <y-m> 0.05961 </y-m>
+      <z-m> 0.239097 </z-m>
+    </offsets>
+  </model>
+
+  <animation>
+    <type>select</type>
+    <object-name>panel_screws</object-name>
+    <condition>
+      <property>sim/current-view/internal</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>cockpit_mfi_ext</object-name>
+    <condition>
+      <not><property>sim/current-view/internal</property></not>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>cockpit_mfi_ext_page</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+      <not><property>sim/current-view/internal</property></not>
+    </condition>
+  </animation>
+
+  <!-- <model>
+    <path>Panel/Instruments/yoke/all-yokes.xml</path>
+  </model> -->
+
+  <!-- Flaps Buttons Lights -->
+
+  <animation>
+    <type>select</type>
+    <object-name>lpbtn01lgt</object-name>
+    <object-name>lpbtn04lgt</object-name>
+    <condition>
+      <and>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+        <property>controls/flight/flaps</property>
+        <value>0</value>
+      </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>lpbtn02lgt</object-name>
+    <object-name>lpbtn05lgt</object-name>
+    <condition>
+      <and>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+        <property>controls/flight/flaps</property>
+        <value>0.66</value>
+      </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>lpbtn03lgt</object-name>
+    <object-name>lpbtn06lgt</object-name>
+    <condition>
+      <and>
+      <property>controls/electric/battery-switch</property>
+      <equals>
+        <property>controls/flight/flaps</property>
+        <value>1</value>
+      </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- Flaps Buttons Press -->
+  <animation>
+    <name>FlapButton1</name>
+    <object-name>lpbtn01</object-name>
+    <object-name>lpbtn01lgt</object-name>
+    <object-name>lpbtn04</object-name>
+    <object-name>lpbtn04lgt</object-name>
+  </animation>
+
+  <animation>
+    <name>FlapButton2</name>
+    <object-name>lpbtn02</object-name>
+    <object-name>lpbtn02lgt</object-name>
+    <object-name>lpbtn05</object-name>
+    <object-name>lpbtn05lgt</object-name>
+  </animation>
+
+  <animation>
+    <name>FlapButton3</name>
+    <object-name>lpbtn03</object-name>
+    <object-name>lpbtn03lgt</object-name>
+    <object-name>lpbtn06</object-name>
+    <object-name>lpbtn06lgt</object-name>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>FlapButton1</object-name>
+    <property>controls/flight/flaps</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0.005</dep></entry>
+      <entry><ind>0.66</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> -1.01558 </x1-m>
+      <y1-m>  0.00000 </y1-m>
+      <z1-m> -0.07439 </z1-m>
+      <x2-m> -1.02029 </x2-m>
+      <y2-m>  0.00000 </y2-m>
+      <z2-m> -0.080155 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>FlapButton2</object-name>
+    <property>controls/flight/flaps</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>0.66</ind><dep>0.005</dep></entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> -1.01558 </x1-m>
+      <y1-m>  0.00000 </y1-m>
+      <z1-m> -0.07439 </z1-m>
+      <x2-m> -1.02029 </x2-m>
+      <y2-m>  0.00000 </y2-m>
+      <z2-m> -0.080155 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>FlapButton3</object-name>
+    <property>controls/flight/flaps</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>0.66</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>0.005</dep></entry>
+    </interpolation>
+    <axis>
+      <x1-m> -1.01558 </x1-m>
+      <y1-m>  0.00000 </y1-m>
+      <z1-m> -0.07439 </z1-m>
+      <x2-m> -1.02029 </x2-m>
+      <y2-m>  0.00000 </y2-m>
+      <z2-m> -0.080155 </z2-m>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>lpbtn03</object-name>
+    <object-name>lpbtn06</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/flight/flaps</property>
+        <value type="double">1</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>lpbtn02</object-name>
+    <object-name>lpbtn05</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/flight/flaps</property>
+        <value type="double">0.66</value>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>lpbtn01</object-name>
+    <object-name>lpbtn04</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/flight/flaps</property>
+        <value type="double">0.0</value>
+      </binding>
+    </action>
+  </animation>
+
+  <!-- Throttle Lever -->
+
+  <animation>
+		<type>rotate</type>
+		<object-name>lp_throttle</object-name>
+		<property>controls/engines/engine[0]/throttle</property>
+		<interpolation>
+            <entry><ind> 0</ind><dep>-32.0</dep></entry>
+            <entry><ind> 1</ind><dep>32.0</dep></entry>
+    </interpolation>
+		<center>
+			<x-m>-0.862222</x-m>
+			<y-m> 0.0</y-m>
+			<z-m>-0.147582</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+  <animation>
+		<type>rotate</type>
+		<object-name>lp2_throttle</object-name>
+		<property>controls/engines/engine[0]/throttle</property>
+		<interpolation>
+            <entry><ind> 0</ind><dep>-32.0</dep></entry>
+            <entry><ind> 1</ind><dep>32.0</dep></entry>
+    </interpolation>
+		<center>
+			<x-m>0.469722</x-m>
+			<y-m> 0.0</y-m>
+			<z-m>-0.147582</z-m>
+		</center>
+		<axis>
+			<x>0</x>
+			<y>-1</y>
+			<z>0</z>
+		</axis>
+	</animation>
+
+  <!-- Gear Levers -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>lever_gear.001</object-name>
+    <property>controls/gear/gear-down</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>-45</dep></entry>
+      <entry><ind>1</ind><dep> 45</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-1.17267</x-m>
+      <y-m> 0.0</y-m>
+      <z-m> 0.068385</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>lever_gear.002</object-name>
+    <property>controls/gear/gear-down</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>-45</dep></entry>
+      <entry><ind>1</ind><dep> 45</dep></entry>
+    </interpolation>
+    <center>
+      <x-m> 0.16258</x-m>
+      <y-m> 0.0</y-m>
+      <z-m> 0.068385</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>lp_swch_cvr.002</object-name>
+    <property>yak152/controls/fuelswchcover1</property>
+    <interpolation>
+      <entry><ind> 0</ind><dep>0.0</dep></entry>
+      <entry><ind> 1</ind><dep>-105.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-0.693376</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.129851</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>lp_swch_cvr.002</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>yak152/controls/fuelswchcover1</property>
+      </binding>
+      <!-- <binding>
+        <command>nasal</command>
+        <script>switchclicksound.click("switch")</script>
+      </binding> -->
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>rp_btn_cvr.001</object-name>
+    <property>yak152/controls/enginebtncover1</property>
+    <interpolation>
+      <entry><ind> 0</ind><dep>0.0</dep></entry>
+      <entry><ind> 1</ind><dep>-105.0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-1.09216</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.014887</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>rp_btn_cvr.001</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>yak152/controls/enginebtncover1</property>
+      </binding>
+      <!-- <binding>
+        <command>nasal</command>
+        <script>switchclicksound.click("switch")</script>
+      </binding> -->
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>rp_btn.001</object-name>
+    <action>
+        <button>0</button>
+        <repeatable>true</repeatable>
+        <binding>
+            <command>property-assign</command>
+            <property>/controls/engines/engine[0]/starter</property>
+            <value>1</value>
+        </binding>
+        <mod-up>
+            <binding>
+                <command>property-assign</command>
+                <property>/controls/engines/engine[0]/starter</property>
+                <value>0</value>
+            </binding>
+        </mod-up>
+    </action>
+  </animation>
+
+  <!-- Switches -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>lp_switch.003</object-name>
+    <property>consumables/fuel/tank[0]/selected</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>45</dep></entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-0.684844</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.13382</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>rp_switch.001</object-name>
+    <property>controls/switches/starterkey-insert</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>26</dep></entry>
+      <entry><ind>1</ind><dep>-26</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-1.05991</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.04802</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- <animation>
+    <type>rotate</type>
+    <object-name>rp_btn.002</object-name>
+    <property>controls/engines/engine[0]/magnetos</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>26</dep></entry>
+      <entry><ind>1</ind><dep>-26</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-1.05991</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.04802</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation> -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>rp_switch.003</object-name>
+    <property>controls/electric/battery-switch</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>26</dep></entry>
+      <entry><ind>1</ind><dep>-26</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-1.02917</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.07313</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>rp_switch.004</object-name>
+    <property>controls/electric/engine/generator</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>26</dep></entry>
+      <entry><ind>1</ind><dep>-26</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-1.02917</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.07313</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>rp_switch.005</object-name>
+    <property>controls/engines/engine[0]/fuel-pump</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>26</dep></entry>
+      <entry><ind>1</ind><dep>-26</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-1.00134</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.09585</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>rp_switch.010</object-name>
+    <property>/controls/anti-ice/pitot-heat</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>26</dep></entry>
+      <entry><ind>1</ind><dep>-26</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-0.557787</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.140077</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>rp_switch.011</object-name>
+    <property>/controls/lighting/beacon</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>26</dep></entry>
+      <entry><ind>1</ind><dep>-26</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-0.483722</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.140043</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>rp_switch.012</object-name>
+    <property>/controls/lighting/nav-lights-sw</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>26</dep></entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
+      <entry><ind>2</ind><dep>-26</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-0.464242</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.140043</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>rp_knob.002</object-name>
+    <property>controls/lighting/instruments-norm</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-180</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-0.838034</x-m>
+      <y-m> 0.32087</y-m>
+      <z-m> 0.0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>lp_switch.003</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <property>yak152/controls/fuelswchcover1</property>
+        </condition>
+        <command>property-toggle</command>
+        <property>consumables/fuel/tank[0]/selected</property>
+      </binding>
+      <binding>
+        <condition>
+          <property>yak152/controls/fuelswchcover1</property>
+        </condition>
+        <command>property-toggle</command>
+        <property>consumables/fuel/tank[1]/selected</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>rp_switch.001</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/starterkey-insert</property>
+      </binding>
+      <binding>
+        <command>property-cycle</command>
+        <property>controls/engines/engine[0]/magnetos</property>
+        <value>0</value>
+        <value>3</value>
+      </binding>
+    </action>
+  </animation>
+
+  <!-- <animation>
+    <type>pick</type>
+    <object-name>rp_btn.002</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/engines/engine[0]/magnetos</property>
+      </binding>
+    </action>
+  </animation> -->
+
+  <animation>
+    <type>pick</type>
+    <object-name>rp_switch.003</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/battery-switch</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/lights/warn_blink/enabled</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>rp_switch.004</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/electric/engine/generator</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>rp_switch.005</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/engines/engine[0]/fuel-pump</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>rp_switch.010</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/anti-ice/pitot-heat</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>rp_switch.011</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/lighting/beacon</property>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>rp_switch.012</object-name>
+    <visible>true</visible>
+
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/controls/lighting/nav-lights-sw</property>
+        <step>1</step>
+        <min>0</min>
+        <max>2</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/lighting/nav-lights</property>
+        <value>0</value>
+        <condition>
+          <equals>
+            <property>/controls/lighting/nav-lights-sw</property>
+            <value>0</value>
+          </equals>
+        </condition>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/lighting/nav-lights</property>
+        <value>1</value>
+        <condition>
+          <equals>
+            <property>/controls/lighting/nav-lights-sw</property>
+            <value>1</value>
+          </equals>
+        </condition>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/lighting/nav-lights</property>
+        <value>1</value>
+        <condition>
+          <equals>
+            <property>/controls/lighting/nav-lights-sw</property>
+            <value>2</value>
+          </equals>
+        </condition>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/lighting/strobe</property>
+        <value>0</value>
+        <condition>
+          <equals>
+            <property>/controls/lighting/nav-lights-sw</property>
+            <value>0</value>
+          </equals>
+        </condition>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/lighting/strobe</property>
+        <value>0</value>
+        <condition>
+          <equals>
+            <property>/controls/lighting/nav-lights-sw</property>
+            <value>1</value>
+          </equals>
+        </condition>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/lighting/strobe</property>
+        <value>1</value>
+        <condition>
+          <equals>
+            <property>/controls/lighting/nav-lights-sw</property>
+            <value>2</value>
+          </equals>
+        </condition>
+      </binding>
+    </action>
+
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/controls/lighting/nav-lights-sw</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>2</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/lighting/nav-lights</property>
+        <value>0</value>
+        <condition>
+          <equals>
+            <property>/controls/lighting/nav-lights-sw</property>
+            <value>0</value>
+          </equals>
+        </condition>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/lighting/nav-lights</property>
+        <value>1</value>
+        <condition>
+          <equals>
+            <property>/controls/lighting/nav-lights-sw</property>
+            <value>1</value>
+          </equals>
+        </condition>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/lighting/nav-lights</property>
+        <value>1</value>
+        <condition>
+          <equals>
+            <property>/controls/lighting/nav-lights-sw</property>
+            <value>2</value>
+          </equals>
+        </condition>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/lighting/strobe</property>
+        <value>0</value>
+        <condition>
+          <equals>
+            <property>/controls/lighting/nav-lights-sw</property>
+            <value>0</value>
+          </equals>
+        </condition>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/lighting/strobe</property>
+        <value>0</value>
+        <condition>
+          <equals>
+            <property>/controls/lighting/nav-lights-sw</property>
+            <value>1</value>
+          </equals>
+        </condition>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/lighting/strobe</property>
+        <value>1</value>
+        <condition>
+          <equals>
+            <property>/controls/lighting/nav-lights-sw</property>
+            <value>2</value>
+          </equals>
+        </condition>
+      </binding>
+    </action>
+  </animation>
+
+  <!-- Signal Lights -->
+
+  <animation>
+    <type>select</type>
+    <object-name>sig_light.001</object-name>
+      <condition>
+        <property>controls/electric/battery-switch</property>
+        <property>/sim/model/lights/warn_blink/state</property>
+        <or>
+        <not>
+          <property>controls/electric/engine/generator</property>
+        </not>
+        <not>
+          <property>engines/engine/running</property>
+        </not>
+        </or>
+      </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>sig_light.002</object-name>
+      <condition>
+        <property>controls/electric/battery-switch</property>
+        <property>/sim/model/lights/warn_blink/state</property>
+        <property>/controls/engines/engine[0]/starter</property>
+        <not>
+          <property>engines/engine/running</property>
+        </not>
+      </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>sig_light.003</object-name>
+        <condition>
+        <property>controls/electric/battery-switch</property>
+        <property>/sim/model/lights/warn_blink/state</property>
+			  <greater-than>
+				  <property>orientation/alpha-deg</property>
+				  <value>10.2</value>
+			  </greater-than>
+        <not>
+          <property>gear/gear[0]/wow</property>
+          <property>gear/gear[1]/wow</property>
+          <property>gear/gear[2]/wow</property>
+        </not>
+        </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>sig_light.004</object-name>
+      <condition>
+        <property>controls/electric/battery-switch</property>
+        <not>
+          <property>/controls/anti-ice/pitot-heat</property>
+        </not>
+      </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>sig_light.005</object-name>
+      <condition>
+        <property>controls/electric/battery-switch</property>
+        <property>/sim/model/lights/warn_blink/state</property>
+        <greater-than>
+            <property>/velocities/airspeed-kt</property>
+            <value>240</value>
+        </greater-than>
+      </condition>
+  </animation>
+
+  <animation>
+      <type>knob</type>
+      <object-name>mfi1_knob.001</object-name>
+      <increase>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/instrumentation/mfis/mfi[1]/page</property>
+          <step>1.0</step>
+          <min>0</min>
+          <max>5</max>
+          <wrap>1</wrap>
+        </binding>
+      </increase>
+      <decrease>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/instrumentation/mfis/mfi[1]/page</property>
+          <step>-1.0</step>
+          <min>0</min>
+          <max>5</max>
+          <wrap>1</wrap>
+        </binding>
+        </decrease>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>kn-mfi-mode</tooltip-id>
+                <label>MFI Mode: %s</label>
+                <property>/controls/instrumentation/mfis/mfi[1]/page</property>
+                <mapping>nasal</mapping>
+                <script>
+                    var modes = ['OFF', 'PILOT', 'NAV', 'ENGINE', 'AIRPLANE'];
+                    return modes[arg[0]];
+                </script>
+            </binding>
+        </hovered>
+    </animation>
+
+  <animation>
+      <type>knob</type>
+      <object-name>mfi2_knob.001</object-name>
+      <increase>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+          <step>1.0</step>
+          <min>0</min>
+          <max>5</max>
+          <wrap>1</wrap>
+        </binding>
+      </increase>
+      <decrease>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+          <step>-1.0</step>
+          <min>0</min>
+          <max>5</max>
+          <wrap>1</wrap>
+        </binding>
+        </decrease>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>kn-mfi-mode</tooltip-id>
+                <label>MFI Mode: %s</label>
+                <property>/controls/instrumentation/mfis/mfi[2]/page</property>
+                <mapping>nasal</mapping>
+                <script>
+                    var modes = ['OFF', 'PILOT', 'NAV', 'ENGINE', 'AIRPLANE'];
+                    return modes[arg[0]];
+                </script>
+            </binding>
+        </hovered>
+  </animation>
+
+  <animation>
+      <type>knob</type>
+      <object-name>mfi3_knob.001</object-name>
+      <increase>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/instrumentation/mfis/mfi[3]/page</property>
+          <step>1.0</step>
+          <min>0</min>
+          <max>5</max>
+          <wrap>1</wrap>
+        </binding>
+      </increase>
+      <decrease>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/instrumentation/mfis/mfi[3]/page</property>
+          <step>-1.0</step>
+          <min>0</min>
+          <max>5</max>
+          <wrap>1</wrap>
+        </binding>
+        </decrease>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>kn-mfi-mode</tooltip-id>
+                <label>MFI Mode: %s</label>
+                <property>/controls/instrumentation/mfis/mfi[3]/page</property>
+                <mapping>nasal</mapping>
+                <script>
+                    var modes = ['OFF', 'PILOT', 'NAV', 'ENGINE', 'AIRPLANE'];
+                    return modes[arg[0]];
+                </script>
+            </binding>
+        </hovered>
+  </animation>
+
+  <animation>
+      <type>knob</type>
+      <object-name>mfi4_knob.001</object-name>
+      <increase>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/instrumentation/mfis/mfi[4]/page</property>
+          <step>1.0</step>
+          <min>0</min>
+          <max>5</max>
+          <wrap>1</wrap>
+        </binding>
+      </increase>
+      <decrease>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/instrumentation/mfis/mfi[4]/page</property>
+          <step>-1.0</step>
+          <min>0</min>
+          <max>5</max>
+          <wrap>1</wrap>
+        </binding>
+        </decrease>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>kn-mfi-mode</tooltip-id>
+                <label>MFI Mode: %s</label>
+                <property>/controls/instrumentation/mfis/mfi[4]/page</property>
+                <mapping>nasal</mapping>
+                <script>
+                    var modes = ['OFF', 'PILOT', 'NAV', 'ENGINE', 'AIRPLANE'];
+                    return modes[arg[0]];
+                </script>
+            </binding>
+        </hovered>
+  </animation>
+
+  <animation>
+  <type>knob</type>
+  <object-name>rp_knob.002</object-name>
+  <object-name>rp2_knob.002</object-name>
+    <increase>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/lighting/instruments-norm</property>
+            <step>0.1</step>
+            <min>0.0</min>
+            <max>0.9</max>
+            <wrap>false</wrap>
+      </binding>
+      <!-- <binding>
+            <command>nasal</command>
+            <script>switchclicksound.click("adf-dial")</script>
+      </binding> -->
+      </increase>
+      <decrease>
+        <binding>
+          <command>property-adjust</command>
+          <property>controls/lighting/instruments-norm</property>
+            <step>-0.1</step>
+            <min>0.0</min>
+            <max>0.9</max>
+            <wrap>false</wrap>
+        </binding>
+        <!-- <binding>
+                <command>nasal</command>
+                <script>switchclicksound.click("adf-dial")</script>
+        </binding> -->
+        </decrease>
+        <hovered>
+          <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>instruments-lighting-adj</tooltip-id>
+                <label>Instruments lights</label>
+          </binding>
+        </hovered>
+  </animation>
+
+</PropertyList>

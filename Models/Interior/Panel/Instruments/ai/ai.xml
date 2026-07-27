@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>ai.ac</path>
+
+  <animation>
+    <object-name>ai_base</object-name>
+    <object-name>ai_face</object-name>
+    <object-name>ai_knob</object-name>
+    <object-name>ai_pitch</object-name>
+    <object-name>ai_roll</object-name>
+
+    <object-name>ai_glass</object-name>
+  </animation>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>ai_base</object-name>
+    <object-name>ai_face</object-name>
+    <object-name>ai_knob</object-name>
+    <object-name>ai_pitch</object-name>
+    <object-name>ai_roll</object-name>
+    <object-name>ai_glass</object-name>
+  </animation>
+
+  <!-- working for Compositor -->
+  <effect>
+    <inherits-from>../../../../Effects/Glass/glass</inherits-from>
+    <object-name>ai_glass</object-name>
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>ai_face</object-name>
+    <condition>
+      <property>/controls/electric/battery-switch</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      <red>   0.2 </red>
+      <green> 0.2 </green>
+      <blue>  0.2 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>ai_pitch</object-name>
+    <object-name>ai_roll</object-name>
+    <condition>
+      <property>controls/electric/battery-switch</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      <red>   1 </red>
+      <green> 1 </green>
+      <blue>  1 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>texmultiple</type>
+    <object-name>ai_pitch</object-name>
+    <transform>
+      <subtype>textranslate</subtype>
+      <property>orientation/pitch-deg</property>
+      <factor> 0.003 </factor>
+      <center>
+        <x> 0.5 </x>
+        <y> 0.5 </y>
+      </center>
+      <axis>
+        <x> 0 </x>
+        <y> 1 </y>
+        <z> 0 </z>
+      </axis>
+    </transform>
+  </animation>
+
+  <animation>
+      <type>rotate</type>
+      <object-name>ai_roll</object-name>
+      <property>orientation/roll-deg</property>
+      <center>
+          <x-m>0.0</x-m>
+          <y-m>0.0</y-m>
+          <z-m>0.0</z-m>
+      </center>
+      <axis>
+          <x> 0</x>
+          <y> 0</y>
+          <z>-1</z>
+      </axis>
+  </animation>
+
+</PropertyList>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <model>
+    <name>ThePilot</name>
+    <path>pilot.xml</path>
+    <offsets>
+      <x-m> -0.48 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.165 </z-m>
+    </offsets>
+  </model>
+
+  <animation>
+    <type>select</type>
+    <object-name>ThePilot</object-name>
+    <condition>
+      <not-equals>
+        <property>sim/current-view/name</property>
+        <value>Cockpit View</value>
+      </not-equals>
+    </condition>
+  </animation>
+
+  <model>
+    <name>Copilot</name>
+    <path>pilot.xml</path>
+    <offsets>
+      <x-m>  0.8335 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.185 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Select copilot -->
+  <animation>
+    <type>select</type>
+    <object-name>Copilot</object-name>
+    <condition>
+      <and>
+        <!-- <property>sim/model/show-copilot</property> -->
+        <property>sim/multiplay/generic/bool[0]</property>
+        <not-equals>
+          <property>sim/current-view/name</property>
+          <value>Instructor Seat View</value>
+        </not-equals>
+      </and>
+    </condition>
+  </animation>
+
+</PropertyList>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>interior.ac</path>
+
+  <animation>
+    <!-- Objets opaques -->
+    <object-name>cockpit_tub</object-name>
+    <object-name>cockpit_panel</object-name>
+    <object-name>cockpit_hood</object-name>
+
+    <!-- Objets transparents -->
+    <object-name>inter_glass</object-name>
+    <!-- HDR mode -->
+    <object-name>HDRinter_glass</object-name>
+  </animation>
+
+  <!-- working for Compositor -->
+  <effect>
+    <inherits-from>../Effects/Glass/glassrain</inherits-from>
+    <object-name>inter_glass</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>../Effects/Glass/glass</inherits-from>
+    <object-name>HDRinter_glass</object-name>
+  </effect>
+
+  <!-- Select HDR glass -->
+  <animation>
+    <type>select</type>
+    <condition>
+      <!-- <property>sim/rendering/hdr/hdr-enabled</property> -->
+      <property>sim/multiplay/generic/bool[2]</property>
+    </condition>
+    <object-name>HDRinter_glass</object-name>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <condition>
+      <!-- <not><property>sim/rendering/hdr/hdr-enabled</property></not> -->
+      <not><property>sim/multiplay/generic/bool[2]</property></not>
+    </condition>
+    <object-name>inter_glass</object-name>
+  </animation>
+
+  <model>
+    <path>Panel/panel.xml</path>
+  </model>
+
+  <model>
+    <path>../Pilot/all-pilots.xml</path>
+  </model>
+
+  <model>
+    <path>Seats/all-seats.xml</path>
+  </model>
+
+  <model>
+    <path>Stick/all-sticks.xml</path>
+  </model>
+
+  <model>
+    <path>Pedals/all-pedals.xml</path>
+  </model>
+
+  <!-- Canopy -->
+  <animation>
+    <name>IntCanopyComplete</name>
+    <object-name>inttourverriere</object-name>
+    <object-name>inter_glass</object-name>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>IntCanopyComplete</object-name>
+    <object-name>HDRinter_glass</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+          <and>
+            <property>gear/gear[0]/wow</property>
+            <property>gear/gear[1]/wow</property>
+            <property>gear/gear[2]/wow</property>
+            <less-than>
+              <property>gear/gear[0]/rollspeed-ms</property>
+              <value>10</value>
+            </less-than>
+          </and>
+        </condition>
+        <command>nasal</command>
+        <script>doors.crew.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>IntCanopyComplete</object-name>
+    <object-name>HDRinter_glass</object-name>
+    <!-- <property>sim/model/door-positions/crew/position-norm</property> -->
+    <property>sim/multiplay/generic/float[0]</property>
+    <factor> -95 </factor>
+    <axis>
+      <x1-m> -0.80849 </x1-m>
+      <y1-m>  0.39471 </y1-m>
+      <z1-m>  0.09252 </z1-m>
+      <x2-m>  0.86179 </x2-m>
+      <y2-m>  0.38590 </y2-m>
+      <z2-m>  0.14012 </z2-m>
+    </axis>
+  </animation>
+
+</PropertyList>
