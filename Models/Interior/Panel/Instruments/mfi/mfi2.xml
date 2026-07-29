@@ -1619,7 +1619,7 @@
         </condition>
         <command>property-adjust</command>
         <property>/instrumentation/efis/inputs/range-nm</property>
-            <step>-40</step>
+            <step>40</step>
             <min>20</min>
             <max>140</max>
             <wrap>false</wrap>
@@ -1722,7 +1722,7 @@
         </condition>
         <command>property-adjust</command>
         <property>/instrumentation/efis/inputs/range-nm</property>
-            <step>40</step>
+            <step>-40</step>
             <min>20</min>
             <max>140</max>
             <wrap>false</wrap>
