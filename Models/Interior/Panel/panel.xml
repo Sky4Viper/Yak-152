@@ -824,6 +824,16 @@
         <command>property-toggle</command>
         <property>sim/model/lights/warn_blink/enabled</property>
       </binding>
+      <binding>
+          <command>nasal</command>
+            <script>
+              <![CDATA[
+              radiocfg.COM_init();
+              radiocfg.ARC_init();
+              radiocfg.PRMG_init();radiocfg.RSBN_init();
+              ]]>
+            </script>
+        </binding>
     </action>
   </animation>
 
