@@ -25,6 +25,10 @@ var convert = func {
   var oat   = getprop("/environment/temperature-degc");
   var ias   = getprop("/instrumentation/airspeed-indicator/indicated-speed-kt");
   var iaskm   = ias *1.852;
+  var ialt   = getprop("/instrumentation/altimeter/indicated-altitude-ft");
+  var ialtm   = ialt *0.3048;
+  var aglft   = getprop("/position/altitude-agl-ft");
+  var aglm   = aglft *0.3048;
   var inHg   = getprop("/instrumentation/altimeter/setting-inhg");
   var mmHg   = inHg *25.401069519;
   var dmekn = getprop("instrumentation/dme/indicated-distance-nm");
@@ -79,6 +83,8 @@ var convert = func {
   setprop("/engines/engine[0]/cyl-temp", cylt0);
   setprop("/engines/engine[0]/carb-temp-degc", cart0);
   setprop("/instrumentation/airspeed-indicator/indicated-speed-km", iaskm);
+  setprop("/instrumentation/altimeter/indicated-altitude-m", ialtm);
+  setprop("/position/altitude-agl-m", aglm);
   setprop("/instrumentation/altimeter/setting-mmhg", mmHg);
   setprop("/instrumentation/dme/indicated-distance-km", dmekm);
   setprop("/autopilot/settings/target-altitude-m", apalttgtm);

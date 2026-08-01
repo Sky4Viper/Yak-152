@@ -7,13 +7,13 @@ MATERIAL "mat_needle_wht" rgb 1 1 1 amb 0 0 0 emis 1 1 1 spec 0 0 0 shi 0 trans 
 MATERIAL "mat_digit" rgb 1 1 1 amb 0 0 0 emis 1 1 1 spec 0 0 0 shi 0 trans 0
 MATERIAL "mat_mfi_page4" rgb 1 1 1 amb 0 0 0 emis 1 1 1 spec 0 0 0 shi 0 trans 0
 MATERIAL "mat_mfi_page2" rgb 1 1 1 amb 0 0 0 emis 1 1 1 spec 0 0 0 shi 0 trans 0
-MATERIAL "mat_mfi_base" rgb 1.000 1.000 1.000  amb 0.800 0.800 0.800  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 64 trans 0.000
+MATERIAL "mat_mfi_base" rgb 1 1 1 amb 0.8 0.8 0.8 emis 0 0 0 spec 1 1 1 shi 64 trans 0
 MATERIAL "mat_mfi_map" rgb 1 1 1 amb 0 0 0 emis 1 1 1 spec 0 0 0 shi 0 trans 0
 MATERIAL "mat_mfi_nd" rgb 1 1 1 amb 0 0 0 emis 1 1 1 spec 0 0 0 shi 0 trans 0
 MATERIAL "mat_mfi_page3" rgb 1 1 1 amb 0 0 0 emis 1 1 1 spec 0 0 0 shi 0 trans 0
 OBJECT world
 name "mfi.ac"
-kids 84
+kids 91
 OBJECT poly
 name "ai_pitch.001"
 data 14
@@ -811,6 +811,86 @@ refs 3
 6 0 0
 5 1 0
 4 1 1
+kids 0
+OBJECT poly
+name "altnum1"
+data 16
+asinum1.mesh.007
+crease 40.0
+texture "digits.png"
+numvert 4
+0.0314 0.00002 -0.05745
+0.03654 0.00002 -0.05745
+0.03654 0.00002 -0.05417
+0.0314 0.00002 -0.05417
+numsurf 1
+SURF 0X0
+mat 5
+refs 4
+0 0.098601 0.853019
+3 -0.000114 0.853019
+2 -0.000114 0.142722
+1 0.098601 0.142722
+kids 0
+OBJECT poly
+name "altnum10"
+data 17
+asinum10.mesh.007
+crease 40.0
+texture "digits.png"
+numvert 4
+0.0314 0.00002 -0.05087
+0.03654 0.00002 -0.05087
+0.03654 0.00002 -0.05416
+0.0314 0.00002 -0.05416
+numsurf 1
+SURF 0X0
+mat 5
+refs 4
+3 0.098601 0.853019
+0 -0.000114 0.853019
+1 -0.000114 0.142722
+2 0.098601 0.142722
+kids 0
+OBJECT poly
+name "altnum100"
+data 18
+asinum100.mesh.007
+crease 40.0
+texture "digits.png"
+numvert 4
+0.0314 0.00002 -0.05086
+0.03654 0.00002 -0.05086
+0.03654 0.00002 -0.04757
+0.0314 0.00002 -0.04757
+numsurf 1
+SURF 0X0
+mat 5
+refs 4
+0 0.098601 0.853019
+3 -0.000114 0.853019
+2 -0.000114 0.142722
+1 0.098601 0.142722
+kids 0
+OBJECT poly
+name "altnum1000"
+data 18
+asinum100.mesh.008
+crease 40.0
+texture "digits.png"
+numvert 4
+0.0314 0.00002 -0.04757
+0.03654 0.00002 -0.04757
+0.03654 0.00002 -0.04428
+0.0314 0.00002 -0.04428
+numsurf 1
+SURF 0X0
+mat 5
+refs 4
+0 0.098601 0.853019
+3 -0.000114 0.853019
+2 -0.000114 0.142722
+1 0.098601 0.142722
 kids 0
 OBJECT poly
 name "AoAneedle"
@@ -18405,6 +18485,66 @@ numvert 4
 0.01604 0.00002 -0.03354
 0.01604 0.00002 -0.03025
 0.0109 0.00002 -0.03025
+numsurf 1
+SURF 0X0
+mat 5
+refs 4
+0 0.098601 0.853019
+3 -0.000114 0.853019
+2 -0.000114 0.142722
+1 0.098601 0.142722
+kids 0
+OBJECT poly
+name "raltnum1"
+data 16
+asinum1.mesh.008
+crease 40.0
+texture "digits.png"
+numvert 4
+0.03749 0.00002 -0.05745
+0.04263 0.00002 -0.05745
+0.04263 0.00002 -0.05417
+0.03749 0.00002 -0.05417
+numsurf 1
+SURF 0X0
+mat 5
+refs 4
+0 0.098601 0.853019
+3 -0.000114 0.853019
+2 -0.000114 0.142722
+1 0.098601 0.142722
+kids 0
+OBJECT poly
+name "raltnum10"
+data 17
+asinum10.mesh.008
+crease 40.0
+texture "digits.png"
+numvert 4
+0.03749 0.00002 -0.05087
+0.04263 0.00002 -0.05087
+0.04263 0.00002 -0.05416
+0.03749 0.00002 -0.05416
+numsurf 1
+SURF 0X0
+mat 5
+refs 4
+3 0.098601 0.853019
+0 -0.000114 0.853019
+1 -0.000114 0.142722
+2 0.098601 0.142722
+kids 0
+OBJECT poly
+name "raltnum100"
+data 18
+asinum100.mesh.010
+crease 40.0
+texture "digits.png"
+numvert 4
+0.03749 0.00002 -0.05086
+0.04263 0.00002 -0.05086
+0.04263 0.00002 -0.04757
+0.03749 0.00002 -0.04757
 numsurf 1
 SURF 0X0
 mat 5

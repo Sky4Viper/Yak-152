@@ -135,7 +135,8 @@
       <file>Aircraft/Yak-152/Nasal/yak152.nas</file>
       <file>Aircraft/Yak-152/Nasal/convert.nas</file>
       <file>Aircraft/Yak-152/Nasal/Electrical.nas</file>
-      <file>Aircraft/Yak-152/Nasal/moving-map.nas</file>
+      <file>Aircraft/Yak-152/Nasal/mfi.nas</file>
+      <file>Aircraft/Yak-152/Nasal/map.nas</file>
       <file>Aircraft/Yak-152/Nasal/nd.nas</file>
       <file>Aircraft/Yak-152/Nasal/dlg.nas</file>
     </yak152>

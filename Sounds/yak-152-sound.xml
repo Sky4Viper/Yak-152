@@ -697,6 +697,33 @@
       </volume>
     </click>
 
+    <!--Avionics-->
+
+    <avionics>
+      <name>mfi-hum</name>
+      <mode>looped</mode>
+      <path>avionics.wav</path>
+      <type>avionics</type>
+      <condition>
+       <and>
+          <property>/sim/current-view/internal</property>
+         <or>
+           <property>/controls/instrumentation/mfis/mfi[1]/booting</property>
+           <property>/controls/instrumentation/mfis/mfi[2]/booting</property>
+           <property>/controls/instrumentation/mfis/mfi[3]/booting</property> 
+           <property>/controls/instrumentation/mfis/mfi[4]/booting</property>
+           <equals>
+             <property>/controls/instrumentation/mfis/mfi[1]/page</property>
+             <value>7</value>
+           </equals>
+         </or>
+        </and>
+      </condition>
+      <volume>
+        <factor>0.3</factor>
+      </volume>
+    </avionics>
+
     <rain>
       <name>rain</name>
       <mode>looped</mode>

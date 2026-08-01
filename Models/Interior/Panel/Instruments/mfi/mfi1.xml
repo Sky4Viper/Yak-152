@@ -55,6 +55,13 @@
         <object-name>asinum100</object-name>
         <object-name>asinum10</object-name>
         <object-name>asinum1</object-name>
+        <object-name>altnum1000</object-name>
+        <object-name>altnum100</object-name>
+        <object-name>altnum10</object-name>
+        <object-name>altnum1</object-name>
+        <object-name>raltnum100</object-name>
+        <object-name>raltnum10</object-name>
+        <object-name>raltnum1</object-name>
         <object-name>ALTneedle1</object-name>
         <object-name>ALTneedle2</object-name>
         <object-name>VSIneedle</object-name>
@@ -123,6 +130,28 @@
     </animation>
 
     <animation>
+        <type>material</type>
+        <object-name>mfi-boot</object-name>
+        <object-name>mfi-off</object-name>
+        <ambient>
+            <red>0.4</red>
+            <green>1</green>
+            <blue>0.3</blue>
+        </ambient>
+        <diffuse>
+            <red>0.4</red>
+            <green>1</green>
+            <blue>0.3</blue>
+        </diffuse>
+        <emission>
+            <red>0.4</red>
+            <green>1</green>
+            <blue>0.3</blue>
+            <factor-prop>controls/lighting/instruments-norm</factor-prop>
+        </emission>
+    </animation>
+
+    <animation>
     <type>noshadow</type>
         <object-name>mfi_page1</object-name>
         <object-name>mfi_page2</object-name>
@@ -132,6 +161,13 @@
         <object-name>asinum100</object-name>
         <object-name>asinum10</object-name>
         <object-name>asinum1</object-name>
+        <object-name>altnum1000</object-name>
+        <object-name>altnum100</object-name>
+        <object-name>altnum10</object-name>
+        <object-name>altnum1</object-name>
+        <object-name>raltnum100</object-name>
+        <object-name>raltnum10</object-name>
+        <object-name>raltnum1</object-name>
         <object-name>ALTneedle1</object-name>
         <object-name>ALTneedle2</object-name>
         <object-name>VSIneedle</object-name>
@@ -180,7 +216,66 @@
         <object-name>mfi_gear2r</object-name>
     </animation>
 
+<!-- MFI text -->
+
+    <text>
+        <name>mfi-boot</name>
+        <font>lcd.txf</font>
+        <character-size type="double">0.004</character-size>
+        <offsets>
+            <x-m> 0.00</x-m>
+            <y-m> 0.00</y-m>
+            <z-m>-0.00015</z-m>
+            <pitch-deg>-90</pitch-deg>
+        </offsets>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">literal</type>
+        <text type="string">SYSTEM BOOTING UP...</text>
+        <draw-text type="bool">true</draw-text>
+        <alignment>center-top</alignment>
+    </text>
+
+    <text>
+        <name>mfi-off</name>
+        <font>lcd.txf</font>
+        <character-size type="double">0.004</character-size>
+        <offsets>
+            <x-m> 0.00</x-m>
+            <y-m> 0.00</y-m>
+            <z-m>-0.00015</z-m>
+            <pitch-deg>-90</pitch-deg>
+        </offsets>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">literal</type>
+        <text type="string">SYSTEM SHUTTING DOWN...</text>
+        <draw-text type="bool">true</draw-text>
+        <alignment>center-top</alignment>
+    </text>
+
 <!-- Select on Power ON -->
+
+  <animation>
+    <type>select</type>
+      <object-name>mfi-boot</object-name>
+      <condition>
+        <property>controls/electric/battery-switch</property>
+        <equals>
+          <property>controls/instrumentation/mfis/mfi[1]/page</property>
+          <value>0</value>
+        </equals>
+      </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+      <object-name>mfi-off</object-name>
+      <condition>
+        <equals>
+          <property>controls/instrumentation/mfis/mfi[1]/page</property>
+          <value>7</value>
+        </equals>
+      </condition>
+  </animation>
 
   <animation>
     <type>select</type>
@@ -189,6 +284,13 @@
         <object-name>asinum100</object-name>
         <object-name>asinum10</object-name>
         <object-name>asinum1</object-name>
+        <object-name>altnum1000</object-name>
+        <object-name>altnum100</object-name>
+        <object-name>altnum10</object-name>
+        <object-name>altnum1</object-name>
+        <object-name>raltnum100</object-name>
+        <object-name>raltnum10</object-name>
+        <object-name>raltnum1</object-name>
         <object-name>ALTneedle1</object-name>
         <object-name>ALTneedle2</object-name>
         <object-name>VSIneedle</object-name>
@@ -796,7 +898,7 @@
     </condition>
   </animation>
     
-    <animation>
+  <animation>
         <type>textranslate</type>
         <object-name>asinum1</object-name>
         <property>/instrumentation/airspeed-indicator/indicated-speed-km</property>
@@ -807,7 +909,7 @@
             <y>0</y>
             <z>0</z>
         </axis>
-    </animation>
+  </animation>
  
  <!-- Altimeter -->
 
@@ -843,6 +945,165 @@
             <y> 0</y>
             <z>-1</z>
         </axis>
+    </animation>
+
+  <animation>
+        <type>textranslate</type>
+        <object-name>altnum1000</object-name>
+        <property>instrumentation/altimeter/indicated-altitude-m</property>
+        <factor>0.0001</factor>
+        <step>1000</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <!-- <animation>
+    <type>select</type>
+    <object-name>altnum1000</object-name>
+    <condition>
+      <greater-than-equals>
+        <property>/instrumentation/altimeter/indicated-altitude-m</property>
+        <value>1000</value>
+      </greater-than-equals>
+    </condition>
+  </animation> -->
+
+  <animation>
+        <type>textranslate</type>
+        <object-name>altnum100</object-name>
+        <property>instrumentation/altimeter/indicated-altitude-m</property>
+        <factor>0.001</factor>
+        <step>100</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <!-- <animation>
+    <type>select</type>
+    <object-name>altnum100</object-name>
+    <condition>
+      <greater-than-equals>
+        <property>/instrumentation/altimeter/indicated-altitude-m</property>
+        <value>100</value>
+      </greater-than-equals>
+    </condition>
+  </animation> -->
+    
+    <animation>
+        <type>textranslate</type>
+        <object-name>altnum10</object-name>
+        <property>instrumentation/altimeter/indicated-altitude-m</property>
+        <factor>0.01</factor>
+        <step>10</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <!-- <animation>
+    <type>select</type>
+    <object-name>altnum10</object-name>
+    <condition>
+      <greater-than-equals>
+        <property>/instrumentation/altimeter/indicated-altitude-m</property>
+        <value>10</value>
+      </greater-than-equals>
+    </condition>
+    </animation> -->
+    
+    <animation>
+        <type>textranslate</type>
+        <object-name>altnum1</object-name>
+        <property>instrumentation/altimeter/indicated-altitude-m</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+ <!-- Radio Altimeter -->
+
+ <animation>
+        <type>textranslate</type>
+        <object-name>raltnum100</object-name>
+        <property>/position/altitude-agl-m</property>
+        <factor>0.001</factor>
+        <step>100</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+  </animation>
+    
+  <animation>
+    <type>select</type>
+    <object-name>raltnum100</object-name>
+    <condition>
+      <less-than-equals>
+        <property>/position/altitude-agl-ft</property>
+        <value>1650</value>
+      </less-than-equals>
+    </condition>
+  </animation>
+    
+    <animation>
+        <type>textranslate</type>
+        <object-name>raltnum10</object-name>
+        <property>/position/altitude-agl-m</property>
+        <factor>0.01</factor>
+        <step>10</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+    
+    <animation>
+    <type>select</type>
+    <object-name>raltnum10</object-name>
+    <condition>
+      <less-than-equals>
+        <property>/position/altitude-agl-ft</property>
+        <value>1650</value>
+      </less-than-equals>
+    </condition>
+    </animation>
+    
+    <animation>
+        <type>textranslate</type>
+        <object-name>raltnum1</object-name>
+        <property>/position/altitude-agl-m</property>
+        <factor>0.1</factor>
+        <step>1</step>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+    <type>select</type>
+    <object-name>raltnum1</object-name>
+    <condition>
+      <less-than-equals>
+        <property>/position/altitude-agl-ft</property>
+        <value>1650</value>
+      </less-than-equals>
+    </condition>
     </animation>
     
  <!-- Vertical Speed Indicator -->
