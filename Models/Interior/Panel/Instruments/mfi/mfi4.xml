@@ -125,7 +125,10 @@
           <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
         </emission>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <property>controls/electric/generator-switch</property>
+      </or>
     </condition>
     </animation>
 
@@ -276,10 +279,13 @@
     <type>select</type>
       <object-name>mfi-boot</object-name>
       <condition>
-        <property>controls/electric/battery-switch</property>
+        <!-- <or>
+          <property>controls/electric/battery-switch</property>
+          <property>controls/electric/generator-switch</property>
+        </or> -->
         <equals>
           <property>controls/instrumentation/mfis/mfi[4]/page</property>
-          <value>0</value>
+          <value>7</value>
         </equals>
       </condition>
   </animation>
@@ -288,7 +294,7 @@
     <type>select</type>
       <object-name>mfi-standby</object-name>
       <condition>
-        <property>controls/electric/battery-switch</property>
+
         <equals>
           <property>controls/instrumentation/mfis/mfi[4]/page</property>
           <value>8</value>
@@ -302,7 +308,7 @@
       <condition>
         <equals>
           <property>controls/instrumentation/mfis/mfi[4]/page</property>
-          <value>7</value>
+          <value>9</value>
         </equals>
       </condition>
   </animation>
@@ -352,7 +358,6 @@
         <object-name>cnum10</object-name>
         <object-name>cnum1</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
       <equals>
       <property>controls/instrumentation/mfis/mfi[4]/page</property>
        <value>1</value>
@@ -364,10 +369,9 @@
     <type>select</type>
         <object-name>mfi_page2</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
       <equals>
-      <property>controls/instrumentation/mfis/mfi[4]/page</property>
-       <value>2</value>
+        <property>controls/instrumentation/mfis/mfi[4]/page</property>
+        <value>2</value>
       </equals>
     </condition>
   </animation>
@@ -380,7 +384,7 @@
         <object-name>ffnum10</object-name>
         <object-name>ffnum1</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
         <property>controls/instrumentation/mfis/mfi[4]/page</property>
         <value>2</value>
@@ -396,7 +400,7 @@
     <type>select</type>
         <object-name>mfi_gear2f</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
         <property>controls/instrumentation/mfis/mfi[4]/page</property>
         <value>2</value>
@@ -416,7 +420,7 @@
     <type>select</type>
         <object-name>mfi_gear2l</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
         <property>controls/instrumentation/mfis/mfi[4]/page</property>
         <value>2</value>
@@ -436,7 +440,7 @@
     <type>select</type>
         <object-name>mfi_gear2r</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
         <property>controls/instrumentation/mfis/mfi[4]/page</property>
         <value>2</value>
@@ -456,7 +460,7 @@
     <type>select</type>
         <object-name>mfi_page2_nd</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
       <property>controls/instrumentation/mfis/mfi[4]/page</property>
        <value>2</value>
@@ -472,7 +476,7 @@
     <type>select</type>
         <object-name>mfi_page2_map</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
       <property>controls/instrumentation/mfis/mfi[4]/page</property>
        <value>2</value>
@@ -488,7 +492,7 @@
     <type>select</type>
         <object-name>mfi_page3</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
       <property>controls/instrumentation/mfis/mfi[4]/page</property>
        <value>3</value>
@@ -500,7 +504,7 @@
     <type>select</type>
         <object-name>mfi_page4</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
       <property>controls/instrumentation/mfis/mfi[4]/page</property>
        <value>4</value>
@@ -515,7 +519,7 @@
     <object-name>FlapsT</object-name>
     <condition>
       <and>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
         <property>controls/instrumentation/mfis/mfi[4]/page</property>
         <value>1</value>
@@ -537,7 +541,7 @@
     <object-name>FlapsL</object-name>
     <condition>
       <and>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
       <property>controls/instrumentation/mfis/mfi[4]/page</property>
        <value>1</value>
@@ -559,7 +563,7 @@
     <object-name>FlapsT2</object-name>
     <condition>
       <and>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
         <property>controls/instrumentation/mfis/mfi[4]/page</property>
         <value>2</value>
@@ -581,7 +585,7 @@
     <object-name>FlapsL2</object-name>
     <condition>
       <and>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
       <property>controls/instrumentation/mfis/mfi[4]/page</property>
        <value>2</value>
@@ -603,7 +607,7 @@
     <object-name>FlapsT4</object-name>
     <condition>
       <and>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
         <property>controls/instrumentation/mfis/mfi[4]/page</property>
         <value>4</value>
@@ -625,7 +629,7 @@
     <object-name>FlapsL4</object-name>
     <condition>
       <and>
-      <property>controls/electric/battery-switch</property>
+      <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
       <property>controls/instrumentation/mfis/mfi[4]/page</property>
        <value>4</value>
