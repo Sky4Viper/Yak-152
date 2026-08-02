@@ -133,6 +133,7 @@
         <type>material</type>
         <object-name>mfi-boot</object-name>
         <object-name>mfi-off</object-name>
+        <object-name>mfi-standby</object-name>
         <ambient>
             <red>0.4</red>
             <green>1</green>
@@ -252,6 +253,23 @@
         <alignment>center-top</alignment>
     </text>
 
+    <text>
+        <name>mfi-standby</name>
+        <font>lcd.txf</font>
+        <character-size type="double">0.004</character-size>
+        <offsets>
+            <x-m> 0.00</x-m>
+            <y-m> 0.00</y-m>
+            <z-m>-0.00015</z-m>
+            <pitch-deg>-90</pitch-deg>
+        </offsets>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">literal</type>
+        <text type="string">SYSTEM STANDBY (ON BATTERY)...</text>
+        <draw-text type="bool">true</draw-text>
+        <alignment>center-top</alignment>
+    </text>
+
 <!-- Select on Power ON -->
 
   <animation>
@@ -262,6 +280,18 @@
         <equals>
           <property>controls/instrumentation/mfis/mfi[1]/page</property>
           <value>0</value>
+        </equals>
+      </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+      <object-name>mfi-standby</object-name>
+      <condition>
+        <property>controls/electric/battery-switch</property>
+        <equals>
+          <property>controls/instrumentation/mfis/mfi[1]/page</property>
+          <value>8</value>
         </equals>
       </condition>
   </animation>
