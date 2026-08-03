@@ -56,7 +56,7 @@
   <fuselage ax=" 1.251" ay=" 0.000" az="-0.0129" bx=" 0.008" by=" 0.000" bz=" 0.384" width="0.815" taper="0.70" midpoint="1" cx="0.30" cy="0.4" cz="0.4"/>
   <fuselage ax=" 0.206" ay=" 0.000" az=" 0.384" bx="-2.308" by=" 0.000" bz=" 0.077" width="0.815" taper="0.20" midpoint="0" cx="0.30" cy="0.4" cz="0.4"/>
 
-  <wing x="0.383" y="0.000" z="-0.6217"
+  <wing x="0.413" y="0.000" z="-0.6217"
         chord    ="1.837"
         length   ="4.41"
         taper    ="0.60"
@@ -67,7 +67,7 @@
         camber   ="0.1"
         idrag    ="1.15">
         <stall   aoa="13.5" width="6" peak="1.5"/>
-        <flap0 start="0.02" end="0.58" lift="1.42" drag="2.0"/>
+        <flap0 start="0.02" end="0.58" lift="1.4" drag="1.8"/>
         <flap1 start="0.58" end="1.00" lift="1.2" drag="1.2"/>
         <control-input  control="FLAP0" axis="/controls/flight/flaps"/>
         <control-input  control="FLAP1" axis="/controls/flight/aileron"      split="true"/>
@@ -85,7 +85,7 @@
          taper  = "0.62"
          sweep  = "1"
          effectiveness ="1.3"
-         incidence="-0.45">
+         incidence="-0.49">
          <stall   aoa="16" width="5" peak="1.5"/>
          <flap0 start="0.0" end="0.98" lift="1.67" drag="1.15"/>
          <control-input  control="FLAP0" axis="/controls/flight/elevator"/>
@@ -158,9 +158,9 @@
 
   <!-- Noze wheel -->
   <gear x="2.04936" y=" 0.000" z="-1.8599"
-        compression = "0.13"
+        compression = "0.15"
         upx="-0.3" upy="0" upz="1"
-        spring      = "0.9"
+        spring      = "0.5"
         sfric       = "0.75"
         dfric       = "0.65"
         stiction    = "1"
@@ -168,17 +168,17 @@
         <control-input control="CASTERING"  axis="/controls/gear/brake-parking"  src0="0" src1="1" dst0="1" dst1="0" />
         <control-input  control="EXTEND"    axis="/controls/gear/gear-down"/>
         <control-output control="EXTEND"    prop="/gear/gear[0]/position-norm"/>
-        <control-speed  control="EXTEND"    transition-time="5"/>
+        <control-speed  control="EXTEND"    transition-time="4.5"/>
   </gear>
 
   <!-- Left wheel -->
   <gear x="0.35435" y=" 1.39584" z="-1.7438"
         compression = "0.13"
-        spring      = "0.8"
+        spring      = "0.6"
         sfric       = "0.75"
         dfric       = "0.65"
         stiction    = "1">
-        <control-input  control="BRAKE"  axis="/controls/gear/brake-left" split="true"/>
+        <control-input  control="BRAKE"  axis="/controls/gear/brake-left" square="true" split="true"/>
         <control-input  control="BRAKE"  axis="/controls/gear/brake-parking" split="true"/>
         <control-input  control="EXTEND" axis="/controls/gear/gear-down"/>
         <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
@@ -188,11 +188,11 @@
   <!-- Right wheel -->
   <gear x="0.35435" y="-1.39584" z="-1.7438"
         compression = "0.13"
-        spring      = "0.8"
+        spring      = "0.6"
         sfric       = "0.75"
         dfric       = "0.65"
         stiction    = "1">
-        <control-input  control="BRAKE"  axis="/controls/gear/brake-right" split="true"/>
+        <control-input  control="BRAKE"  axis="/controls/gear/brake-right" square="true" split="true"/>
         <control-input  control="BRAKE"  axis="/controls/gear/brake-parking" split="true"/>
         <control-input  control="EXTEND" axis="/controls/gear/gear-down"/>
         <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
@@ -203,12 +203,13 @@
   <tank x="0.383" y=" 2.300" z="-0.600" capacity="270"/>
   <tank x="0.383" y="-2.300" z="-0.600" capacity="270"/>
 
-  <!-- Mass distribution
-       Dilbert : The cg should be about 1/6 chord ahead of the chord center.
-                 1.832 / 6     = 0.305
-                 0.808 + 0.305 = 1.113
+  <!-- Balast:
+       330 = 20% MAC
+       320 = 21% MAC
+       310 = 22% MAC
+       300 = 23% MAC
+       290 = 24% MAC
   -->
-  <!-- 25% mac -->
-  <ballast x=" 2.5" y="0.000" z="-0.500" mass="270"/>
+  <ballast x=" 2.5" y="0.000" z="-0.500" mass="300"/>
 
 </airplane>
