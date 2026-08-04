@@ -15,16 +15,21 @@
         <item>
             <name>Parking Brake</name>
             <value>SET</value>
+            <condition>
+                <equals>
+                    <property>/controls/gear/brake-parking</property>
+                    <value>1</value>
+                </equals>
+            </condition>
         </item>
 
         <item>
             <name>Control Lock</name>
-            <value>REMOVE</value>
-            <value>(if existing)</value>
+            <value>REMOVE (if existing)</value>
         </item>
 
         <item>
-            <name>Magnetos/Ignition</name>
+            <name>ESUD</name>
             <value>OFF</value>
         </item>
 
@@ -86,6 +91,12 @@
         <item>
             <name>Canopy</name>
             <value>CLOSED and LOCKED</value>
+            <condition>
+                <equals>
+                    <property>/sim/model/door-positions/crew/position-norm</property>
+                    <value>0</value>
+                </equals>
+            </condition>
         </item>
 
         <item>
@@ -107,60 +118,167 @@
         <title>Starting Engine</title>
 
         <item>
-            <name>Master Switch</name>
+            <name>Beacon Light</name>
             <value>ON</value>
+            <condition>
+                <equals>
+                    <property>/controls/lighting/beacon</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+        </item>
+
+        <item>
+            <name>Battery Master</name>
+            <value>ON</value>
+            <condition>
+                <equals>
+                    <property>/controls/electric/battery-switch</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+        </item>
+
+        <item>
+            <name>Generator</name>
+            <value>ON</value>
+            <condition>
+                <equals>
+                    <property>/controls/electric/engine/generator</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+        </item>
+
+        <item>
+            <name>ESUD</name>
+            <value>ON</value>
+            <condition>
+                <equals>
+                    <property>/controls/switches/starterkey-insert</property>
+                    <value>1</value>
+                </equals>
+                <equals>
+                    <property>/controls/engines/engine/magnetos</property>
+                    <value>3</value>
+                </equals>
+            </condition>
+        </item>
+
+        <item>
+            <name>Fuel Selector</name>
+            <value>SELECT BOTH TANKS</value>
+            <condition>
+                <and>
+                    <equals>
+                        <property>/consumables/fuel/tank[0]/selected</property>
+                        <value>1</value>
+                    </equals>
+                    <equals>
+                        <property>/consumables/fuel/tank[1]/selected</property>
+                        <value>1</value>
+                    </equals>
+                </and>
+            </condition>
         </item>
 
         <item>
             <name>Fuel Pump</name>
             <value>ON</value>
+            <condition>
+                <equals>
+                    <property>/controls/engines/engine/fuel-pump</property>
+                    <value>1</value>
+                </equals>
+            </condition>
         </item>
 
         <item>
-            <name>Beacon Light</name>
+            <name>Pitot Heat</name>
             <value>ON</value>
+            <condition>
+                <equals>
+                    <property>/controls/anti-ice/pitot-heat</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+        </item>
+
+        <item>
+            <name>Engine Start Button</name>
+            <value>PRESS and HOLD until starter disengages</value>
+            <condition>
+                <or>
+                    <equals>
+                        <property>/controls/engines/engine/starter</property>
+                        <value>1</value>
+                    </equals>
+                    <equals>
+                        <property>/engines/engine/running</property>
+                        <value>1</value>
+                    </equals>
+                </or>
+            </condition>
         </item>
 
         <item>
             <name>Throttle</name>
-            <value>OPEN 1/8 INCH</value>
-        </item>
-
-        <item>
-            <name>Propeller Area</name>
-            <value>CLEAR</value>
-        </item>
-
-        <item>
-            <name>Magnetos</name>
-            <value>BOTH</value>
-        </item>
-
-        <item>
-            <name>Ignition Switch</name>
-            <value>ON</value>
-            <value>(press s and hold until the engine starts)</value>
-        </item>
-
-        <item>
-            <name>Engine Start Procedure</name>
-            <value>Crank engine and monitor oil pressure</value>
-        </item>
-
-        <item>
-            <name>Oil Pressure</name>
-            <value>CHECK</value>
-            <value>(if not in green arc within 30 seconds, stop engine)</value>
+            <value>SET to 10% and monitor engine start</value>
+            <condition>
+                <greater-than>
+                    <property>/controls/engines/engine/throttle</property>
+                    <value>0.0</value>
+                </greater-than>
+                <less-than-or-equal>
+                    <property>/controls/engines/engine/throttle</property>
+                    <value>0.15</value>
+                </less-than-or-equal>
+            </condition>
         </item>
 
         <item>
             <name>Navigation Lights</name>
             <value>ON as required</value>
+            <condition>
+                <equals>
+                    <property>/controls/lighting/nav-lights</property>
+                    <value>1</value>
+                </equals>
+            </condition>
         </item>
 
         <item>
-            <name>Radios</name>
-            <value>ON and CHECKED</value>
+            <name>Strobe Lights</name>
+            <value>ON as required</value>
+            <condition>
+                <equals>
+                    <property>/controls/lighting/strobe</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+        </item>
+
+        <item>
+            <name>Taxi Light</name>
+            <value>ON as required</value>
+            <condition>
+                <equals>
+                    <property>/controls/lighting/taxi-light</property>
+                    <value>1</value>
+                </equals>
+            </condition>
+        </item>
+
+        <item>
+            <name>Engine Instruments</name>
+            <value>CHECK in green arc</value>
+            <value>(if oil pressure does not rise, stop the engine)</value>
+            <condition>
+                <equals>
+                    <property>/engines/engine/running</property>
+                    <value>1</value>
+                </equals>
+            </condition>
         </item>
 
     </checklist>
@@ -174,6 +292,12 @@
         <item>
             <name>Parking Brake</name>
             <value>SET</value>
+            <condition>
+                <equals>
+                    <property>/controls/gear/brake-parking</property>
+                    <value>1</value>
+                </equals>
+            </condition>
         </item>
 
         <item>
@@ -184,6 +308,12 @@
         <item>
             <name>Canopy</name>
             <value>CLOSED and LOCKED</value>
+            <condition>
+                <equals>
+                    <property>/sim/model/door-positions/crew/position-norm</property>
+                    <value>0</value>
+                </equals>
+            </condition>
         </item>
 
         <item>
@@ -204,6 +334,18 @@
         <item>
             <name>Fuel Selector Valve</name>
             <value>ON</value>
+            <condition>
+                <and>
+                    <equals>
+                        <property>/consumables/fuel/tank[0]/selected</property>
+                        <value>1</value>
+                    </equals>
+                    <equals>
+                        <property>/consumables/fuel/tank[1]/selected</property>
+                        <value>1</value>
+                    </equals>
+                </and>
+            </condition>
         </item>
 
         <item>
@@ -218,7 +360,13 @@
 
         <item>
             <name>Flaps</name>
-            <value>SET to takeoff position (first notch)</value>
+            <value>SET to takeoff position (middle button)</value>
+            <condition>
+                <equals>
+                    <property>/controls/flight/flaps</property>
+                    <value>0.66</value>
+                </equals>
+            </condition>
         </item>
 
         <item>
@@ -234,6 +382,12 @@
         <item>
             <name>Canopy and Windows</name>
             <value>CLOSED and LOCKED</value>
+            <condition>
+                <equals>
+                    <property>/sim/model/door-positions/crew/position-norm</property>
+                    <value>0</value>
+                </equals>
+            </condition>
         </item>
 
     </checklist>
@@ -271,7 +425,7 @@
 
         <item>
             <name>Directional Control</name>
-            <value>Maintain runway centerline with rudder</value>
+            <value>Maintain runway centerline with wheel breaks and rudder as speed increases</value>
         </item>
 
         <item>
@@ -329,7 +483,7 @@
 
         <item>
             <name>Altitude</name>
-            <value>Climb to cruise altitude or 1000 ft AGL if remaining in circuit</value>
+            <value>Climb to cruise altitude or 300 m AGL if remaining in circuit</value>
         </item>
 
         <item>
@@ -428,7 +582,7 @@
 
         <item>
             <name>Airspeed</name>
-            <value>DO NOT EXCEED Vne (never exceed speed)</value>
+            <value>DO NOT EXCEED Vne (never exceed speed 500 km/h)</value>
         </item>
 
         <item>
@@ -438,7 +592,7 @@
 
         <item>
             <name>Descent Rate</name>
-            <value>MAINTAIN 300-500 ft/min</value>
+            <value>MAINTAIN 3-5 m/s</value>
         </item>
 
         <item>
@@ -481,12 +635,12 @@
 
         <item>
             <name>Final Approach</name>
-            <value>Full flaps, Trim set, target airspeed ≈130 km/h</value>
+            <value>Full flaps, Trim set, target airspeed 140-150 km/h</value>
         </item>
 
         <item>
             <name>Glide Path</name>
-            <value>FOLLOW 3° glide slope to runway</value>
+            <value>FOLLOW 3 degrees glide slope to runway</value>
         </item>
 
         <item>
@@ -504,7 +658,7 @@
 
         <item>
             <name>Altitude</name>
-            <value>200-300 ft AGL</value>
+            <value>70-100 m AGL</value>
         </item>
 
         <item>
@@ -514,7 +668,7 @@
 
         <item>
             <name>Glide Path</name>
-            <value>MAINTAIN on 3° slope</value>
+            <value>MAINTAIN on 3 degrees slope</value>
         </item>
 
         <item>
@@ -614,46 +768,143 @@
         <item>
             <name>Engine Power</name>
             <value>REDUCE to idle</value>
+            <condition>
+                <less-than>
+                    <property>/controls/engines/engine/throttle</property>
+                    <value>0.05</value>
+                </less-than>
+            </condition>
         </item>
 
         <item>
             <name>Engine Idle</name>
             <value>CHECK stable at 600-800 RPM</value>
+            <condition>
+                <less-than>
+                    <property>/engines/engine/rpm</property>
+                    <value>1133</value>
+                </less-than>
+            </condition>
         </item>
 
         <item>
-            <name>Engine Shutdown</name>
-            <value>Throttle to idle, then OFF</value>
-        </item>
-
-        <item>
-            <name>Magnetos</name>
+            <name>Taxi Light</name>
             <value>OFF</value>
+            <condition>
+                <equals>
+                    <property>/controls/lighting/taxi-light</property>
+                    <value>0</value>
+                </equals>
+            </condition>
         </item>
 
         <item>
-            <name>Fuel Pump</name>
+            <name>Strobe Lights</name>
             <value>OFF</value>
-        </item>
-
-        <item>
-            <name>Master Switch</name>
-            <value>OFF</value>
-        </item>
-
-        <item>
-            <name>Beacon Light</name>
-            <value>OFF</value>
+            <condition>
+                <equals>
+                    <property>/controls/lighting/strobe</property>
+                    <value>0</value>
+                </equals>
+            </condition>
         </item>
 
         <item>
             <name>Navigation Lights</name>
             <value>OFF</value>
+            <condition>
+                <equals>
+                    <property>/controls/lighting/nav-lights</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+        </item>
+
+        <item>
+            <name>Engine Shutdown (ESUD)</name>
+            <value>OFF</value>
+            <condition>
+                <equals>
+                    <property>/controls/switches/starterkey-insert</property>
+                    <value>0</value>
+                </equals>
+                <equals>
+                    <property>/controls/engines/engine/magnetos</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+        </item>
+
+        <item>
+            <name>Generator</name>
+            <value>OFF</value>
+            <condition>
+                <equals>
+                    <property>/controls/electric/engine/generator</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+        </item>
+
+        <item>
+            <name>Fuel Pump</name>
+            <value>OFF</value>
+            <condition>
+                <equals>
+                    <property>/controls/engines/engine/fuel-pump</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+        </item>
+
+        <item>
+            <name>Fuel Selector</name>
+            <value>DESELECT BOTH TANKS</value>
+            <condition>
+                <and>
+                    <equals>
+                        <property>/consumables/fuel/tank[0]/selected</property>
+                        <value>0</value>
+                    </equals>
+                    <equals>
+                        <property>/consumables/fuel/tank[1]/selected</property>
+                        <value>0</value>
+                    </equals>
+                </and>
+            </condition>
+        </item>
+
+        <item>
+            <name>Battery Master</name>
+            <value>OFF</value>
+            <condition>
+                <equals>
+                    <property>/controls/electric/battery-switch</property>
+                    <value>0</value>
+                </equals>
+            </condition>
+        </item>
+
+        <item>
+            <name>Beacon Light</name>
+            <value>OFF</value>
+            <condition>
+                <equals>
+                    <property>/controls/lighting/beacon</property>
+                    <value>0</value>
+                </equals>
+            </condition>
         </item>
 
         <item>
             <name>Parking Brake</name>
             <value>SET</value>
+            <condition>
+                <equals>
+                    <property>/controls/gear/brake-parking</property>
+                    <value>1</value>
+                </equals>
+            </condition>
         </item>
 
         <item>
@@ -664,6 +915,12 @@
         <item>
             <name>Canopy</name>
             <value>OPEN for ventilation</value>
+            <condition>
+                <equals>
+                    <property>/sim/model/door-positions/crew/position-norm</property>
+                    <value>1</value>
+                </equals>
+            </condition>
         </item>
 
     </checklist>

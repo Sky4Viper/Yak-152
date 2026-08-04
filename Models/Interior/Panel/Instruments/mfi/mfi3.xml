@@ -125,10 +125,10 @@
           <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
         </emission>
     <condition>
-      <or>
-        <property>controls/electric/battery-switch</property>
-        <property>controls/electric/generator-switch</property>
-      </or>
+      <not-equals>
+          <property>controls/instrumentation/mfis/mfi[3]/page</property>
+          <value>0</value>
+      </not-equals>
     </condition>
     </animation>
 
@@ -1971,7 +1971,7 @@
               </condition>
               <command>set-tooltip</command>
               <tooltip-id>mfi-submode-zoomm</tooltip-id>
-              <label>MFI Sub Mode: ZOOM [-]</label>
+              <label>MFI Map Zoom [-]</label>
             </binding>
             <binding>
               <condition>
@@ -2045,7 +2045,7 @@
               </condition>
               <command>set-tooltip</command>
               <tooltip-id>mfi-submode-zoomp</tooltip-id>
-              <label>MFI Sub Mode: ZOOM [+]</label>
+              <label>MFI Map Zoom [+]</label>
             </binding>
     </hovered>
 </animation>

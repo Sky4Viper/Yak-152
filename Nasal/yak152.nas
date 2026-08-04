@@ -222,10 +222,12 @@ var update = func {
   var agl_ft = getprop("position/altitude-agl-ft");
   var ap_heading = getprop("autopilot/locks/heading");
   var ap_altitude = getprop("autopilot/locks/altitude");
-  if (agl_ft != nil and agl_ft < (15 * 3.280839895) and ((ap_heading != nil and ap_heading != "") or (ap_altitude != nil and ap_altitude != ""))) {
-    gui.popupTip("Take Control! Autopilot is disabled below 15 meters AGL!");
+  var ap_speed = getprop("autopilot/locks/speed");
+  if (agl_ft != nil and agl_ft < (20 * 3.280839895) and ((ap_heading != nil and ap_heading != "") or (ap_altitude != nil and ap_altitude != "") or (ap_speed != nil and ap_speed != ""))) {
+    gui.popupTip("Take Control! Autopilot is disabled below 20 meters AGL!");
     setprop("autopilot/locks/heading", "");
     setprop("autopilot/locks/altitude", "");
+    setprop("autopilot/locks/speed", "");
   }
 
   settimer(update,0);

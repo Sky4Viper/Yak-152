@@ -3,6 +3,7 @@
 <PropertyList>
 
   <model>
+    <name>Beacon</name>
     <path>beacon.xml</path>
     <offsets>
       <x-m> 1.45053 </x-m>
@@ -12,38 +13,46 @@
   </model>
 
   <model>
+    <name>RedLight</name>
     <path>RedLight.xml</path>
     <offsets>
       <x-m> -0.515695 </x-m>
-      <y-m> -4.4328 </y-m>
+      <y-m> -4.4228 </y-m>
       <z-m> -0.328405 </z-m>
+      <heading-deg> 15.0 </heading-deg>
     </offsets>
   </model>
 
   <model>
+    <name>StrobeLightL</name>
     <path>StrobeLight.xml</path>
     <offsets>
       <x-m> -0.450728 </x-m>
       <y-m> -4.40522 </y-m>
       <z-m> -0.328405 </z-m>
+      <heading-deg> -15.0 </heading-deg>
     </offsets>
   </model>
 
   <model>
+    <name>GreenLight</name>
     <path>GreenLight.xml</path>
     <offsets>
       <x-m> -0.515695 </x-m>
-      <y-m>  4.4328 </y-m>
+      <y-m>  4.4228 </y-m>
       <z-m> -0.328405 </z-m>
+      <heading-deg> -15.0 </heading-deg>
     </offsets>
   </model>
 
   <model>
+    <name>StrobeLightR</name>
     <path>StrobeLight.xml</path>
     <offsets>
       <x-m> -0.450728 </x-m>
       <y-m>  4.40522 </y-m>
       <z-m> -0.328405 </z-m>
+      <heading-deg> 15.0 </heading-deg>
     </offsets>
   </model>
 
@@ -58,7 +67,7 @@
   </model>
 
   <model>
-    <name>LightGear</name>
+    <name>TaxiLightGear</name>
     <path>taxi-light.xml</path>
     <condition>
       <equals>
@@ -67,14 +76,15 @@
       </equals>
     </condition>
     <offsets>
-      <x-m> -2.13393 </x-m>
+      <x-m> -2.05393 </x-m>
       <y-m> -0.069038 </y-m>
       <z-m> -1.15167 </z-m>
     </offsets>
   </model>
 
-  <!-- Gear light cone Left -->
+  <!-- Landing light cone Left -->
   <model>
+    <name>WingLandingLightLeft</name>
     <path>light-cone.xml</path>
     <offsets>
       <x-m> -1.13737 </x-m>
@@ -83,24 +93,8 @@
     </offsets>
   </model>
 
-  <!-- Gear light cone right -->
-  <!-- <model>
-    <path>light-cone.xml</path>
-    <condition>
-      <equals>
-        <property>gear/gear[2]/position-norm</property>
-        <value>1</value>
-      </equals>
-    </condition>
-    <offsets>
-      <x-m> -0.95596 </x-m>
-      <y-m>  1.15330 </y-m>
-      <z-m> -0.96008 </z-m>
-    </offsets>
-  </model> -->
-
   <!-- test -->
-  <model>
+  <!-- <model>
     <path>HDR/lightpanel.xml</path>
     <offsets>
       <x-m> -1.236 </x-m>
@@ -116,7 +110,29 @@
       <y-m>  0.000 </y-m>
       <z-m>  0.506 </z-m>
     </offsets>
-  </model>
+  </model> -->
+
   <!-- -->
+
+  <animation>
+    <type>select</type>
+    <object-name>TaxiLightGear</object-name>
+    <object-name>WingLandingLightLeft</object-name>
+    <object-name>LightTail</object-name>
+    <object-name>StrobeLightL</object-name>
+    <object-name>StrobeLightR</object-name>
+    <object-name>GreenLight</object-name>
+    <object-name>RedLight</object-name>
+    <object-name>Beacon</object-name>
+    <condition>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
+    </condition>
+  </animation>
 
 </PropertyList>

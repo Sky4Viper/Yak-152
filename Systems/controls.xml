@@ -5,7 +5,7 @@
   <lighting>
     <instrument-lights  type="bool">false</instrument-lights>
     <nav-lights         type="bool">false</nav-lights>
-    <taxi-lights        type="bool">false</taxi-lights>
+    <taxi-light        type="bool">false</taxi-light>
     <beacon             type="bool">false</beacon>
     <strobe             type="bool">false</strobe>
     <landing-lights     type="bool">false</landing-lights>

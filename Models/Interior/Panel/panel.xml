@@ -18,33 +18,39 @@
 
   <animation>
     <type>noshadow</type>
-        <object-name>cockpit_switches.005</object-name>
-        <object-name>cockpit_switches.006</object-name>
-        <object-name>cockpit_switches.007</object-name>
-        <object-name>sig_light.001</object-name>
-        <object-name>sig_light.002</object-name>
-        <object-name>sig_light.003</object-name>
-        <object-name>sig_light.004</object-name>
-        <object-name>sig_light.005</object-name>
-        <object-name>panel_screws</object-name>
+    <object-name>cockpit_switches.005</object-name>
+    <object-name>cockpit_switches.006</object-name>
+    <object-name>cockpit_switches.007</object-name>
+    <object-name>sig_light.001</object-name>
+    <object-name>sig_light.002</object-name>
+    <object-name>sig_light.003</object-name>
+    <object-name>sig_light.004</object-name>
+    <object-name>sig_light.005</object-name>
+    <object-name>panel_screws</object-name>
   </animation>
 
   <animation>
-        <type>material</type>
-        <object-name>lpbtn01lgt</object-name>
-        <object-name>lpbtn02lgt</object-name>
-        <object-name>lpbtn03lgt</object-name>
-        <object-name>lpbtn04lgt</object-name>
-        <object-name>lpbtn05lgt</object-name>
-        <object-name>lpbtn06lgt</object-name>
-        <emission>
-          <red>   0.01 </red>
-          <green> 0.01 </green>
-          <blue>  0.01 </blue>
-          <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
-        </emission>
+    <type>material</type>
+    <object-name>lpbtn01lgt</object-name>
+    <object-name>lpbtn02lgt</object-name>
+    <object-name>lpbtn03lgt</object-name>
+    <object-name>lpbtn04lgt</object-name>
+    <object-name>lpbtn05lgt</object-name>
+    <object-name>lpbtn06lgt</object-name>
+    <emission>
+        <red>   0.01 </red>
+        <green> 0.01 </green>
+        <blue>  0.01 </blue>
+        <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+    </emission>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
     </condition>
   </animation>
 
@@ -52,7 +58,13 @@
     <type>material</type>
     <object-name>cockpit_mfi_ext_page</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
     </condition>
     <emission>
       <factor-prop>controls/lighting/instruments-norm</factor-prop>
@@ -70,7 +82,13 @@
     <object-name>sig_light.004</object-name>
     <object-name>sig_light.005</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
     </condition>
     <emission>
       <factor-prop>controls/lighting/instruments-norm</factor-prop>
@@ -181,7 +199,13 @@
     <type>select</type>
     <object-name>cockpit_mfi_ext_page</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
       <not><property>sim/current-view/internal</property></not>
     </condition>
   </animation>
@@ -198,7 +222,13 @@
     <object-name>lpbtn04lgt</object-name>
     <condition>
       <and>
-      <property>controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
       <equals>
         <property>controls/flight/flaps</property>
         <value>0</value>
@@ -213,7 +243,13 @@
     <object-name>lpbtn05lgt</object-name>
     <condition>
       <and>
-      <property>controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
       <equals>
         <property>controls/flight/flaps</property>
         <value>0.66</value>
@@ -228,7 +264,13 @@
     <object-name>lpbtn06lgt</object-name>
     <condition>
       <and>
-      <property>controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
       <equals>
         <property>controls/flight/flaps</property>
         <value>1</value>
@@ -552,6 +594,26 @@
 
   <animation>
     <type>rotate</type>
+    <object-name>lp_switch.001</object-name>
+    <property>/controls/lighting/taxi-light</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-26</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-1.09627</x-m>
+      <y-m> 0.0</y-m>
+      <z-m>-0.018335</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
     <object-name>lp_switch.003</object-name>
     <property>consumables/fuel/tank[0]/selected</property>
     <interpolation>
@@ -749,6 +811,20 @@
       <y>0</y>
       <z>1</z>
     </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>lp_switch.001</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/lighting/taxi-light</property>
+      </binding>
+    </action>
   </animation>
 
   <animation>

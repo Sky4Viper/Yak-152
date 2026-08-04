@@ -3,44 +3,44 @@ var is_running = 0;
 
 # Define the sequence of property paths for your switches
 var startup_switches = [
-    "/controls/switches/starterkey-insert",
-    "/controls/engines/engine/magnetos",
+    "/controls/lighting/beacon",
     "/controls/electric/battery-switch",
     "/controls/electric/engine/generator",
-    "/controls/lighting/beacon",
-    "/controls/lighting/nav-lights",
-    "/controls/lighting/strobe",
+    "/controls/switches/starterkey-insert",
     "/yak152/controls/fuelswchcover1",      
-    "BOTH_TANKS",
+    "BOTH_TANKS",                         # Select both tanks simultaneously
     "/controls/engines/engine/fuel-pump",
     "/controls/anti-ice/pitot-heat",
     "/yak152/controls/enginebtncover1",
-    "/controls/engines/engine/starter"
+    "/controls/engines/engine/starter",
+    "/controls/lighting/nav-lights",
+    "/controls/lighting/strobe",
+    "/controls/lighting/taxi-light"
 ];
 
 # Define the reverse sequence to safely shut down the aircraft
 var shutdown_switches = [
-    "/controls/anti-ice/pitot-heat",
-    "/controls/engines/engine/fuel-pump", 
-    "BOTH_TANKS",                         # Step 2: Deselect both tanks simultaneously
-    "/controls/electric/engine/generator",  
-    "/controls/engines/engine/magnetos",    
+    "/controls/lighting/taxi-light",
     "/controls/lighting/strobe",
     "/controls/lighting/nav-lights",
-    "/controls/lighting/beacon",
-    "/controls/electric/battery-switch",    
-    "/controls/switches/starterkey-insert"  
+    "/controls/anti-ice/pitot-heat",
+    "/controls/switches/starterkey-insert",
+    "/controls/electric/engine/generator",
+    "/controls/engines/engine/fuel-pump",
+    "BOTH_TANKS",                         # Deselect both tanks simultaneously
+    "/controls/electric/battery-switch",
+    "/controls/lighting/beacon"  
 ];
 
 # Dictionary mapping the strings to short, clean names
 var prop_aliases = {
     "/controls/switches/starterkey-insert" : "ESUD",
-    "/controls/engines/engine/magnetos"    : "Magnetos",
     "/controls/electric/battery-switch"    : "Battery Master",
     "/controls/electric/engine/generator"  : "Generator",
     "/controls/lighting/beacon"            : "Beacon Lights",
     "/controls/lighting/nav-lights"        : "Navigation Lights",
     "/controls/lighting/strobe"            : "Strobe Lights",
+    "/controls/lighting/taxi-light"        : "Taxi Light",
     "/controls/engines/engine/fuel-pump"   : "Fuel Pump",
     "/controls/anti-ice/pitot-heat"        : "Pitot Heat",
     "/yak152/controls/fuelswchcover1"      : "Fuel Switch Cover",
@@ -90,8 +90,9 @@ var activate_next_switch = func(index) {
     if (current_prop == "BOTH_TANKS") {
         setprop("/consumables/fuel/tank[0]/selected", 1);
         setprop("/consumables/fuel/tank[1]/selected", 1);
-    } elsif (string_contains(current_prop, "magnetos")) {
-        setprop(current_prop, 3); 
+    } elsif (string_contains(current_prop, "starterkey-insert")) {
+        setprop("/controls/switches/starterkey-insert", 1);
+        setprop("/controls/engines/engine/magnetos", 3);
     } else {
         setprop(current_prop, 1);
         if (string_contains(current_prop, "enginebtncover1")) {
@@ -129,6 +130,9 @@ var deactivate_next_switch = func(index) {
     if (current_prop == "BOTH_TANKS") {
         setprop("/consumables/fuel/tank[0]/selected", 0);
         setprop("/consumables/fuel/tank[1]/selected", 0);
+    } elsif (string_contains(current_prop, "starterkey-insert")) {
+        setprop("/controls/switches/starterkey-insert", 0);
+        setprop("/controls/engines/engine/magnetos", 0);
     } else {
         setprop(current_prop, 0);
     }
@@ -162,7 +166,7 @@ var toggle_aircraft_state = func {
         is_running = 0;
         gui.popupTip("Initiating Autostop...");
 
-        controls.startEngine(0,0);
+        #controls.startEngine(0,0);
         setprop("/controls/engines/engine/throttle", 0.0);
         gui.popupTip("Fuel Cut Off: Throttle 0%, Fuel Isolated");
 
@@ -171,13 +175,13 @@ var toggle_aircraft_state = func {
         settimer(func {
             setprop("/yak152/controls/fuelswchcover1", 1);
             gui.popupTip("Opening: Fuel Switch Cover");
-        }, 1.0);
+        }, 7.0);
 
         # UPDATED CLOSING DELAY: 
-        # Shaved 1.0s off this timer (down from 3.7 to 2.7) because the tanks now execute in a single second.
+        # Shaved 1.0s off this timer (up from 2.7 to 8.7) because the tanks now execute in a single second.
         settimer(func { 
             setprop("/yak152/controls/fuelswchcover1", 0);
             gui.popupTip("Closing: Fuel Switch Cover");
-        }, 2.7);
+        }, 8.7);
     }
 };

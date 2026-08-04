@@ -63,7 +63,7 @@
         <bool   n="16" alias="/controls/lighting/landing-lights"/>
         <!-- -->
         <bool   n="17"  alias="/sim/model/smoke"/>
-        <bool   n="18" alias="/controls/lighting/taxi-lights"/>
+        <bool   n="18" alias="/controls/lighting/taxi-light"/>
 
         <!-- Doors -->
         <float  n="0"  alias="/sim/model/door-positions/crew/position-norm"/>

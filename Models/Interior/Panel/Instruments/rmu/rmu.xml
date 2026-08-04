@@ -112,7 +112,13 @@
     <object-name>ap_btn7</object-name>
     <object-name>ap_btn8</object-name>
     <condition>
-      <property>/controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
     </condition>
     <emission>
       <factor-prop>controls/lighting/instruments-norm</factor-prop>
@@ -126,7 +132,13 @@
     <type>material</type>
     <object-name>rmu_face</object-name>
     <condition>
-      <property>/controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
     </condition>
     <emission>
       <factor-prop>controls/lighting/instruments-norm</factor-prop>
@@ -137,77 +149,82 @@
   </animation>
 
   <animation>
-        <name>rmu-ap-text</name>
-        <object-name>rmu-cursor</object-name>
-        <object-name>com1</object-name>
-        <object-name>com1-id</object-name>
-        <object-name>com1-label</object-name>
-        <object-name>com1-chnl</object-name>
-        <object-name>adf</object-name>
-        <object-name>adf-id</object-name>
-        <object-name>adf-label</object-name>
-        <object-name>adf-chnl</object-name>
-        <object-name>nav1</object-name>
-        <object-name>nav1-id</object-name>
-        <object-name>nav1-label</object-name>
-        <object-name>nav1-chnl</object-name>
-        <object-name>nav2</object-name>
-        <object-name>nav2-id</object-name>
-        <object-name>nav2-label</object-name>
-        <object-name>nav2-chnl</object-name>
-        <object-name>ap-on</object-name>
-        <object-name>ap-roll</object-name>
-        <object-name>ap-pitch</object-name>
-        <object-name>ap-nav</object-name>
-        <object-name>ap-hdg</object-name>
-        <object-name>ap-alt</object-name>
-        <object-name>ap-agl</object-name>
-        <object-name>ap-app</object-name>
+    <name>rmu-ap-text</name>
+    <object-name>rmu-cursor</object-name>
+    <object-name>com1</object-name>
+    <object-name>com1-id</object-name>
+    <object-name>com1-label</object-name>
+    <object-name>com1-chnl</object-name>
+    <object-name>adf</object-name>
+    <object-name>adf-id</object-name>
+    <object-name>adf-label</object-name>
+    <object-name>adf-chnl</object-name>
+    <object-name>nav1</object-name>
+    <object-name>nav1-id</object-name>
+    <object-name>nav1-label</object-name>
+    <object-name>nav1-chnl</object-name>
+    <object-name>nav2</object-name>
+    <object-name>nav2-id</object-name>
+    <object-name>nav2-label</object-name>
+    <object-name>nav2-chnl</object-name>
+    <object-name>ap-on</object-name>
+    <object-name>ap-roll</object-name>
+    <object-name>ap-pitch</object-name>
+    <object-name>ap-nav</object-name>
+    <object-name>ap-hdg</object-name>
+    <object-name>ap-alt</object-name>
+    <object-name>ap-agl</object-name>
+    <object-name>ap-app</object-name>
+    <object-name>ap-roll-hold</object-name>
+    <object-name>ap-pitch-hold</object-name>
+    <object-name>ap-nav-hold</object-name>
+    <object-name>ap-hdg-hold</object-name>
+    <object-name>ap-alt-hold</object-name>
+    <object-name>ap-agl-hold</object-name>
+    <object-name>ap-app-hold</object-name>
   </animation>
 
   <animation>
-        <type>material</type>
-        <object-name>rmu-ap-text</object-name>
-
-        <object-name>ap-roll-hold</object-name>
-
-        <object-name>ap-pitch-hold</object-name>
-
-        <object-name>ap-nav-hold</object-name>
-
-        <object-name>ap-hdg-hold</object-name>
-
-        <object-name>ap-alt-hold</object-name>
-
-        <object-name>ap-agl-hold</object-name>
-
-        <object-name>ap-app-hold</object-name>
-        <ambient>
-            <red>0.4</red>
-            <green>1</green>
-            <blue>0.3</blue>
-        </ambient>
-        <diffuse>
-            <red>0.4</red>
-            <green>1</green>
-            <blue>0.3</blue>
-        </diffuse>
-        <emission>
-            <red>0.4</red>
-            <green>1</green>
-            <blue>0.3</blue>
-            <factor-prop>controls/lighting/instruments-norm</factor-prop>
-        </emission>
+    <type>material</type>
+    <object-name>rmu-ap-text</object-name>
+    <ambient>
+        <red>0.4</red>
+        <green>1</green>
+        <blue>0.3</blue>
+    </ambient>
+    <diffuse>
+        <red>0.4</red>
+        <green>1</green>
+        <blue>0.3</blue>
+    </diffuse>
+    <emission>
+        <red>0.4</red>
+        <green>1</green>
+        <blue>0.3</blue>
+        <factor-prop>controls/lighting/instruments-norm</factor-prop>
+    </emission>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
     </condition>
   </animation>
 
   <animation>
     <type>select</type>
-        <object-name>rmu_face</object-name>
+    <object-name>rmu_face</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
     </condition>
   </animation>
 
@@ -790,15 +807,15 @@
     </text>
 
     <animation>
-    <type>translate</type>
-    <object-name>rmu-cursor</object-name>
-    <property>instrumentation/rmu/unit/selected</property>
-    <factor>0.006</factor>
-    <axis>
+      <type>translate</type>
+      <object-name>rmu-cursor</object-name>
+      <property>instrumentation/rmu/unit/selected</property>
+      <factor>0.006</factor>
+      <axis>
         <x>1</x>
         <y>0</y>
         <z>0</z>
-    </axis>
+      </axis>
     </animation>
 
     <animation>
@@ -1075,7 +1092,13 @@
       <type>select</type>
       <object-name>rmu-ap-text</object-name>
       <condition>
+      <or>
         <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
       </condition>
     </animation>
 
@@ -1087,7 +1110,6 @@
           <property>/autopilot/locks/heading</property>
           <value type="string">wing-leveler</value>
         </equals>
-        <property>controls/electric/battery-switch</property>
       </condition>
     </animation>
 
@@ -1099,7 +1121,6 @@
           <property>/autopilot/locks/altitude</property>
           <value type="string">pitch-hold</value>
         </equals>
-        <property>controls/electric/battery-switch</property>
       </condition>
     </animation>
 
@@ -1111,7 +1132,6 @@
           <property>/autopilot/locks/heading</property>
           <value type="string">nav1-hold</value>
         </equals>
-        <property>controls/electric/battery-switch</property>
       </condition>
     </animation>
 
@@ -1123,7 +1143,6 @@
           <property>/autopilot/locks/heading</property>
           <value type="string">dg-heading-hold</value>
         </equals>
-        <property>controls/electric/battery-switch</property>
       </condition>
     </animation>
 
@@ -1135,7 +1154,6 @@
           <property>/autopilot/locks/altitude</property>
           <value type="string">altitude-hold</value>
         </equals>
-        <property>controls/electric/battery-switch</property>
       </condition>
     </animation>
 
@@ -1147,7 +1165,6 @@
           <property>/autopilot/locks/altitude</property>
           <value type="string">agl-hold</value>
         </equals>
-        <property>controls/electric/battery-switch</property>
       </condition>
     </animation>
 
@@ -1159,7 +1176,6 @@
           <property>/autopilot/locks/altitude</property>
           <value type="string">gs1-hold</value>
         </equals>
-        <property>controls/electric/battery-switch</property>
       </condition>
     </animation>
 
@@ -1416,6 +1432,18 @@
           <property>/autopilot/locks/altitude</property>
           <value type="string">gs1-hold</value>
           <value type="string"> </value>
+        </binding>
+        <binding>
+          <command>property-cycle</command>
+          <property>/autopilot/locks/speed</property>
+          <value type="string">speed-with-throttle</value>
+          <value type="string"> </value>
+        </binding>
+        <binding>
+          <command>property-cycle</command>
+          <property>/autopilot/settings/target-speed-kt</property>
+          <value>77</value>
+          <value>0</value>
         </binding>
         <binding>
           <command>property-cycle</command>

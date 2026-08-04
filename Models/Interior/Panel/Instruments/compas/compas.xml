@@ -14,8 +14,14 @@
             <blue>0.74</blue>
         </emission>
         <condition>
-		    <property>/controls/electric/battery-switch</property>
-	    </condition>
+          <or>
+            <property>controls/electric/battery-switch</property>
+            <and>
+              <property>controls/electric/engine/generator</property>
+              <property>engines/engine[0]/running</property>
+            </and>
+          </or>
+        </condition>
     </animation>
 
 	<animation>

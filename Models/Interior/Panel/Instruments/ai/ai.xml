@@ -34,7 +34,13 @@
     <type>material</type>
     <object-name>ai_face</object-name>
     <condition>
-      <property>/controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
     </condition>
     <emission>
       <factor-prop>controls/lighting/instruments-norm</factor-prop>
@@ -49,7 +55,13 @@
     <object-name>ai_pitch</object-name>
     <object-name>ai_roll</object-name>
     <condition>
-      <property>controls/electric/battery-switch</property>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/engine/generator</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
     </condition>
     <emission>
       <factor-prop>controls/lighting/instruments-norm</factor-prop>
