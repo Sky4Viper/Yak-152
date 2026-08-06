@@ -1170,6 +1170,15 @@
 
     <animation>
       <type>select</type>
+      <object-name>ap-app</object-name>
+      <condition>
+          <property>/instrumentation/nav[1]/in-range</property>
+          <property>/instrumentation/nav[1]/has-gs</property>
+      </condition>
+    </animation>
+
+    <animation>
+      <type>select</type>
       <object-name>ap-app-hold</object-name>
       <condition>
         <equals>
@@ -1192,6 +1201,11 @@
         <binding>
           <command>property-assign</command>
           <property>/autopilot/locks/heading</property>
+          <value type="string"> </value>
+        </binding>
+        <binding>
+          <command>property-assign</command>
+          <property>/autopilot/locks/speed</property>
           <value type="string"> </value>
         </binding>
         <binding>

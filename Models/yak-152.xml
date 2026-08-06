@@ -211,7 +211,7 @@
     <condition>
       <greater-than>
         <property>engines/engine[0]/rpm</property>
-        <value>900</value>
+        <value>800</value>
       </greater-than>
     </condition>
   </animation>
@@ -227,7 +227,7 @@
       </greater-than>
       <less-than>
         <property>engines/engine[0]/rpm</property>
-        <value>900.001</value>
+        <value>800.001</value>
       </less-than>
     </and>
     </condition>
@@ -239,7 +239,7 @@
     <condition>
       <less-than>
         <property>engines/engine[0]/rpm</property>
-        <value>900</value>
+        <value>800</value>
       </less-than>
     </condition>
   </animation>
