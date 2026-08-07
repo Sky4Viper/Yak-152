@@ -144,7 +144,7 @@
       <file>Aircraft/Yak-152/Nasal/radiocfg.nas</file>
     </radiocfg>
     <fadec>
-      <file>Aircraft/Yak-152/Nasal/fadecadv.nas</file>
+      <file>Aircraft/Yak-152/Nasal/fadec.nas</file>
     </fadec>
     <autostart>
       <file>Aircraft/Yak-152/Nasal/autostart.nas</file>

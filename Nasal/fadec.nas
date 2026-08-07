@@ -1,35 +1,36 @@
-# Yak-152 Single-Lever FADEC Governor Loop
-var fadec_loop = func {
-    # Match the explicit engine[0] array index from your YASim control-inputs
-    var throttle = getprop("/controls/engines/engine[0]/throttle");
-    if (throttle == nil) { throttle = 0.0; }
+# Universal FADEC Script
+# Direct throttle-to-propeller ADVANCE schedule
+# Leaving altitude behaviour to YASim for now;
 
-    var target_rpm_setting = 0.0;
+var fadec_timer = nil;
 
-    # RPM Profile Mapping Schedule
-    if (throttle <= 0.15) {
-        # Idle range: Command minimum governor speed floor
-        target_rpm_setting = 0.0; 
-    } else if (throttle <= 0.85) {
-        # Cruise range: Linearly scale target up towards cruise RPM
-        target_rpm_setting = 0.20 + ((throttle - 0.15) / 0.70) * 0.60;
-    } else {
-        # Takeoff range: Command maximum takeoff RPM limit
-        target_rpm_setting = 0.80 + ((throttle - 0.85) / 0.15) * 0.20;
-    }
+var throttle_path = "/controls/engines/engine/throttle";
+var advance_path = "/controls/engines/engine/propeller-pitch";
 
-    # Write securely to the exact engine[0] control node path
-    setprop("/controls/engines/engine/propeller-pitch", target_rpm_setting);
+var clamp01 = func(value) {
+    if (value == nil) { return 0.0; }
+    if (value < 0.0) { return 0.0; }
+    if (value > 1.0) { return 1.0; }
+    return value;
 }
 
-# System Initialization
+var update_fadec = func {
+    var throttle = clamp01(getprop(throttle_path));
+    # Direct normalized power-lever schedule
+    var advance = throttle;
+    setprop(advance_path, advance);
+    # Diagnostics properties
+    setprop("/yak152/fadec/throttle-input", throttle);
+    setprop("/yak152/fadec/advance-command", advance);
+}
+
 var init_fadec = func {
-    print("Yak-152 FADEC System Initialized.");
-    
-    # Run the governor loop 20 times per second
-    var fadec_timer = maketimer(0.05, fadec_loop);
+    print("Initializing Yak-152 FADEC System...");
+    # Correct the inappropriate value immediately.
+    setprop(advance_path, 0.0);
+    fadec_timer = maketimer(0.1, update_fadec);
     fadec_timer.start();
 }
 
-# Wait for FlightGear's property tree array structures to completely instantiate
-settimer(init_fadec, 2.5);
+# Auto-start on load
+init_fadec();

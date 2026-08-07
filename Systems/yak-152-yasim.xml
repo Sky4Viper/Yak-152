@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<!-- Yakovlev Yak-152 FDM v24.0 with fadec - Sergei [Skydive] Solyshko 06/08/2026
+<!-- Yakovlev Yak-152 FDM v26.0 with fadec - Sergei [Skydive] Solyshko 07/08/2026
      sources            : https://en.wikipedia.org/wiki/Yakovlev_Yak-152
 
      wingspan           :   8.82 m  (   28 ft 11 in )
@@ -14,6 +14,54 @@
      Cruise speed       :   350 km/h ( 188 kn )
      Fuel capacity      :   245 kg JetA1 = 540.1319 lbs = 80.6167 gal )
 -->
+
+<!--
+==========================
+= YASim solution results =
+==========================
+Iterations        :  1762
+Drag Coefficient  :  12.771
+Lift Ratio        :  88.272
+Cruise AoA        : -0.34 deg
+Tail Incidence    : -0.16 deg
+Approach Elevator : -0.770
+
+CG                : x:0.851, y:0.000, z:-0.239
+Wing MAC          : (x:1.198, y:2.017), length:1.500 
+hard limit CG-x   : 2.049 m
+soft limit CG-x   : 0.823 m
+CG-x              : 0.851 m
+CG-x rel. MAC     : 23%
+soft limit CG-x   : 0.748 m
+hard limit CG-x   : 0.354 m
+
+wing lever        : -0.028 m
+tail lever        : -3.544 m
+
+max thrust        : 0.14 kN
+thrust/empty      : 0.02
+thrust/mtow       : 0.01
+
+wing span         : 8.80 m
+sweep lead. edge  : 3.8 .. 3.8 deg
+wing area         : 12.94 m^2
+wing load empty   : 73.29 kg/m^2 (Empty 948 kg)
+wing load MTOW    : 131.39 kg/m^2 (MTOW  1700 kg)
+
+tail span         : 3.319 m
+tail area         : 3.097 m^2
+
+#wing sections: 1
+Section 0 base point: x="0.413" y="0.000" z="-0.622" chord="1.837" incidence="2.0" (at section root in deg)
+
+Inertia Tensor [kg*m^2], ( Angular Moments ) Origo at CG:
+
+                           Effect on Axis
+                      x Roll  y Pitch    z Yaw
+Impulse  x    Roll      1410       -0      174
+  on     y   Pitch        -0     2846        0
+ Axis    z     Yaw       174        0     4108
+  -->
 
 <airplane mass="2090" version="YASIM_VERSION_CURRENT" mtow-lbs="3747">
 
@@ -138,7 +186,7 @@
            idrag="1.0"
            governor-delay="0.4">
            
-    <actionpt x="3.048" y="0.000" z="-0.11897" />
+    <actionpt x="3.048" y="0.000" z="-0.11897"/>
     <control-input control="ADVANCE"  axis="/controls/engines/engine[0]/propeller-pitch" src0="0.0" src1="1.0" dst0="0.0" dst1="1.0"/>
 
     <piston-engine eng-rpm="3982"
@@ -154,49 +202,48 @@
     </piston-engine>
   </propeller>
 
-  <!-- Noze wheel -->
-  <gear x="2.04936" y=" 0.000" z="-1.8599"
-        compression = "0.15"
-        upx="-0.3" upy="0" upz="1"
-        spring      = "0.5"
-        sfric       = "0.88"
-        dfric       = "0.78"
-        stiction    = "1"
-        castering="1">
-        <control-input control="CASTERING"  axis="/controls/gear/brake-parking"  src0="0" src1="1" dst0="1" dst1="0" />
-        <control-input  control="EXTEND"    axis="/controls/gear/gear-down"/>
-        <control-output control="EXTEND"    prop="/gear/gear[0]/position-norm"/>
-        <control-speed  control="EXTEND"    transition-time="4.5"/>
-  </gear>
+ <!-- Nose Wheel (Non-Steerable,  Castering with left and right wheel differential breaks) -->
+ <gear x="2.04936" y=" 0.000" z="-1.8599"
+       compression="0.18"
+       upx="-0.3" upy="0" upz="1"
+       spring="0.88"
+       sfric="0.88"
+       dfric="0.95"
+       stiction="1"
+       castering="1">
+   <control-input control="CASTERING" axis="/controls/gear/brake-parking" src0="0" src1="1" dst0="1" dst1="0" />
+   <control-input control="EXTEND" axis="/controls/gear/gear-down"/>
+   <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
+   <control-speed control="EXTEND" transition-time="4.5"/>
+ </gear>
 
-  <!-- Left wheel -->
-  <gear x="0.35435" y=" 1.39584" z="-1.7438"
-        compression = "0.13"
-        spring      = "0.6"
-        sfric       = "0.88"
-        dfric       = "0.78"
-        stiction    = "1">
-        <control-input  control="BRAKE"  axis="/controls/gear/brake-left" square="true" split="true"/>
-        <control-input  control="BRAKE"  axis="/controls/gear/brake-parking" split="true"/>
-        <control-input  control="EXTEND" axis="/controls/gear/gear-down"/>
-        <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
-        <control-speed  control="EXTEND" transition-time="5.5"/>
-  </gear>
+ <!-- Left Main Wheel -->
+ <gear x="0.35435" y="1.39584" z="-1.7438"
+       compression="0.15"
+       spring="0.98"
+       sfric="0.88"
+       dfric="0.98"
+       stiction="1">
+   <control-input control="BRAKE" axis="/controls/gear/brake-left" square="true" split="true"/>
+   <control-input control="BRAKE" axis="/controls/gear/brake-parking" split="true"/>
+   <control-input control="EXTEND" axis="/controls/gear/gear-down"/>
+   <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
+   <control-speed control="EXTEND" transition-time="5.5"/>
+ </gear>
 
-  <!-- Right wheel -->
-  <gear x="0.35435" y="-1.39584" z="-1.7438"
-        compression = "0.13"
-        spring      = "0.6"
-        sfric       = "0.88"
-        dfric       = "0.78"
-        stiction    = "1">
-        <control-input  control="BRAKE"  axis="/controls/gear/brake-right" square="true" split="true"/>
-        <control-input  control="BRAKE"  axis="/controls/gear/brake-parking" split="true"/>
-        <control-input  control="EXTEND" axis="/controls/gear/gear-down"/>
-        <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
-        <control-speed  control="EXTEND" transition-time="6"/>
-  </gear>
-
+ <!-- Right Main Wheel -->
+ <gear x="0.35435" y="-1.39584" z="-1.7438"
+       compression="0.15"
+       spring="0.98"
+       sfric="0.88"
+       dfric="0.98"
+       stiction="1">
+   <control-input control="BRAKE" axis="/controls/gear/brake-right" square="true" split="true"/>
+   <control-input control="BRAKE" axis="/controls/gear/brake-parking" split="true"/>
+   <control-input control="EXTEND" axis="/controls/gear/gear-down"/>
+   <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
+   <control-speed control="EXTEND" transition-time="6"/>
+ </gear>
 
   <!-- 245 kg JetA1 = 540.1319 lbs = 80.6167 gal -->
   <tank x="0.383" y=" 2.300" z="-0.600" capacity="270"/>

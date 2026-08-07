@@ -107,6 +107,13 @@
         <object-name>mfi_gear2f</object-name>
         <object-name>mfi_gear2l</object-name>
         <object-name>mfi_gear2r</object-name>
+        <object-name>pg2_wind_ind</object-name>
+        <object-name>pg2_wind_pl</object-name>
+        <object-name>pg2_wind_bg</object-name>
+        <object-name>pg2_trim_ind</object-name>
+        <object-name>pg3_rpm_scale</object-name>
+        <object-name>pg3_rpm_ind</object-name>
+        <object-name>pg3_thrust_ind</object-name>
         <emission>
           <red>   1 </red>
           <green> 1 </green>
@@ -124,6 +131,15 @@
           <blue>  0.01 </blue>
           <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
         </emission>
+    <!-- <condition>
+      <or>
+        <property>controls/electric/battery-switch</property>
+        <and>
+          <property>controls/electric/generator-switch</property>
+          <property>engines/engine[0]/running</property>
+        </and>
+      </or>
+    </condition> -->
     <condition>
       <not-equals>
           <property>controls/instrumentation/mfis/mfi[4]/page</property>
@@ -137,6 +153,7 @@
         <object-name>mfi-boot</object-name>
         <object-name>mfi-off</object-name>
         <object-name>mfi-standby</object-name>
+        <object-name>wind-speed-ind</object-name>
         <ambient>
             <red>0.4</red>
             <green>1</green>
@@ -218,6 +235,13 @@
         <object-name>mfi_gear2f</object-name>
         <object-name>mfi_gear2l</object-name>
         <object-name>mfi_gear2r</object-name>
+        <object-name>pg2_wind_ind</object-name>
+        <object-name>pg2_wind_pl</object-name>
+        <object-name>pg2_wind_bg</object-name>
+        <object-name>pg2_trim_ind</object-name>
+        <object-name>pg3_rpm_scale</object-name>
+        <object-name>pg3_rpm_ind</object-name>
+        <object-name>pg3_thrust_ind</object-name>
     </animation>
 
 <!-- MFI text -->
@@ -271,6 +295,25 @@
         <text type="string">SYSTEM STANDBY (ON BATTERY)...</text>
         <draw-text type="bool">true</draw-text>
         <alignment>center-top</alignment>
+    </text>
+
+    <text>
+        <name>wind-speed-ind</name>
+        <font>lcd.txf</font>
+        <character-size type="double">0.004</character-size>
+        <offsets>
+            <x-m>0.013627</x-m>
+            <y-m>-0.042706</y-m>
+            <z-m>-0.00035</z-m>
+            <pitch-deg>-90</pitch-deg>
+        </offsets>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">number-value</type>
+        <format type="string">%2.0f m/c</format>
+        <truncate type="bool">false</truncate>
+        <property>environment/wind-speed-ms</property>
+        <draw-text type="bool">true</draw-text>
+        <alignment>center-center</alignment>
     </text>
 
 <!-- Select on Power ON -->
@@ -383,6 +426,11 @@
         <object-name>ffnum100</object-name>
         <object-name>ffnum10</object-name>
         <object-name>ffnum1</object-name>
+        <object-name>pg2_wind_ind</object-name>
+        <object-name>pg2_wind_pl</object-name>
+        <object-name>pg2_wind_bg</object-name>
+        <object-name>pg2_trim_ind</object-name>
+        <object-name>wind-speed-ind</object-name>
     <condition>
       <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
@@ -491,6 +539,9 @@
   <animation>
     <type>select</type>
         <object-name>mfi_page3</object-name>
+        <object-name>pg3_rpm_scale</object-name>
+        <object-name>pg3_rpm_ind</object-name>
+        <object-name>pg3_thrust_ind</object-name>
     <condition>
       <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
@@ -754,6 +805,93 @@
 		<z-m>0.0</z-m>
     </center>
 	</animation>
+
+	<animation>
+		<type>scale</type>
+		<object-name>pg3_rpm_scale</object-name>
+		<property>/engines/engine[0]/rpm</property>
+		<x-min>0.0001</x-min>
+		<y-min>0.0001</y-min>
+		<z-min>1</z-min>
+		<!-- 1.0 / 4000 = 0.00025 (scales from 0.0 to 1.0 at max RPM) -->
+		<x-factor>0.00025</x-factor>
+		<y-factor>0.00025</y-factor>
+		<z-factor>0</z-factor>
+		<center>
+			<x-m>-0.046471</x-m>
+			<y-m>-0.059162</y-m>
+			<z-m>0.0</z-m>
+		</center>
+	</animation>
+
+  <animation>
+    <type>translate</type>
+      <object-name>pg3_rpm_ind</object-name>
+      <property>/controls/engines/engine/throttle</property>
+      <interpolation>
+        <entry>
+          <ind> 1.0</ind>
+          <dep> 0.0</dep>
+        </entry>
+        <entry>
+          <ind> 0.0</ind>
+          <dep>-0.05</dep>
+        </entry>
+      </interpolation>
+      <axis>
+        <x>0</x>
+        <y>1</y>
+        <z>0</z>
+      </axis>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+      <object-name>pg3_thrust_ind</object-name>
+      <property>/engines/engine[0]/thrust-lbs</property>
+      <interpolation>
+        <entry>
+          <ind> 0.0</ind>
+          <dep> 0.0</dep>
+        </entry>
+        <entry>
+          <ind> 800.0</ind>
+          <dep>-0.0508</dep>
+        </entry>
+      </interpolation>
+      <axis>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+      </axis>
+  </animation>
+
+<!-- Trim indicator -->
+
+  <animation>
+    <type>translate</type>
+      <object-name>pg2_trim_ind</object-name>
+      <property>/surface-positions/elevator-pos-norm</property>
+      <interpolation>
+        <entry>
+          <ind>-1.0</ind>
+          <dep>-0.0071</dep>
+        </entry>
+        <entry>
+          <ind> 0.0</ind>
+          <dep> 0.0</dep>
+        </entry>
+        <entry>
+          <ind> 1.0</ind>
+          <dep> 0.0071</dep>
+        </entry>
+      </interpolation>
+      <axis>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+      </axis>
+  </animation>
 
 <!-- Fuel Tanks -->
 
@@ -1277,6 +1415,41 @@
   <x>0</x>
   <y>0</y>
   <z>1</z>
+ </axis>
+</animation>
+
+<!-- Wind Indicator -->
+
+<animation>
+ <type>rotate</type>
+  <object-name>pg2_wind_ind</object-name>
+  <property>orientation/heading-deg</property>
+  <center>
+    <x-m>-0.003398</x-m>
+    <y-m>-0.042706</y-m>
+    <z-m> 0.0</z-m>
+  </center>
+ <axis>
+  <x>0</x>
+  <y>0</y>
+  <z>1</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>rotate</type>
+  <object-name>pg2_wind_ind</object-name>
+  <property>environment/wind-from-heading-deg</property>
+  <offset-deg> 180 </offset-deg>
+  <center>
+    <x-m>-0.003398</x-m>
+    <y-m>-0.042706</y-m>
+    <z-m> 0.0</z-m>
+  </center>
+ <axis>
+  <x>0</x>
+  <y>0</y>
+  <z>-1</z>
  </axis>
 </animation>
 
