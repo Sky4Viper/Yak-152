@@ -190,12 +190,80 @@
     </condition>
   </animation>
 
-  <animation>
+  <!-- <animation>
     <type>select</type>
     <object-name>cockpit_mfi_ext</object-name>
     <condition>
       <not><property>sim/current-view/internal</property></not>
     </condition>
+  </animation> -->
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>mfi_ext_page.001</object-name>
+    <property>controls/instrumentation/mfis/mfi[1]/page</property>
+    <interpolation>
+      <entry><ind>1</ind><dep>0.000</dep></entry> <!-- Page 1: Initial position -->
+      <entry><ind>2</ind><dep>0.115</dep></entry> <!-- Page 2: Step 1 -->
+      <entry><ind>3</ind><dep>0.230</dep></entry> <!-- Page 3: Step 2 -->
+      <entry><ind>4</ind><dep>0.345</dep></entry> <!-- Page 4: Step 3 (0.115 * 3) -->
+    </interpolation>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>mfi_ext_page.002</object-name>
+    <property>controls/instrumentation/mfis/mfi[2]/page</property>
+    <interpolation>
+      <entry><ind>1</ind><dep>0.000</dep></entry>
+      <entry><ind>2</ind><dep>0.115</dep></entry>
+      <entry><ind>3</ind><dep>0.230</dep></entry>
+      <entry><ind>4</ind><dep>0.345</dep></entry>
+    </interpolation>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>mfi_ext_page.003</object-name>
+    <property>controls/instrumentation/mfis/mfi[3]/page</property>
+    <interpolation>
+      <entry><ind>1</ind><dep>0.000</dep></entry>
+      <entry><ind>2</ind><dep>0.115</dep></entry>
+      <entry><ind>3</ind><dep>0.230</dep></entry>
+      <entry><ind>4</ind><dep>0.345</dep></entry>
+    </interpolation>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>mfi_ext_page.004</object-name>
+    <property>controls/instrumentation/mfis/mfi[4]/page</property>
+    <interpolation>
+      <entry><ind>1</ind><dep>0.000</dep></entry>
+      <entry><ind>2</ind><dep>0.115</dep></entry>
+      <entry><ind>3</ind><dep>0.230</dep></entry>
+      <entry><ind>4</ind><dep>0.345</dep></entry>
+    </interpolation>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
   </animation>
 
   <animation>
@@ -646,13 +714,15 @@
 
   <!-- Switches -->
 
+  <!-- UNIFIED 3-POSITION TAXI-LANDING LIGHTS SWITCH ROTATION -->
   <animation>
     <type>rotate</type>
     <object-name>lp_switch.001</object-name>
-    <property>/controls/lighting/taxi-light</property>
+    <property>/controls/lighting/switch-position</property>
     <interpolation>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>1</ind><dep>-26</dep></entry>
+      <entry><ind>0</ind><dep>  0</dep></entry> <!-- State 0: Center Neutral (OFF) -->
+      <entry><ind>1</ind><dep>-26</dep></entry> <!-- State 1: Toggled Up (TAXI) -->
+      <entry><ind>2</ind><dep> 26</dep></entry> <!-- State 2: Toggled Down (LANDING) -->
     </interpolation>
     <center>
       <x-m>-1.09627</x-m>
@@ -665,6 +735,7 @@
       <z>0</z>
     </axis>
   </animation>
+
 
   <animation>
     <type>rotate</type>
@@ -855,8 +926,26 @@
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
-        <command>property-toggle</command>
-        <property>/controls/lighting/taxi-light</property>
+        <command>nasal</command>
+        <script><![CDATA[
+          var landing_p = "/controls/lighting/landing-lights";
+          var taxi_p = "/controls/lighting/taxi-light";
+          
+          var is_landing = getprop(landing_p) or 0;
+          var is_taxi = getprop(taxi_p) or 0;
+
+          if (!is_landing and !is_taxi) {
+              # 1. Both are OFF -> Turn TAXI ON
+              setprop(taxi_p, 1);
+          } elsif (is_taxi and !is_landing) {
+              # 2. Taxi is ON -> Turn LANDING ON (Interlock script will turn Taxi off automatically)
+              setprop(landing_p, 1);
+          } else {
+              # 3. Landing is ON (or any other edge case) -> Turn BOTH OFF
+              setprop(landing_p, 0);
+              setprop(taxi_p, 0);
+          }
+        ]]></script>
       </binding>
     </action>
   </animation>

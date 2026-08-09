@@ -5,12 +5,13 @@
   <lighting>
     <instrument-lights  type="bool">false</instrument-lights>
     <nav-lights         type="bool">false</nav-lights>
-    <taxi-light        type="bool">false</taxi-light>
+    <taxi-light         type="bool">false</taxi-light>
     <beacon             type="bool">false</beacon>
     <strobe             type="bool">false</strobe>
     <landing-lights     type="bool">false</landing-lights>
     <luminosite-lights  type="float">1</luminosite-lights>
     <floods-lights      type="float">0.5</floods-lights>
+    <switch-position    type="int">0</switch-position>
   </lighting>
 
   <electric>

@@ -50,13 +50,31 @@
 
     <key n="108">
       <name>l</name>
-      <desc>Landing light</desc>
+      <desc>Cycle Lights: Off - Taxi - Landing - Off</desc>
       <binding>
-        <command>property-toggle</command>
-        <!-- <property>controls/lighting/landing-lights</property> -->
-        <property>sim/multiplay/generic/bool[16]</property>
+        <command>nasal</command>
+        <script><![CDATA[
+          var landing_p = "/controls/lighting/landing-lights";
+          var taxi_p = "/controls/lighting/taxi-light";
+          
+          var is_landing = getprop(landing_p) or 0;
+          var is_taxi = getprop(taxi_p) or 0;
+
+          if (!is_landing and !is_taxi) {
+              # 1. Both are OFF -> Turn TAXI ON
+              setprop(taxi_p, 1);
+          } elsif (is_taxi and !is_landing) {
+              # 2. Taxi is ON -> Turn LANDING ON (Interlock script will turn Taxi off automatically)
+              setprop(landing_p, 1);
+          } else {
+              # 3. Landing is ON (or any other edge case) -> Turn BOTH OFF
+              setprop(landing_p, 0);
+              setprop(taxi_p, 0);
+          }
+        ]]></script>
       </binding>
     </key>
+
 
     <key n="125">
       <name>}</name>
