@@ -114,11 +114,30 @@
         <object-name>pg3_rpm_scale</object-name>
         <object-name>pg3_rpm_ind</object-name>
         <object-name>pg3_thrust_ind</object-name>
+        <!-- 1. External Light Blocking (Matte effect) -->
+        <ambient>
+            <red>   0.1 </red> <!-- Dropped lower to absorb external cabin light -->
+            <green> 0.1 </green>
+            <blue>  0.1 </blue>
+        </ambient>
+        <diffuse>
+            <red>   0.2 </red>
+            <green> 0.2 </green>
+            <blue>  0.2 </blue>
+        </diffuse>
+        <specular>
+            <red>   0.0 </red> <!-- Eliminates strobe/beacon hotspots entirely -->
+            <green> 0.0 </green>
+            <blue>  0.0 </blue>
+        </specular>
+        <shininess> 0 </shininess> <!-- Removes all gloss -->
+
+        <!-- 2. Internal Self-Illumination (Brightness Factor) -->
         <emission>
-          <red>   1 </red>
-          <green> 1 </green>
-          <blue>  1 </blue>
-          <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+            <red>   1.0 </red>
+            <green> 1.0 </green>
+            <blue>  1.0 </blue>
+            <factor-prop>/controls/instrumentation/mfis/mfi[3]/brightness-norm</factor-prop>
         </emission>
     </animation>
 
@@ -129,23 +148,14 @@
           <red>   0.01 </red>
           <green> 0.01 </green>
           <blue>  0.01 </blue>
-          <factor-prop>/systems/electrical/outputs/instrument-lights</factor-prop>
+          <factor-prop>/controls/instrumentation/mfis/mfi[3]/brightness-norm</factor-prop>
         </emission>
-    <!-- <condition>
-      <or>
-        <property>controls/electric/battery-switch</property>
-        <and>
-          <property>controls/electric/generator-switch</property>
-          <property>engines/engine[0]/running</property>
-        </and>
-      </or>
-    </condition> -->
-    <condition>
-      <not-equals>
-          <property>controls/instrumentation/mfis/mfi[3]/page</property>
-          <value>0</value>
-      </not-equals>
-    </condition>
+        <condition>
+          <not-equals>
+            <property>controls/instrumentation/mfis/mfi[3]/page</property>
+            <value>0</value>
+          </not-equals>
+        </condition>
     </animation>
 
     <animation>
@@ -168,7 +178,7 @@
             <red>0.4</red>
             <green>1</green>
             <blue>0.3</blue>
-            <factor-prop>controls/lighting/instruments-norm</factor-prop>
+            <factor-prop>/controls/instrumentation/mfis/mfi[3]/brightness-norm</factor-prop>
         </emission>
     </animation>
 
@@ -1419,38 +1429,28 @@
 </animation>
 
 <!-- Wind Indicator -->
-
 <animation>
- <type>rotate</type>
+  <type>rotate</type>
   <object-name>pg2_wind_ind</object-name>
-  <property>orientation/heading-deg</property>
+  <expression>
+    <sum>
+      <difference>
+        <property>orientation/heading-deg</property>
+        <property>environment/wind-from-heading-deg</property>
+      </difference>
+      <value>180</value>
+    </sum>
+  </expression>
   <center>
     <x-m>-0.003398</x-m>
     <y-m>-0.042706</y-m>
     <z-m> 0.0</z-m>
   </center>
- <axis>
-  <x>0</x>
-  <y>0</y>
-  <z>1</z>
- </axis>
-</animation>
-
-<animation>
- <type>rotate</type>
-  <object-name>pg2_wind_ind</object-name>
-  <property>environment/wind-from-heading-deg</property>
-  <offset-deg> 180 </offset-deg>
-  <center>
-    <x-m>-0.003398</x-m>
-    <y-m>-0.042706</y-m>
-    <z-m> 0.0</z-m>
-  </center>
- <axis>
-  <x>0</x>
-  <y>0</y>
-  <z>-1</z>
- </axis>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z>
+  </axis>
 </animation>
 
 <animation>
@@ -1827,7 +1827,7 @@
   </hovered>
 </animation>
 
-<animation>
+<!-- <animation>
    <type>pick</type>
    <object-name>mfi_btn.001</object-name>
    <visible>true</visible>
@@ -1851,10 +1851,28 @@
           <value>0</value>
         </binding>
       </mod-up>
-      <!-- <binding>
-          <command>nasal</command>
-          <script>switchclicksound.click("switch")</script>
-        </binding> -->
+    </action>
+    <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>mfi-btn-01</tooltip-id>
+                <label>MFI Mode: PILOT</label>
+            </binding>
+    </hovered>
+</animation> -->
+
+<animation>
+    <type>pick</type>
+    <object-name>mfi_btn.001</object-name>
+    <action>
+      <button>0</button> <!-- TB1 -->
+      <repeatable>false</repeatable>
+      <binding>
+            <command>nasal</command>
+            <script>
+                yak152.mfi_button_pressed(3, 1);
+            </script>
+      </binding>
     </action>
     <hovered>
             <binding>
@@ -1866,33 +1884,17 @@
 </animation>
 
 <animation>
-   <type>pick</type>
-   <object-name>mfi_btn.002</object-name>
-   <visible>true</visible>
-   <action>
-      <button>0</button>
+    <type>pick</type>
+    <object-name>mfi_btn.002</object-name>
+    <action>
+      <button>0</button> <!-- TB2 -->
       <repeatable>false</repeatable>
       <binding>
-        <command>property-assign</command>
-         <property>/controls/instrumentation/mfis/mfi[3]/page</property>
-         <value>2</value>
+            <command>nasal</command>
+            <script>
+                yak152.mfi_button_pressed(3, 2);
+            </script>
       </binding>
-      <binding>
-        <command>property-assign</command>
-          <property>/controls/instrumentation/mfis/mfi[3]/btn[2]</property>
-          <value>1</value>
-      </binding>
-      <mod-up>
-        <binding>
-          <command>property-assign</command>
-          <property>/controls/instrumentation/mfis/mfi[3]/btn[2]</property>
-          <value>0</value>
-        </binding>
-      </mod-up>
-      <!-- <binding>
-          <command>nasal</command>
-          <script>switchclicksound.click("switch")</script>
-        </binding> -->
     </action>
     <hovered>
             <binding>
@@ -1904,39 +1906,90 @@
 </animation>
 
 <animation>
-   <type>pick</type>
-   <object-name>mfi_btn.003</object-name>
-   <visible>true</visible>
-   <action>
-      <button>0</button>
+    <type>pick</type>
+    <object-name>mfi_btn.003</object-name>
+    <action>
+      <button>0</button> <!-- TB3 -->
       <repeatable>false</repeatable>
       <binding>
-        <command>property-assign</command>
-         <property>/controls/instrumentation/mfis/mfi[3]/page</property>
-         <value>3</value>
+            <command>nasal</command>
+            <script>
+                yak152.mfi_button_pressed(3, 3);
+            </script>
       </binding>
-      <binding>
-        <command>property-assign</command>
-          <property>/controls/instrumentation/mfis/mfi[3]/btn[3]</property>
-          <value>1</value>
-      </binding>
-      <mod-up>
-        <binding>
-          <command>property-assign</command>
-          <property>/controls/instrumentation/mfis/mfi[3]/btn[3]</property>
-          <value>0</value>
-        </binding>
-      </mod-up>
-      <!-- <binding>
-          <command>nasal</command>
-          <script>switchclicksound.click("switch")</script>
-        </binding> -->
     </action>
     <hovered>
             <binding>
                 <command>set-tooltip</command>
                 <tooltip-id>mfi-btn-03</tooltip-id>
                 <label>MFI Mode: SYSTEM</label>
+            </binding>
+    </hovered>
+</animation>
+
+<animation>
+   <type>pick</type>
+   <object-name>mfi_btn.010</object-name>
+   <visible>true</visible>
+   <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+
+      <!-- NEW BINDING: If on page 2 and subpage 1, select next waypoint -->
+      <binding>
+        <condition>
+          <and>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[3]/page</property>
+              <value>2</value>
+            </equals>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[3]/subpage</property>
+              <value>1</value>
+            </equals>
+          </and>
+        </condition>
+        <command>nasal</command>
+            <script>
+              var current = getprop("/autopilot/route-manager/current-wp");
+              var count = getprop("/autopilot/route-manager/route/num");
+              
+              if (current != nil and count != nil and count != 0) {
+                  # Only advance if we aren't already at the final waypoint
+                  if (current &lt; (count - 1)) {
+                      setprop("/autopilot/route-manager/current-wp", current + 1);
+                  }
+              }
+            </script>
+      </binding>
+
+      <!-- BUTTON ANIMATION: Instant click animation on press -->
+      <binding>
+        <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[3]/btn[25]</property>
+          <value>1</value>
+      </binding>
+      
+      <!-- BUTTON ANIMATION: Reset on release -->
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[3]/btn[25]</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
+    <hovered>
+            <binding>
+              <condition>
+               <equals>
+                 <property>/controls/instrumentation/mfis/mfi[3]/page</property>
+                 <value>2</value>
+               </equals>
+              </condition>
+              <command>set-tooltip</command>
+              <tooltip-id>mfi-submode-eng</tooltip-id>
+              <label>ROUTE: NEXT WP</label>
             </binding>
     </hovered>
 </animation>
@@ -2024,6 +2077,8 @@
    <action>
       <button>0</button>
       <repeatable>false</repeatable>
+      
+      <!-- EXISTING BINDING: If on page 4, switch to page 3 -->
       <binding>
         <condition>
             <equals>
@@ -2035,11 +2090,40 @@
          <property>/controls/instrumentation/mfis/mfi[3]/page</property>
          <value>3</value>
       </binding>
+
+      <!-- NEW BINDING: If on page 2 and subpage 1, select previous waypoint -->
+      <binding>
+        <condition>
+          <and>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[3]/page</property>
+              <value>2</value>
+            </equals>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[3]/subpage</property>
+              <value>1</value>
+            </equals>
+          </and>
+        </condition>
+        <command>nasal</command>
+        <script>
+          var current = getprop("/autopilot/route-manager/current-wp");
+          if (current != nil) {
+              if (current &gt; 0) {
+                  setprop("/autopilot/route-manager/current-wp", current - 1);
+              }
+          }
+        </script>
+      </binding>
+
+      <!-- BUTTON ANIMATION: Instant click animation on press -->
       <binding>
         <command>property-assign</command>
           <property>/controls/instrumentation/mfis/mfi[3]/btn[25]</property>
           <value>1</value>
       </binding>
+      
+      <!-- BUTTON ANIMATION: Reset on release -->
       <mod-up>
         <binding>
           <command>property-assign</command>
@@ -2057,7 +2141,18 @@
               <condition>
                <equals>
                  <property>/controls/instrumentation/mfis/mfi[3]/page</property>
-                 <value>3</value>
+                 <value>2</value>
+               </equals>
+              </condition>
+              <command>set-tooltip</command>
+              <tooltip-id>mfi-submode-eng</tooltip-id>
+              <label>ROUTE: PREV WP</label>
+            </binding>
+            <binding>
+              <condition>
+               <equals>
+                 <property>/controls/instrumentation/mfis/mfi[3]/page</property>
+                 <value>4</value>
                </equals>
               </condition>
               <command>set-tooltip</command>

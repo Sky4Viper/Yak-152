@@ -178,6 +178,7 @@
     <object-name>ap-roll-hold</object-name>
     <object-name>ap-pitch-hold</object-name>
     <object-name>ap-nav-hold</object-name>
+    <object-name>ap-route-hold</object-name>
     <object-name>ap-hdg-hold</object-name>
     <object-name>ap-alt-hold</object-name>
     <object-name>ap-agl-hold</object-name>
@@ -345,6 +346,23 @@
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">literal</type>
         <text type="string">HOLD</text>
+        <draw-text type="bool">true</draw-text>
+        <alignment>left-top</alignment>
+    </text>
+
+    <text>
+        <name>ap-route-hold</name>
+        <font>lcd.txf</font>
+        <character-size type="double">0.003</character-size>
+        <offsets>
+            <x-m> 0.01025</x-m>
+            <y-m>-0.0097</y-m>
+            <z-m> 0.0156</z-m>
+            <pitch-deg>-67</pitch-deg>
+        </offsets>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">literal</type>
+        <text type="string">GPS</text>
         <draw-text type="bool">true</draw-text>
         <alignment>left-top</alignment>
     </text>
@@ -1137,6 +1155,17 @@
 
     <animation>
       <type>select</type>
+      <object-name>ap-route-hold</object-name>
+      <condition>
+        <equals>
+          <property>/autopilot/locks/heading</property>
+          <value type="string">true-heading-hold</value>
+        </equals>
+      </condition>
+    </animation>
+
+    <animation>
+      <type>select</type>
       <object-name>ap-hdg-hold</object-name>
       <condition>
         <equals>
@@ -1324,26 +1353,52 @@
       <action>
         <button>0</button>
         <binding>
-          <command>property-cycle</command>
-          <property>/autopilot/locks/heading</property>
-          <value type="string">nav1-hold</value>
-          <value type="string"> </value>
+          <command>nasal</command>
+          <script>
+            # Set animation property to 1 immediately on press
+            setprop("/controls/instrumentation/rmu/rmu[1]/btn[26]", 1);
+
+            var hdg_lock = getprop("/autopilot/locks/heading");
+            var has_route = getprop("/autopilot/route-manager/active");
+
+            # Condition 1: Autopilot heading lock off (or something else) -> Turn NAV1 lock on
+            if (hdg_lock == " " or hdg_lock == nil or (hdg_lock != "nav1-hold" and hdg_lock != "true-heading-hold")) {
+                setprop("/autopilot/locks/heading", "nav1-hold");
+            }
+            # Condition 2: NAV1 lock is already on
+            elsif (hdg_lock == "nav1-hold") {
+                if (has_route == 1 or has_route == "true") {
+                    # If route active -> Turn Route following on
+                    setprop("/autopilot/locks/heading", "true-heading-hold");
+                } else {
+                    # If no route active -> Turn heading lock off
+                    setprop("/autopilot/locks/heading", " ");
+                }
+            }
+            # Condition 3: Route following is already on -> Turn off completely
+            elsif (hdg_lock == "true-heading-hold") {
+                setprop("/autopilot/locks/heading", " ");
+            }
+          </script>
         </binding>
-        <binding>
-          <command>property-cycle</command>
-          <property>/controls/instrumentation/rmu/rmu[1]/btn[26]</property>
-          <value>1</value>
-          <value>0</value>
-        </binding>
+        <mod-up>
+          <binding>
+            <command>property-assign</command>
+            <property>/controls/instrumentation/rmu/rmu[1]/btn[26]</property>
+            <value>0</value>
+          </binding>
+        </mod-up>
+        
       </action>
       <hovered>
          <binding>
            <command>set-tooltip</command>
            <tooltip-id>switch-autopilot-pitch-on</tooltip-id>
-           <label>Nav Hold</label>
+           <label>Nav/Route Hold</label>
          </binding>
       </hovered>
   </animation>
+
 
   <animation>
       <type>pick</type>
@@ -1960,6 +2015,5 @@
             </binding>
         </action>
     </animation>
-
 
 </PropertyList>

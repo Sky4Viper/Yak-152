@@ -33,6 +33,8 @@ var convert = func {
   var mmHg   = inHg *25.401069519;
   var dmekn = getprop("instrumentation/dme/indicated-distance-nm");
   var dmekm = dmekn *1.852;
+  var winskt   = getprop("/environment/wind-speed-kt");
+  var winsms   = winskt /1.944;
 
   var apalttgtft = getprop("/autopilot/settings/target-altitude-ft");
   #if (thrust>0.6) {thrust=1;}
@@ -89,6 +91,7 @@ var convert = func {
   setprop("/instrumentation/dme/indicated-distance-km", dmekm);
   setprop("/autopilot/settings/target-altitude-m", apalttgtm);
   setprop("/autopilot/settings/target-agl-m", apagltgtm);
+  setprop("/environment/wind-speed-ms", winsms);
   # ---------------------------------------- Engine 1 ----------------------------------------
   if ( !mp1 ) {
     mp1  = 10

@@ -4,6 +4,7 @@
 
   <!-- Pilot MFI left-->
   <model>
+    <name>mfi1</name>
     <path>mfi1.xml</path>
     <offsets>
       <x-m> -1.17023 </x-m>
@@ -15,6 +16,7 @@
 
   <!-- Pilot MFI right-->
   <model>
+    <name>mfi2</name>
     <path>mfi2.xml</path>
     <offsets>
       <x-m> -1.17023 </x-m>
@@ -26,6 +28,7 @@
 
   <!-- Instructor MFI left-->
   <model>
+    <name>mfi3</name>
     <path>mfi3.xml</path>
     <offsets>
       <x-m> 0.169055 </x-m>
@@ -37,6 +40,7 @@
 
   <!-- Instructor MFI right-->
   <model>
+    <name>mfi4</name>
     <path>mfi4.xml</path>
     <offsets>
       <x-m> 0.169055 </x-m>
@@ -45,5 +49,35 @@
       <pitch-deg>63</pitch-deg>
     </offsets>
   </model>
+
+  <animation>
+    <type>select</type>
+    <object-name>mfi1</object-name>
+    <object-name>mfi2</object-name>
+    <condition>
+      <property>sim/current-view/internal</property>
+      <equals>
+        <property>sim/current-view/view-number-raw</property>
+        <value>0</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>mfi3</object-name>
+    <object-name>mfi4</object-name>
+    <condition>
+      <!-- <equals>
+        <property>sim/multiplay/generic/bool[0]</property>
+        <value>1</value>
+      </equals> -->
+      <property>sim/current-view/internal</property>
+      <equals>
+        <property>sim/current-view/view-number-raw</property>
+        <value>101</value>
+      </equals>
+    </condition>
+  </animation>
 
 </PropertyList>
