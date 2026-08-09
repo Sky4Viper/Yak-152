@@ -54,9 +54,12 @@
     </condition>
   </animation>
 
-    <animation>
+  <animation>
     <type>material</type>
-    <object-name>cockpit_mfi_ext_page</object-name>
+    <object-name>mfi_ext_page.001</object-name>
+    <object-name>mfi_ext_page.002</object-name>
+    <object-name>mfi_ext_page.003</object-name>
+    <object-name>mfi_ext_page.004</object-name>
     <condition>
       <or>
         <property>controls/electric/battery-switch</property>
@@ -67,7 +70,7 @@
       </or>
     </condition>
     <emission>
-      <factor-prop>controls/lighting/instruments-norm</factor-prop>
+      <factor-prop>/controls/instrumentation/mfis/mfi[1]/brightness-norm</factor-prop>
       <red>   1 </red>
       <green> 1 </green>
       <blue>  1 </blue>
@@ -197,15 +200,66 @@
 
   <animation>
     <type>select</type>
-    <object-name>cockpit_mfi_ext_page</object-name>
+    <object-name>mfi_ext_page.001</object-name>
     <condition>
-      <or>
-        <property>controls/electric/battery-switch</property>
-        <and>
-          <property>controls/electric/engine/generator</property>
-          <property>engines/engine[0]/running</property>
-        </and>
-      </or>
+        <greater-than>
+          <property>controls/instrumentation/mfis/mfi[1]/page</property>
+          <value>0</value>
+        </greater-than>
+        <less-than>
+          <property>controls/instrumentation/mfis/mfi[1]/page</property>
+          <value>5</value>
+        </less-than>
+      <not><property>sim/current-view/internal</property></not>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>mfi_ext_page.002</object-name>
+    <condition>
+        <greater-than>
+          <property>controls/instrumentation/mfis/mfi[2]/page</property>
+          <value>0</value>
+        </greater-than>
+        <less-than>
+          <property>controls/instrumentation/mfis/mfi[2]/page</property>
+          <value>5</value>
+        </less-than>
+      <not><property>sim/current-view/internal</property></not>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>mfi_ext_page.003</object-name>
+    <condition>
+        <greater-than>
+          <property>controls/instrumentation/mfis/mfi[3]/page</property>
+          <value>0</value>
+        </greater-than>
+        <less-than>
+          <property>controls/instrumentation/mfis/mfi[3]/page</property>
+          <value>5</value>
+        </less-than>
+      <property>sim/multiplay/generic/bool[0]</property>
+      <not><property>sim/current-view/internal</property></not>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>mfi_ext_page.004</object-name>
+    <condition>
+        <greater-than>
+          <property>controls/instrumentation/mfis/mfi[4]/page</property>
+          <value>0</value>
+        </greater-than>
+        <less-than>
+          <property>controls/instrumentation/mfis/mfi[4]/page</property>
+          <value>5</value>
+        </less-than>
+      <property>sim/multiplay/generic/bool[0]</property>
       <not><property>sim/current-view/internal</property></not>
     </condition>
   </animation>
@@ -652,26 +706,6 @@
     </axis>
   </animation>
 
-  <!-- <animation>
-    <type>rotate</type>
-    <object-name>rp_btn.002</object-name>
-    <property>controls/engines/engine[0]/magnetos</property>
-    <interpolation>
-      <entry><ind>0</ind><dep>26</dep></entry>
-      <entry><ind>1</ind><dep>-26</dep></entry>
-    </interpolation>
-    <center>
-      <x-m>-1.05991</x-m>
-      <y-m> 0.0</y-m>
-      <z-m>-0.04802</z-m>
-    </center>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0</z>
-    </axis>
-  </animation> -->
-
   <animation>
     <type>rotate</type>
     <object-name>rp_switch.003</object-name>
@@ -870,20 +904,6 @@
       </binding>
     </action>
   </animation>
-
-  <!-- <animation>
-    <type>pick</type>
-    <object-name>rp_btn.002</object-name>
-    <visible>true</visible>
-    <action>
-      <button>0</button>
-      <repeatable>false</repeatable>
-      <binding>
-        <command>property-toggle</command>
-        <property>controls/engines/engine[0]/magnetos</property>
-      </binding>
-    </action>
-  </animation> -->
 
   <animation>
     <type>pick</type>
@@ -1243,7 +1263,46 @@
                 </script>
             </binding>
         </hovered>
-    </animation>
+  </animation>
+
+  <animation>
+        <type>knob</type>
+        <object-name>mfi1_knob.002</object-name>
+        <increase>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/instrumentation/mfis/mfi[1]/brightness-norm</property>
+                <step>0.05</step>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>0</wrap> <!-- Kept at 0 so it stops spinning at full max instead of resetting to pitch black -->
+            </binding>
+        </increase>
+        <decrease>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/instrumentation/mfis/mfi[1]/brightness-norm</property>
+                <step>-0.05</step>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>0</wrap>
+            </binding>
+        </decrease>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>kn-mfi-brightness</tooltip-id>
+                <label>MFI Brightness: %s</label>
+                <property>/controls/instrumentation/mfis/mfi[1]/brightness-norm</property>
+                <mapping>nasal</mapping>
+                <script>
+                    # Converts the 0.0 - 1.0 double properties value into a clean 0% - 100% tooltip readout
+                    var pct = int(arg[0] * 100);
+                    return pct ~ "%";
+                </script>
+            </binding>
+        </hovered>
+  </animation>
 
   <animation>
       <type>knob</type>
@@ -1278,6 +1337,45 @@
                 <script>
                     var modes = ['OFF', 'PILOT', 'NAV', 'ENGINE', 'AIRPLANE'];
                     return modes[arg[0]];
+                </script>
+            </binding>
+        </hovered>
+  </animation>
+
+  <animation>
+        <type>knob</type>
+        <object-name>mfi2_knob.002</object-name>
+        <increase>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/instrumentation/mfis/mfi[2]/brightness-norm</property>
+                <step>0.05</step>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>0</wrap> <!-- Kept at 0 so it stops spinning at full max instead of resetting to pitch black -->
+            </binding>
+        </increase>
+        <decrease>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/instrumentation/mfis/mfi[2]/brightness-norm</property>
+                <step>-0.05</step>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>0</wrap>
+            </binding>
+        </decrease>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>kn-mfi-brightness</tooltip-id>
+                <label>MFI Brightness: %s</label>
+                <property>/controls/instrumentation/mfis/mfi[2]/brightness-norm</property>
+                <mapping>nasal</mapping>
+                <script>
+                    # Converts the 0.0 - 1.0 double properties value into a clean 0% - 100% tooltip readout
+                    var pct = int(arg[0] * 100);
+                    return pct ~ "%";
                 </script>
             </binding>
         </hovered>
@@ -1322,6 +1420,45 @@
   </animation>
 
   <animation>
+        <type>knob</type>
+        <object-name>mfi3_knob.002</object-name>
+        <increase>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/instrumentation/mfis/mfi[3]/brightness-norm</property>
+                <step>0.05</step>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>0</wrap> <!-- Kept at 0 so it stops spinning at full max instead of resetting to pitch black -->
+            </binding>
+        </increase>
+        <decrease>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/instrumentation/mfis/mfi[3]/brightness-norm</property>
+                <step>-0.05</step>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>0</wrap>
+            </binding>
+        </decrease>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>kn-mfi-brightness</tooltip-id>
+                <label>MFI Brightness: %s</label>
+                <property>/controls/instrumentation/mfis/mfi[3]/brightness-norm</property>
+                <mapping>nasal</mapping>
+                <script>
+                    # Converts the 0.0 - 1.0 double properties value into a clean 0% - 100% tooltip readout
+                    var pct = int(arg[0] * 100);
+                    return pct ~ "%";
+                </script>
+            </binding>
+        </hovered>
+  </animation>
+
+  <animation>
       <type>knob</type>
       <object-name>mfi4_knob.001</object-name>
       <increase>
@@ -1354,6 +1491,45 @@
                 <script>
                     var modes = ['OFF', 'PILOT', 'NAV', 'ENGINE', 'AIRPLANE'];
                     return modes[arg[0]];
+                </script>
+            </binding>
+        </hovered>
+  </animation>
+
+  <animation>
+        <type>knob</type>
+        <object-name>mfi4_knob.002</object-name>
+        <increase>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/instrumentation/mfis/mfi[4]/brightness-norm</property>
+                <step>0.05</step>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>0</wrap> <!-- Kept at 0 so it stops spinning at full max instead of resetting to pitch black -->
+            </binding>
+        </increase>
+        <decrease>
+            <binding>
+                <command>property-adjust</command>
+                <property>/controls/instrumentation/mfis/mfi[4]/brightness-norm</property>
+                <step>-0.05</step>
+                <min>0.0</min>
+                <max>1.0</max>
+                <wrap>0</wrap>
+            </binding>
+        </decrease>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>kn-mfi-brightness</tooltip-id>
+                <label>MFI Brightness: %s</label>
+                <property>/controls/instrumentation/mfis/mfi[4]/brightness-norm</property>
+                <mapping>nasal</mapping>
+                <script>
+                    # Converts the 0.0 - 1.0 double properties value into a clean 0% - 100% tooltip readout
+                    var pct = int(arg[0] * 100);
+                    return pct ~ "%";
                 </script>
             </binding>
         </hovered>
