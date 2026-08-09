@@ -25,34 +25,38 @@
 
   <instrumentation>
     <mfis>
-      <live-map    type="bool">true</live-map>
-      <mfi n="0">
-        <page  type="int">0</page>
-        <subpage  type="int">0</subpage>
-        <brightness-norm type="int">0</brightness-norm>
-      </mfi>
-      <mfi n="1">
-        <page  type="int">1</page>
-        <subpage  type="int">0</subpage>
-        <brightness-norm type="int">0</brightness-norm>
-      </mfi>
-      <mfi n="2">
-        <page  type="int">2</page>
-        <subpage  type="int">1</subpage>
-        <brightness-norm type="int">0</brightness-norm>
-      </mfi>
-      <mfi n="3">
-        <page  type="int">3</page>
-        <subpage  type="int">0</subpage>
-        <brightness-norm type="int">0</brightness-norm>
-      </mfi>
-      <mfi n="4">
-        <page  type="int">4</page>
-        <subpage  type="int">0</subpage>
-        <brightness-norm type="int">0</brightness-norm>
-      </mfi>
+        <live-map type="bool">true</live-map>
+        
+        <!-- Left MFI pilot (Cockpit 1) -->
+        <mfi n="1">
+            <page type="int">0</page>
+            <subpage type="int">0</subpage>
+            <brightness-norm type="double">0.0</brightness-norm> <!-- changed double for smoother knobs -->
+        </mfi>
+        
+        <!-- Right MFI pilot (Cockpit 1) -->
+        <mfi n="2">
+            <page type="int">0</page>
+            <subpage type="int">0</subpage>
+            <brightness-norm type="double">0.0</brightness-norm>
+        </mfi>
+        
+        <!-- Left MFI co-pilot(Cockpit 2) -->
+        <mfi n="3">
+            <page type="int">0</page>
+            <subpage type="int">0</subpage>
+            <brightness-norm type="double">0.0</brightness-norm>
+        </mfi>
+        
+        <!-- Right MFI co-pilot(Cockpit 2) -->
+        <mfi n="4">
+            <page type="int">0</page>
+            <subpage type="int">0</subpage>
+            <brightness-norm type="double">0.0</brightness-norm>
+        </mfi>
     </mfis>
   </instrumentation>
+
 
   <engines>
     <engine            n="0">
@@ -60,6 +64,7 @@
       <magnetos>0</magnetos>
       <noze-flaps-norm type="float">1</noze-flaps-norm>
       <cowl-flaps-norm type="float">1</cowl-flaps-norm>
+      <propeller-pitch type="float">0</propeller-pitch>
     </engine>
   </engines>
 
