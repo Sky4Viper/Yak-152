@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 
-<!-- Yakovlev Yak-152 FDM v27.0 with fadec - Sergei [Skydive] Solyshko 10/08/2026
+<!-- Yakovlev Yak-152 FDM v26.0 with fadec - Sergei [Skydive] Solyshko 07/08/2026
      sources            : https://en.wikipedia.org/wiki/Yakovlev_Yak-152
 
      wingspan           :   8.82 m  (   28 ft 11 in )
@@ -19,9 +19,9 @@
 ==========================
 = YASim solution results =
 ==========================
-Iterations        : 1761
-Drag Coefficient  : 12.770
-Lift Ratio        : 88.266
+Iterations        :  1762
+Drag Coefficient  :  12.771
+Lift Ratio        :  88.272
 Cruise AoA        : -0.34 deg
 Tail Incidence    : -0.16 deg
 Approach Elevator : -0.770
@@ -31,7 +31,7 @@ Wing MAC          : (x:1.198, y:2.017), length:1.500
 hard limit CG-x   : 2.049 m
 soft limit CG-x   : 0.823 m
 CG-x              : 0.851 m
-CG-x rel. MAC     :  23%
+CG-x rel. MAC     : 23%
 soft limit CG-x   : 0.748 m
 hard limit CG-x   : 0.354 m
 
@@ -202,48 +202,48 @@ Impulse  x    Roll      1410       -0      174
     </piston-engine>
   </propeller>
 
-  <!-- Noze wheel -->
-  <gear x="2.04936" y=" 0.000" z="-1.8599"
-        compression = "0.15"
-        upx="-0.3" upy="0" upz="1"
-        spring      = "0.5"
-        sfric       = "0.88"
-        dfric       = "0.78"
-        stiction    = "1"
-        castering="1">
-        <control-input control="CASTERING"  axis="/controls/gear/brake-parking"  src0="0" src1="1" dst0="1" dst1="0" />
-        <control-input  control="EXTEND"    axis="/controls/gear/gear-down"/>
-        <control-output control="EXTEND"    prop="/gear/gear[0]/position-norm"/>
-        <control-speed  control="EXTEND"    transition-time="4.5"/>
-  </gear>
+ <!-- Nose Wheel (Non-Steerable,  Castering with left and right wheel differential breaks) -->
+ <gear x="2.04936" y=" 0.000" z="-1.8599"
+       compression="0.18"
+       upx="-0.3" upy="0" upz="1"
+       spring="0.88"
+       sfric="0.88"
+       dfric="0.95"
+       stiction="1"
+       castering="1">
+   <control-input control="CASTERING" axis="/controls/gear/brake-parking" src0="0" src1="1" dst0="1" dst1="0" />
+   <control-input control="EXTEND" axis="/controls/gear/gear-down"/>
+   <control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
+   <control-speed control="EXTEND" transition-time="4.5"/>
+ </gear>
 
-  <!-- Left wheel -->
-  <gear x="0.35435" y=" 1.39584" z="-1.7438"
-        compression = "0.13"
-        spring      = "0.6"
-        sfric       = "0.88"
-        dfric       = "0.78"
-        stiction    = "1">
-        <control-input  control="BRAKE"  axis="/controls/gear/brake-left" square="true" split="true"/>
-        <control-input  control="BRAKE"  axis="/controls/gear/brake-parking" split="true"/>
-        <control-input  control="EXTEND" axis="/controls/gear/gear-down"/>
-        <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
-        <control-speed  control="EXTEND" transition-time="5.5"/>
-  </gear>
+ <!-- Left Main Wheel -->
+ <gear x="0.35435" y="1.39584" z="-1.7438"
+       compression="0.15"
+       spring="0.98"
+       sfric="0.88"
+       dfric="0.98"
+       stiction="1">
+   <control-input control="BRAKE" axis="/controls/gear/brake-left" square="true" split="true"/>
+   <control-input control="BRAKE" axis="/controls/gear/brake-parking" split="true"/>
+   <control-input control="EXTEND" axis="/controls/gear/gear-down"/>
+   <control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
+   <control-speed control="EXTEND" transition-time="5.5"/>
+ </gear>
 
-  <!-- Right wheel -->
-  <gear x="0.35435" y="-1.39584" z="-1.7438"
-        compression = "0.13"
-        spring      = "0.6"
-        sfric       = "0.88"
-        dfric       = "0.78"
-        stiction    = "1">
-        <control-input  control="BRAKE"  axis="/controls/gear/brake-right" square="true" split="true"/>
-        <control-input  control="BRAKE"  axis="/controls/gear/brake-parking" split="true"/>
-        <control-input  control="EXTEND" axis="/controls/gear/gear-down"/>
-        <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
-        <control-speed  control="EXTEND" transition-time="6"/>
-  </gear>
+ <!-- Right Main Wheel -->
+ <gear x="0.35435" y="-1.39584" z="-1.7438"
+       compression="0.15"
+       spring="0.98"
+       sfric="0.88"
+       dfric="0.98"
+       stiction="1">
+   <control-input control="BRAKE" axis="/controls/gear/brake-right" square="true" split="true"/>
+   <control-input control="BRAKE" axis="/controls/gear/brake-parking" split="true"/>
+   <control-input control="EXTEND" axis="/controls/gear/gear-down"/>
+   <control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
+   <control-speed control="EXTEND" transition-time="6"/>
+ </gear>
 
   <!-- 245 kg JetA1 = 540.1319 lbs = 80.6167 gal -->
   <tank x="0.383" y=" 2.300" z="-0.600" capacity="270"/>

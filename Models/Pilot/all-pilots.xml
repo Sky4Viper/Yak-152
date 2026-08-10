@@ -6,7 +6,7 @@
     <name>ThePilot</name>
     <path>pilot.xml</path>
     <offsets>
-      <x-m> -0.48 </x-m>
+      <x-m> -0.47 </x-m>
       <y-m>  0.000 </y-m>
       <z-m> -0.165 </z-m>
     </offsets>

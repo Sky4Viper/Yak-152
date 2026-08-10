@@ -6,7 +6,7 @@
   <model>
     <path>seat.xml</path>
     <offsets>
-      <x-m>  0.058 </x-m>
+      <x-m>  0.018 </x-m>
       <y-m>  0.000 </y-m>
       <z-m>  0.060 </z-m>
     </offsets>
@@ -16,7 +16,7 @@
   <model>
     <path>seat.xml</path>
     <offsets>
-      <x-m>  1.3635 </x-m>
+      <x-m>  1.3135 </x-m>
       <y-m>  0.000 </y-m>
       <z-m>  0.030 </z-m>
     </offsets>
