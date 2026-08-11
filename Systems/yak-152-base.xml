@@ -27,6 +27,11 @@
       <show-copilot  type="bool"/>
     </model>
 
+    <submodels>
+        <serviceable type="bool">true</serviceable>
+        <path>Aircraft/Yak-152/Models/Submodels/submodels.xml</path>
+    </submodels>
+
     <systems         include="rules.xml"/>
 
     <instrumentation include="initialisation.xml"/>
@@ -146,6 +151,9 @@
     <fadec>
       <file>Aircraft/Yak-152/Nasal/fadec.nas</file>
     </fadec>
+    <sks94>
+        <file>Aircraft/Yak-152/Nasal/sks94.nas</file>
+    </sks94>
     <autostart>
       <file>Aircraft/Yak-152/Nasal/autostart.nas</file>
     </autostart>

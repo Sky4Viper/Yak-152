@@ -1282,7 +1282,7 @@
         <property>/sim/model/lights/warn_blink/state</property>
 			  <greater-than>
 				  <property>orientation/alpha-deg</property>
-				  <value>10.2</value>
+				  <value>10.0</value>
 			  </greater-than>
         <not>
           <property>gear/gear[0]/wow</property>

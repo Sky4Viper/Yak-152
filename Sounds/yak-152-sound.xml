@@ -750,6 +750,55 @@
       <max-dist>1000</max-dist>
     </rain>
 
+  <!-- ========================================================== -->
+  <!-- NPP ZVEZDA SKS-94 EJECTION SYSTEM AUDIO TRIGGERS          -->
+  <!-- ========================================================== -->
+
+  <!-- Rear Seat Rocket Canopy Blast (Fires if Copilot is Present) -->
+  <copilot-eject-sound>
+    <name>copilot-canopy-rocket</name>
+    <mode>once</mode>
+    <path>eject.wav</path>
+    <condition>
+      <property>/controls/seat/eject/copilot-ejected</property>
+    </condition>
+    <volume>
+      <factor>0.85</factor>
+    </volume>
+  </copilot-eject-sound>
+
+  <!-- Front Seat Rocket Blast (Fires for Main Pilot Execution) -->
+  <pilot-eject-sound>
+    <name>pilot-canopy-rocket</name>
+    <mode>once</mode>
+    <path>eject.wav</path>
+    <condition>
+      <property>/controls/seat/eject/pilot-ejected</property>
+    </condition>
+    <volume>
+      <factor>0.85</factor>
+    </volume>
+  </pilot-eject-sound>
+
+  <!-- Main Parachute Canopy Inflation Sequence -->
+  <parachute-deploy-sound>
+    <name>parachute-inflation</name>
+    <mode>once</mode>
+    <path>chute.wav</path>
+    <condition>
+      <and>
+        <property>/controls/seat/eject/ejected</property>
+        <greater-than>
+          <property>/controls/seat/eject/chute-norm</property>
+          <value>0.25</value>
+        </greater-than>
+      </and>
+    </condition>
+    <volume>
+      <factor>0.70</factor>
+    </volume>
+  </parachute-deploy-sound>
+
   </fx>
 
 </PropertyList>

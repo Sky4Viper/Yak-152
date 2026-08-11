@@ -12,14 +12,18 @@
     </offsets>
   </model>
 
+  <!-- Updated Pilot Animation: Tracks individual front seat ejection -->
   <animation>
     <type>select</type>
     <object-name>ThePilot</object-name>
     <condition>
-      <not-equals>
-        <property>sim/current-view/name</property>
-        <value>Cockpit View</value>
-      </not-equals>
+      <and>
+        <not-equals>
+          <property>sim/current-view/name</property>
+          <value>Cockpit View</value>
+        </not-equals>
+        <not><property>/controls/seat/eject/pilot-ejected</property></not>
+      </and>
     </condition>
   </animation>
 
@@ -33,18 +37,18 @@
     </offsets>
   </model>
 
-  <!-- Select copilot -->
+  <!-- Updated Copilot Animation: Tracks individual rear seat ejection -->
   <animation>
     <type>select</type>
     <object-name>Copilot</object-name>
     <condition>
       <and>
-        <!-- <property>sim/model/show-copilot</property> -->
         <property>sim/multiplay/generic/bool[0]</property>
         <not-equals>
           <property>sim/current-view/name</property>
           <value>Instructor Seat View</value>
         </not-equals>
+        <not><property>/controls/seat/eject/copilot-ejected</property></not>
       </and>
     </condition>
   </animation>

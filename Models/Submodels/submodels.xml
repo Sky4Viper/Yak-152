@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+    <!-- Global fallback defaults for shared parts -->
+    <ejection-parts>
+        <model>Aircraft/Yak-152/Models/Submodels/Eject/parachutist.xml</model>
+        <repeat>false</repeat>
+        <delay>0.3</delay>
+        <count>-1</count>
+        <life>1</life>
+        <wind>true</wind>
+        <buoyancy>30</buoyancy>
+        <eda>10</eda>
+        <cd>4</cd>
+        <no-roll>false</no-roll>
+        <weight>180</weight>
+        <external-force>true</external-force>
+        <impact>true</impact>
+        <impact-report>sim/ai/aircraft/impact/chute</impact-report>
+        <submodel-path>Aircraft/Yak-152/Models/Submodels/Eject/chute-submodel.xml</submodel-path>
+    </ejection-parts>
+
+    <!-- ========================================== -->
+    <!-- CO-PILOT (Rear Seat - Fires First at 0.0s) -->
+    <!-- ========================================== -->
+    <submodel>
+        <name>Parachutist2</name>
+        <model            alias="../../ejection-parts/model"/>
+        <repeat           alias="../../ejection-parts/repeat"/>
+        <delay            alias="../../ejection-parts/delay"/>
+        <count            alias="../../ejection-parts/count"/>
+        <weight           alias="../../ejection-parts/weight"/>
+        <cd               alias="../../ejection-parts/cd"/>
+        <eda              alias="../../ejection-parts/eda"/>
+        <no-roll          alias="../../ejection-parts/no-roll"/>
+        <wind             alias="../../ejection-parts/wind"/>
+        <external-force   alias="../../ejection-parts/external-force"/>
+        <impact           alias="../../ejection-parts/impact"/>
+        <impact-report    alias="../../ejection-parts/impact-report"/>
+        <submodel-path    alias="../../ejection-parts/submodel-path"/>
+        
+        <!-- FIXED TRIGGER: Now uses a dedicated property isolated from the master flag -->
+        <trigger>controls/seat/eject/copilot-ejected</trigger>
+        <trigger-once>controls/seat/eject/copilot-ejected</trigger-once>
+        
+        <!-- UNIQUE TRAJECTORY: Standard speed, angled slightly left -->
+        <speed type="double">275</speed>
+        <offsets>
+          <x-m>  0.8335 </x-m>
+          <y-m>  0.000 </y-m>
+          <z-m> -0.185 </z-m>
+          <pitch-deg> 102 </pitch-deg>
+          <yaw-deg>   -5 </yaw-deg>
+        </offsets>
+    </submodel>
+
+    <!-- ======================================= -->
+    <!-- PILOT (Front Seat - Fires Second at 0.6s)-->
+    <!-- ======================================= -->
+    <submodel>
+        <name>Parachutist1</name>
+        <model            alias="../../ejection-parts/model"/>
+        <repeat           alias="../../ejection-parts/repeat"/>
+        <delay            alias="../../ejection-parts/delay"/>
+        <count            alias="../../ejection-parts/count"/>
+        <weight           alias="../../ejection-parts/weight"/>
+        <cd               alias="../../ejection-parts/cd"/>
+        <eda              alias="../../ejection-parts/eda"/>
+        <no-roll          alias="../../ejection-parts/no-roll"/>
+        <wind             alias="../../ejection-parts/wind"/>
+        <external-force   alias="../../ejection-parts/external-force"/>
+        <impact           alias="../../ejection-parts/impact"/>
+        <impact-report    alias="../../ejection-parts/impact-report"/>
+        <submodel-path    alias="../../ejection-parts/submodel-path"/>
+        
+        <trigger>controls/seat/eject/pilot-ejected</trigger>
+        <trigger-once>controls/seat/eject/pilot-ejected</trigger-once>
+        
+        <!-- UNIQUE TRAJECTORY: Faster speed, angled slightly right -->
+        <speed type="double">290</speed> 
+        <offsets>
+          <x-m> -0.47 </x-m>
+          <y-m>  0.000 </y-m>
+          <z-m> -0.165 </z-m>
+          <pitch-deg> 96 </pitch-deg>
+          <yaw-deg>    5 </yaw-deg>
+        </offsets>
+    </submodel>
+
+</PropertyList>

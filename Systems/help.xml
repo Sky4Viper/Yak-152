@@ -13,11 +13,15 @@
   </key>
   <key>
     <name>l</name>
-    <desc>Landing light on/off</desc>
+    <desc>Landing or Taxi light on/off</desc>
   </key>
   <key>
     <name>shift+q (Q)</name>
     <desc>Reset view</desc>
+  </key>
+  <key>
+    <name>ctrl+e </name>
+    <desc>Eject</desc>
   </key>
   <line>No nosewheel steering</line>
   <line>Use differential breakes</line>

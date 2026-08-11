@@ -31,7 +31,7 @@ beacon.interval = 0;
 var strobe = aircraft.light.new( "/sim/model/lights/strobe", [0.05, 0.05, 0.05, 1] );
 strobe.interval = 0;
 
-var warn_pattern = [0.5, 0.5, 0.5, 1.2]; 
+var warn_pattern = [0.25, 0.25]; 
 aircraft.light.new("/sim/model/lights/warn_blink", warn_pattern);
 
 # =========================================================================

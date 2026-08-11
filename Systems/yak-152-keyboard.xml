@@ -4,6 +4,15 @@
 
   <keyboard>
 
+    <key n="5"> <!-- Ctrl + E -->
+        <name>Ctrl-E</name>
+        <desc>Trigger SKS-94 Crew Extraction System</desc>
+        <binding>
+                <command>nasal</command>
+                <script>sks94.trigger_sks94();</script>
+        </binding>
+    </key>
+
     <key n="100">
       <name>d</name>
       <desc>Canopy</desc>

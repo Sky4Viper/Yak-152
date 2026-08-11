@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+    <path>parachutist.ac</path>
+
+    <offsets>
+        <x-m>0.94</x-m> <!-- Up -->
+        <y-m>0.0</y-m> <!-- Left -->
+        <z-m>0.08</z-m> <!-- Back -->
+        <pitch-deg> 90 </pitch-deg>
+    </offsets>
+
+    <effect>
+        <object-name>DragChute</object-name>
+        <inherits-from>Effects/chute</inherits-from>
+        <parameters>
+            <chute_force>
+                <use>/controls/seat/eject/eject-norm</use>
+            </chute_force>
+            <chute_projection_z>10.35</chute_projection_z>
+            <chute_fold>0.0</chute_fold>
+            <chute_bend>0.0</chute_bend>
+        </parameters>
+    </effect>
+
+    <model>
+     <path>Aircraft/Yak-152/Models/Pilot/pilot.xml</path>
+       <offsets>
+         <x-m>-0.027042</x-m>
+         <y-m> 0.03</y-m>
+         <z-m>-0.581401</z-m>
+         <heading-deg> -180 </heading-deg>
+         <pitch-deg> -20.86 </pitch-deg>
+        </offsets>
+    </model>
+
+</PropertyList>

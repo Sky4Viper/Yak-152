@@ -52,6 +52,21 @@
       </binding>
     </checkbox>
 
+    <checkbox>
+      <halign>left</halign>
+      <label>Close/Distant Eject Pilot View</label>
+          <property>/controls/seat/eject/pilot-view</property>
+          <live>true</live>
+          <binding>
+          <command>nasal</command>
+          <script>
+                <![CDATA[
+                setprop("/controls/seat/eject/pilot-view",!getprop("/controls/seat/eject/pilot-view"));
+                ]]>
+          </script>
+      </binding>
+    </checkbox>
+
   </group>
 
   <hrule/>
