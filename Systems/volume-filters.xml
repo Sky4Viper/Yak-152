@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+  <filter>
+    <name>Cockpit View Sound Fader</name>
+    <type>exponential</type>
+    <gain>0.2</gain> <!-- Lower value = slower fade, Higher value = faster fade -->
+    <input>
+      <condition>
+        <and>
+          <not><property>/sim/crashed</property></not>
+          <property>/sim/current-view/internal</property>
+        </and>
+      </condition>
+      <value>1.0</value> <!-- Full volume when inside and alive -->
+    </input>
+    <input>
+      <value>0.0</value> <!-- Fade to completely silent when outside or crashed -->
+    </input>
+    <output>/sim/sound/cockpit-fade-volume</output>
+  </filter>
+</PropertyList>
+

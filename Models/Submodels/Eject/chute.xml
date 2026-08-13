@@ -7,10 +7,11 @@
         <y-m>0.0</y-m>
         <z-m>0.0</z-m>
         <pitch-deg> -5 </pitch-deg>
+        <heading-deg>/environment/wind-from-heading-deg</heading-deg>
     </offsets>
 
     <model>
-     <path>Aircraft/Yak-152/Models/Pilot/pilot.xml</path>
+     <path>Aircraft/Yak-152/Models/Pilot/pilotlowpoly.xml</path>
        <offsets>
          <x-m>-0.027042</x-m>
          <y-m>0.0</y-m>

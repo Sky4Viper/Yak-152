@@ -54,7 +54,7 @@
 
     <checkbox>
       <halign>left</halign>
-      <label>Close/Distant Eject Pilot View</label>
+      <label>First Person Eject Pilot View</label>
           <property>/controls/seat/eject/pilot-view</property>
           <live>true</live>
           <binding>

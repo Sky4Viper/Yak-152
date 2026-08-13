@@ -33,6 +33,8 @@
     <condition>
       <!-- <property>sim/rendering/hdr/hdr-enabled</property> -->
       <property>sim/multiplay/generic/bool[2]</property>
+      <not><property>/controls/seat/eject/pilot-ejected</property></not>
+      <not><property>/controls/seat/eject/copilot-ejected</property></not>
     </condition>
     <object-name>HDRinter_glass</object-name>
   </animation>
@@ -42,6 +44,8 @@
     <condition>
       <!-- <not><property>sim/rendering/hdr/hdr-enabled</property></not> -->
       <not><property>sim/multiplay/generic/bool[2]</property></not>
+      <not><property>/controls/seat/eject/pilot-ejected</property></not>
+      <not><property>/controls/seat/eject/copilot-ejected</property></not>
     </condition>
     <object-name>inter_glass</object-name>
   </animation>

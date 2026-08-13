@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PropertyList>
+
+  <path>seat.ac</path>
+
+  <!-- ========================================================== -->
+  <!-- ATTACH EXTERNAL MODULAR PARTICLE EFFECTS                  -->
+  <!-- ========================================================== -->
+
+  <model>
+    <name>RearShatterEffect</name>
+    <path>Aircraft/Yak-152/Models/Effects/eject/rear-shatter.xml</path>
+    <offsets>
+      <x-m>0.000</x-m>
+      <y-m>0.000</y-m>
+      <z-m>0.515</z-m>
+    </offsets>
+  </model>
+
+  <!-- Rear Rocket Smoke Effect (Now points to rear-smoke file) -->
+  <model>
+    <name>RearSmokeEffect</name>
+    <path>Aircraft/Yak-152/Models/Effects/eject/rear-smoke.xml</path>
+    <offsets>
+      <x-m>0.000</x-m>
+      <y-m>0.000</y-m>
+      <z-m>-0.250</z-m>
+    </offsets>
+  </model>
+
+  <!-- ========================================================== -->
+  <!-- SKS-94 ANGLED TELESCOPIC CO-PILOT SEAT EXTRACTION ANIMATIONS-->
+  <!-- ========================================================== -->
+
+  <animation>
+    <type>select</type>
+    <object-name>eject_headrest</object-name>
+    <object-name>eject_headrest_cushion</object-name>
+    <condition>
+			<less-than>
+				<property>/controls/seat/eject/eject-norm</property>
+				<value>1.0</value>
+			</less-than>
+		</condition>
+  </animation>
+
+  <!-- Lower Cylinder Stage: Slides upward/backward out of seat base -->
+  <animation>
+    <type>translate</type>
+    <object-name>eject_cylinder.002</object-name>
+    <property>/controls/seat/eject/eject-norm</property>
+    <factor>0.4</factor>
+    <axis>
+      <x1-m> -0.320835 </x1-m>
+      <y1-m>  0.00000 </y1-m>
+      <z1-m> -0.239949 </z1-m>
+      <x2-m> -0.135893 </x2-m>
+      <y2-m>  0.00000 </y2-m>
+      <z2-m>  0.379578  </z2-m>
+    </axis>
+    <condition>
+      <property>/controls/seat/eject/copilot-ejected</property>
+    </condition>
+  </animation>
+
+  <!-- Upper Cylinder Stage: Rides on Lower Cylinder along the same angled track -->
+  <animation>
+    <type>translate</type>
+    <object-name>eject_cylinder.003</object-name>
+    <object-name>eject_headrest</object-name>
+    <object-name>eject_headrest_cushion</object-name>
+    <object-name>RearShatterEffect</object-name>
+    <object-name>RearSmokeEffect</object-name>
+    <property>/controls/seat/eject/eject-norm</property>
+    <factor>0.8</factor>
+    <axis>
+      <x1-m> -0.320835 </x1-m>
+      <y1-m>  0.00000 </y1-m>
+      <z1-m> -0.239949 </z1-m>
+      <x2-m> -0.135893 </x2-m>
+      <y2-m>  0.00000 </y2-m>
+      <z2-m>  0.379578  </z2-m>
+    </axis>
+    <condition>
+      <property>/controls/seat/eject/copilot-ejected</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>translate</type>
+    <object-name>handles</object-name>
+    <property>/controls/seat/eject/copilot-ejected</property>
+    <factor>0.015</factor>
+    <axis>
+      <x> 1.000 </x>
+      <y> 0.000 </y>
+      <z> 0.000 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>handles</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+          <command>nasal</command>
+          <script>sks94.trigger_sks94();</script>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList>

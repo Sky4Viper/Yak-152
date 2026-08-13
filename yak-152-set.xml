@@ -7,7 +7,7 @@
     <description>Yakovlev Yak-152 (YASim)</description>
     <author>Sergei [Skydive] Solyshko (3D/FDM)</author>
 
-    <aircraft-version>0.6</aircraft-version>
+    <aircraft-version>0.7</aircraft-version>
     <status>Beta</status>
     <minimum-fg-version>2018.2.0</minimum-fg-version>
 

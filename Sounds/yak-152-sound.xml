@@ -220,71 +220,89 @@
       <path>stall.wav</path>
       <condition>
         <and>
-          <property>controls/electric/battery-switch</property>
+          <!-- Added leading slashes to properties -->
+          <property>/controls/electric/battery-switch</property>
           <less-than>
-            <property>velocities/airspeed-kt</property>
+            <property>/velocities/airspeed-kt</property>
             <value>52</value>
           </less-than>
           <not>
-            <property>controls/gear/gear-down</property>
+            <property>/controls/gear/gear-down</property>
           </not>
+          <!-- Added <or> inside <not> for correct gear logic -->
           <not>
-            <property>gear/gear[0]/wow</property>
-            <property>gear/gear[1]/wow</property>
-            <property>gear/gear[2]/wow</property>
+            <or>
+              <property>/gear/gear[0]/wow</property>
+              <property>/gear/gear[1]/wow</property>
+              <property>/gear/gear[2]/wow</property>
+            </or>
           </not>
         </and>
       </condition>
       <volume>
-        <factor>0.7</factor>
+        <property>/sim/sound/cockpit-fade-volume</property>
+        <factor>1.0</factor>
       </volume>
     </stall>
 
     <aoa-warn>
-        <name>aoa-warn</name>
-        <mode>looped</mode>
-        <type>avionics</type>
-        <path>warn.wav</path>
-        <condition>
-        <property>controls/electric/battery-switch</property>
-			  <greater-than>
-				  <property>orientation/alpha-deg</property>
-				  <value>10.0</value>
-			  </greater-than>
-        <not>
-          <property>gear/gear[0]/wow</property>
-          <property>gear/gear[1]/wow</property>
-          <property>gear/gear[2]/wow</property>
-        </not>
-        </condition>
-        <volume>
-          <factor>0.7</factor>
-        </volume>
+      <name>aoa-warn</name>
+      <type>avionics</type>
+      <mode>looped</mode>
+      <path>warn.wav</path> <!-- Cleaned duplicate <type> tags -->
+      <condition>
+        <and>
+          <!-- Added missing <and> block and absolute property paths -->
+          <property>/controls/electric/battery-switch</property>
+          <greater-than>
+            <property>/orientation/alpha-deg</property>
+            <value>10.0</value>
+          </greater-than>
+          <!-- Added <or> inside <not> for correct gear logic -->
+          <not>
+            <or>
+              <property>/gear/gear[0]/wow</property>
+              <property>/gear/gear[1]/wow</property>
+              <property>/gear/gear[2]/wow</property>
+            </or>
+          </not>
+        </and>
+      </condition>
+      <volume>
+        <property>/sim/sound/cockpit-fade-volume</property>
+        <factor>1.0</factor>
+      </volume>
     </aoa-warn>
 
     <rita-aoa-warn>
         <name>rita aoa warning</name>
-        <mode>looped</mode>
         <type>avionics</type>
+        <mode>looped</mode>
         <path>rita_aoa.wav</path>
         <condition>
-        <property>controls/electric/battery-switch</property>
-			  <greater-than>
-				  <property>orientation/alpha-deg</property>
-				  <value>10.0</value>
-			  </greater-than>
-        <not>
-          <property>gear/gear[0]/wow</property>
-          <property>gear/gear[1]/wow</property>
-          <property>gear/gear[2]/wow</property>
-        </not>
+            <and>
+                <property>/controls/electric/battery-switch</property>
+                <greater-than>
+                    <property>/orientation/alpha-deg</property>
+                    <value>10.0</value>
+                </greater-than>
+                <not>
+                    <or>
+                        <property>/gear/gear[0]/wow</property>
+                        <property>/gear/gear[1]/wow</property>
+                        <property>/gear/gear[2]/wow</property>
+                    </or>
+                </not>
+            </and>
         </condition>
         <volume>
-          <factor>0.8</factor>
+            <property>/sim/sound/cockpit-fade-volume</property>
+            <factor>1.0</factor>
         </volume>
     </rita-aoa-warn>
 
     <gear-warn>
+      <type>avionics</type>
       <name>gear warning</name>
       <mode>looped</mode>
       <path>Sounds/gear-hrn.wav</path>
@@ -304,7 +322,9 @@
        </and>
       </condition>
       <volume>
-        <factor>0.6</factor>
+        <!-- Added fade property so it disappears when looking outside -->
+        <property>/sim/sound/cockpit-fade-volume</property>
+        <factor>1.0</factor>
       </volume>
       <position>
         <x> -2.00 </x>
@@ -316,6 +336,7 @@
     </gear-warn>
 
     <rita-gear-warn>
+      <type>avionics</type>
       <name>rita gear warning</name>
       <mode>looped</mode>
       <path>rita_geardown.wav</path>
@@ -335,7 +356,9 @@
        </and>
       </condition>
       <volume>
-        <factor>0.8</factor>
+        <!-- Added fade property so it disappears when looking outside -->
+        <property>/sim/sound/cockpit-fade-volume</property>
+        <factor>1.0</factor>
       </volume>
       <position>
         <x> -2.00 </x>
@@ -347,6 +370,7 @@
     </rita-gear-warn>
 
     <rita-overspeed>
+            <type>avionics</type>
             <name>rita_overspeed_warning</name>
             <mode>looped</mode>
             <path>rita_vne.wav</path>
@@ -357,7 +381,8 @@
               </greater-than>
             </condition>
             <volume>
-                <factor>0.8</factor>
+              <property>/sim/sound/cockpit-fade-volume</property>
+              <factor>1.0</factor>
             </volume>
     </rita-overspeed>
 
@@ -478,6 +503,7 @@
     <!-- Switch -->
 
     <click>
+      <type>avionics</type>
       <name>StarterKey ON</name>
       <path>Button.wav</path>
       <condition>
@@ -489,6 +515,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>StarterKey OFF</name>
       <path>Button.wav</path>
       <condition>
@@ -502,6 +529,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>Magnetos ON</name>
       <path>Button.wav</path>
       <condition>
@@ -516,6 +544,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>Magnetos OFF</name>
       <path>Button.wav</path>
       <condition>
@@ -530,6 +559,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>Master ON</name>
       <path>Button.wav</path>
       <condition>
@@ -541,6 +571,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>Master OFF</name>
       <path>Button.wav</path>
       <condition>
@@ -554,6 +585,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>Generator ON</name>
       <path>Button.wav</path>
       <condition>
@@ -565,6 +597,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>Generator OFF</name>
       <path>Button.wav</path>
       <condition>
@@ -578,6 +611,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>FuelPump ON</name>
       <path>Button.wav</path>
       <condition>
@@ -589,6 +623,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>FuelPump OFF</name>
       <path>Button.wav</path>
       <condition>
@@ -602,6 +637,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>FuelTank1 ON</name>
       <path>Button.wav</path>
       <condition>
@@ -613,6 +649,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>FuelTank1 OFF</name>
       <path>Button.wav</path>
       <condition>
@@ -626,6 +663,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>Ignition ON</name>
       <path>Button.wav</path>
       <condition>
@@ -637,6 +675,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>Ignition OFF</name>
       <path>Button.wav</path>
       <condition>
@@ -650,6 +689,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>Pitot heat ON</name>
       <path>Button.wav</path>
       <condition>
@@ -661,6 +701,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>Pitot heat OFF</name>
       <path>Button.wav</path>
       <condition>
@@ -674,6 +715,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>Instrument light ON</name>
       <path>Button.wav</path>
       <condition>
@@ -685,6 +727,7 @@
     </click>
 
     <click>
+      <type>avionics</type>
       <name>Instrument light OFF</name>
       <path>Button.wav</path>
       <condition>

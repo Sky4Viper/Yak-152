@@ -1,7 +1,7 @@
 AC3Db
-MATERIAL "ac3dmat12" rgb 0.267 0.267 0.267  amb 0.200 0.200 0.200  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 10 trans 0.000
-MATERIAL "ac3dmat1" rgb 1.000 1.000 1.000  amb 0.200 0.200 0.200  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 10 trans 0.000
-MATERIAL "ac3dmat4" rgb 1.000 0.450 0.000  amb 0.500 0.500 0.500  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 64 trans 0.341
+MATERIAL "ac3dmat12" rgb 0.050 0.050 0.050  amb 0.020 0.020 0.020  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 10 trans 0.000
+MATERIAL "ac3dmat1" rgb 0.920 0.920 0.920  amb 0.650 0.650 0.650  emis 0.000 0.000 0.000  spec 0.000 0.000 0.000  shi 10 trans 0.000
+MATERIAL "ac3dmat4" rgb 0.820 0.360 0.040  amb 0.520 0.200 0.020  emis 0.000 0.000 0.000  spec 0.050 0.050 0.050  shi 16 trans 0.221
 OBJECT world
 name "gamma2.ac"
 kids 1

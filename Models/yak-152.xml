@@ -47,14 +47,18 @@
     
 
     <!-- Objets transparents -->
-    <object-name>canopy_glass</object-name>
+    <object-name>canopy_glass.001</object-name>
+    <object-name>canopy_glass.002</object-name>
     <object-name>light_dome</object-name>
     <object-name>propblur</object-name>
     <object-name>propdisc</object-name>
     <object-name>wing_light_glass</object-name>
+    <object-name>glass_cracked.001</object-name>
+    <object-name>glass_cracked.002</object-name>
     
     <!-- HDR mode -->
-    <object-name>HDRcanopy_glass</object-name>
+    <object-name>HDRcanopy_glass.001</object-name>
+    <object-name>HDRcanopy_glass.002</object-name>
   </animation>
 
   <animation>
@@ -124,36 +128,6 @@
 
   </effect>
 
-  <!-- working for Compositor -->
-  <effect>
-    <inherits-from>Effects/Glass/glassrain</inherits-from>
-    <object-name>canopy_glass</object-name>
-  </effect>
-
-  <effect>
-    <inherits-from>Effects/Glass/glass</inherits-from>
-    <object-name>HDRcanopy_glass</object-name>
-  </effect>
-
-  <!-- Select HDR glass -->
-  <animation>
-    <type>select</type>
-    <condition>
-      <!-- <property>sim/rendering/hdr/hdr-enabled</property> -->
-      <property>sim/multiplay/generic/bool[2]</property>
-    </condition>
-    <object-name>HDRcanopy_glass</object-name>
-  </animation>
-
-  <animation>
-    <type>select</type>
-    <condition>
-      <!-- <not><property>sim/rendering/hdr/hdr-enabled</property></not> -->
-      <not><property>sim/multiplay/generic/bool[2]</property></not>
-    </condition>
-    <object-name>canopy_glass</object-name>
-  </animation>
-
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>lampeR</object-name>
@@ -167,6 +141,49 @@
     <object-name>propblur</object-name>
     <object-name>propdisc</object-name>
   </effect>
+
+  <animation>
+    <object-name>glass_cracked.001</object-name>
+    <object-name>glass_cracked.002</object-name>
+    <render-bin>
+      <bin-name>TransparentBin</bin-name>
+      <bin-number>11</bin-number>
+    </render-bin>
+  </animation>
+
+  <!-- working for Compositor -->
+  <effect>
+    <inherits-from>Effects/Glass/glassrain</inherits-from>
+    <object-name>canopy_glass.001</object-name>
+    <object-name>canopy_glass.002</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/Glass/glass</inherits-from>
+    <object-name>HDRcanopy_glass.001</object-name>
+    <object-name>HDRcanopy_glass.002</object-name>
+  </effect>
+
+  <!-- Select HDR glass -->
+  <animation>
+    <type>select</type>
+    <condition>
+      <!-- <property>sim/rendering/hdr/hdr-enabled</property> -->
+      <property>sim/multiplay/generic/bool[2]</property>
+    </condition>
+    <object-name>HDRcanopy_glass.001</object-name>
+    <object-name>HDRcanopy_glass.002</object-name>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <condition>
+      <!-- <not><property>sim/rendering/hdr/hdr-enabled</property></not> -->
+      <not><property>sim/multiplay/generic/bool[2]</property></not>
+    </condition>
+    <object-name>canopy_glass.001</object-name>
+    <object-name>canopy_glass.002</object-name>
+  </animation>
 
   <model>
     <path>Interior/interior.xml</path>
@@ -951,13 +968,15 @@
   <animation>
     <name>CanopyComplete</name>
     <object-name>canopy_frame</object-name>
-    <object-name>canopy_glass</object-name>
+    <object-name>canopy_glass.001</object-name>
+    <object-name>canopy_glass.002</object-name>
   </animation>
 
   <animation>
     <type>pick</type>
     <object-name>CanopyComplete</object-name>
-    <object-name>HDRcanopy_glass</object-name>
+    <object-name>HDRcanopy_glass.001</object-name>
+    <object-name>HDRcanopy_glass.002</object-name>
     <visible>true</visible>
     <action>
       <button>0</button>
@@ -983,7 +1002,10 @@
   <animation>
     <type>rotate</type>
     <object-name>CanopyComplete</object-name>
-    <object-name>HDRcanopy_glass</object-name>
+    <object-name>HDRcanopy_glass.001</object-name>
+    <object-name>HDRcanopy_glass.002</object-name>
+    <object-name>glass_cracked.001</object-name>
+    <object-name>glass_cracked.002</object-name>
     <!-- <property>sim/model/door-positions/crew/position-norm</property> -->
     <property>sim/multiplay/generic/float[0]</property>
     <factor> -95 </factor>
@@ -995,6 +1017,40 @@
       <y2-m>  0.38590 </y2-m>
       <z2-m>  0.14012 </z2-m>
     </axis>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>canopy_glass.001</object-name>
+    <object-name>HDRcanopy_glass.001</object-name>
+    <condition>
+      <not><property>/controls/seat/eject/pilot-ejected</property></not>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>canopy_glass.002</object-name>
+    <object-name>HDRcanopy_glass.002</object-name>
+    <condition>
+      <not><property>/controls/seat/eject/copilot-ejected</property></not>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>glass_cracked.001</object-name>
+    <condition>
+      <property>/controls/seat/eject/pilot-ejected</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>glass_cracked.002</object-name>
+    <condition>
+      <property>/controls/seat/eject/copilot-ejected</property>
+    </condition>
   </animation>
 
 </PropertyList>

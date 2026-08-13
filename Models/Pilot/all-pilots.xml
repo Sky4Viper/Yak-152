@@ -4,7 +4,7 @@
 
   <model>
     <name>ThePilot</name>
-    <path>pilot.xml</path>
+    <path>pilotlowpoly.xml</path>
     <offsets>
       <x-m> -0.47 </x-m>
       <y-m>  0.000 </y-m>
@@ -29,7 +29,7 @@
 
   <model>
     <name>Copilot</name>
-    <path>pilot.xml</path>
+    <path>pilotlowpoly.xml</path>
     <offsets>
       <x-m>  0.8335 </x-m>
       <y-m>  0.000 </y-m>
