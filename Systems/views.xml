@@ -88,7 +88,7 @@
   <!-- VIEW 104: CINEMATIC VIEW (LOOKAT TRACKING CAMERA 22.4 METERS AWAY) -->
   <view n="104">
 
-    <name type="string">Ejected Pilot Cinematic Tracker</name>
+    <name type="string">Ejected Pilot Cinematic View</name>
     <type>lookat</type> 
     <config>
       <from-model type="bool">true</from-model>
@@ -108,7 +108,7 @@
       <z-offset-m type="double">-12.0</z-offset-m> 
       <pitch-offset-deg>-15</pitch-offset-deg>
 
-      <heading-offset-deg>135</heading-offset-deg>
+      <heading-offset-deg>-135</heading-offset-deg>
     </config>
   </view>
 
@@ -163,5 +163,3 @@
   </view>
 
 </PropertyList>
-
-
