@@ -36,6 +36,7 @@
     <type>select</type>
     <object-name>eject_headrest</object-name>
     <object-name>eject_headrest_cushion</object-name>
+    <object-name>seat_harness</object-name>
     <condition>
 			<less-than>
 				<property>/controls/seat/eject/eject-norm</property>
@@ -70,6 +71,7 @@
     <object-name>eject_cylinder.003</object-name>
     <object-name>eject_headrest</object-name>
     <object-name>eject_headrest_cushion</object-name>
+    <object-name>seat_harness</object-name>
     <object-name>FrontShatterEffect</object-name>
     <object-name>FrontSmokeEffect</object-name>
     <property>/controls/seat/eject/eject-norm</property>
