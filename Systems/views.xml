@@ -11,12 +11,13 @@
     <config>
       <from-model                type="bool">true</from-model>
       <from-model-idx            type="int">0</from-model-idx>
-      <ground-level-nearplane-m  type="double">0.01f</ground-level-nearplane-m>
+      <ground-level-nearplane-m  type="double">0.01</ground-level-nearplane-m>
       <x-offset-m                archive="y"> 0.00000 </x-offset-m> <!--Right-->
       <y-offset-m                archive="y"> 1.64414 </y-offset-m> <!--Up-->
       <z-offset-m                archive="y"> 3.27567 </z-offset-m> <!--Back-->
       <pitch-offset-deg          type="double">-15</pitch-offset-deg>
       <default-field-of-view-deg type="double">90</default-field-of-view-deg>
+
     </config>
   </view>
 
@@ -26,7 +27,7 @@
     <type>lookfrom</type>
     <config>
       <from-model                type="bool">true</from-model>
-      <ground-level-nearplane-m  type="double">0.5f</ground-level-nearplane-m>
+      <ground-level-nearplane-m  type="double">0.5</ground-level-nearplane-m>
       <x-offset-m                archive="y"> 0.00000 </x-offset-m> <!-- Right -->
       <y-offset-m                archive="y"> 0.46035 </y-offset-m> <!-- Up    -->
       <z-offset-m                archive="y"> 0.89845 </z-offset-m> <!-- Back  -->
@@ -36,9 +37,6 @@
     </config>
   </view>
 
-<!-- x= -1.07475 m
-y=0
-z= -0.101487 m -->
 
   <view n="102">
     <name type="string">Ejection View</name>
@@ -57,48 +55,62 @@ z= -0.101487 m -->
     </config>
   </view>
 
+  <!-- VIEW 103: FIRST-PERSON VIEW (LOOKFROM HIS EYES) -->
   <view n="103">
-   <name type="string">Ejected View 1</name>
-   <type>lookfrom</type>
-   <config>
-     <from-model type="bool">false</from-model>
-     <from-model-idx type="int">0</from-model-idx>
-     <eye-lat-deg-path>/ai/models/ballistic/position/latitude-deg</eye-lat-deg-path>
-     <eye-lon-deg-path>/ai/models/ballistic/position/longitude-deg</eye-lon-deg-path>
-     <eye-alt-ft-path>/ai/models/ballistic/position/altitude-ft</eye-alt-ft-path>
-     <eye-heading-deg-path>/ai/models/ballistic/orientation/hdg-deg</eye-heading-deg-path>
-     <at-model type="bool">true</at-model>
-     <at-model-idx type="int">0</at-model-idx>
-     <ground-level-nearplane-m type="double">0.5</ground-level-nearplane-m>
-     <x-offset-m type="double">0.01</x-offset-m>
-     <y-offset-m type="double">0.98</y-offset-m>
-     <z-offset-m type="double">0.52</z-offset-m>
-     <pitch-offset-deg>-7</pitch-offset-deg>
-     <heading-offset-deg>180</heading-offset-deg>
-   </config>
- </view>
 
- <view n="104">
-   <name type="string">Ejected View 2</name>
-   <type>lookfrom</type>
-   <config>
-     <from-model type="bool">false</from-model>
-     <from-model-idx type="int">0</from-model-idx>
-     <eye-lat-deg-path>/ai/models/ballistic/position/latitude-deg</eye-lat-deg-path>
-     <eye-lon-deg-path>/ai/models/ballistic/position/longitude-deg</eye-lon-deg-path>
-     <eye-alt-ft-path>/ai/models/ballistic/position/altitude-ft</eye-alt-ft-path>
-     <eye-heading-deg-path>/ai/models/ballistic/orientation/hdg-deg</eye-heading-deg-path>
-     <at-model type="bool">true</at-model>
-     <at-model-idx type="int">0</at-model-idx>
-     <ground-level-nearplane-m type="double">0.5</ground-level-nearplane-m>
-     <x-offset-m type="double">25</x-offset-m> <!-- 20m out to the side -->
-     <y-offset-m type="double">12</y-offset-m> <!-- 12m elevated -->
-     <z-offset-m type="double">-14</z-offset-m> <!-- 14m behind -->
-     <pitch-offset-deg>-20</pitch-offset-deg>
-     <heading-offset-deg>135</heading-offset-deg>
-   </config>
- </view>
+    <name type="string">Ejected Pilot First Person View</name>
+    <type>lookfrom</type>
+    <config>
+      <from-model type="bool">false</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+      
+      <eye-lat-deg-path>/ai/models/ballistic[0]/position/latitude-deg</eye-lat-deg-path>
+      <eye-lon-deg-path>/ai/models/ballistic[0]/position/longitude-deg</eye-lon-deg-path>
+      <eye-alt-ft-path>/ai/models/ballistic[0]/position/altitude-ft</eye-alt-ft-path>
+      
+      <eye-heading-deg-path>/ai/models/ballistic[0]/orientation/hdg-deg</eye-heading-deg-path>
+      <eye-pitch-deg-path>/ai/models/ballistic[0]/orientation/pitch-deg</eye-pitch-deg-path>
+      <eye-roll-deg-path>/ai/models/ballistic[0]/orientation/roll-deg</eye-roll-deg-path>
+      
+      <ground-level-nearplane-m type="double">0.01</ground-level-nearplane-m>
+      
+      <x-offset-m type="double">0.01</x-offset-m>  
+      <y-offset-m type="double">-0.44</y-offset-m> <!-- Forward -->
+      <z-offset-m type="double">0.96</z-offset-m> <!--UP  -->
 
+      <pitch-offset-deg>-70</pitch-offset-deg>
+      <heading-offset-deg>180</heading-offset-deg> <!-- 180-degree camera rotation so it faces forward along the pilot's sight line -->
+      
+      <default-field-of-view-deg type="double">95</default-field-of-view-deg> 
+    </config>
+  </view>
+
+  <!-- VIEW 104: CINEMATIC VIEW (LOOKAT TRACKING CAMERA 22.4 METERS AWAY) -->
+  <view n="104">
+
+    <name type="string">Ejected Pilot Cinematic Tracker</name>
+    <type>lookat</type> 
+    <config>
+      <from-model type="bool">true</from-model>
+      <from-model-idx type="int">0</from-model-idx>
+      
+      <target-lat-deg-path>/ai/models/ballistic[0]/position/latitude-deg</target-lat-deg-path>
+      <target-lon-deg-path>/ai/models/ballistic[0]/position/longitude-deg</target-lon-deg-path>
+      <target-alt-ft-path>/ai/models/ballistic[0]/position/altitude-ft</target-alt-ft-path>
+      <target-heading-deg-path>/ai/models/ballistic[0]/orientation/hdg-deg</target-heading-deg-path>
+      
+      <at-model type="bool">true</at-model>
+      <at-model-idx type="int">0</at-model-idx>
+      <ground-level-nearplane-m type="double">0.5</ground-level-nearplane-m>
+      
+      <x-offset-m type="double">18.0</x-offset-m>  
+      <y-offset-m type="double">6.0</y-offset-m>   
+      <z-offset-m type="double">-12.0</z-offset-m> 
+      <pitch-offset-deg>-15</pitch-offset-deg>
+
+      <heading-offset-deg>135</heading-offset-deg>
+    </config>
+  </view>
 
   <view                           n="0">
     <name                        type="string">Cockpit View</name>
@@ -115,6 +127,7 @@ z= -0.101487 m -->
   <view                           n="1">
     <config>
       <target-z-offset-m          archive="y" type="double"> 0 </target-z-offset-m>
+
     </config>
   </view>
 
@@ -134,6 +147,7 @@ z= -0.101487 m -->
     <config>
       <target-z-offset-m          archive="y" type="double"> 0 </target-z-offset-m>
     </config>
+
   </view>
 
   <view                           n="5">
@@ -149,3 +163,5 @@ z= -0.101487 m -->
   </view>
 
 </PropertyList>
+
+
