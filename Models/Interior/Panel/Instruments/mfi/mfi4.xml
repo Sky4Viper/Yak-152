@@ -71,12 +71,14 @@
         <object-name>ALT</object-name>
         <object-name>ai_pitch.001</object-name>
         <object-name>ai_roll.001</object-name>
+        <object-name>nav_director_needle</object-name>
         <object-name>THRpower</object-name>
         <object-name>mfi_course_disk</object-name>
         <object-name>mfi_gs_ball</object-name>
         <object-name>hdg_bug</object-name>
         <object-name>vor_dir_needle</object-name>
         <object-name>vor_cor_needle</object-name>
+        <object-name>vor_def_needle</object-name>
         <object-name>ils_def_needle</object-name>
         <object-name>gs_def_needle</object-name>
         <object-name>hdgnum100</object-name>
@@ -208,6 +210,7 @@
         <object-name>ALT</object-name>
         <object-name>ai_pitch.001</object-name>
         <object-name>ai_roll.001</object-name>
+        <object-name>nav_director_needle</object-name>
         <object-name>slip_ball</object-name>
         <object-name>THRpower</object-name>
         <object-name>mfi_course_disk</object-name>
@@ -215,6 +218,7 @@
         <object-name>hdg_bug</object-name>
         <object-name>vor_dir_needle</object-name>
         <object-name>vor_cor_needle</object-name>
+        <object-name>vor_def_needle</object-name>
         <object-name>ils_def_needle</object-name>
         <object-name>gs_def_needle</object-name>
         <object-name>hdgnum100</object-name>
@@ -389,6 +393,7 @@
         <object-name>ALT</object-name>
         <object-name>ai_pitch.001</object-name>
         <object-name>ai_roll.001</object-name>
+        <object-name>nav_director_needle</object-name>
         <object-name>slip_ball</object-name>
         <object-name>THRpower</object-name>
         <object-name>mfi_course_disk</object-name>
@@ -396,6 +401,7 @@
         <object-name>hdg_bug</object-name>
         <object-name>vor_dir_needle</object-name>
         <object-name>vor_cor_needle</object-name>
+        <object-name>vor_def_needle</object-name>
         <object-name>ils_def_needle</object-name>
         <object-name>gs_def_needle</object-name>
         <object-name>hdgnum100</object-name>
@@ -760,6 +766,38 @@
             <z>-1</z>
         </axis>
     </animation>
+
+<!-- Course Director needle -->
+<animation>
+  <type>rotate</type>
+  <object-name>nav_director_needle</object-name>
+  <property>/instrumentation/flight-director/computed-roll-error</property>
+  <interpolation>
+    <entry>
+      <ind>-30.0</ind>
+      <dep>-30.0</dep>
+    </entry>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.000</dep>
+    </entry>
+    <entry>
+      <ind>30.0</ind>
+      <dep>30.0</dep>
+    </entry>
+  </interpolation>
+  <center>
+    <x-m>-0.004496</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>-1</z> <!-- Restored: Rotates around the local vertical/pivot axis of your mesh -->
+  </axis>
+</animation>
+
 
 <!-- Propeller RPM -->
 
@@ -1414,6 +1452,7 @@
   <object-name>mfi_course_disk</object-name>
   <object-name>vor_cor_needle</object-name>
   <object-name>vor_dir_needle</object-name>
+  <object-name>vor_def_needle</object-name>
   <object-name>hdg_bug</object-name>
   <property>orientation/heading-deg</property>
   <center>
@@ -1472,6 +1511,7 @@
 <animation>
  <type>rotate</type>
  <object-name>vor_cor_needle</object-name>
+ <object-name>vor_def_needle</object-name>
  <property>instrumentation/nav/radials/selected-deg</property>
   <center>
     <x-m> 0.042568</x-m>
@@ -1482,6 +1522,34 @@
   <x>0</x>
   <y>0</y>
   <z>-1</z>
+ </axis>
+</animation>
+
+<animation>
+ <type>translate</type>
+ <object-name>vor_def_needle</object-name>
+ <condition>
+   <property>instrumentation/nav[0]/in-range</property>
+ </condition>
+  <property>instrumentation/nav[0]/heading-needle-deflection-norm</property>
+  <interpolation>
+    <entry>
+      <ind>-1.0</ind>
+      <dep>-0.01</dep>
+    </entry>
+    <entry>
+      <ind>0.0</ind>
+      <dep>0.0</dep>
+    </entry>
+    <entry>
+      <ind>1.0</ind>
+      <dep>0.01</dep>
+    </entry>
+  </interpolation>
+ <axis>
+  <x>0</x>
+  <y>1</y>
+  <z>0</z>
  </axis>
 </animation>
 

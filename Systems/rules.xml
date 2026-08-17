@@ -6,9 +6,13 @@
     <path>Aircraft/Yak-152/Systems/glass-rain.xml</path>
   </property-rule>
 
-  <!-- Your new cockpit sound fade rule -->
+  <!-- cockpit sound fade rule -->
   <property-rule n="101">
     <path>Aircraft/Yak-152/Systems/volume-filters.xml</path>
+  </property-rule>
+  
+  <property-rule n="102">
+    <path>Aircraft/Yak-152/Systems/director-filter.xml</path>
   </property-rule>
 
 </PropertyList>

@@ -51,6 +51,28 @@
       </binding>
     </checkbox>
 
+    <!-- Pilot Control stick  Toggle -->
+    <checkbox>
+      <halign>left</halign>
+      <label>Show/Hide stick (Pilot)</label>
+      <property>/sim/model/show-stick-pilot</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/model/show-stick-pilot</property>
+      </binding>
+    </checkbox>
+
+    <!-- Instructor Control stick  Toggle -->
+    <checkbox>
+      <halign>left</halign>
+      <label>Show/Hide stick (Co-Pilot)</label>
+      <property>/sim/model/show-stick-copilot</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/model/show-stick-copilot</property>
+      </binding>
+    </checkbox>
+
     <hrule/>
 
     <!-- OPTION 0: FIRST PERSON VIEW -->

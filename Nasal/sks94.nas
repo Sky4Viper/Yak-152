@@ -203,7 +203,8 @@ var trigger_sks94 = func {
                     setprop("/sim/current-view/ejection-cam/eye-lat-deg", ac_lat);
                     setprop("/sim/current-view/ejection-cam/eye-lon-deg", ac_lon);
                     setprop("/sim/current-view/ejection-cam/eye-alt-ft", ac_alt);
-                    globals.screen.log.write((sprintf("Ejected, send rescue chopper to: %.2f", ac_lat)) ~ (sprintf(" , %.2f", ac_lon)), 1, 1, 0);
+                    #globals.screen.log.write((sprintf("Ejected, send rescue chopper to: %.2f", ac_lat)) ~ (sprintf(" , %.2f", ac_lon)), 1, 1, 0);
+                    handle_ejection_broadcast(ac_lat, ac_lon);
 
                     # ONE-WAY PERMANENT COCKPIT LOCKOUT
                     set_view_enabled(0, 0);   
@@ -297,6 +298,30 @@ var trigger_sks94 = func {
         # Launch the unified event loop immediately
         impact_timer.start();
     }
+};
+
+# =============================================================================
+# Multiplayer Ejection Broadcast System
+# =============================================================================
+
+    var handle_ejection_broadcast = func(ac_lat, ac_lon) {
+    # 1. Retrieve the pilot's multiplayer callsign from the property tree
+    # If the user is flying offline, fall back to a default identifier
+    var callsign = getprop("/sim/multiplay/callsign");
+    if (callsign == nil or callsign == "") {
+    callsign = "Pilot";
+    }
+
+    # 2. Construct the unified notification string using standard sprintf formatting
+    var msg = sprintf("SOS! MAY DAY! - %s ejected! Send rescue chopper to: %.4f, %.4f", callsign, ac_lat, ac_lon);
+
+    # 3. Write the message to the local screen log (the on-screen text lines)
+    globals.screen.log.write(msg, 1, 1, 0);
+    print("SKS-94 MESSAGE: " ~msg);
+
+    # 4. Broadcast the string to all players over the multiplayer network
+    # Setting this property triggers FlightGear's core MP subsystem to send a chat packet
+    setprop("/sim/multiplay/chat", msg);
 };
 
 

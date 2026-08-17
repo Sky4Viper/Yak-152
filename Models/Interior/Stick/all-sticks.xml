@@ -10,6 +10,9 @@
       <y-m>  0.000 </y-m>
       <z-m> -0.35801 </z-m>
     </offsets>
+    <condition>
+      <property>/sim/model/show-stick-pilot</property>
+    </condition>
   </model>
 
   <!-- Stick copilot -->
@@ -20,6 +23,9 @@
       <y-m>  0.000 </y-m>
       <z-m> -0.35801 </z-m>
     </offsets>
+    <condition>
+      <property>/sim/model/show-stick-copilot</property>
+    </condition>
   </model>
 
 </PropertyList>
