@@ -57,6 +57,7 @@ var Engine = {
     m.running = 0;
     m.mp = m.eng.initNode("mp-inhg");
     m.cutoff = props.globals.initNode("controls/engines/engine["~eng_num~"]/cutoff");
+    # m.crashed = props.globals.initNode("sim/crashed");
     m.mixture = props.globals.initNode("engines/engine["~eng_num~"]/mixture");
     m.mixture_lever = props.globals.initNode("controls/engines/engine["~eng_num~"]/mixture",1,"DOUBLE");
     m.rpm = m.eng.initNode("rpm",1);
@@ -205,30 +206,57 @@ controls.startEngine = func(v = 1) {
 }
 
 var update = func {
-  WaspJr.update();
-  if (floats ==0) {
-    tire.get_rotation("yasim");
-  }
-  var ia=getprop("velocities/airspeed-kt");
-  if (ia>40) {
-    if (getprop("sim/model/door-positions/crew/position-norm")) {
-      setprop("sim/model/door-positions/crew/position-norm",0);
+    WaspJr.update();
+    
+    if (floats == 0) {
+        tire.get_rotation("yasim");
     }
-    if (getprop("sim/model/door-positions/passenger/position-norm")) {
-      setprop("sim/model/door-positions/passenger/position-norm",0);
+    
+    var ia = getprop("velocities/airspeed-kt");
+    if (ia != nil and ia > 40) {
+        if (getprop("sim/model/door-positions/crew/position-norm")) {
+            setprop("sim/model/door-positions/crew/position-norm", 0);
+        }
+        if (getprop("sim/model/door-positions/passenger/position-norm")) {
+            setprop("sim/model/door-positions/passenger/position-norm", 0);
+        }
     }
-  }
 
-  var agl_ft = getprop("position/altitude-agl-ft");
-  var ap_heading = getprop("autopilot/locks/heading");
-  var ap_altitude = getprop("autopilot/locks/altitude");
-  var ap_speed = getprop("autopilot/locks/speed");
-  if (agl_ft != nil and agl_ft < (20 * 3.280839895) and ((ap_heading != nil and ap_heading != "") or (ap_altitude != nil and ap_altitude != "") or (ap_speed != nil and ap_speed != ""))) {
-    gui.popupTip("Take Control! Autopilot is disabled below 20 meters AGL!");
-    setprop("autopilot/locks/heading", "");
-    setprop("autopilot/locks/altitude", "");
-    setprop("autopilot/locks/speed", "");
-  }
+    var sim_crashed = getprop("sim/crashed");
+    if (sim_crashed) {
+        # 1. Kill Engine Ignition Controls
+        setprop("/controls/engines/engine/magnetos", 0);
+        setprop("/engines/engine[0]/rpm", 0);
+        setprop("/engines/engine[0]/running", 0);
 
-  settimer(update,0);
-}
+        # 2. Fuel Starvation Mechanics (Bypasses read-only FDM overrides)
+        setprop("/controls/engines/engine/mixture", 0.0); # Drops fuel-air ratio to zero
+        setprop("/controls/engines/engine/cutoff", 1);    # Pulls fuel cutoff valve closed
+        setprop("/controls/engines/engine/fuel-pump", 0); # Disables secondary booster pumps
+        
+        # 3. Disables Main Electrical Distribution Buses
+        setprop("/controls/electric/engine/generator", 0);
+        setprop("/controls/electric/battery-switch", 0);
+        
+        # 4. Secondary Electrical Sub-Circuit Protections
+        setprop("/systems/electrical/outputs/avionics", 0.0);
+    }
+
+    var agl_ft = getprop("position/altitude-agl-ft");
+    var ap_heading = getprop("autopilot/locks/heading");
+    var ap_altitude = getprop("autopilot/locks/altitude");
+    var ap_speed = getprop("autopilot/locks/speed");
+    
+    if (agl_ft != nil and agl_ft < (20 * 3.280839895) and 
+        ((ap_heading != nil and ap_heading != "") or 
+         (ap_altitude != nil and ap_altitude != "") or 
+         (ap_speed != nil and ap_speed != ""))) {
+        
+        gui.popupTip("Take Control! Autopilot is disabled below 20 meters AGL!");
+        setprop("autopilot/locks/heading", "");
+        setprop("autopilot/locks/altitude", "");
+        setprop("autopilot/locks/speed", "");
+    }
+
+    settimer(update, 0);
+};

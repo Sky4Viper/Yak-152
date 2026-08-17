@@ -38,14 +38,14 @@
     <object-name>eject_headrest_cushion</object-name>
     <object-name>seat_harness</object-name>
     <condition>
+      <not><property>/controls/seat/eject/pilot-ejected</property></not>
 			<less-than>
 				<property>/controls/seat/eject/eject-norm</property>
-				<value>1.0</value>
+				<value>0.9</value>
 			</less-than>
 		</condition>
   </animation>
 
-  <!-- Lower Cylinder Stage: Slides upward/backward out of seat base -->
   <animation>
     <type>translate</type>
     <object-name>eject_cylinder.002</object-name>
@@ -63,9 +63,7 @@
       <property>/controls/seat/eject/pilot-ejected</property>
     </condition>
   </animation>
-
-  <!-- Upper Cylinder Stage: Rides on Lower Cylinder along the same angled track -->
-  <!-- Smoke Effect translates perfectly up the rails without visibility-culling bugs -->
+  
   <animation>
     <type>translate</type>
     <object-name>eject_cylinder.003</object-name>
@@ -92,12 +90,12 @@
   <animation>
     <type>translate</type>
     <object-name>handles</object-name>
-    <property>/controls/seat/eject/pilot-ejected</property>
+    <property>/controls/seat/eject/eject-norm</property>
     <factor>0.015</factor>
     <axis>
-      <x> 1.000 </x>
-      <y> 0.000 </y>
-      <z> 0.000 </z>
+      <x>-1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
     </axis>
   </animation>
 

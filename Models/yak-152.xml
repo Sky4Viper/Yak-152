@@ -1040,17 +1040,27 @@
   <animation>
     <type>select</type>
     <object-name>glass_cracked.001</object-name>
-    <condition>
+    <!-- <condition>
       <property>/controls/seat/eject/pilot-ejected</property>
-    </condition>
+    </condition> -->
+    <condition>
+			<greater-than>
+				<property>/controls/seat/eject/eject-norm</property>
+				<value>0.95</value>
+			</greater-than>
+		</condition>
   </animation>
 
   <animation>
     <type>select</type>
     <object-name>glass_cracked.002</object-name>
     <condition>
+			<greater-than>
+				<property>/controls/seat/eject/eject-norm</property>
+				<value>0.8</value>
+			</greater-than>
       <property>/controls/seat/eject/copilot-ejected</property>
-    </condition>
+		</condition>
   </animation>
 
 </PropertyList>

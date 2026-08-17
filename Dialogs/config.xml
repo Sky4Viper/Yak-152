@@ -40,32 +40,80 @@
     <halign>center</halign>
     <layout>vbox</layout>
 
+    <!-- Instructor Option Toggle -->
     <checkbox>
       <halign>left</halign>
       <label>Show/Hide Instructor/Copilot</label>
-      <!-- <property>/sim/model/show-copilot</property> -->
-      <property>sim/multiplay/generic/bool[0]</property>
+      <property>sim/multiplay/generic/bool</property>
       <binding>
         <command>property-toggle</command>
-        <!-- <property>/sim/model/show-copilot</property> -->
-        <property>sim/multiplay/generic/bool[0]</property>
+        <property>sim/multiplay/generic/bool</property>
       </binding>
     </checkbox>
 
+    <hrule/>
+
+    <!-- OPTION 0: FIRST PERSON VIEW -->
     <checkbox>
       <halign>left</halign>
       <label>First Person Eject Pilot View</label>
-          <property>/controls/seat/eject/pilot-view</property>
-          <live>true</live>
-          <binding>
-          <command>nasal</command>
-          <script>
-                <![CDATA[
-                setprop("/controls/seat/eject/pilot-view",!getprop("/controls/seat/eject/pilot-view"));
-                ]]>
-          </script>
+      <property>/sim/gui/dialogs/config/eject-view-0</property>
+      <live>true</live>
+      <binding>
+        <command>nasal</command>
+        <script>
+          setprop("/controls/seat/eject/view-type", 0);
+          setprop("/sim/gui/dialogs/config/eject-view-0", 1);
+          setprop("/sim/gui/dialogs/config/eject-view-1", 0);
+          setprop("/sim/gui/dialogs/config/eject-view-2", 0);
+          fgcommand("dialog-update");
+        </script>
       </binding>
     </checkbox>
+
+    <!-- OPTION 1: EXTERNAL VIEW -->
+    <checkbox>
+      <halign>left</halign>
+      <label>External Eject View</label>
+      <property>/sim/gui/dialogs/config/eject-view-1</property>
+      <live>true</live>
+      <binding>
+        <command>nasal</command>
+        <script>
+          setprop("/controls/seat/eject/view-type", 1);
+          setprop("/sim/gui/dialogs/config/eject-view-0", 0);
+          setprop("/sim/gui/dialogs/config/eject-view-1", 1);
+          setprop("/sim/gui/dialogs/config/eject-view-2", 0);
+          fgcommand("dialog-update");
+        </script>
+      </binding>
+    </checkbox>
+
+    <!-- OPTION 2: CINEMATIC EXTERNAL VIEW -->
+    <checkbox>
+      <halign>left</halign>
+      <label>Cinematic External Eject View</label>
+      <property>/sim/gui/dialogs/config/eject-view-2</property>
+      <live>true</live>
+      <binding>
+        <command>nasal</command>
+        <script>
+          setprop("/controls/seat/eject/view-type", 2);
+          setprop("/sim/gui/dialogs/config/eject-view-0", 0);
+          setprop("/sim/gui/dialogs/config/eject-view-1", 0);
+          setprop("/sim/gui/dialogs/config/eject-view-2", 1);
+          fgcommand("dialog-update");
+        </script>
+      </binding>
+    </checkbox>
+
+    <button>
+      <legend>Repack Chutes</legend>
+      <binding>
+        <command>nasal</command>
+        <script>sks94.init_views();</script>
+      </binding>
+    </button>
 
   </group>
 

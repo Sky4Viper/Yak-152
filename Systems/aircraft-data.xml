@@ -4,6 +4,6 @@
 
   <!-- <path>/sim/model/show-copilot</path> -->
   <path>sim/multiplay/generic/bool[0]</path>
-  <path>/controls/seat/eject/pilot-view</path>
+  <path>/controls/seat/eject/view-type</path>
 
 </PropertyList>

@@ -37,7 +37,6 @@
     </config>
   </view>
 
-
   <view n="102">
     <name type="string">Ejection View</name>
     <type>lookfrom</type>
@@ -85,11 +84,38 @@
     </config>
   </view>
 
-  <!-- VIEW 104: CINEMATIC VIEW (LOOKAT TRACKING CAMERA 22.4 METERS AWAY) -->
-  <view n="104">
+ <!-- VIEW 104: CINEMATIC VIEW (variant 0 -attached to ejected pilot, view from behind and above, 20m left offset) -->
+ <view n="104">
+   <name type="string">Ejected Pilot External View</name>
+   <type>lookfrom</type>
+   <enabled                     type="bool">false</enabled>
+   <config>
+     <from-model                type="bool">false</from-model>
+     <from-model-idx            type="int">0</from-model-idx>
+     <eye-lat-deg-path>/ai/models/ballistic/position/latitude-deg</eye-lat-deg-path>
+     <eye-lon-deg-path>/ai/models/ballistic/position/longitude-deg</eye-lon-deg-path>
+     <eye-alt-ft-path>/ai/models/ballistic/position/altitude-ft</eye-alt-ft-path>
+     <eye-heading-deg-path>/ai/models/ballistic/orientation/hdg-deg</eye-heading-deg-path>
+
+     <at-model                  type="bool">true</at-model>
+     <at-model-idx              type="int">0</at-model-idx>
+
+     <ground-level-nearplane-m  type="double">0.5f</ground-level-nearplane-m>
+
+     <x-offset-m                type="double">20</x-offset-m> <!--Right-->
+     <y-offset-m                type="double">12</y-offset-m> <!--Up-->
+     <z-offset-m                type="double">-14</z-offset-m> <!--Back-->
+     <pitch-offset-deg>-20</pitch-offset-deg>
+     <heading-offset-deg>135</heading-offset-deg>
+   </config>
+ </view>
+ 
+  <!-- VIEW 105: CINEMATIC VIEW (Attached to the aircraft tracking ejected pilot) -->
+  <view n="105">
 
     <name type="string">Ejected Pilot Cinematic View</name>
-    <type>lookat</type> 
+    <type>lookat</type>
+    <enabled                     type="bool">false</enabled>
     <config>
       <from-model type="bool">true</from-model>
       <from-model-idx type="int">0</from-model-idx>
@@ -108,7 +134,7 @@
       <z-offset-m type="double">-12.0</z-offset-m> 
       <pitch-offset-deg>-15</pitch-offset-deg>
 
-      <heading-offset-deg>-135</heading-offset-deg>
+      <heading-offset-deg>135</heading-offset-deg>
     </config>
   </view>
 
@@ -163,3 +189,5 @@
   </view>
 
 </PropertyList>
+
+

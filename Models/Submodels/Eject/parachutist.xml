@@ -22,31 +22,6 @@
         </parameters>
     </effect>
 
-    <!-- ========================================================== -->
-    <!-- MATERIAL ANIMATIONS: WHITE & ORANGE CANOPY WITH BLACK ROPES-->
-    <!-- ========================================================== -->
-
-    <!-- Orange Canopy Panels -->
-    <!-- <animation>
-        <type>material</type>
-        <object-name>DragChute</object-name>
-        <diffuse>
-            <r>1.000</r>
-            <g>0.450</g>
-            <b>0.000</b>
-        </diffuse>
-        <ambient>
-            <r>0.700</r>
-            <g>0.280</g>
-            <b>0.000</b>
-        </ambient>
-        <specular>
-            <r>0.000</r>
-            <g>0.000</g>
-            <b>0.000</b>
-        </specular>
-    </animation> -->
-
     <model>
      <name>EPilot</name>
      <path>Aircraft/Yak-152/Models/Pilot/pilotlowpoly.xml</path>
@@ -59,96 +34,54 @@
         </offsets>
     </model>
 
+    <!-- UNIFIED TWO-STAGE NON-FIGHTING SCALE ANIMATION -->
     <animation>
-		<type>scale</type>
-		<object-name>DragChute</object-name>
-		<property>/controls/seat/eject/chute-norm</property>
-		<x-min>0</x-min>
-		<y-min>0</y-min>
-		<z-min>0</z-min>
-		<x-max>1</x-max>
-		<y-max>1</y-max>
-		<z-max>1</z-max>
-		<x-factor>1</x-factor>
-		<y-factor>1</y-factor>
-        <z-factor>4</z-factor>
-	</animation>
-
-    <!-- ========================================================== -->
-    <!-- 1. AXIS 1: NATURAL SPIN AND FLUTTER (VERTICAL Z-AXIS)      -->
-    <!-- ========================================================== -->
-    <animation>
-        <type>rotate</type>
+        <type>scale</type>
         <object-name>DragChute</object-name>
-        <object-name>EPilot</object-name>
-        <condition>
-            <property>/controls/seat/eject/ejected</property>
-        </condition>
-        <expression>
-            <sum>
-                <!-- Main continuous spin linked to wind speed (Dropped to a tiny fraction) -->
-                <product>
-                    <property>/sim/time/elapsed-sec</property>
-                    <property>/environment/wind-speed-kt</property>
-                    <value>0.08</value> <!-- Dropped from 1.0. At 100kt, this equals a relaxed 8° per second spin -->
-                </product>
-                <!-- Minor heading wobble (Frequency lowered to a slow swing, angle restricted) -->
-                <product>
-                    <sin>
-                        <product>
-                            <property>/sim/time/elapsed-sec</property>
-                            <value>2.5</value> <!-- Dropped from 5.5. A very slow, natural twist back and forth -->
-                        </product>
-                    </sin>
-                    <value>5.0</value> <!-- Dropped from 5.0. Restricts heading twist to just 3 degrees -->
-                </product>
-            </sum>
-        </expression>
-        <center>
+        
+        <!-- The master property acts as the execution trigger for the block -->
+        <property>/controls/seat/eject/chute-norm</property>
+        <x-min>0</x-min>
+        <y-min>0</y-min>
+        <z-min>0</z-min>
+        <x-max>1</x-max>
+        <y-max>1</y-max>
+        <z-max>1</z-max>
+
+        <!-- STAGE 1: LONGITUDINAL EXTENSION (Z Axis Only) -->
+        <!-- Drives length automatically off chute-norm, multiplied by our static factor -->
+        <z-factor-prop>/controls/seat/eject/chute-norm</z-factor-prop>
+        <z-factor>4.0</z-factor>
+
+        <!-- STAGE 2: CANOPY INFLATION (X & Y Width Axes Only) -->
+        <!-- Binds the width properties to a separate interpolation map -->
+        <!-- This forces X and Y to look AT chute-inflate-norm instead of the master property -->
+        <x-factor-prop>/controls/seat/eject/chute-inflate-norm</x-factor-prop>
+        <interpolation n="0">
+            <!-- Holds the width compressed at a narrow 8% profile when inflate-norm is 0 -->
+            <entry><ind>0.0</ind><dep>0.08</dep></entry>
+            <!-- Blooms out to 100% full volume when your Nasal script timer fires -->
+            <entry><ind>1.0</ind><dep>1.00</dep></entry>
+        </interpolation>
+        <x-factor>1.0</x-factor>
+
+        <y-factor-prop>/controls/seat/eject/chute-inflate-norm</y-factor-prop>
+        <interpolation n="1">
+            <entry><ind>0.0</ind><dep>0.08</dep></entry>
+            <entry><ind>1.0</ind><dep>1.00</dep></entry>
+        </interpolation>
+        <y-factor>1.0</y-factor>
+
+        <!-- Pivot center point coordinates where the lines meet the seat pack -->
+        <offset-m>
             <x-m>0.0</x-m>
             <y-m>0.0</y-m>
-            <z-m>6.5</z-m>
-        </center>
-        <axis>
-            <x>0</x>
-            <y>0</y>
-            <z>1</z>
-        </axis>
+            <z-m>0.5</z-m>
+        </offset-m>
     </animation>
 
-    <!-- ========================================================== -->
-    <!-- 2. AXIS 2: PHYSICAL PENDULUM SWAY (LATERAL Y-AXIS TILT)     -->
-    <!-- ========================================================== -->
-    <animation>
-        <type>rotate</type>
-        <object-name>DragChute</object-name>
-        <object-name>EPilot</object-name>
-        <condition>
-            <property>/controls/seat/eject/ejected</property>
-        </condition>
-        <expression>
-            <!-- Heavy, slow pendulum swing (Frequency slowed down further, tilt softened) -->
-            <product>
-                <sin>
-                    <product>
-                        <property>/sim/time/elapsed-sec</property>
-                        <value>1.2</value> <!-- Dropped from 2.1. Gives a much heavier, slower pendulum period -->
-                    </product>
-                </sin>
-                <value>4.0</value> <!-- Dropped from 6.5. Maximum tilt restricted to a subtle 4 degrees -->
-            </product>
-        </expression>
-        <center>
-            <x-m>0.0</x-m>
-            <y-m>0.0</y-m>
-            <z-m>4.5</z-m> 
-        </center>
-        <axis>
-            <x>0</x>
-            <y>1</y> 
-            <z>0</z>
-        </axis>
-    </animation>
+
+
 
 
 
