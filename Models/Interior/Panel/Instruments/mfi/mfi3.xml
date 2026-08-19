@@ -794,8 +794,13 @@
   <axis>
     <x>0</x>
     <y>0</y>
-    <z>-1</z> <!-- Restored: Rotates around the local vertical/pivot axis of your mesh -->
+    <z>-1</z>
   </axis>
+  <condition>
+      <property>/instrumentation/nav/in-range</property>
+      <!-- Optional: only show if a flight director master switch is on -->
+      <!-- <property>/instrumentation/flight-director/active</property> -->
+  </condition>
 </animation>
 
 
@@ -1363,12 +1368,12 @@
     
 <!--   VHF Omnidirectional Radio Range -->
     
-<!-- Heading Indicator -->
+<!-- Heading Indicator Label -->
 
   <animation>
         <type>textranslate</type>
         <object-name>hdgnum100</object-name>
-        <property>orientation/heading-deg</property>
+        <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
         <factor>0.001</factor>
         <step>100</step>
         <axis>
@@ -1381,7 +1386,7 @@
   <animation>
         <type>textranslate</type>
         <object-name>hdgnum10</object-name>
-        <property>orientation/heading-deg</property>
+        <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
         <factor>0.01</factor>
         <step>10</step>
         <axis>
@@ -1394,7 +1399,7 @@
   <animation>
         <type>textranslate</type>
         <object-name>hdgnum1</object-name>
-        <property>orientation/heading-deg</property>
+        <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
         <factor>0.1</factor>
         <step>1</step>
         <axis>
@@ -1445,92 +1450,87 @@
         </axis>
   </animation>
     
-<!-- Course Indicator -->
-
-<animation>
- <type>rotate</type>
-  <object-name>mfi_course_disk</object-name>
-  <object-name>vor_cor_needle</object-name>
-  <object-name>vor_dir_needle</object-name>
-  <object-name>vor_def_needle</object-name>
-  <object-name>hdg_bug</object-name>
-  <property>orientation/heading-deg</property>
-  <center>
-    <x-m> 0.042568</x-m>
-    <y-m> 0.0</y-m>
-    <z-m> 0.0</z-m>
-  </center>
- <axis>
-  <x>0</x>
-  <y>0</y>
-  <z>1</z>
- </axis>
-</animation>
-
-<!-- Wind Indicator -->
+<!-- 1. Base Compass Card Assembly Rotation (Combined Card-Sync Heading) -->
 <animation>
   <type>rotate</type>
-  <object-name>pg2_wind_ind</object-name>
-  <expression>
-    <sum>
-      <difference>
-        <property>orientation/heading-deg</property>
-        <property>environment/wind-from-heading-deg</property>
-      </difference>
-      <value>180</value>
-    </sum>
-  </expression>
+  <object-name>mfi_course_disk</object-name>
+  <object-name>vor_cor_needle</object-name>
+  <!-- <object-name>vor_dir_needle</object-name> -->
+  <object-name>vor_def_needle</object-name>
+  <object-name>hdg_bug</object-name>
+  <property>/instrumentation/heading-indicator/indicated-heading-deg</property>
   <center>
-    <x-m>-0.003398</x-m>
-    <y-m>-0.042706</y-m>
-    <z-m> 0.0</z-m>
+    <x-m>0.042568</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
   </center>
   <axis>
     <x>0</x>
     <y>0</y>
-    <z>1</z>
+    <z>1</z> <!-- Clockwise card rotation baseline -->
   </axis>
 </animation>
 
 <animation>
-    <type>rotate</type>
-    <object-name>hdg_bug</object-name>
-    <property>autopilot/settings/heading-bug-deg</property>
+  <type>rotate</type>
+  <object-name>vor_dir_needle</object-name>
+  <property>/orientation/heading-magnetic-deg</property>
   <center>
-    <x-m> 0.042568</x-m>
-    <y-m> 0.0</y-m>
-    <z-m> 0.0</z-m>
+    <x-m>0.042568</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
   </center>
- <axis>
-  <x>0</x>
-  <y>0</y>
-  <z>-1</z>
- </axis>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z> <!-- Clockwise card rotation baseline -->
+  </axis>
 </animation>
 
+<!-- 2. Heading Bug - Synchronized Deflection Rotation -->
 <animation>
- <type>rotate</type>
- <object-name>vor_cor_needle</object-name>
- <object-name>vor_def_needle</object-name>
- <property>instrumentation/nav/radials/selected-deg</property>
+  <type>rotate</type>
+  <object-name>hdg_bug</object-name>
+  <property>autopilot/settings/heading-bug-deg</property>
+  <factor>-1</factor> <!-- Replaces Z=-1 axis with a negative factor to stay in sync -->
   <center>
-    <x-m> 0.042568</x-m>
-    <y-m> 0.0</y-m>
-    <z-m> 0.0</z-m>
+    <x-m>0.042568</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
   </center>
- <axis>
-  <x>0</x>
-  <y>0</y>
-  <z>-1</z>
- </axis>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z> <!-- Matches parent axis exactly -->
+  </axis>
 </animation>
 
+<!-- 3. VOR Course Select Radial Needle - Synchronized OBS Rotation -->
 <animation>
- <type>translate</type>
- <object-name>vor_def_needle</object-name>
- <condition>
-   <property>instrumentation/nav[0]/in-range</property>
- </condition>
+  <type>rotate</type>
+  <object-name>vor_cor_needle</object-name>
+  <object-name>vor_def_needle</object-name>
+  <property>instrumentation/nav/radials/selected-deg</property>
+  <factor>-1</factor>
+  <center>
+    <x-m>0.042568</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z> <!-- Matches parent axis exactly -->
+  </axis>
+</animation>
+
+<!-- 4. VOR Needle Lateral Translation Deviation -->
+<animation>
+  <type>translate</type>
+  <object-name>vor_def_needle</object-name>
+  <condition>
+    <property>instrumentation/nav[0]/in-range</property>
+  </condition>
   <property>instrumentation/nav[0]/heading-needle-deflection-norm</property>
   <interpolation>
     <entry>
@@ -1546,28 +1546,31 @@
       <dep>0.01</dep>
     </entry>
   </interpolation>
- <axis>
-  <x>0</x>
-  <y>1</y>
-  <z>0</z>
- </axis>
+  <axis>
+    <x>0</x>
+    <y>1</y>
+    <z>0</z>
+  </axis>
 </animation>
 
+<!-- 5. VOR Bearing Pointer Needle - Synchronized Bearing Rotation -->
 <animation>
-    <type>rotate</type>
-    <object-name>vor_dir_needle</object-name>
-    <property>instrumentation/nav/heading-deg</property>
+  <type>rotate</type>
+  <object-name>vor_dir_needle</object-name>
+  <property>instrumentation/nav/heading-deg</property>
+  <factor>-1</factor>
   <center>
-    <x-m> 0.042568</x-m>
-    <y-m> 0.0</y-m>
-    <z-m> 0.0</z-m>
+    <x-m>0.042568</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
   </center>
- <axis>
-  <x>0</x>
-  <y>0</y>
-  <z>-1</z>
- </axis>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z> <!-- Matches parent axis exactly -->
+  </axis>
 </animation>
+
 
 <animation>
  <type>translate</type>
@@ -1728,6 +1731,31 @@
             <z>0</z>
         </axis>
   </animation>
+
+<!-- Wind Indicator -->
+<animation>
+  <type>rotate</type>
+  <object-name>pg2_wind_ind</object-name>
+  <expression>
+    <sum>
+      <difference>
+        <property>orientation/heading-deg</property>
+        <property>environment/wind-from-heading-deg</property>
+      </difference>
+      <value>180</value>
+    </sum>
+  </expression>
+  <center>
+    <x-m>-0.003398</x-m>
+    <y-m>-0.042706</y-m>
+    <z-m> 0.0</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z>
+  </axis>
+</animation>
     
 <!-- Radio Altimeter -->
 
@@ -1763,6 +1791,18 @@
     <type>translate</type>
     <object-name>mfi_btn.003</object-name>
     <property>/controls/instrumentation/mfis/mfi[3]/btn[3]</property>
+    <factor>-0.0051</factor>
+    <axis>
+        <x>0</x>
+        <y>0</y>
+        <z>1</z>
+    </axis>
+ </animation>
+
+ <animation>
+    <type>translate</type>
+    <object-name>mfi_btn.012</object-name>
+    <property>/controls/instrumentation/mfis/mfi[3]/btn[10]</property>
     <factor>-0.0051</factor>
     <axis>
         <x>0</x>
@@ -2003,6 +2043,21 @@
       <button>0</button>
       <repeatable>false</repeatable>
 
+      <!-- NEW BINDING: If on page 1, reset air pressure-->
+      <binding>
+        <condition>
+          <and>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[3]/page</property>
+              <value>1</value>
+            </equals>
+          </and>
+        </condition>
+        <command>property-assign</command>
+          <property>instrumentation/altimeter/setting-hpa</property>
+          <value>1013.7</value>
+      </binding>
+
       <!-- NEW BINDING: If on page 2 and subpage 1, select next waypoint -->
       <binding>
         <condition>
@@ -2034,7 +2089,7 @@
       <!-- BUTTON ANIMATION: Instant click animation on press -->
       <binding>
         <command>property-assign</command>
-          <property>/controls/instrumentation/mfis/mfi[3]/btn[25]</property>
+          <property>/controls/instrumentation/mfis/mfi[3]/btn[10]</property>
           <value>1</value>
       </binding>
       
@@ -2042,7 +2097,7 @@
       <mod-up>
         <binding>
           <command>property-assign</command>
-          <property>/controls/instrumentation/mfis/mfi[3]/btn[25]</property>
+          <property>/controls/instrumentation/mfis/mfi[3]/btn[10]</property>
           <value>0</value>
         </binding>
       </mod-up>

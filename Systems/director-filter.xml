@@ -1,37 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PropertyList>
 
-  <!-- STEP 1: Scale Track Deflection to a Desired Intercept Offset Angle -->
-  <!-- Uses native filter clamping bounds to eliminate expression errors -->
+  <!-- STEP 1: Compute Stable Angular Heading Error Relative to Selected OBS Course -->
+  <!-- Uses trigonometric normalization to eliminate 0/360 wrap-around vulnerabilities -->
   <filter>
-    <name>FD Intercept Offset</name>
-    <type>gain</type>
-    <gain>5.0</gain> <!-- Cross-track interception sensitivity factor -->
-    <input>/instrumentation/nav/heading-needle-deflection</input>
-    <output>/instrumentation/flight-director/intercept-angle-deg</output>
-    <min>-30.0</min> <!-- Natively clamps intercept offset track to 30 degrees max -->
-    <max>30.0</max>
-  </filter>
-
-  <!-- STEP 2: Compute Absolute Target Intercept Heading based on your custom Nav property -->
-  <filter>
-    <name>FD Target Intercept Heading</name>
-    <type>gain</type>
-    <gain>1.0</gain>
-    <input>
-      <expression>
-        <sum>
-          <property>/instrumentation/nav/heading-deg</property> <!-- Captures your 99.1409 navigation azimuth -->
-          <property>/instrumentation/flight-director/intercept-angle-deg</property>
-        </sum>
-      </expression>
-    </input>
-    <output>/instrumentation/flight-director/target-heading-deg</output>
-  </filter>
-
-  <!-- STEP 3: Normalize Angular Heading Error via Trigonometric Expression (Proven Working) -->
-  <filter>
-    <name>FD Angular Heading Error Normalizer</name>
+    <name>FD Course Heading Error Normalizer</name>
     <type>gain</type>
     <gain>1.0</gain>
     <input>
@@ -41,8 +14,8 @@
             <sin>
               <prod>
                 <difference>
-                  <property>/instrumentation/flight-director/target-heading-deg</property>
-                  <property>/orientation/heading-deg</property>
+                  <property>/instrumentation/nav/radials/selected-deg</property> <!-- Fixed Selected Radial Course -->
+                  <property>/orientation/heading-deg</property> <!-- Actual Aircraft Nose Heading -->
                 </difference>
                 <value>0.0174532925</value> <!-- Degrees to Radians -->
               </prod>
@@ -50,7 +23,7 @@
             <cos>
               <prod>
                 <difference>
-                  <property>/instrumentation/flight-director/target-heading-deg</property>
+                  <property>/instrumentation/nav/radials/selected-deg</property>
                   <property>/orientation/heading-deg</property>
                 </difference>
                 <value>0.0174532925</value> <!-- Degrees to Radians -->
@@ -61,29 +34,41 @@
         </prod>
       </expression>
     </input>
-    <output>/instrumentation/flight-director/heading-error-deg</output>
+    <output>/instrumentation/flight-director/course-heading-error-deg</output>
   </filter>
 
-  <!-- STEP 4: Convert Heading Discrepancy into a Commanded Bank Angle -->
-  <!-- Replaced custom clip expression with native C++ filter clamping -->
+  <!-- STEP 2: Combine Cross-Track Deviation and Heading Error into Commanded Bank -->
+  <!-- Direct geometric mixing avoids integration saturation wind-up issues entirely -->
   <filter>
     <name>FD Target Bank Command</name>
     <type>gain</type>
-    <gain>1.5</gain> <!-- Controls roll responsiveness when capturing the heading error vector -->
-    <input>/instrumentation/flight-director/heading-error-deg</input>
+    <gain>1.0</gain>
+    <input>
+      <expression>
+        <sum>
+          <prod>
+            <property>/instrumentation/nav/heading-needle-deflection</property>
+            <value>2.5</value> <!-- Cross-track displacement gain factor -->
+          </prod>
+          <prod>
+            <property>/instrumentation/flight-director/course-heading-error-deg</property>
+            <value>0.5</value> <!-- Intercept angle scaling factor -->
+          </prod>
+        </sum>
+      </expression>
+    </input>
     <output>/instrumentation/flight-director/commanded-roll-deg</output>
-    <min>-25.0</min> <!-- Rigidly restricts flight director commands to safe standard bank thresholds -->
+    <min>-25.0</min> <!-- Rigidly locks maximum bank command limits to safe tolerances -->
     <max>25.0</max>
   </filter>
 
-  <!-- STEP 5: Final Cross-Comparison to Generate Follow-The-Needle Deflection Value -->
-  <!-- Completely eliminates nested difference expressions by utilizing native C++ reference subtraction -->
+  <!-- STEP 3: Final Cross-Comparison to Generate Follow-The-Needle Deflection Value -->
   <filter>
     <name>FD Final Core Error Engine</name>
     <type>gain</type>
     <gain>1.0</gain>
     <input>/instrumentation/flight-director/commanded-roll-deg</input>
-    <reference>/orientation/roll-deg</reference> <!-- Natively executes: Input minus Reference -->
+    <reference>/orientation/roll-deg</reference> <!-- Compares target bank angle directly to active roll state -->
     <output>/instrumentation/flight-director/computed-roll-error</output>
   </filter>
 
