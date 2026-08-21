@@ -34,56 +34,38 @@
         </offsets>
     </model>
 
-    <!-- UNIFIED TWO-STAGE NON-FIGHTING SCALE ANIMATION -->
     <animation>
         <type>scale</type>
         <object-name>DragChute</object-name>
-        
-        <!-- The master property acts as the execution trigger for the block -->
         <property>/controls/seat/eject/chute-norm</property>
-        <x-min>0</x-min>
-        <y-min>0</y-min>
-        <z-min>0</z-min>
-        <x-max>1</x-max>
-        <y-max>1</y-max>
-        <z-max>1</z-max>
-
-        <!-- STAGE 1: LONGITUDINAL EXTENSION (Z Axis Only) -->
-        <!-- Drives length automatically off chute-norm, multiplied by our static factor -->
-        <z-factor-prop>/controls/seat/eject/chute-norm</z-factor-prop>
-        <z-factor>4.0</z-factor>
-
-        <!-- STAGE 2: CANOPY INFLATION (X & Y Width Axes Only) -->
-        <!-- Binds the width properties to a separate interpolation map -->
-        <!-- This forces X and Y to look AT chute-inflate-norm instead of the master property -->
-        <x-factor-prop>/controls/seat/eject/chute-inflate-norm</x-factor-prop>
-        <interpolation n="0">
-            <!-- Holds the width compressed at a narrow 8% profile when inflate-norm is 0 -->
-            <entry><ind>0.0</ind><dep>0.08</dep></entry>
-            <!-- Blooms out to 100% full volume when your Nasal script timer fires -->
-            <entry><ind>1.0</ind><dep>1.00</dep></entry>
-        </interpolation>
-        <x-factor>1.0</x-factor>
-
-        <y-factor-prop>/controls/seat/eject/chute-inflate-norm</y-factor-prop>
-        <interpolation n="1">
-            <entry><ind>0.0</ind><dep>0.08</dep></entry>
-            <entry><ind>1.0</ind><dep>1.00</dep></entry>
-        </interpolation>
-        <y-factor>1.0</y-factor>
-
-        <!-- Pivot center point coordinates where the lines meet the seat pack -->
-        <offset-m>
-            <x-m>0.0</x-m>
-            <y-m>0.0</y-m>
-            <z-m>0.5</z-m>
-        </offset-m>
+        <z-factor>1.0</z-factor>
     </animation>
 
+    <animation>
+        <type>scale</type>
+        <object-name>DragChute</object-name>
+        <property>/controls/seat/eject/chute-inflate-norm</property>
+        <x-min>0.3</x-min>
+        <y-min>0.3</y-min>
+        <z-min>1.0</z-min>
+        <x-factor>1.0</x-factor>
+        <y-factor>1.0</y-factor>
+    </animation>
 
-
-
-
-
+    <animation>
+      <type>rotate</type>
+      <object-name>DragChute</object-name>
+      <object-name>EPilot</object-name>
+      <property>/controls/seat/eject/chute-norm</property>
+      <interpolation>
+        <entry><ind>0</ind><dep>190</dep></entry>
+        <entry><ind>1</ind><dep>0</dep></entry>
+      </interpolation>
+      <axis>
+        <x> 0</x>
+        <y>-1</y>
+        <z> 0</z>
+      </axis>
+    </animation>
 
 </PropertyList>

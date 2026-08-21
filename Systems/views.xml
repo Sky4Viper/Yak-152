@@ -74,10 +74,10 @@
       <ground-level-nearplane-m type="double">0.01</ground-level-nearplane-m>
       
       <x-offset-m type="double">0.01</x-offset-m>  
-      <y-offset-m type="double">-0.44</y-offset-m> <!-- Forward -->
-      <z-offset-m type="double">0.96</z-offset-m> <!--UP  -->
+      <y-offset-m type="double">-0.54</y-offset-m> <!-- UP -->
+      <z-offset-m type="double">0.87</z-offset-m> <!--Forward  -->
 
-      <pitch-offset-deg>-70</pitch-offset-deg>
+      <pitch-offset-deg>0</pitch-offset-deg>
       <heading-offset-deg>180</heading-offset-deg> <!-- 180-degree camera rotation so it faces forward along the pilot's sight line -->
       
       <default-field-of-view-deg type="double">95</default-field-of-view-deg> 
