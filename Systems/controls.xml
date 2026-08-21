@@ -58,7 +58,6 @@
     </mfis>
   </instrumentation>
 
-
   <engines>
     <engine            n="0">
       <boost           type="double">0</boost>
@@ -81,14 +80,18 @@
   </flight>
 
   <seat>
-    <eject>
+    <eject n="0">
       <ejected     type="bool">false</ejected>
       <eject-norm  type="double"> 0.0</eject-norm>
       <chute-norm  type="double"> 0.0</chute-norm>
       <chute-inflate-norm  type="double"> 0.0</chute-inflate-norm>
-      <pilot-view   type="bool">false</pilot-view>
-      <cinematic-view   type="bool">false</cinematic-view>
       <view-type type="int">0</view-type>
+    </eject>
+    <eject n="1">
+      <ejected     type="bool">false</ejected>
+      <eject-norm  type="double"> 0.0</eject-norm>
+      <chute-norm  type="double"> 0.0</chute-norm>
+      <chute-inflate-norm  type="double"> 0.0</chute-inflate-norm>
     </eject>
   </seat>
 

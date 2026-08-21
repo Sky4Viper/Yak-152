@@ -22,7 +22,7 @@
     
     <!-- CRITICAL FIX: Tracks the copilot property independent of the pilot track -->
     <condition>
-      <property>/controls/seat/eject/copilot-ejected</property>
+      <property>/controls/seat/eject[1]/ejected</property>
     </condition>
     
     <placer>

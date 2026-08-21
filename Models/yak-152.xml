@@ -1024,7 +1024,7 @@
     <object-name>canopy_glass.001</object-name>
     <object-name>HDRcanopy_glass.001</object-name>
     <condition>
-      <not><property>/controls/seat/eject/pilot-ejected</property></not>
+      <not><property>/controls/seat/eject[0]/ejected</property></not>
     </condition>
   </animation>
 
@@ -1033,7 +1033,7 @@
     <object-name>canopy_glass.002</object-name>
     <object-name>HDRcanopy_glass.002</object-name>
     <condition>
-      <not><property>/controls/seat/eject/copilot-ejected</property></not>
+      <not><property>/controls/seat/eject[1]/ejected</property></not>
     </condition>
   </animation>
 
@@ -1041,12 +1041,12 @@
     <type>select</type>
     <object-name>glass_cracked.001</object-name>
     <!-- <condition>
-      <property>/controls/seat/eject/pilot-ejected</property>
+      <property>/controls/seat/eject[0]/ejected</property>
     </condition> -->
     <condition>
 			<greater-than>
 				<property>/controls/seat/eject/eject-norm</property>
-				<value>0.95</value>
+				<value>0.1</value>
 			</greater-than>
 		</condition>
   </animation>
@@ -1056,10 +1056,9 @@
     <object-name>glass_cracked.002</object-name>
     <condition>
 			<greater-than>
-				<property>/controls/seat/eject/eject-norm</property>
-				<value>0.8</value>
+				<property>/controls/seat/eject[1]/eject-norm</property>
+				<value>0.1</value>
 			</greater-than>
-      <property>/controls/seat/eject/copilot-ejected</property>
 		</condition>
   </animation>
 

@@ -22,7 +22,7 @@
     
     <!-- CRITICAL FIX: Direct property injection wakes up the particle node at the moment of ejection -->
     <condition>
-      <property>/controls/seat/eject/pilot-ejected</property>
+      <property>/controls/seat/eject[0]/ejected</property>
     </condition>
     
     <placer>

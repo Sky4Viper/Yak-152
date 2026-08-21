@@ -14,7 +14,7 @@
         <inherits-from>Effects/chute</inherits-from>
         <parameters>
             <chute_force>
-                <use>/controls/seat/eject/eject-norm</use>
+                <use>/controls/seat/eject[0]/eject-norm</use>
             </chute_force>
             <chute_projection_z>10.35</chute_projection_z>
             <chute_fold>0.0</chute_fold>
@@ -37,14 +37,14 @@
     <animation>
         <type>scale</type>
         <object-name>DragChute</object-name>
-        <property>/controls/seat/eject/chute-norm</property>
+        <property>/controls/seat/eject[0]/chute-norm</property>
         <z-factor>1.0</z-factor>
     </animation>
 
     <animation>
         <type>scale</type>
         <object-name>DragChute</object-name>
-        <property>/controls/seat/eject/chute-inflate-norm</property>
+        <property>/controls/seat/eject[0]/chute-inflate-norm</property>
         <x-min>0.3</x-min>
         <y-min>0.3</y-min>
         <z-min>1.0</z-min>
@@ -56,7 +56,7 @@
       <type>rotate</type>
       <object-name>DragChute</object-name>
       <object-name>EPilot</object-name>
-      <property>/controls/seat/eject/chute-norm</property>
+      <property>/controls/seat/eject[0]/chute-norm</property>
       <interpolation>
         <entry><ind>0</ind><dep>190</dep></entry>
         <entry><ind>1</ind><dep>0</dep></entry>

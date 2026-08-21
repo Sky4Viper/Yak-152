@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<PropertyList>
+
+  <animation>
+    <type>particlesystem</type>
+    <offsets>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </offsets>
+    <particlesystem>
+      <texture>Aircraft/Yak-152/Models/Effects/canopyshatter/noise3.png</texture>
+      <counter>
+        <type>once</type>
+        <number>150</number>
+      </counter>
+      <particle>
+        <life-sec><value>0.6</value></life-sec>
+        <mass-kg>0.02</mass-kg>
+        <radius-m><value>0.03</value></radius-m>
+        <color>
+          <r>0.85</r>
+          <g>0.95</g>
+          <b>1.0</b>
+          <a>0.9</a>
+        </color>
+      </particle>
+      <program>
+        <fluid>air</fluid>
+        <gravity>true</gravity>
+        <wind>true</wind>
+      </program>
+      <initializer>
+        <type>point</type>
+        <speed-mps>
+          <value>35</value>
+          <spread>15</spread>
+        </speed-mps>
+        <coordinates>polar</coordinates>
+        <theta-deg>
+          <value>85</value>
+          <spread>35</spread>
+        </theta-deg>
+        <phi-deg>
+          <value>0</value>
+          <spread>360</spread>
+        </phi-deg>
+      </initializer>
+    </particlesystem>
+  </animation>
+
+</PropertyList>

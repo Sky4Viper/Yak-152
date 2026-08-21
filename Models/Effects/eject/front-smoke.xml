@@ -48,7 +48,7 @@
     <!-- PROPERTY DYNAMIC COUNTER DRIVER: Avoids parent select-culling glitches -->
     <counter>
       <particles-per-sec>
-        <property>/controls/seat/eject/smoke-rate-front</property>
+        <property>/controls/seat/eject[0]/smoke-rate</property>
         <factor>140</factor>
       </particles-per-sec>
     </counter>

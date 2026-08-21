@@ -39,9 +39,9 @@
     <object-name>seat_harness</object-name>
     <condition>
       <or>
-      <not><property>/controls/seat/eject/copilot-ejected</property></not>
+      <not><property>/controls/seat/eject[1]/ejected</property></not>
 			<less-than>
-				<property>/controls/seat/eject/eject-norm</property>
+				<property>/controls/seat/eject[1]/eject-norm</property>
 				<value>0.9</value>
 			</less-than>
       </or>
@@ -51,8 +51,11 @@
   <animation>
     <type>translate</type>
     <object-name>eject_cylinder.002</object-name>
-    <property>/controls/seat/eject/eject-norm</property>
-    <factor>0.4</factor>
+    <property>/controls/seat/eject[1]/eject-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0 </dep></entry>
+      <entry><ind> 0.6 </ind><dep> 0.4 </dep></entry>
+    </interpolation>
     <axis>
       <x1-m> -0.320835 </x1-m>
       <y1-m>  0.00000 </y1-m>
@@ -61,9 +64,6 @@
       <y2-m>  0.00000 </y2-m>
       <z2-m>  0.379578  </z2-m>
     </axis>
-    <condition>
-      <property>/controls/seat/eject/copilot-ejected</property>
-    </condition>
   </animation>
   
   <animation>
@@ -74,8 +74,11 @@
     <object-name>seat_harness</object-name>
     <object-name>RearShatterEffect</object-name>
     <object-name>RearSmokeEffect</object-name>
-    <property>/controls/seat/eject/eject-norm</property>
-    <factor>0.8</factor>
+    <property>/controls/seat/eject[1]/eject-norm</property>
+    <interpolation>
+      <entry><ind> 0 </ind><dep> 0 </dep></entry>
+      <entry><ind> 0.6 </ind><dep> 0.8 </dep></entry>
+    </interpolation>
     <axis>
       <x1-m> -0.320835 </x1-m>
       <y1-m>  0.00000 </y1-m>
@@ -84,15 +87,12 @@
       <y2-m>  0.00000 </y2-m>
       <z2-m>  0.379578  </z2-m>
     </axis>
-    <condition>
-      <property>/controls/seat/eject/copilot-ejected</property>
-    </condition>
   </animation>
 
   <animation>
     <type>translate</type>
     <object-name>handles</object-name>
-    <property>/controls/seat/eject/copilot-ejected</property>
+    <property>/controls/seat/eject[1]/eject-norm</property>
     <factor>0.015</factor>
     <axis>
       <x>-1 </x>
