@@ -7,5 +7,6 @@
   <path>/controls/seat/eject/view-type</path>
   <path>/sim/model/show-stick-pilot</path>
   <path>/sim/model/show-stick-copilot</path>
+  <path>/yak152/instrumentation/RMU/auto-course-on</path>
 
 </PropertyList>

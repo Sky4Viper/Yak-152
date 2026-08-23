@@ -150,12 +150,11 @@ var toggle_aircraft_state = func {
         is_running = 1;
         gui.popupTip("Initiating Autostart...");
 
-        radiocfg.COM_init();
-        radiocfg.ARC_init();
-        radiocfg.PRMG_init();
-        radiocfg.RSBN_init();
-
-        gui.popupTip("Radio: Channel Presets Loaded");
+        # radiocfg.COM_init();
+        # radiocfg.ARC_init();
+        # radiocfg.PRMG_init();
+        # radiocfg.RSBN_init();
+        #gui.popupTip("Radio: Channel Presets Loaded");
 
         controls.startEngine(0,0);
 

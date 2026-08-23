@@ -137,6 +137,19 @@
       </binding>
     </button>
 
+  <hrule/>
+
+    <!-- Auto Course Tuning enabled (direct to radials selection) -->
+    <checkbox>
+      <halign>left</halign>
+      <label>Auto Course Enable</label>
+      <property>/yak152/instrumentation/RMU/auto-course-on</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/yak152/instrumentation/RMU/auto-course-on</property>
+      </binding>
+    </checkbox>
+
   </group>
 
   <hrule/>

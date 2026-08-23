@@ -1,6 +1,6 @@
 ## Radio channels presets
 
-print("*** LOADING RADIOCFG.nas ... ***");
+print("*** LOADING YAK-152 RADIOCFG.nas ... ***");
 
 var COMM_channel = 0;
 var COMM_channel_1 = 0;
@@ -135,6 +135,7 @@ var PRMG_channel_handler = func{
   var PRMG_channel_9 = getprop("/yak152/instrumentation/PRMG/channel-9");
 
 #For storing PRMG frequencies
+  if (PRMG_channel == 0) { setprop("/instrumentation/nav[1]/frequencies/standby-mhz", PRMG_channel_0); }
   if (PRMG_channel == 1) { setprop("/instrumentation/nav[1]/frequencies/standby-mhz", PRMG_channel_1); }
   if (PRMG_channel == 2) { setprop("/instrumentation/nav[1]/frequencies/standby-mhz", PRMG_channel_2); }
   if (PRMG_channel == 3) { setprop("/instrumentation/nav[1]/frequencies/standby-mhz", PRMG_channel_3); }
@@ -149,46 +150,6 @@ var PRMG_channel_handler = func{
 
 var COM_init = func{
   setprop("/yak152/instrumentation/COMM/channel", 1);
-#1-Simferopol-UKFF-GND
-  setprop("/yak152/instrumentation/COMM/channel-1", 119.000);
-#2-Simferopol-UKFF-TWR
-  setprop("/yak152/instrumentation/COMM/channel-2", 120.800);
-#3-Simferopol-UKFF-ATIS
-  setprop("/yak152/instrumentation/COMM/channel-3", 127.200);
-#4-Simferopol-UKFF-RADAR1
-  setprop("/yak152/instrumentation/COMM/channel-4", 119.300);
-#5-Simferopol-UKFF-RADAR2
-  setprop("/yak152/instrumentation/COMM/channel-5", 124.700);
-#6-Rostov-na-Donu-URRR-TWR
-  setprop("/yak152/instrumentation/COMM/channel-6", 119.700);
-#7-Rostov-na-Donu-URRR-ATIS
-  setprop("/yak152/instrumentation/COMM/channel-7", 121.700);
-#8-Rostov-na-Donu-URRR-RADAR
-  setprop("/yak152/instrumentation/COMM/channel-8", 121.200);
-#9-Rostov-na-Donu-URRR-APP1
-  setprop("/yak152/instrumentation/COMM/channel-9", 124.000);
-#10-Rostov-na-Donu-URRR-APP2
-  #setprop("/yak152/instrumentation/COMM/channel-10", 127.100);
-#11-Rostov-na-Donu-URRR-APP3
-  #setprop("/yak152/instrumentation/COMM/channel-11", 128.200);
-#12-Kerch-URFK-TWR
-  #setprop("/yak152/instrumentation/COMM/channel-12", 128.000);
-#13-Odessa-UKOO-GND
-  #setprop("/yak152/instrumentation/COMM/channel-13", 121.800);
-#14-Odessa-UKOO-TWR
-  #setprop("/yak152/instrumentation/COMM/channel-14", 125.500);
-#15-Odessa-UKOO-ATIS
-  #setprop("/yak152/instrumentation/COMM/channel-15", 124.800);
-#16-Odessa-UKOO-RADAR1
-  #setprop("/yak152/instrumentation/COMM/channel-16", 120.900);
-#17-Odessa-UKOO-RADAR2
-  #setprop("/yak152/instrumentation/COMM/channel-17", 127.700);
-#18-Sochi-URSS-KRUG
-  #setprop("/yak152/instrumentation/COMM/channel-18", 119.700);
-#19-Sochi-URSS-TWR2
-  #setprop("/yak152/instrumentation/COMM/channel-19", 118.300);
-#20-Sochi-URSS-APP
-  #setprop("/yak152/instrumentation/COMM/channel-20", 124.600);
 
   setlistener("/yak152/instrumentation/COMM/channel", COMM_channel_handler,0,0 );
   setlistener("/yak152/instrumentation/COMM/channel-1", COMM_channel_handler,0,0 );
@@ -201,20 +162,12 @@ var COM_init = func{
   setlistener("/yak152/instrumentation/COMM/channel-8", COMM_channel_handler,0,0 );
   setlistener("/yak152/instrumentation/COMM/channel-9", COMM_channel_handler,0,0 );
 #  screen.log.write("COM set", 1, 0.6, 0.1);
+setprop("/instrumentation/comm/frequencies/selected-mhz", getprop("/yak152/instrumentation/COMM/channel-1"));
 setprop("/instrumentation/comm/frequencies/standby-mhz", getprop("/yak152/instrumentation/COMM/channel-1"));
 }
 
 var ARC_init = func{
   setprop("/yak152/instrumentation/ARC-15/channel", 1);
-  setprop("/yak152/instrumentation/ARC-15/channel-1", 588.0);
-  setprop("/yak152/instrumentation/ARC-15/channel-2", 285.0);
-  setprop("/yak152/instrumentation/ARC-15/channel-3", 326.0);
-  setprop("/yak152/instrumentation/ARC-15/channel-4", 395.0);
-  setprop("/yak152/instrumentation/ARC-15/channel-5", 1175.0);
-  setprop("/yak152/instrumentation/ARC-15/channel-6", 1175.0);
-  setprop("/yak152/instrumentation/ARC-15/channel-7", 1175.0);
-  setprop("/yak152/instrumentation/ARC-15/channel-8", 1175.0);
-  setprop("/yak152/instrumentation/ARC-15/channel-9", 1175.0);
 
   setlistener("/yak152/instrumentation/ARC-15/channel", ARC_channel_handler,0,0 );
   setlistener("/yak152/instrumentation/ARC-15/channel-1", ARC_channel_handler,0,0 );
@@ -227,51 +180,12 @@ var ARC_init = func{
   setlistener("/yak152/instrumentation/ARC-15/channel-8", ARC_channel_handler,0,0 );
   setlistener("/yak152/instrumentation/ARC-15/channel-9", ARC_channel_handler,0,0 );
 
+  setprop("/instrumentation/adf/frequencies/selected-khz", getprop("/yak152/instrumentation/ARC-15/channel-1"));
   setprop("/instrumentation/adf/frequencies/standby-khz", getprop("/yak152/instrumentation/ARC-15/channel-1"));
 }
 
 var RSBN_init = func{
   setprop("/yak152/instrumentation/RSBN/channel", 1);
-#1-Simferopol-UKFF
-  setprop("/yak152/instrumentation/RSBN/channel-1", 116.600);
-#2-Krasnodar-URKK
-  setprop("/yak152/instrumentation/RSBN/channel-2", 115.800);
-#3-Sochi-URSS
-  setprop("/yak152/instrumentation/RSBN/channel-3", 112.700);
-#4-Odessa-UKOO
-  setprop("/yak152/instrumentation/RSBN/channel-4", 113.950);
-#5-Rostov-URRR
-  setprop("/yak152/instrumentation/RSBN/channel-5", 114.700);
-#6-Aviano-ITA
-  setprop("/yak152/instrumentation/RSBN/channel-6", 113.400);
-#7-Praha-CZE
-  setprop("/yak152/instrumentation/RSBN/channel-7", 112.600);
-#8-Bratislava-SLO
-  setprop("/yak152/instrumentation/RSBN/channel-8", 110.800);
-#9-Bassel Al Assad-Syria
-  setprop("/yak152/instrumentation/RSBN/channel-9", 114.800);
-#10-Shannon-IRL
-  #setprop("/yak152/instrumentation/RSBN/channel-10", 113.300);
-#1-Simferopol-UKFF
-  #setprop("/yak152/instrumentation/RSBN/channel-11", 116.600);
-#2-Krasnodar-URKK
-  #setprop("/yak152/instrumentation/RSBN/channel-12", 115.800);
-#3-Sochi-URSS
-  #setprop("/yak152/instrumentation/RSBN/channel-13", 112.700);
-#4-Odessa-UKOO
-  #setprop("/yak152/instrumentation/RSBN/channel-14", 113.950);
-#5-Rostov-URRR
-  #setprop("/yak152/instrumentation/RSBN/channel-15", 114.700);
-#6-Aviano-ITA
-  #setprop("/yak152/instrumentation/RSBN/channel-16", 113.400);
-#7-Praha-CZE
-  #setprop("/yak152/instrumentation/RSBN/channel-17", 112.600);
-#8-Bratislava-SLO
-  #setprop("/yak152/instrumentation/RSBN/channel-18", 110.800);
-#9-Bassel Al Assad-Syria
-  #setprop("/yak152/instrumentation/RSBN/channel-19", 114.800);
-#10-Shannon-IRL
-  #setprop("/yak152/instrumentation/RSBN/channel-20", 113.300);
 
   setlistener("/yak152/instrumentation/RSBN/channel", RSBN_channel_handler,0,0 );
   setlistener("/yak152/instrumentation/RSBN/channel-1", RSBN_channel_handler,0,0 );
@@ -283,21 +197,14 @@ var RSBN_init = func{
   setlistener("/yak152/instrumentation/RSBN/channel-7", RSBN_channel_handler,0,0 );
   setlistener("/yak152/instrumentation/RSBN/channel-8", RSBN_channel_handler,0,0 );
   setlistener("/yak152/instrumentation/RSBN/channel-9", RSBN_channel_handler,0,0 );
-#  screen.log.write("RSBN set", 1, 0.6, 0.1);
-setprop("/instrumentation/nav/frequencies/standby-mhz", getprop("/yak152/instrumentation/RSBN/channel-1"));
+  #  screen.log.write("RSBN set", 1, 0.6, 0.1);
+  setprop("/instrumentation/nav/frequencies/selected-mhz", getprop("/yak152/instrumentation/RSBN/channel-1"));
+  setprop("/instrumentation/nav/frequencies/standby-mhz", getprop("/yak152/instrumentation/RSBN/channel-1"));
+
 }
 
 var PRMG_init = func{
   setprop("/yak152/instrumentation/PRMG/channel", 1);
-  setprop("/yak152/instrumentation/PRMG/channel-1", 109.10); # 
-  setprop("/yak152/instrumentation/PRMG/channel-2", 109.20); # 
-  setprop("/yak152/instrumentation/PRMG/channel-3", 109.30); # 
-  setprop("/yak152/instrumentation/PRMG/channel-4", 109.40); # 
-  setprop("/yak152/instrumentation/PRMG/channel-5", 109.50); # 
-  setprop("/yak152/instrumentation/PRMG/channel-6", 109.60); # 
-  setprop("/yak152/instrumentation/PRMG/channel-7", 109.70); # 
-  setprop("/yak152/instrumentation/PRMG/channel-8", 109.80); # 
-  setprop("/yak152/instrumentation/PRMG/channel-9", 109.90); # 
 
   setlistener("/yak152/instrumentation/PRMG/channel", PRMG_channel_handler,0,0 );
   setlistener("/yak152/instrumentation/PRMG/channel-1", PRMG_channel_handler,0,0 );
@@ -310,6 +217,158 @@ var PRMG_init = func{
   setlistener("/yak152/instrumentation/PRMG/channel-8", PRMG_channel_handler,0,0 );
   setlistener("/yak152/instrumentation/PRMG/channel-9", PRMG_channel_handler,0,0 );
 
+  setprop("/instrumentation/nav[1]/frequencies/selected-mhz", getprop("/yak152/instrumentation/PRMG/channel-1"));
   setprop("/instrumentation/nav[1]/frequencies/standby-mhz", getprop("/yak152/instrumentation/PRMG/channel-1"));
 }
 
+# Create a listener to watch the radio power bus from Electrical.nas
+setlistener("/systems/electrical/outputs/comm", func(node) {
+    var voltage = node.getValue();
+
+    var in_range = getprop("/instrumentation/nav/in-range");
+    var direct_to = getprop("/instrumentation/nav/heading-deg") or 0.0;
+    var auto_course = getprop("/yak152/instrumentation/RMU/auto-course-on") or 0;
+    
+    # Standard VHF radios need at least ~18-22V to operate on a 24V system
+    if (voltage == nil or voltage < 18.0) {
+        # Tell FlightGear's core radio engine that the device is unserviceable
+        setprop("/instrumentation/comm/serviceable", 0);
+        setprop("/instrumentation/adf/serviceable", 0);
+        setprop("/instrumentation/nav[0]/serviceable", 0);
+        setprop("/instrumentation/nav[1]/serviceable", 0);
+        
+        # OPTIONAL: If you have a custom display flag for your cockpit model
+        setprop("/yak152/instrumentation/RMU/display-active", 0);
+    } else {
+        # Restore full operation when battery/generator power is sufficient
+        setprop("/instrumentation/comm/serviceable", 1);
+        setprop("/instrumentation/adf/serviceable", 1);
+        setprop("/instrumentation/nav[0]/serviceable", 1);
+        setprop("/instrumentation/nav[1]/serviceable", 1);
+        setprop("/yak152/instrumentation/RMU/display-active", 1);
+
+        #interpolate("/instrumentation/nav/radials/selected-deg", direct_to, 0.5);
+        if (in_range and auto_course) {
+            interpolate("/instrumentation/nav/radials/selected-deg", direct_to, 0.5);
+        }
+
+    }
+}, 1, 0); # Run once initially, do not log internal script modifications
+
+var populate_yak152_all_channels = func {
+    var lat = getprop("/position/latitude-deg");
+    var lon = getprop("/position/longitude-deg");
+    
+    if (lat == nil or lon == nil) {
+        print("Yak-152: Aircraft position unavailable.");
+        return;
+    }
+
+    var my_pos = geo.Coord.new().set_latlon(lat, lon);
+    var search_radius_nm = 500;
+
+    # ==========================================
+    # 1. SCAN AND ROUTE COM FREQUENCIES
+    # ==========================================
+    var comms = [];
+    var airports = findAirportsWithinRange(lat, lon, search_radius_nm);
+
+    foreach (var apt; airports) {
+        var apt_pos = geo.Coord.new().set_latlon(apt.lat, apt.lon);
+        var dist = my_pos.distance_to(apt_pos);
+        
+        # FIXED: Using the native .comms() method instead of .frequencies()
+        var airport_comms = apt.comms();
+        if (airport_comms != nil) {
+            foreach (var c; airport_comms) {
+                if (c.frequency != nil) {
+                    append(comms, { distance: dist, freq: c.frequency });
+                }
+            }
+        }
+    }
+
+    # ==========================================
+    # 2. SCAN AND ROUTE NAV FREQUENCIES
+    # ==========================================
+    var navaids = findNavaidsWithinRange(lat, lon, search_radius_nm);
+    var vors = [];
+    var ilses = [];
+    var ndbs = [];
+    
+    foreach (var nav; navaids) {
+        var nav_pos = geo.Coord.new().set_latlon(nav.lat, nav.lon);
+        var dist = my_pos.distance_to(nav_pos);
+        var item = { distance: dist, freq: nav.frequency };
+        
+        if (nav.type == "VOR") {
+            append(vors, item);
+        } elsif (nav.type == "ILS") {
+            append(ilses, item);
+        } elsif (nav.type == "NDB") {
+            append(ndbs, item);
+        }
+    }
+
+    # ==========================================
+    # 3. PROXIMITY COMPARATOR & SORTING
+    # ==========================================
+    var sort_by_distance = func(a, b) {
+        return a.distance < b.distance ? -1 : (a.distance > b.distance ? 1 : 0);
+    };
+
+    var sorted_comms = sort(comms, sort_by_distance);
+    var sorted_vors  = sort(vors, sort_by_distance);
+    var sorted_ilses = sort(ilses, sort_by_distance);
+    var sorted_ndbs  = sort(ndbs, sort_by_distance);
+
+    # ==========================================
+    # 4. WRITING DIRECTLY TO THE PROPERTY TREE
+    # ==========================================
+    var save_channels = func(array, base_path, is_ndb, is_comm) {
+        for (var i = 0; i < 9; i += 1) {
+            var channel_num = i + 1;
+            var prop_path = base_path ~ "/channel-" ~ channel_num;
+            
+            if (i < size(array)) {
+                var raw_freq = array[i].freq;
+                var final_freq = 0.0;
+                
+                if (is_comm) {
+                    # COMM data is already a float representation (e.g., 122.8)
+                    final_freq = raw_freq; 
+                } elsif (is_ndb) {
+                    # Safely handle localized formats for kHz
+                    final_freq = (raw_freq > 2000) ? (raw_freq / 100.0) : raw_freq;
+                } else {
+                    # VOR and ILS integers map down (e.g., 10910 -> 109.10)
+                    final_freq = raw_freq / 100.0;
+                }
+                
+                setprop(prop_path, final_freq);
+            } else {
+                # Safety net fallback to prevent unassigned channels
+                setprop(prop_path, 0.0);
+            }
+        }
+    };
+
+    # Fire output data bindings
+    save_channels(sorted_comms, "/yak152/instrumentation/COMM",   0, 1); # COM
+    COM_init();
+    save_channels(sorted_vors,  "/yak152/instrumentation/RSBN",   0, 0); # VOR
+    RSBN_init();
+    save_channels(sorted_ilses, "/yak152/instrumentation/PRMG",   0, 0); # ILS
+    PRMG_init();
+    save_channels(sorted_ndbs,  "/yak152/instrumentation/ARC-15", 1, 0); # NDB
+    ARC_init();
+
+    print("Yak-152: Communication & Navigation matrices refreshed successfully.");
+};
+
+# Execute the auto-mapping routine once
+
+setlistener("/sim/signals/fdm-initialized", func {
+    setprop("instrumentation/rmu/unit/selected", 0.0);
+    populate_yak152_all_channels();
+});

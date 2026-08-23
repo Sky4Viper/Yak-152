@@ -152,6 +152,7 @@
     <name>rmu-ap-text</name>
     <object-name>rmu-cursor</object-name>
     <object-name>com1</object-name>
+    <object-name>com1-a-id</object-name>
     <object-name>com1-id</object-name>
     <object-name>com1-label</object-name>
     <object-name>com1-chnl</object-name>
@@ -517,7 +518,7 @@
         <character-size type="double">0.004</character-size>
         <offsets>
             <x-m> 0.03425</x-m>
-            <y-m>-0.0422</y-m>
+            <y-m>-0.0442</y-m>
             <z-m>0.0156</z-m>
             <pitch-deg>-67</pitch-deg>
         </offsets>
@@ -531,7 +532,7 @@
     <text>
         <name>com1-label</name>
         <font>lcd.txf</font>
-        <character-size type="double">0.004</character-size>
+        <character-size type="double">0.003</character-size>
         <offsets>
             <x-m> 0.03425</x-m>
             <y-m>-0.0527</y-m>
@@ -546,18 +547,36 @@
     </text>
 
     <text>
-        <name>com1-id</name>
+        <name>com1-a-id</name>
         <font>lcd.txf</font>
-        <character-size type="double">0.004</character-size>
+        <character-size type="double">0.003</character-size>
         <offsets>
             <x-m> 0.03425</x-m>
-            <y-m>-0.027</y-m>
+            <y-m>-0.031</y-m>
             <z-m>0.0156</z-m>
             <pitch-deg>-67</pitch-deg>
         </offsets>
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">text-value</type>
         <format type="string">%4.4s</format>
+        <property>instrumentation/comm[0]/airport-id</property>
+        <draw-text type="bool">true</draw-text>
+        <alignment>right-top</alignment>
+    </text>
+
+    <text>
+        <name>com1-id</name>
+        <font>lcd.txf</font>
+        <character-size type="double">0.003</character-size>
+        <offsets>
+            <x-m> 0.03425</x-m>
+            <y-m>-0.026</y-m>
+            <z-m>0.0156</z-m>
+            <pitch-deg>-67</pitch-deg>
+        </offsets>
+        <axis-alignment>yz-plane</axis-alignment>
+        <type type="string">text-value</type>
+        <format type="string">%2.2s</format>
         <property>instrumentation/comm[0]/station-name</property>
         <draw-text type="bool">true</draw-text>
         <alignment>right-top</alignment>
@@ -566,7 +585,7 @@
     <text>
         <name>com1-chnl</name>
         <font>lcd.txf</font>
-        <character-size type="double">0.004</character-size>
+        <character-size type="double">0.003</character-size>
         <offsets>
             <x-m> 0.03425</x-m>
             <y-m>-0.0235</y-m>
@@ -606,7 +625,7 @@
     <text>
         <name>adf-label</name>
         <font>lcd.txf</font>
-        <character-size type="double">0.004</character-size>
+        <character-size type="double">0.003</character-size>
         <offsets>
             <x-m> 0.04025</x-m>
             <y-m>-0.0527</y-m>
@@ -623,7 +642,7 @@
     <text>
         <name>adf-id</name>
         <font>lcd.txf</font>
-        <character-size type="double">0.004</character-size>
+        <character-size type="double">0.003</character-size>
         <offsets>
             <x-m> 0.04025</x-m>
             <y-m>-0.027</y-m>
@@ -640,7 +659,7 @@
     <text>
         <name>adf-chnl</name>
         <font>lcd.txf</font>
-        <character-size type="double">0.004</character-size>
+        <character-size type="double">0.003</character-size>
         <offsets>
             <x-m> 0.04025</x-m>
             <y-m>-0.0235</y-m>
@@ -680,7 +699,7 @@
    <text>
         <name>nav1-label</name>
         <font>lcd.txf</font>
-        <character-size type="double">0.004</character-size>
+        <character-size type="double">0.003</character-size>
         <offsets>
             <x-m> 0.04625</x-m>
             <y-m>-0.0527</y-m>
@@ -697,7 +716,7 @@
     <text>
         <name>nav1-id</name>
         <font>lcd.txf</font>
-        <character-size type="double">0.004</character-size>
+        <character-size type="double">0.003</character-size>
         <offsets>
             <x-m> 0.04625</x-m>
             <y-m>-0.027</y-m>
@@ -714,7 +733,7 @@
     <text>
         <name>nav1-chnl</name>
         <font>lcd.txf</font>
-        <character-size type="double">0.004</character-size>
+        <character-size type="double">0.003</character-size>
         <offsets>
             <x-m> 0.04625</x-m>
             <y-m>-0.0235</y-m>
@@ -754,7 +773,7 @@
    <text>
         <name>nav2-label</name>
         <font>lcd.txf</font>
-        <character-size type="double">0.004</character-size>
+        <character-size type="double">0.003</character-size>
         <offsets>
             <x-m> 0.05225</x-m>
             <y-m>-0.0527</y-m>
@@ -771,7 +790,7 @@
     <text>
         <name>nav2-id</name>
         <font>lcd.txf</font>
-        <character-size type="double">0.004</character-size>
+        <character-size type="double">0.003</character-size>
         <offsets>
             <x-m> 0.05225</x-m>
             <y-m>-0.027</y-m>
@@ -788,7 +807,7 @@
     <text>
         <name>nav2-chnl</name>
         <font>lcd.txf</font>
-        <character-size type="double">0.004</character-size>
+        <character-size type="double">0.003</character-size>
         <offsets>
             <x-m> 0.05225</x-m>
             <y-m>-0.0235</y-m>
@@ -906,7 +925,8 @@
                     setprop("yak152/instrumentation/RSBN/channel-" ~ cnlnav ~ "", nav);
                     settimer(func {
                     var in_range = getprop("/instrumentation/nav/in-range");
-                    if (in_range) {
+                    var auto_course = getprop("/yak152/instrumentation/RMU/auto-course-on") or 0;
+                    if (and auto_course) {
                       var direct_to = getprop("/instrumentation/nav/heading-deg") or 0.0;
                       interpolate("/instrumentation/nav/radials/selected-deg", direct_to, 0.5);
                       }
