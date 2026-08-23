@@ -80,6 +80,7 @@ var activate_next_switch = func(index) {
     if (!is_running) return; 
     
     if (index >= size(startup_switches)) {
+        setprop("/controls/instrumentation/mfis/mfi[1]/page", 1);
         gui.popupTip("Autostart Sequence Complete!");
         return;
     }
@@ -97,6 +98,7 @@ var activate_next_switch = func(index) {
         setprop(current_prop, 1);
         if (string_contains(current_prop, "enginebtncover1")) {
             var swcover_prop = current_prop;
+            setprop("/controls/instrumentation/mfis/mfi[1]/page", 3);
             settimer(func { setprop(swcover_prop, 0); }, 2.2);
         }
         if (string_contains(current_prop, "fuelswchcover1")) {

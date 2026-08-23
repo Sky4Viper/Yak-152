@@ -632,8 +632,7 @@
         </offsets>
         <axis-alignment>yz-plane</axis-alignment>
         <type type="string">text-value</type>
-        <format type="string">%4.4s</format>
-        <property>instrumentation/adf/indicated-bearing-deg</property>
+        <property>instrumentation/adf/ident</property>
         <draw-text type="bool">true</draw-text>
         <alignment>right-top</alignment>
     </text>
@@ -905,6 +904,13 @@
                     var cnlnav = getprop("/yak152/instrumentation/RSBN/channel");
                     var nav = getprop("/instrumentation/nav/frequencies/standby-mhz");
                     setprop("yak152/instrumentation/RSBN/channel-" ~ cnlnav ~ "", nav);
+                    settimer(func {
+                    var in_range = getprop("/instrumentation/nav/in-range");
+                    if (in_range) {
+                      var direct_to = getprop("/instrumentation/nav/heading-deg") or 0.0;
+                      interpolate("/instrumentation/nav/radials/selected-deg", direct_to, 0.5);
+                      }
+                    }, 0.5);
                   } elsif (unit == 3 ) {
                     var cnlnav1 = getprop("/yak152/instrumentation/PRMG/channel");
                     var nav1 = getprop("/instrumentation/nav[1]/frequencies/standby-mhz");

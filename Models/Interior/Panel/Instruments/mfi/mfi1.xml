@@ -75,12 +75,15 @@
         <object-name>THRpower</object-name>
         <object-name>mfi_course_disk</object-name>
         <object-name>mfi_gs_ball</object-name>
+        <object-name>mfi_cor_sel</object-name>
         <object-name>hdg_bug</object-name>
+        <object-name>adf_dir_needle</object-name>
         <object-name>vor_dir_needle</object-name>
         <object-name>vor_cor_needle</object-name>
         <object-name>vor_def_needle</object-name>
         <object-name>ils_def_needle</object-name>
         <object-name>gs_def_needle</object-name>
+        <object-name>volt_needle</object-name>
         <object-name>hdgnum100</object-name>
         <object-name>hdgnum10</object-name>
         <object-name>hdgnum1</object-name>
@@ -215,12 +218,15 @@
         <object-name>THRpower</object-name>
         <object-name>mfi_course_disk</object-name>
         <object-name>mfi_gs_ball</object-name>
+        <object-name>mfi_cor_sel</object-name>
         <object-name>hdg_bug</object-name>
+        <object-name>adf_dir_needle</object-name>
         <object-name>vor_dir_needle</object-name>
         <object-name>vor_cor_needle</object-name>
         <object-name>vor_def_needle</object-name>
         <object-name>ils_def_needle</object-name>
         <object-name>gs_def_needle</object-name>
+        <object-name>volt_needle</object-name>
         <object-name>hdgnum100</object-name>
         <object-name>hdgnum10</object-name>
         <object-name>hdgnum1</object-name>
@@ -398,7 +404,9 @@
         <object-name>THRpower</object-name>
         <object-name>mfi_course_disk</object-name>
         <object-name>mfi_gs_ball</object-name>
+        <object-name>mfi_cor_sel</object-name>
         <object-name>hdg_bug</object-name>
+        <object-name>adf_dir_needle</object-name>
         <object-name>vor_dir_needle</object-name>
         <object-name>vor_cor_needle</object-name>
         <object-name>vor_def_needle</object-name>
@@ -570,6 +578,7 @@
   <animation>
     <type>select</type>
         <object-name>mfi_page4</object-name>
+        <object-name>volt_needle</object-name>
     <condition>
       <!-- <property>controls/electric/battery-switch</property> -->
       <equals>
@@ -712,6 +721,36 @@
       </and>
     </condition>
   </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>nav_director_needle</object-name>
+    <object-name>vor_dir_needle</object-name>
+    <object-name>vor_cor_needle</object-name>
+    <object-name>vor_def_needle</object-name>
+    <object-name>mfi_cor_sel</object-name>
+    <condition>
+      <property>/instrumentation/nav/in-range</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>mfi_gs_ball</object-name>
+    <object-name>ils_def_needle</object-name>
+    <object-name>gs_def_needle</object-name>
+    <condition>
+      <property>instrumentation/nav[1]/gs-in-range</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>adf_dir_needle</object-name>
+    <condition>
+      <property>/instrumentation/adf/in-range</property>
+    </condition>
+  </animation>
     
 <!-- AI pitch -->
 
@@ -806,7 +845,7 @@
 
 <!-- Propeller RPM -->
 
-    <animation>
+  <animation>
         <type>rotate</type>
         <object-name>RPMneedleProp</object-name>
         <property>engines/engine/rpm</property>
@@ -838,7 +877,7 @@
             <y> 0</y>
             <z>-1</z>
         </axis>
-    </animation>
+  </animation>
 
 <!-- Throttle -->
 
@@ -1363,8 +1402,30 @@
     </animation>
     
 <!-- Ground Speed Indicator -->
-    
-<!-- Distance Measuring Equipment -->
+
+<!-- Volt indicator -->
+
+    <animation>
+        <type>rotate</type>
+        <object-name>volt_needle</object-name>
+        <property>systems/electrical/volts</property>
+        <interpolation>
+            <entry><ind>0</ind><dep>0</dep></entry>
+            <entry><ind>24</ind><dep>90</dep></entry>
+            <entry><ind>30</ind><dep>180</dep></entry>
+            <entry><ind>65</ind><dep>270</dep></entry>
+        </interpolation>
+        <center>
+            <x-m> 0.018288</x-m>
+            <y-m>-0.045817</y-m>
+            <z-m> 0.0</z-m>
+        </center>
+        <axis>
+            <x> 0</x>
+            <y> 0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
     
 <!--   VHF Omnidirectional Radio Range -->
     
@@ -1473,6 +1534,7 @@
 
 <animation>
   <type>rotate</type>
+  <!-- <object-name>adf_dir_needle</object-name> -->
   <object-name>vor_dir_needle</object-name>
   <property>/orientation/heading-magnetic-deg</property>
   <center>
@@ -1571,6 +1633,22 @@
   </axis>
 </animation>
 
+<animation>
+  <type>rotate</type>
+  <object-name>adf_dir_needle</object-name>
+  <property>instrumentation/adf/indicated-bearing-deg</property>
+  <factor>-1</factor>
+  <center>
+    <x-m>0.042568</x-m>
+    <y-m>0.0</y-m>
+    <z-m>0.0</z-m>
+  </center>
+  <axis>
+    <x>0</x>
+    <y>0</y>
+    <z>1</z>
+  </axis>
+</animation>
 
 <animation>
  <type>translate</type>
@@ -1914,7 +1992,8 @@
 
  <animation>
  <type>knob</type>
- <object-name>mfi_gs_ball</object-name>
+ <object-name>mfi_cor_sel</object-name>
+ <visible>false</visible>
  <action>
         <binding>
           <command>property-adjust</command>
@@ -2033,6 +2112,42 @@
                 <label>MFI Mode: SYSTEM</label>
             </binding>
     </hovered>
+</animation>
+
+<animation>
+   <type>pick</type>
+   <object-name>mfi_btn.008</object-name>
+   <visible>true</visible>
+   <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <condition>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[1]/page</property>
+              <value>2</value>
+            </equals>
+            <equals>
+              <property>/controls/instrumentation/mfis/mfi[1]/subpage</property>
+              <value>1</value>
+            </equals>
+        </condition>
+        <command>property-toggle</command>
+        <property>/instrumentation/efis/inputs/nd-centered</property>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[1]/btn[8]</property>
+          <value>1</value>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>property-assign</command>
+          <property>/controls/instrumentation/mfis/mfi[1]/btn[8]</property>
+          <value>0</value>
+        </binding>
+      </mod-up>
+    </action>
 </animation>
 
 <animation>
@@ -2451,12 +2566,22 @@
       <binding>
         <condition>
             <equals>
+              <property>/controls/instrumentation/mfis/mfi[1]/page</property>
+              <value>2</value>
+            </equals>
+            <equals>
               <property>/controls/instrumentation/mfis/mfi[1]/subpage</property>
               <value>1</value>
             </equals>
         </condition>
-        <command>property-toggle</command>
-        <property>/instrumentation/efis/inputs/nd-centered</property>
+        <!-- <command>property-toggle</command>
+        <property>/instrumentation/efis/inputs/nd-centered</property> -->
+        <command>property-cycle</command>
+        <property>/instrumentation/efis/mfd/display-mode</property>
+        <value>MAP</value>
+        <value>VOR</value>
+        <value>APP</value>
+        <value>PLAN</value>
       </binding>
       <binding>
         <command>property-assign</command>
