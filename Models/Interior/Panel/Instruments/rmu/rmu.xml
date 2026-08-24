@@ -924,9 +924,9 @@
                     var nav = getprop("/instrumentation/nav/frequencies/standby-mhz");
                     setprop("yak152/instrumentation/RSBN/channel-" ~ cnlnav ~ "", nav);
                     settimer(func {
-                    var in_range = getprop("/instrumentation/nav/in-range");
+                    var in_range = getprop("/instrumentation/nav/in-range") or 0;
                     var auto_course = getprop("/yak152/instrumentation/RMU/auto-course-on") or 0;
-                    if (and auto_course) {
+                    if (in_range and auto_course) {
                       var direct_to = getprop("/instrumentation/nav/heading-deg") or 0.0;
                       interpolate("/instrumentation/nav/radials/selected-deg", direct_to, 0.5);
                       }

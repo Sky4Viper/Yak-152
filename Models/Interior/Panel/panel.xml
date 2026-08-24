@@ -1083,162 +1083,26 @@
     <type>pick</type>
     <object-name>rp_switch.012</object-name>
     <visible>true</visible>
-
     <action>
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
-        <command>property-adjust</command>
+        <command>property-cycle</command>
         <property>/controls/lighting/nav-lights-sw</property>
-        <step>1</step>
-        <min>0</min>
-        <max>2</max>
-        <wrap>false</wrap>
-      </binding>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/lighting/nav-lights</property>
         <value>0</value>
-        <condition>
-          <equals>
-            <property>/controls/lighting/nav-lights-sw</property>
-            <value>0</value>
-          </equals>
-        </condition>
-      </binding>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/lighting/nav-lights</property>
         <value>1</value>
-        <condition>
-          <equals>
-            <property>/controls/lighting/nav-lights-sw</property>
-            <value>1</value>
-          </equals>
-        </condition>
-      </binding>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/lighting/nav-lights</property>
-        <value>1</value>
-        <condition>
-          <equals>
-            <property>/controls/lighting/nav-lights-sw</property>
-            <value>2</value>
-          </equals>
-        </condition>
-      </binding>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/lighting/strobe</property>
-        <value>0</value>
-        <condition>
-          <equals>
-            <property>/controls/lighting/nav-lights-sw</property>
-            <value>0</value>
-          </equals>
-        </condition>
-      </binding>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/lighting/strobe</property>
-        <value>0</value>
-        <condition>
-          <equals>
-            <property>/controls/lighting/nav-lights-sw</property>
-            <value>1</value>
-          </equals>
-        </condition>
-      </binding>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/lighting/strobe</property>
-        <value>1</value>
-        <condition>
-          <equals>
-            <property>/controls/lighting/nav-lights-sw</property>
-            <value>2</value>
-          </equals>
-        </condition>
+        <value>2</value>
       </binding>
     </action>
-
     <action>
       <button>1</button>
       <repeatable>false</repeatable>
       <binding>
-        <command>property-adjust</command>
+        <command>property-cycle</command>
         <property>/controls/lighting/nav-lights-sw</property>
-        <step>-1</step>
-        <min>0</min>
-        <max>2</max>
-        <wrap>false</wrap>
-      </binding>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/lighting/nav-lights</property>
-        <value>0</value>
-        <condition>
-          <equals>
-            <property>/controls/lighting/nav-lights-sw</property>
-            <value>0</value>
-          </equals>
-        </condition>
-      </binding>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/lighting/nav-lights</property>
+        <value>2</value>
         <value>1</value>
-        <condition>
-          <equals>
-            <property>/controls/lighting/nav-lights-sw</property>
-            <value>1</value>
-          </equals>
-        </condition>
-      </binding>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/lighting/nav-lights</property>
-        <value>1</value>
-        <condition>
-          <equals>
-            <property>/controls/lighting/nav-lights-sw</property>
-            <value>2</value>
-          </equals>
-        </condition>
-      </binding>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/lighting/strobe</property>
         <value>0</value>
-        <condition>
-          <equals>
-            <property>/controls/lighting/nav-lights-sw</property>
-            <value>0</value>
-          </equals>
-        </condition>
-      </binding>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/lighting/strobe</property>
-        <value>0</value>
-        <condition>
-          <equals>
-            <property>/controls/lighting/nav-lights-sw</property>
-            <value>1</value>
-          </equals>
-        </condition>
-      </binding>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/lighting/strobe</property>
-        <value>1</value>
-        <condition>
-          <equals>
-            <property>/controls/lighting/nav-lights-sw</property>
-            <value>2</value>
-          </equals>
-        </condition>
       </binding>
     </action>
   </animation>
