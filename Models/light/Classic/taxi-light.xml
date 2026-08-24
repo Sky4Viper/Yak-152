@@ -42,12 +42,22 @@
    </animation>
 
    <animation>
+     <type>scale</type>
+     <object-name>Cone</object-name>
+     <object-name>Cone-texture</object-name>
+     <object-name>Light</object-name>
+     <x-offset>0.5</x-offset>
+     <y-offset>0.3</y-offset>
+     <z-offset>0.3</z-offset>
+   </animation>
+
+   <animation>
     <type>select</type>
     <object-name>Cone</object-name>
     <object-name>Cone-texture</object-name>
     <object-name>Light</object-name>
     <condition>
-      <!-- <property>controls/lighting/taxi-lights</property> -->
+      <!-- <property>controls/lighting/taxi-light</property> -->
       <property>sim/multiplay/generic/bool[18]</property>
     </condition>
   </animation>

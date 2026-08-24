@@ -38,36 +38,39 @@
     <name>ProceduralLandingLight</name>
     <type>spot</type>
     <direction>
-      <lookat-x-m> -20 </lookat-x-m>
-      <lookat-y-m>   0 </lookat-y-m>
-      <lookat-z-m>  -3 </lookat-z-m>
+      <lookat-x-m> -10.0 </lookat-x-m> 
+      <lookat-y-m>   0.0 </lookat-y-m> 
+      <lookat-z-m>  -0.9 </lookat-z-m> 
     </direction>
     <ambient>
-      <r> 0.95 </r>
-      <g> 0.95 </g>
-      <b> 0.95 </b>
+      <!-- Dimmed down from 0.95 -->
+      <r> 0.65 </r>
+      <g> 0.65 </g>
+      <b> 0.65 </b>
       <a> 1.00 </a>
     </ambient>
     <diffuse>
-      <r> 0.95 </r>
-      <g> 0.95 </g>
-      <b> 0.95 </b>
+      <!-- Dimmed down from 0.95 -->
+      <r> 0.65 </r>
+      <g> 0.65 </g>
+      <b> 0.65 </b>
       <a> 1.00 </a>
     </diffuse>
     <specular>
-      <r> 0.95 </r>
-      <g> 0.95 </g>
-      <b> 0.95 </b>
+      <!-- Dimmed down from 0.95 to soften ground reflections -->
+      <r> 0.65 </r>
+      <g> 0.65 </g>
+      <b> 0.65 </b>
       <a> 1.00 </a>
     </specular>
     <attenuation>
       <c> 1.0000 </c>
-      <l> 0.0070 </l>
-      <q> 0.0002 </q>
+      <l> 0.0140 </l> 
+      <q> 0.0004 </q>
     </attenuation>
     <spot-exponent>5</spot-exponent>
-    <spot-cutoff>89</spot-cutoff>
-    <range-m>300</range-m>
+    <spot-cutoff>88.33</spot-cutoff> 
+    <range-m>150</range-m> 
     <debug-color>
       <r> 1 </r>
       <g> 1 </g>
@@ -81,6 +84,14 @@
     <object-name>PetitCone</object-name>
     <object-name>ProceduralLandingLight</object-name>
   </animation>
+
+   <animation>
+     <type>scale</type>
+     <object-name>PetitCone</object-name>
+     <x-offset>0.5</x-offset>
+     <y-offset>0.3</y-offset>
+     <z-offset>0.3</z-offset>
+   </animation>
 
    <animation>
     <type>select</type>

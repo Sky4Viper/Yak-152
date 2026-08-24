@@ -1030,6 +1030,28 @@
     </animation>
 
     <animation>
+      <type>pick</type>
+      <object-name>rmu_btn14</object-name>
+      <visible>true</visible>
+      <action>
+        <button>0</button>
+        <repeatable>false</repeatable>
+        <binding>
+        <command>nasal</command>
+          <script>radiocfg.populate_yak152_all_channels();
+          </script>
+        </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>rmu-scan</tooltip-id>
+                <label>Re-scan radio frequencies</label>
+            </binding>
+        </hovered>
+    </animation>
+
+    <animation>
         <type>pick</type>
         <object-name>rmu_btn19</object-name>
         <visible>true</visible>
