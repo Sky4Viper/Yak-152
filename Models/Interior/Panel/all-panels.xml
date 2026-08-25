@@ -4,22 +4,132 @@
 
   <!-- Pilot -->
   <model>
-    <path>panel.xml</path>
+    <name>pilot_panel</name>
+    <path>panel1.xml</path>
     <offsets>
-      <x-m> -2.040 </x-m>
+      <x-m>  0.000 </x-m>
       <y-m>  0.000 </y-m>
-      <z-m>  0.230 </z-m>
+      <z-m>  0.000 </z-m>
     </offsets>
   </model>
 
   <!-- Copilot -->
   <model>
+    <name>copilot_panel</name>
     <path>panel2.xml</path>
     <offsets>
-      <x-m> -0.590 </x-m>
+      <x-m> 1.332868 </x-m>
       <y-m>  0.000 </y-m>
-      <z-m>  0.340 </z-m>
+      <z-m>  0.000 </z-m>
     </offsets>
   </model>
+
+  <!-- MFI displays -->
+  <model>
+    <path>Instruments/mfi/all-mfi.xml</path>
+    <offsets>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </offsets>
+  </model>
+
+  <!-- AI alt -->
+  <model>
+    <path>Instruments/ai/ai.xml</path>
+    <offsets>
+      <x-m> -1.15336 </x-m>
+      <y-m>  0.227996 </y-m>
+      <z-m>  0.063903 </z-m>
+      <pitch-deg>63.05</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- AI2 alt -->
+  <model>
+    <path>Instruments/ai/ai.xml</path>
+    <offsets>
+      <x-m> 0.177555 </x-m>
+      <y-m>  0.227996 </y-m>
+      <z-m>  0.063903 </z-m>
+      <pitch-deg>63.05</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- Radio unit -->
+  <model>
+    <path>Instruments/rmu/rmu.xml</path>
+    <offsets>
+      <x-m> -1.12615 </x-m>
+      <y-m>  0 </y-m>
+      <z-m> -0.00043 </z-m>
+      <pitch-deg>63</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Instruments/rmu/rmu.xml</path>
+    <offsets>
+      <x-m> 0.210055 </x-m>
+      <y-m>  0 </y-m>
+      <z-m> -0.00043 </z-m>
+      <pitch-deg>63</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Instruments/gmeter/gmeter.xml</path>
+    <offsets>
+      <x-m>-1.13726 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0.318664 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Instruments/gmeter/gmeter.xml</path>
+    <offsets>
+      <x-m> 0.118 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0.308 </z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Instruments/compas/compas.xml</path>
+    <offsets>
+      <x-m>-1.17354 </x-m>
+      <y-m> 0.05961 </y-m>
+      <z-m> 0.239097 </z-m>
+    </offsets>
+  </model>
+
+  <animation>
+    <type>select</type>
+    <object-name>pilot_panel</object-name>
+    <condition>
+      <or>
+        <not><property>sim/current-view/internal</property></not>
+        <equals>
+          <property>sim/current-view/name</property>
+          <value>Cockpit View</value>
+        </equals>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>copilot_panel</object-name>
+    <condition>
+      <or>
+        <not><property>sim/current-view/internal</property></not>
+        <equals>
+          <property>sim/current-view/name</property>
+          <value>Instructor Seat View</value>
+        </equals>
+      </or>
+    </condition>
+  </animation>
 
 </PropertyList>

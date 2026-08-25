@@ -1,7 +1,8 @@
 AC3Db
-MATERIAL "mat_rmu" rgb 1.000 1.000 1.000  amb 0.800 0.800 0.800  emis 0.000 0.000 0.000  spec 1.000 1.000 1.000  shi 64 trans 0.000
+MATERIAL "mat_rmu" rgb 1 1 1 amb 0.8 0.8 0.8 emis 0 0 0 spec 1 1 1 shi 64 trans 0
+MATERIAL "mat_screen" rgb 1 1 1 amb 0 0 0 emis 1 1 1 spec 0 0 0 shi 0 trans 0
 OBJECT world
-name "Blender_exporter_v7.2__rmu.ac"
+name "rmu.ac"
 kids 34
 OBJECT poly
 name "ap_btn1"
@@ -13979,7 +13980,7 @@ numvert 18
 0.01962 0.01323 -0.00383
 numsurf 3
 SURF 0X0
-mat 0
+mat 1
 refs 8
 1 0.256768 0.164291
 0 0.26047 0.160589
@@ -13990,7 +13991,7 @@ refs 8
 3 0.26047 0.240753
 2 0.256768 0.237052
 SURF 0X0
-mat 0
+mat 1
 refs 6
 9 0.101122 0.119224
 8 0.104824 0.114163
@@ -13999,7 +14000,7 @@ refs 6
 11 0.104824 0.151515
 10 0.101122 0.14766
 SURF 0X0
-mat 0
+mat 1
 refs 6
 15 0.435573 0.147427
 14 0.431871 0.151515

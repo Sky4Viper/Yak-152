@@ -2,11 +2,79 @@
 
 <PropertyList>
 
-  <path>panel.ac</path>
+  <path>panel1.ac</path>
 
   <animation>
-    <name>panel_screws</name>
-    <object-name>cockpit_screws</object-name>
+    <object-name>cockpit_lever</object-name>
+    <object-name>cockpit_light_signal</object-name>
+    <object-name>cockpit_mfi_ext</object-name>
+    <object-name>cockpit_switches.006</object-name>
+    <object-name>cockpit_switches.007</object-name>
+    <object-name>cockpit_vent</object-name>
+    <object-name>cp.001</object-name>
+    <object-name>cp.002</object-name>
+    <object-name>cp.003</object-name>
+    <object-name>cp.004</object-name>
+    <object-name>fp_lights.001</object-name>
+    <object-name>lever_gear.001</object-name>
+    <object-name>lp.001</object-name>
+    <object-name>lp.002</object-name>
+    <object-name>lp.003</object-name>
+    <object-name>lp.004</object-name>
+    <object-name>lp_swch_cvr.001</object-name>
+    <object-name>lp_swch_cvr.002</object-name>
+    <object-name>lp_swch_cvr.003</object-name>
+    <object-name>lp_switch.001</object-name>
+    <object-name>lp_switch.002</object-name>
+    <object-name>lp_switch.003</object-name>
+    <object-name>lp_switch.004</object-name>
+    <object-name>lp_switch.005</object-name>
+    <object-name>lp_throttle</object-name>
+    <object-name>lpbtn01</object-name>
+    <object-name>lpbtn02</object-name>
+    <object-name>lpbtn03</object-name>
+    <object-name>lpbtn01lgt</object-name>
+    <object-name>lpbtn02lgt</object-name>
+    <object-name>lpbtn03lgt</object-name>
+    <object-name>mfi1_knob.001</object-name>
+    <object-name>mfi1_knob.002</object-name>
+    <object-name>mfi2_knob.001</object-name>
+    <object-name>mfi2_knob.002</object-name>
+    <object-name>mfi_ext_page.001</object-name>
+    <object-name>mfi_ext_page.002</object-name>
+    <object-name>rp.001</object-name>
+    <object-name>rp.002</object-name>
+    <object-name>rp.003</object-name>
+    <object-name>rp.004</object-name>
+    <object-name>rp2_switch.002</object-name>
+    <object-name>rp_btn.001</object-name>
+    <object-name>rp_btn.002</object-name>
+    <object-name>rp_btn.003</object-name>
+    <object-name>rp_btn_cvr.001</object-name>
+    <object-name>rp_knob.001</object-name>
+    <object-name>rp_knob.002</object-name>
+    <object-name>rp_knob.003</object-name>
+    <object-name>rp_knob.004</object-name>
+    <object-name>rp_knob.005</object-name>
+    <object-name>rp_swch_cvr.001</object-name>
+    <object-name>rp_swch_cvr.002</object-name>
+    <object-name>rrp_switch.001</object-name>
+    <object-name>rrp_switch.002</object-name>
+    <object-name>rrp_switch.003</object-name>
+    <object-name>rrp_switch.004</object-name>
+    <object-name>rrp_switch.005</object-name>
+    <object-name>rrp_switch.006</object-name>
+    <object-name>rrp_switch.007</object-name>
+    <object-name>rrp_switch.008</object-name>
+    <object-name>rrp_switch.009</object-name>
+    <object-name>rrp_switch.010</object-name>
+    <object-name>rrp_switch.011</object-name>
+    <object-name>rrp_switch.012</object-name>
+    <object-name>sig_light.001</object-name>
+    <object-name>sig_light.002</object-name>
+    <object-name>sig_light.003</object-name>
+    <object-name>sig_light.004</object-name>
+    <object-name>sig_light.005</object-name>
     <object-name>cockpit_screws.001</object-name>
     <object-name>cockpit_screws.002</object-name>
     <object-name>cockpit_screws.003</object-name>
@@ -14,6 +82,55 @@
     <object-name>cockpit_screws.005</object-name>
     <object-name>cockpit_screws.006</object-name>
     <object-name>cockpit_screws.007</object-name>
+    <object-name>cockpit_screws.008</object-name>
+    <object-name>cockpit_screws.009</object-name>
+  </animation>
+
+  <animation>
+    <name>panel_screws</name>
+    <object-name>cockpit_screws.001</object-name>
+    <object-name>cockpit_screws.002</object-name>
+    <object-name>cockpit_screws.003</object-name>
+    <object-name>cockpit_screws.004</object-name>
+    <object-name>cockpit_screws.005</object-name>
+    <object-name>cockpit_screws.006</object-name>
+    <object-name>cockpit_screws.007</object-name>
+    <object-name>cockpit_screws.008</object-name>
+    <object-name>cockpit_screws.009</object-name>
+  </animation>
+
+  <animation>
+    <name>panel_switches</name>
+    <object-name>cockpit_switches.006</object-name>
+    <object-name>cockpit_switches.007</object-name>
+    <!-- left panel -->
+    <object-name>lp_switch.001</object-name>
+    <object-name>lp_switch.002</object-name>
+    <object-name>lp_switch.003</object-name>
+    <object-name>lp_switch.004</object-name>
+    <object-name>lp_switch.005</object-name>
+    <object-name>lpbtn01</object-name>
+    <object-name>lpbtn02</object-name>
+    <object-name>lpbtn03</object-name>
+    <object-name>lpbtn01lgt</object-name>
+    <object-name>lpbtn02lgt</object-name>
+    <object-name>lpbtn03lgt</object-name>
+    <!-- right panel -->
+    <object-name>rp_btn.001</object-name>
+    <object-name>rp_btn.002</object-name>
+    <object-name>rp_btn.003</object-name>
+    <object-name>rp_switch.001</object-name>
+    <object-name>rp_switch.002</object-name>
+    <object-name>rp_switch.003</object-name>
+    <object-name>rp_switch.004</object-name>
+    <object-name>rp_switch.005</object-name>
+    <object-name>rp_switch.006</object-name>
+    <object-name>rp_switch.007</object-name>
+    <object-name>rp_switch.008</object-name>
+    <object-name>rp_switch.009</object-name>
+    <object-name>rp_switch.010</object-name>
+    <object-name>rp_switch.011</object-name>
+    <object-name>rp_switch.012</object-name>
   </animation>
 
   <animation>
@@ -27,6 +144,8 @@
     <object-name>sig_light.004</object-name>
     <object-name>sig_light.005</object-name>
     <object-name>panel_screws</object-name>
+    <object-name>panel_switches</object-name>
+    <object-name>cockpit_vent</object-name>
   </animation>
 
   <animation>
@@ -34,9 +153,6 @@
     <object-name>lpbtn01lgt</object-name>
     <object-name>lpbtn02lgt</object-name>
     <object-name>lpbtn03lgt</object-name>
-    <object-name>lpbtn04lgt</object-name>
-    <object-name>lpbtn05lgt</object-name>
-    <object-name>lpbtn06lgt</object-name>
     <emission>
         <red>   0.01 </red>
         <green> 0.01 </green>
@@ -58,8 +174,6 @@
     <type>material</type>
     <object-name>mfi_ext_page.001</object-name>
     <object-name>mfi_ext_page.002</object-name>
-    <object-name>mfi_ext_page.003</object-name>
-    <object-name>mfi_ext_page.004</object-name>
     <condition>
       <or>
         <property>controls/electric/battery-switch</property>
@@ -100,87 +214,6 @@
       <blue>  1 </blue>
     </emission>
   </animation>
-
-  <!-- AI alt -->
-  <model>
-    <path>Instruments//ai/ai.xml</path>
-    <offsets>
-      <x-m> -1.15336 </x-m>
-      <y-m>  0.227996 </y-m>
-      <z-m>  0.063903 </z-m>
-      <pitch-deg>63.05</pitch-deg>
-    </offsets>
-  </model>
-
-  <!-- AI2 alt -->
-  <model>
-    <path>Instruments//ai/ai.xml</path>
-    <offsets>
-      <x-m> 0.177555 </x-m>
-      <y-m>  0.227996 </y-m>
-      <z-m>  0.063903 </z-m>
-      <pitch-deg>63.05</pitch-deg>
-    </offsets>
-  </model>
-
-  <!-- MFI displays -->
-
-  <model>
-    <path>Instruments/mfi/all-mfi.xml</path>
-    <offsets>
-      <x-m> 0 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0 </z-m>
-    </offsets>
-  </model>
-
-  <!-- Radio unit -->
-  <model>
-    <path>Instruments//rmu/rmu.xml</path>
-    <offsets>
-      <x-m> -1.12615 </x-m>
-      <y-m>  0 </y-m>
-      <z-m> -0.00043 </z-m>
-      <pitch-deg>63</pitch-deg>
-    </offsets>
-  </model>
-
-  <model>
-    <path>Instruments//rmu/rmu.xml</path>
-    <offsets>
-      <x-m> 0.210055 </x-m>
-      <y-m>  0 </y-m>
-      <z-m> -0.00043 </z-m>
-      <pitch-deg>63</pitch-deg>
-    </offsets>
-  </model>
-
-  <model>
-    <path>Instruments/gmeter/gmeter.xml</path>
-    <offsets>
-      <x-m>-1.13726 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0.318664 </z-m>
-    </offsets>
-  </model>
-
-  <model>
-    <path>Instruments/gmeter/gmeter.xml</path>
-    <offsets>
-      <x-m> 0.118 </x-m>
-      <y-m> 0 </y-m>
-      <z-m> 0.308 </z-m>
-    </offsets>
-  </model>
-
-  <model>
-    <path>Instruments/compas/compas.xml</path>
-    <offsets>
-      <x-m>-1.17354 </x-m>
-      <y-m> 0.05961 </y-m>
-      <z-m> 0.239097 </z-m>
-    </offsets>
-  </model>
 
   <animation>
     <type>select</type>
@@ -233,40 +266,6 @@
   </animation>
 
   <animation>
-    <type>textranslate</type>
-    <object-name>mfi_ext_page.003</object-name>
-    <property>controls/instrumentation/mfis/mfi[3]/page</property>
-    <interpolation>
-      <entry><ind>1</ind><dep>0.000</dep></entry>
-      <entry><ind>2</ind><dep>0.115</dep></entry>
-      <entry><ind>3</ind><dep>0.230</dep></entry>
-      <entry><ind>4</ind><dep>0.345</dep></entry>
-    </interpolation>
-    <axis>
-      <x>1</x>
-      <y>0</y>
-      <z>0</z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>textranslate</type>
-    <object-name>mfi_ext_page.004</object-name>
-    <property>controls/instrumentation/mfis/mfi[4]/page</property>
-    <interpolation>
-      <entry><ind>1</ind><dep>0.000</dep></entry>
-      <entry><ind>2</ind><dep>0.115</dep></entry>
-      <entry><ind>3</ind><dep>0.230</dep></entry>
-      <entry><ind>4</ind><dep>0.345</dep></entry>
-    </interpolation>
-    <axis>
-      <x>1</x>
-      <y>0</y>
-      <z>0</z>
-    </axis>
-  </animation>
-
-  <animation>
     <type>select</type>
     <object-name>mfi_ext_page.001</object-name>
     <condition>
@@ -298,50 +297,11 @@
     </condition>
   </animation>
 
-  <animation>
-    <type>select</type>
-    <object-name>mfi_ext_page.003</object-name>
-    <condition>
-        <greater-than>
-          <property>controls/instrumentation/mfis/mfi[3]/page</property>
-          <value>0</value>
-        </greater-than>
-        <less-than>
-          <property>controls/instrumentation/mfis/mfi[3]/page</property>
-          <value>5</value>
-        </less-than>
-      <property>sim/multiplay/generic/bool[0]</property>
-      <not><property>sim/current-view/internal</property></not>
-    </condition>
-  </animation>
-
-  <animation>
-    <type>select</type>
-    <object-name>mfi_ext_page.004</object-name>
-    <condition>
-        <greater-than>
-          <property>controls/instrumentation/mfis/mfi[4]/page</property>
-          <value>0</value>
-        </greater-than>
-        <less-than>
-          <property>controls/instrumentation/mfis/mfi[4]/page</property>
-          <value>5</value>
-        </less-than>
-      <property>sim/multiplay/generic/bool[0]</property>
-      <not><property>sim/current-view/internal</property></not>
-    </condition>
-  </animation>
-
-  <!-- <model>
-    <path>Panel/Instruments/yoke/all-yokes.xml</path>
-  </model> -->
-
   <!-- Flaps Buttons Lights -->
 
   <animation>
     <type>select</type>
     <object-name>lpbtn01lgt</object-name>
-    <object-name>lpbtn04lgt</object-name>
     <condition>
       <and>
       <or>
@@ -362,7 +322,6 @@
   <animation>
     <type>select</type>
     <object-name>lpbtn02lgt</object-name>
-    <object-name>lpbtn05lgt</object-name>
     <condition>
       <and>
       <or>
@@ -383,7 +342,6 @@
   <animation>
     <type>select</type>
     <object-name>lpbtn03lgt</object-name>
-    <object-name>lpbtn06lgt</object-name>
     <condition>
       <and>
       <or>
@@ -406,24 +364,18 @@
     <name>FlapButton1</name>
     <object-name>lpbtn01</object-name>
     <object-name>lpbtn01lgt</object-name>
-    <object-name>lpbtn04</object-name>
-    <object-name>lpbtn04lgt</object-name>
   </animation>
 
   <animation>
     <name>FlapButton2</name>
     <object-name>lpbtn02</object-name>
     <object-name>lpbtn02lgt</object-name>
-    <object-name>lpbtn05</object-name>
-    <object-name>lpbtn05lgt</object-name>
   </animation>
 
   <animation>
     <name>FlapButton3</name>
     <object-name>lpbtn03</object-name>
     <object-name>lpbtn03lgt</object-name>
-    <object-name>lpbtn06</object-name>
-    <object-name>lpbtn06lgt</object-name>
   </animation>
 
   <animation>
@@ -486,7 +438,6 @@
   <animation>
     <type>pick</type>
     <object-name>lpbtn03</object-name>
-    <object-name>lpbtn06</object-name>
     <visible>true</visible>
     <action>
       <button>0</button>
@@ -502,7 +453,6 @@
   <animation>
     <type>pick</type>
     <object-name>lpbtn02</object-name>
-    <object-name>lpbtn05</object-name>
     <visible>true</visible>
     <action>
       <button>0</button>
@@ -518,7 +468,6 @@
   <animation>
     <type>pick</type>
     <object-name>lpbtn01</object-name>
-    <object-name>lpbtn04</object-name>
     <visible>true</visible>
     <action>
       <button>0</button>
@@ -553,26 +502,6 @@
 		</axis>
 	</animation>
 
-  <animation>
-		<type>rotate</type>
-		<object-name>lp2_throttle</object-name>
-		<property>controls/engines/engine[0]/throttle</property>
-		<interpolation>
-            <entry><ind> 0</ind><dep>-32.0</dep></entry>
-            <entry><ind> 1</ind><dep>32.0</dep></entry>
-    </interpolation>
-		<center>
-			<x-m>0.469722</x-m>
-			<y-m> 0.0</y-m>
-			<z-m>-0.147582</z-m>
-		</center>
-		<axis>
-			<x>0</x>
-			<y>-1</y>
-			<z>0</z>
-		</axis>
-	</animation>
-
   <!-- Gear Levers -->
 
   <animation>
@@ -585,26 +514,6 @@
     </interpolation>
     <center>
       <x-m>-1.17267</x-m>
-      <y-m> 0.0</y-m>
-      <z-m> 0.068385</z-m>
-    </center>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0</z>
-    </axis>
-  </animation>
-
-  <animation>
-    <type>rotate</type>
-    <object-name>lever_gear.002</object-name>
-    <property>controls/gear/gear-down</property>
-    <interpolation>
-      <entry><ind>0</ind><dep>-45</dep></entry>
-      <entry><ind>1</ind><dep> 45</dep></entry>
-    </interpolation>
-    <center>
-      <x-m> 0.16258</x-m>
       <y-m> 0.0</y-m>
       <z-m> 0.068385</z-m>
     </center>
@@ -1009,17 +918,6 @@
         <command>property-toggle</command>
         <property>sim/model/lights/warn_blink/enabled</property>
       </binding>
-      <!-- <binding>
-        <command>nasal</command>
-            <script>
-              <![CDATA[
-              radiocfg.COM_init();
-              radiocfg.ARC_init();
-              radiocfg.PRMG_init();
-              radiocfg.RSBN_init();
-              ]]>
-            </script>
-        </binding> -->
     </action>
   </animation>
 
@@ -1336,163 +1234,8 @@
   </animation>
 
   <animation>
-      <type>knob</type>
-      <object-name>mfi3_knob.001</object-name>
-      <increase>
-        <binding>
-          <command>property-adjust</command>
-          <property>/controls/instrumentation/mfis/mfi[3]/page</property>
-          <step>1.0</step>
-          <min>0</min>
-          <max>5</max>
-          <wrap>1</wrap>
-        </binding>
-      </increase>
-      <decrease>
-        <binding>
-          <command>property-adjust</command>
-          <property>/controls/instrumentation/mfis/mfi[3]/page</property>
-          <step>-1.0</step>
-          <min>0</min>
-          <max>5</max>
-          <wrap>1</wrap>
-        </binding>
-        </decrease>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <tooltip-id>kn-mfi-mode</tooltip-id>
-                <label>MFI Mode: %s</label>
-                <property>/controls/instrumentation/mfis/mfi[3]/page</property>
-                <mapping>nasal</mapping>
-                <script>
-                    var modes = ['OFF', 'PILOT', 'NAV', 'ENGINE', 'AIRPLANE'];
-                    return modes[arg[0]];
-                </script>
-            </binding>
-        </hovered>
-  </animation>
-
-  <animation>
-        <type>knob</type>
-        <object-name>mfi3_knob.002</object-name>
-        <increase>
-            <binding>
-                <command>property-adjust</command>
-                <property>/controls/instrumentation/mfis/mfi[3]/brightness-norm</property>
-                <step>0.05</step>
-                <min>0.0</min>
-                <max>1.0</max>
-                <wrap>0</wrap> <!-- Kept at 0 so it stops spinning at full max instead of resetting to pitch black -->
-            </binding>
-        </increase>
-        <decrease>
-            <binding>
-                <command>property-adjust</command>
-                <property>/controls/instrumentation/mfis/mfi[3]/brightness-norm</property>
-                <step>-0.05</step>
-                <min>0.0</min>
-                <max>1.0</max>
-                <wrap>0</wrap>
-            </binding>
-        </decrease>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <tooltip-id>kn-mfi-brightness</tooltip-id>
-                <label>MFI Brightness: %s</label>
-                <property>/controls/instrumentation/mfis/mfi[3]/brightness-norm</property>
-                <mapping>nasal</mapping>
-                <script>
-                    # Converts the 0.0 - 1.0 double properties value into a clean 0% - 100% tooltip readout
-                    var pct = int(arg[0] * 100);
-                    return pct ~ "%";
-                </script>
-            </binding>
-        </hovered>
-  </animation>
-
-  <animation>
-      <type>knob</type>
-      <object-name>mfi4_knob.001</object-name>
-      <increase>
-        <binding>
-          <command>property-adjust</command>
-          <property>/controls/instrumentation/mfis/mfi[4]/page</property>
-          <step>1.0</step>
-          <min>0</min>
-          <max>5</max>
-          <wrap>1</wrap>
-        </binding>
-      </increase>
-      <decrease>
-        <binding>
-          <command>property-adjust</command>
-          <property>/controls/instrumentation/mfis/mfi[4]/page</property>
-          <step>-1.0</step>
-          <min>0</min>
-          <max>5</max>
-          <wrap>1</wrap>
-        </binding>
-        </decrease>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <tooltip-id>kn-mfi-mode</tooltip-id>
-                <label>MFI Mode: %s</label>
-                <property>/controls/instrumentation/mfis/mfi[4]/page</property>
-                <mapping>nasal</mapping>
-                <script>
-                    var modes = ['OFF', 'PILOT', 'NAV', 'ENGINE', 'AIRPLANE'];
-                    return modes[arg[0]];
-                </script>
-            </binding>
-        </hovered>
-  </animation>
-
-  <animation>
-        <type>knob</type>
-        <object-name>mfi4_knob.002</object-name>
-        <increase>
-            <binding>
-                <command>property-adjust</command>
-                <property>/controls/instrumentation/mfis/mfi[4]/brightness-norm</property>
-                <step>0.05</step>
-                <min>0.0</min>
-                <max>1.0</max>
-                <wrap>0</wrap> <!-- Kept at 0 so it stops spinning at full max instead of resetting to pitch black -->
-            </binding>
-        </increase>
-        <decrease>
-            <binding>
-                <command>property-adjust</command>
-                <property>/controls/instrumentation/mfis/mfi[4]/brightness-norm</property>
-                <step>-0.05</step>
-                <min>0.0</min>
-                <max>1.0</max>
-                <wrap>0</wrap>
-            </binding>
-        </decrease>
-        <hovered>
-            <binding>
-                <command>set-tooltip</command>
-                <tooltip-id>kn-mfi-brightness</tooltip-id>
-                <label>MFI Brightness: %s</label>
-                <property>/controls/instrumentation/mfis/mfi[4]/brightness-norm</property>
-                <mapping>nasal</mapping>
-                <script>
-                    # Converts the 0.0 - 1.0 double properties value into a clean 0% - 100% tooltip readout
-                    var pct = int(arg[0] * 100);
-                    return pct ~ "%";
-                </script>
-            </binding>
-        </hovered>
-  </animation>
-
-  <animation>
   <type>knob</type>
   <object-name>rp_knob.002</object-name>
-  <object-name>rp2_knob.002</object-name>
     <increase>
       <binding>
         <command>property-adjust</command>
@@ -1528,6 +1271,20 @@
                 <label>Instruments lights</label>
           </binding>
         </hovered>
+  </animation>
+
+  <animation>
+  <type>pick</type>
+  <object-name>lever_gear.001</object-name>
+  <visible>true</visible>
+   <action>
+    <button>0</button>
+    <repeatable>false</repeatable>
+    <binding>
+    <command>property-toggle</command>
+    <property>controls/gear/gear-down</property>
+    </binding>
+  </action>
   </animation>
 
 </PropertyList>

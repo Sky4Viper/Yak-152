@@ -51,7 +51,7 @@
   </animation>
 
   <model>
-    <path>Panel/panel.xml</path>
+    <path>Panel/all-panels.xml</path>
   </model>
 
   <model>

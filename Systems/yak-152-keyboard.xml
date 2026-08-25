@@ -13,6 +13,18 @@
         </binding>
     </key>
 
+		<key n="76">
+        <name>Shift-L</name>
+        <desc>Nav Lights Toggle</desc>
+        <binding>
+          <command>property-cycle</command>
+          <property>/controls/lighting/nav-lights-sw</property>
+          <value>0</value>
+          <value>1</value>
+          <value>2</value>
+        </binding>
+    </key>
+
     <key n="100">
       <name>d</name>
       <desc>Canopy</desc>

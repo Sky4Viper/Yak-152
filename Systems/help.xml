@@ -16,6 +16,10 @@
     <desc>Landing or Taxi light on/off</desc>
   </key>
   <key>
+    <name>shift+l (L)</name>
+    <desc>Nav-Strobe lights on/off</desc>
+  </key>
+  <key>
     <name>shift+q (Q)</name>
     <desc>Reset view</desc>
   </key>
