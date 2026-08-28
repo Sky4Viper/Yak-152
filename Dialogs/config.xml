@@ -154,6 +154,62 @@
 
   <hrule/>
 
+    <checkbox>
+      <halign>left</halign>
+      <label>Maintenance Enable</label>
+        <property>/sim/maintenance/enabled</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/maintenance/enabled</property>
+      </binding>
+    </checkbox>
+
+<group>
+  <layout>hbox</layout>
+
+  <text>
+    <label>Airframe Hours:</label>
+  </text>
+
+<text>
+  <stretch>false</stretch>
+  <pref-width>50</pref-width>
+  <property>sim/maintenance/airframe-hours</property>
+  <format>%.1f</format>
+  <live>true</live>
+</text>
+
+
+ </group>
+
+ <group>
+  <layout>hbox</layout>
+
+  <text>
+    <label>Engine Hours:</label>
+  </text>
+
+<text>
+  <stretch>false</stretch>
+  <pref-width>50</pref-width>
+  <property>sim/maintenance/engine[0]/operating-hours</property>
+  <format>%.1f</format>
+  <live>true</live>
+</text>
+
+
+ </group>
+
+  <button>
+    <legend>Service</legend>
+    <binding>
+      <command>nasal</command>
+      <script>maintenance.service();</script>
+    </binding>
+  </button>
+
+<hrule/>
+
   <button>
     <legend>Close</legend>
     <default>true</default>

@@ -132,6 +132,8 @@
     <doors>
       <file>Aircraft/Yak-152/Nasal/doors.nas</file>
     </doors>
+    
+    <!-- Unified Core Systems Node Block -->
     <yak152>
       <file>Aircraft/Yak-152/Nasal/hdr.nas</file>
       <file>Aircraft/Yak-152/Nasal/liveries.nas</file>
@@ -145,55 +147,24 @@
       <file>Aircraft/Yak-152/Nasal/nd.nas</file>
       <file>Aircraft/Yak-152/Nasal/dlg.nas</file>
     </yak152>
+    
     <radiocfg>
       <file>Aircraft/Yak-152/Nasal/radiocfg.nas</file>
     </radiocfg>
-    <fadec>
+    
+    <maintenance>
+      <file>Aircraft/Yak-152/Nasal/dificulty.nas</file>
+      <file>Aircraft/Yak-152/Nasal/maintenance.nas</file>
       <file>Aircraft/Yak-152/Nasal/fadec.nas</file>
-    </fadec>
+    </maintenance>
+    
     <sks94>
-        <file>Aircraft/Yak-152/Nasal/sks94.nas</file>
+      <file>Aircraft/Yak-152/Nasal/sks94.nas</file>
     </sks94>
+    
     <autostart>
       <file>Aircraft/Yak-152/Nasal/autostart.nas</file>
     </autostart>
-
-    aircraft.data.add(
-
-      "instrumentation/nav[0]/power-btn",
-      "instrumentation/nav[0]/audio-btn",
-      "instrumentation/nav[0]/frequencies/selected-mhz",
-      "instrumentation/nav[0]/frequencies/standby-mhz",
-      "instrumentation/nav[0]/to-flag",
-      "instrumentation/nav[0]/from-flag",
-      "instrumentation/nav[0]/radials/selected-deg",
-      "instrumentation/nav[0]/gs-needle-deflection",
-      "instrumentation/nav[0]/heading-needle-deflection",
-      "instrumentation/nav[0]/in-range",
-      "instrumentation/nav[0]/ident",
-      "instrumentation/comm[0]/volume",
-      "instrumentation/comm[0]/frequencies/selected-mhz",
-      "instrumentation/comm[0]/frequencies/standby-mhz",
-      "instrumentation/comm[0]/test-btn",
-
-      "instrumentation/nav[1]/power-btn",
-      "instrumentation/nav[1]/audio-btn",
-      "instrumentation/nav[1]/frequencies/selected-mhz",
-      "instrumentation/nav[1]/frequencies/standby-mhz",
-      "instrumentation/nav[1]/to-flag",
-      "instrumentation/nav[1]/from-flag",
-      "instrumentation/nav[1]/radials/selected-deg",
-      "instrumentation/nav[1]/gs-needle-deflection",
-      "instrumentation/nav[1]/heading-needle-deflection",
-      "instrumentation/nav[1]/in-range",
-      "instrumentation/nav[1]/ident",
-      "instrumentation/comm[1]/volume",
-      "instrumentation/comm[1]/frequencies/selected-mhz",
-      "instrumentation/comm[1]/frequencies/standby-mhz",
-      "instrumentation/comm[1]/test-btn",
-
-    );
-
   </nasal>
 
 </PropertyList>
